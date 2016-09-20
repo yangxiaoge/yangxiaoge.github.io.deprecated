@@ -1,0 +1,26 @@
+---
+title: Birt级联参数设置
+date: 2015-09-06 16:05:45
+tags: Birt
+categories: Birt
+---
+![](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f3lr2a94s9j20sg0c6wlh.jpg)
+`级联查询`步骤:
+### 1, 创建级联参数
+![](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbip8eij20en043js6.jpg)
+
+### 2, 设置相关联的参数
+<!-- more -->
+![](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbeh0vpj20py0mojwv.jpg)
+![](http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3lqbjenelj20hz0mtae5.jpg)
+
+### 3, 每一个`参数`都要`单独`设置 `display type`
+![](http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3lqbfavgsj20gp0ma0wl.jpg) 
+
+### 4, 数据集设计  __详情`有道云笔记`
+![](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbg1ji5j211w0exgq6.jpg)
+![](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbgrgdkj20w90g20xc.jpg)
+![](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f3lqj8f7qyj20yl0gdjw3.jpg)
+
+
+
