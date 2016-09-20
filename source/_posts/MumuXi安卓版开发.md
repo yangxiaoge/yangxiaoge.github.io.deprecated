@@ -31,17 +31,21 @@ categories: APP开发记
 - 上拉,下拉刷新用的开源框架[EasyRecyclerView](https://github.com/Jude95/EasyRecyclerView)
 -侧滑Drawer功能还没加,后面考虑加些其他功能~~~
 
->项目详细 注解 以及功能在[github](https://github.com/yangxiaoge)提交的[message](https://github.com/yangxiaoge/MumuXi)和代码注解中
+>项目详细 注解 以及功能在[github](https://github.com/yangxiaoge/MumuXi)提交的[message](https://github.com/yangxiaoge/MumuXi)和代码注解中
 
 >经过一个星期的折腾,终于完成了第一个版本,并且试着上架了应用商城! O(∩_∩)O~~
 
 ## 下载
-[Fir](http://fir.im/sq2t)
+<a href="http://fir.im/sq2t" target="_blank" alt="Fir"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f802wvh1s2j203301cq2q.jpg"/></a>
 
 <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.yang.bruce.mumuxi" target="_blank" alt="应用宝"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f5pv5t3kwwj203w01jglf.jpg"/></a>
 
 <a href="http://www.wandoujia.com/apps/com.yang.bruce.mumuxi" target="_blank" alt="豌豆荚"><img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f5iyz0qbdgj204k01mglg.jpg"/></a>
 
 
-`add google analytics` 2016-9-5 11:58:26
-![google 分析](http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f7iknnth8nj217y0lx43d.jpg)
+**add google analytics谷歌分析** ( 2016-9-5 11:58:26 )
+
+1. `google-services.json`[文件下载](https://developers.google.com/mobile/add?platform=android&cntapi=analytics&cnturl=https:%2F%2Fdevelopers.google.com%2Fanalytics%2Fdevguides%2Fcollection%2Fandroid%2Fv4%2Fapp%3Fconfigured%3Dtrue&cntlbl=Continue%20Adding%20Analytics)
+2. 官方集成文档: https://developers.google.com/analytics/devguides/collection/android/v4/app?configured=true
+3. 分析用户使用情况的平台: https://analytics.google.com/analytics/web/#realtime/rt-app-overview/a83624565w124744507p129062318/
+4. ![google 分析](http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f7iknnth8nj217y0lx43d.jpg)
