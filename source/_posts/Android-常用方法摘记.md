@@ -1,5 +1,5 @@
 ﻿---
-title: Android 常用方法摘记
+title: Android常用方法摘记以及收集
 date: 2016-01-08 10:50:55
 tags: Android
 categories: Android
