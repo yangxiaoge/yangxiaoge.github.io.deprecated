@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `hexo-site/source/` directory.
+# 网站 logo
 favicon: /images/favicon.png
 
 # Set default keywords (Use a comma to separate)
@@ -129,10 +130,13 @@ social:
   简书: http://www.jianshu.com/users/25f8193d5561
   #豆瓣: http://douban.com/people/your-user-name
   #知乎: http://www.zhihu.com/people/your-user-name
-  #Coding: https://coding.net/pp
+  Coding: https://coding.net/pp
   微博: http://weibo.com/3227182774
   鸿洋: http://blog.csdn.net/lmj623565791?viewmode=contents
   素锦: http://isujin.com/
+  在线工具1：http://tool.lu/
+  在线工具2：http://c.runoob.com/
+  
 
 # Social Links Icons
 # Icon Mapping:
@@ -148,7 +152,7 @@ social_icons:
   Weibo: weibo
 
 
-# Sidebar Avatar
+# Sidebar Avatar 侧边栏头像
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
 avatar: http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f41rujhai1j202s02sdfm.jpg

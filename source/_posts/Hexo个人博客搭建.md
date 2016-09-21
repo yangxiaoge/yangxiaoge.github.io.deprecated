@@ -4,7 +4,7 @@ date: 2015-04-12 10:39:08
 tags: [Hexo,个人博客]
 categories: Hexo
 ---
-
+![](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f813o9fsiuj20zk0fawgp.jpg)
 **前言**
 一直想要一个自己的独立博客，今天偶然发现[Hexo](https://hexo.io/)这个优秀的`静态博客框架`，于是乎，便开始着手搭建个人博客。当然要搭配现在流行的`gitHub`(国内的`coding`也是相当不错的)，简直是完美写博客的黄金搭档（免费+方便），毕竟咱就是体验下而已，并不需要去买域名(当然,`阿里云`有的域名很便宜,我买了个第一年4元的,续费就也就几十块,不需要就用`github`默认域名就OK)！搭建过程也是磕磕碰碰，主要参考如下！供需要的小伙伴借鉴！
 
@@ -17,7 +17,16 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/):http://theme-next.iissnan.com/
 
 `主要的配置项`:
-
+11. `如何关闭新建页面的评论功能？`
+```
+title: All tags
+date: 2015-12-16 17:05:24
+type: "tags"
+comments: false
+---
+```
+12. `添加背景以及点击爱心效果`(2016-9-21 11:47:32)
+http://michaelxiang.me/2015/11/30/hexo-next-optimize/
 1. `打赏`
 ![打赏.png](http://7fv9bd.com1.z0.glb.clouddn.com/%E6%89%93%E8%B5%8F.png?attname=&e=1466582042&token=1JBeQi3vz7kUmQlsAf00FRntxudo01dbWsLMQT30:8jHYgu4CYgIJHukq6ZVNzCQsHP8)
 2. `文章阅读数`
@@ -37,13 +46,3 @@ categories: Hexo
   <blockquote class="blockquote-center">参考: http://theme-next.iissnan.com/tag-plugins.html</blockquote>
 
 ![](http://theme-next.iissnan.com/uploads/tags/full-image.jpg)
-11. 如何关闭新建页面的评论功能？
-```
-title: All tags
-date: 2015-12-16 17:05:24
-type: "tags"
-comments: false
----
-```
-12. 添加背景以及点击爱心效果(2016-9-21 11:47:32)
-http://michaelxiang.me/2015/11/30/hexo-next-optimize/
