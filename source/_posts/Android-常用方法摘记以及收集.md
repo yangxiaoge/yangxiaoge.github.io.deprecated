@@ -269,7 +269,7 @@ public class StartActivity extends AppCompatActivity {
 ```
 
 ## [圆形进度条](https://github.com/DmitryMalkovich/circular-with-floating-action-button)(`2016-7-1 13:20:24`)
-![Float Button 圆形进度条效果](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg)  
+![Float Button 圆形进度条效果](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg)
 
 `week`开源啦!! [alibaba-week入口](https://github.com/alibaba/weex)
 
