@@ -1,5 +1,6 @@
 ﻿title: "About"
 layout: "page"
+comments: false
 ---
 <!-- 标签 方式，要求版本在0.4.5或以上 -->
 {% centerquote %}爱技术、爱生活。{% endcenterquote %}

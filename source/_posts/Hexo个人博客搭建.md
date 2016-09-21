@@ -37,3 +37,13 @@ categories: Hexo
   <blockquote class="blockquote-center">参考: http://theme-next.iissnan.com/tag-plugins.html</blockquote>
 
 ![](http://theme-next.iissnan.com/uploads/tags/full-image.jpg)
+11. 如何关闭新建页面的评论功能？
+```
+title: All tags
+date: 2015-12-16 17:05:24
+type: "tags"
+comments: false
+---
+```
+12. 添加背景以及点击爱心效果(2016-9-21 11:47:32)
+http://michaelxiang.me/2015/11/30/hexo-next-optimize/
