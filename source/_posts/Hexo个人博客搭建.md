@@ -27,17 +27,17 @@ comments: false
 ```
 12. `添加背景以及点击爱心效果`(2016-9-21 11:47:32)
 http://michaelxiang.me/2015/11/30/hexo-next-optimize/
+*注意:* 目前只有将主题下`_config.xml`配置文件中的`Schemes`设置成`Pisces` (如果设置成Mist,那么手机端的背景动画会布满屏幕,实在太难看~~~)
 1. `打赏`
-![打赏.png](http://7fv9bd.com1.z0.glb.clouddn.com/%E6%89%93%E8%B5%8F.png?attname=&e=1466582042&token=1JBeQi3vz7kUmQlsAf00FRntxudo01dbWsLMQT30:8jHYgu4CYgIJHukq6ZVNzCQsHP8)
 2. `文章阅读数`
+使用的是[leancloud](https://leancloud.cn/data.html?appid=vwQnaBdLYT7Is3AWzRoGBABe-gzGzoHsz#/Counter)(leancloud很强大,可以作为后端云供等app调用)
 3. `代码高亮`↓↓↓
 ![code_highlight.png](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f52wlho0c3j20lw03h0ts.jpg)
 4. `添加多说评论`
 5. `导航图标`↓↓↓
 ![Font Awesome.png](http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f52wlgzqvhj20fx01jq2w.jpg)
 6. `评论头像旋转`-->[设置方法](http://prozhuchen.github.io/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%99/)
-7. 添加`Fork me on Github` ribbon[详见](http://www.cnblogs.com/zhcncn/p/4097881.html) ↓↓↓
-![QQ截图20160621153752.png](http://naxiexiaojiyi1.qiniudn.com/QQ截图20160621153752.png?e=1466498312&token=1JBeQi3vz7kUmQlsAf00FRntxudo01dbWsLMQT30:gQUGqur7xBAj4Yq80nD3KjrKe98=)
+7. 添加`Fork me on Github` ribbon[详见](http://www.cnblogs.com/zhcncn/p/4097881.html)
 8. `站点访问量`
 [不蒜子](http://service.ibruce.info/) : 只需两行代码就可以完成
 9. `置顶功能`,跟小伙伴[LittleFish](http://littlefisher.coding.me)学习的

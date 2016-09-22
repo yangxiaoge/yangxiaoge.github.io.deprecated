@@ -64,8 +64,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-scheme: Mist
-#scheme: Pisces
+#scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -132,7 +132,6 @@ social:
   #知乎: http://www.zhihu.com/people/your-user-name
   Coding: https://coding.net/pp
   微博: http://weibo.com/3227182774
-  素锦: http://isujin.com/
 
   
 
@@ -195,10 +194,12 @@ sidebar:
 links_title: 友情链接
 links:
   鸿洋: http://blog.csdn.net/lmj623565791?viewmode=contents
+  素锦: http://isujin.com/
   在线工具1: http://tool.lu/
   在线工具2: http://c.runoob.com/
+  cyang: http://cyang.tech/
   ShadowsocksR作者: https://breakwa11.blogspot.com/
-  Midaoi小站(挺有意思): http://www.midaoi.com/about/
+  Midaoi小站: http://www.midaoi.com/about/
   咕咚: http://gudong.name/
   Drakeet: https://drakeet.me/
   爬坑记: http://www.iamxiarui.com/
@@ -211,7 +212,7 @@ links:
   Android Arsenal: http://android-arsenal.com/
   Trinea: https://github.com/Trinea/android-open-project
   zhangmingyun: http://www.jianshu.com/users/e6885381f7d4/latest_articles
-  一个定期翻译国外Android文章: https://github.com/hehonghui/android-tech-frontier/wiki
+  Android文章: https://github.com/hehonghui/android-tech-frontier/wiki
   baoyz: http://baoyz.com/
   yydcdut: http://yydcdut.com/
   小风（Kaede）: http://kaedea.com/all-categories/
