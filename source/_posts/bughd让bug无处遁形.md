@@ -14,12 +14,12 @@ categories: BugHD
 
 ## General Key
     General Key 用来唯一标识您的应用，为防止别人滥用，请勿泄露，建立每个项目时将自动生成项目对应的 General Key，可在项目列表页查看每个项目对应的 General Key值
-
+<!-- more -->   
 ## 导入SDK -->其一方法: 通过 `Gradle` 自动构建
     
 
     在项目的 build.gradle（Top-level build file，项目最外层的 build.gradle 文件）中添加这个 maven repositories，例如：
-<!-- more -->    
+ 
 ```
 buildscript {
 

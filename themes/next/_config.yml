@@ -132,10 +132,8 @@ social:
   #知乎: http://www.zhihu.com/people/your-user-name
   Coding: https://coding.net/pp
   微博: http://weibo.com/3227182774
-  鸿洋: http://blog.csdn.net/lmj623565791?viewmode=contents
   素锦: http://isujin.com/
-  在线工具1: http://tool.lu/
-  在线工具2: http://c.runoob.com/
+
   
 
 # Social Links Icons
@@ -196,6 +194,11 @@ sidebar:
 # title
 links_title: 友情链接
 links:
+  鸿洋: http://blog.csdn.net/lmj623565791?viewmode=contents
+  在线工具1: http://tool.lu/
+  在线工具2: http://c.runoob.com/
+  ShadowsocksR作者: https://breakwa11.blogspot.com/
+  Midaoi小站(挺有意思): http://www.midaoi.com/about/
   咕咚: http://gudong.name/
   Drakeet: https://drakeet.me/
   爬坑记: http://www.iamxiarui.com/
