@@ -173,8 +173,9 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  # 目前仅 Pisces Scheme 支持 position 配置。影响版本5.0.0及更低版本。
+  #position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
