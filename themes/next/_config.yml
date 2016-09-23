@@ -26,13 +26,14 @@ rss:
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
-  home: /
-  categories: /categories
-  archives: /archives
+  Home: /
+  #categories: /categories #目录
+  Archives: /archives #归档
   tags: /tags
-  #music: /categories/music
+  #music: /music
   guestbook: /guestbook
-  about: /about
+  link: /link
+  About: /about
   #commonweal: /404.html
   
 
@@ -57,6 +58,7 @@ menu_icons:
   commonweal: heartbeat
   guestbook: paper-plane-o
   music: music
+  link: chain
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -190,9 +192,9 @@ sidebar:
 #links_layout: block
 #links_layout: inline
 
-# title
-links_title: 友情链接
-links:
+# title ,下面两个 links_title, links先注掉(迁移到了 链接 menu中)
+#links_title: 友情链接
+#links:
   鸿洋: http://blog.csdn.net/lmj623565791?viewmode=contents
   素锦: http://isujin.com/
   在线工具1: http://tool.lu/
@@ -242,7 +244,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night blue
+highlight_theme: normal
 
 
 # Automatically scroll page to section which is under <!-- more --> mark.

@@ -17,11 +17,16 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/):http://theme-next.iissnan.com/
 
 `主要的配置项`:
+13. `如何新增导航Menu?`
+	- `hexo new page "link"`  (创建一个link目录,并且默认生成index.md)
+	- 主题配置文件`_config.xml`中 `menu节点`下增加 `link: /link`,`menu_icons节点(FontAwesome头像)`增加 `link: chain`
+	- `\themes\next\languages`目录下语言配置文件`zh-Hans.yml`中 `menu节点`增加 `link: 链接`
+
 11. `如何关闭新建页面的评论功能？`
 ```
-title: All tags
-date: 2015-12-16 17:05:24
-type: "tags"
+---
+title: "About"
+layout: "page"
 comments: false
 ---
 ```
