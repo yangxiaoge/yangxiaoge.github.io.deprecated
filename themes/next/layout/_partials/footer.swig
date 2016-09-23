@@ -32,3 +32,7 @@
 <!-- 不蒜子 -->
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+<!-- 金山词霸 每日一句 -->     
+<!--     
+<script type="text/javascript" src="http://open.iciba.com/ds_open.php?id=52493&name=%E7%8F%A0%E7%8F%A0%E3%81%AEBlog&auth=05FEE5A7AF609961317839B36B27973F" charset="utf-8"></script>
+-->   
