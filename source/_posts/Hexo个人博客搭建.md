@@ -1,7 +1,7 @@
 ﻿---
 title: Hexo个人博客搭建
 date: 2015-04-12 10:39:08
-tags: [Hexo,个人博客]
+tags: [Hexo]
 categories: Hexo
 ---
 ![](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f813o9fsiuj20zk0fawgp.jpg)

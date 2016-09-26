@@ -7,17 +7,18 @@ comments: true
 {% centerquote %}生活不止苟且，还有诗和远方。{% endcenterquote %}
 
 ## Blog Freinds
-- [LittleFish](http://littlefisher.coding.me/) - 同事同学兼好基友
-- [IIssNan’s Notes](http://notes.iissnan.com/) - NexT主题作者
-- [ARAO’S BLOG](http://www.arao.me/) - hexo-NexT主题优化
-- [drakeet](https://drakeet.me/) - 阿里Android开发者
-- [咕咚](http://gudong.name/) - 独立Android开发者
-- [cyang](http://cyang.tech/) - 有点意思
-- [素锦](http://isujin.com/) - 有个性的网站
-- [BreakWa11](https://breakwa11.blogspot.com/) - ShadowsocksR作者
-- [卖桃君随想录](http://macshuo.com/) - 70后程序员的理想
-- [Aixiu](http://blog.ynxiu.com/about/) - 一个不会写代码的，平面工作者！
-- [灰姑娘](http://ephen.me/About/) - 产品运营经理(妹子哟~)
+* [LittleFish](http://littlefisher.coding.me/) - 同事同学兼好基友
+* [IIssNan’s Notes](http://notes.iissnan.com/) - NexT主题作者
+* [ARAO’S BLOG](http://www.arao.me/) - hexo-NexT主题优化
+* [drakeet](https://drakeet.me/) - 阿里Android开发者
+* [咕咚](http://gudong.name/) - 独立Android开发者
+* [cyang](http://cyang.tech/) - 有点意思
+* [素锦](http://isujin.com/) - 有个性的网站
+* [BreakWa11](https://breakwa11.blogspot.com/) - ShadowsocksR作者
+* [卖桃君随想录](http://macshuo.com/) - 70后程序员的理想
+* [Aixiu](http://blog.ynxiu.com/about/) - 一个不会写代码的，平面工作者！
+* [灰姑娘](http://ephen.me/About/) - 产品运营经理(妹子哟~)
+* [lancelot_lewis](http://lancelot_lewis.coding.me/guestbook/#comments) - Hexo发烧友
 	
 -------------------------------
 ## A collection of links
