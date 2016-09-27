@@ -18,7 +18,7 @@ categories: 工具
 ## 看图
 [FastStoneImageViewer](http://www.faststone.org/) 免费软件，好用到爆！没广告！功能齐全！不光能看图，还能修图！
 ~~Picasa3 Google的图片管理软件(已经停止服务了)~~
-[Photos](https://photos.google.com/) Google 相册照片服务
+[Photos](https://photos.google.com/) Google 相册照片服务 (本人iPhone6内存16G伤不起(；′⌒`), 果断备份到Google Photos了!!!)
 
 ## 文件搜索
 [Listary](http://www.appinn.com/listary/) 小众软件介绍，超级好用的文件搜索工具，按下快捷键，随时搜索
