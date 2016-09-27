@@ -30,6 +30,7 @@ comments: true
 - [Android Arsenal](http://android-arsenal.com/) - 收集最新github开源项目
 - [泡在网上的日子](http://www.jcodecraeer.com/plus/list.php?tid=18) - 做最好的移动开发社区
 - [玩Android](http://www.xueandroid.com/) - 鸿洋维护的Android学习网站
+- [木水川](http://mushuichuan.com/archives/)
 	
 -------------------------------
 

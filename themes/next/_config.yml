@@ -127,14 +127,13 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  LittleFish: http://littlefisher.coding.me/
   GitHub: https://github.com/yangxiaoge
+  Coding: https://coding.net/u/yangxiaoge
+  Weibo: http://weibo.com/3227182774
   简书: http://www.jianshu.com/users/25f8193d5561
+  LittleFish: http://littlefisher.coding.me/
   #豆瓣: http://douban.com/people/your-user-name
   #知乎: http://www.zhihu.com/people/your-user-name
-  Coding: https://coding.net/pp
-  微博: http://weibo.com/3227182774
-
   
 
 # Social Links Icons
@@ -149,7 +148,8 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
-
+  LittleFish: github
+  
 
 # Sidebar Avatar 侧边栏头像
 # in theme directory(source/images): /images/avatar.jpg
