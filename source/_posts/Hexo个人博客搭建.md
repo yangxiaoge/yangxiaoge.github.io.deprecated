@@ -18,8 +18,10 @@ categories: Hexo
 
 `主要的配置项`:
 14. `hexo提交搜索引擎（百度+谷歌）`(百度,谷歌就能搜索到个人网站)
->http://tengj.top/2016/03/14/hexo6seo/
- 
+>参考: http://tengj.top/2016/03/14/hexo6seo/
+
+http://yangxiaoge.coding.me/sitemap.xml
+http://yangxiaoge.coding.me/baidusitemap.xml
 13. `如何新增导航Menu?`
 
 	- `hexo new page "link"`  (创建一个link目录,并且默认生成index.md)
