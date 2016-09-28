@@ -47,7 +47,7 @@ Android开发工程师
 编程语言：
 
 - 掌握Android四大组件，掌握Android应用UI设计，熟练使用常用布局
-- 熟悉使用SQLite，Oracle,PostgreSQL数据库
+- 了解SQLite，Oracle,PostgreSQL数据库
 - 熟知面向对象思想，包括抽象，继承，重写，重载，多态，能够用面向对象的思想解决编程问题
 - 掌握Java编程及熟练使用Android Studio，Eclipse，ADT，Birt，Navicat Premium,TortoiseGit等工具
 - 熟练掌握Android数据存储

@@ -20,6 +20,7 @@ comments: true
 * [灰姑娘](http://ephen.me/About/) - 产品运营经理(妹子哟~)
 * [lancelot_lewis](http://lancelot_lewis.coding.me/guestbook/#comments) - Hexo发烧友
 * [Midaoi小站](http://www.midaoi.com/) - 前端
+* [金守旺](http://svend.cc/about/) - WEB前端、Java程序员
 	
 -------------------------------
 ## A collection of links

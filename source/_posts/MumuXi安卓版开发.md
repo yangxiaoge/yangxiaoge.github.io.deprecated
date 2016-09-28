@@ -49,3 +49,11 @@ categories: APP开发记
 2. 官方集成文档: https://developers.google.com/analytics/devguides/collection/android/v4/app?configured=true
 3. 分析用户使用情况的平台: https://analytics.google.com/analytics/web/#realtime/rt-app-overview/a83624565w124744507p129062318/
 4. ![google 分析](http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f7iknnth8nj217y0lx43d.jpg)
+
+说明下: 2016-9-28 14:08:13
+
+>http://dev.xiaomi.com/doc/p=62/index.html
+
+Google为APK定义了两个属性：`VersionCode`和`VersionName`，他们有不同的用途。
+VersionCode：对消费者不可见，仅用于应用市场、程序内部识别版本，判断新旧等用途。
+VersionName：展示给消费者，消费者会通过它认知自己安装的版本，下文提到的版本号都是说VersionName。
