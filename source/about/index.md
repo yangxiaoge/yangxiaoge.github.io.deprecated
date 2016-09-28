@@ -28,7 +28,7 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 
 学历：全日制本科
 
-联系方式：18652066370(手机)
+联系方式：18652066370
 
 E-mail：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com) 
 
@@ -88,10 +88,10 @@ AfrimaxMI
 开发工具：Android Studio ， postman调试接口 ， fiddler抓包
 责任描述： 个人负责完成App 30%功能模块
 负责模块：
-1，登录模块（登录，重置，短信验证）
-2，home页（包括，账户详情，剩余流量，广告等）
-3，个人信息，充值历史查询等
-4，所有界面xml开发， 以及字体颜色大小
+ 1，登录模块（登录，重置，短信验证）
+ 2，home页（包括，账户详情，剩余流量，广告等）
+ 3，个人信息，充值历史查询等
+ 4，所有界面xml开发， 以及字体颜色大小
 项目简介：
 供加纳运营商MTN 主要为用户提供流量订购，查询，等功能。
 目前已经上架：google play ：https://play.google.com/store/apps/details?id=com.ztesoft.zsmart.datamall.app.ghana
@@ -107,7 +107,6 @@ Birt报表开发
 硬件环境：ubuntu14 ，小米2
 开发工具：Eclipse，SQLite Expert Professional
 责任描述：在校时个人学习开发
-    设计UI界面，页面跳转，账目收支，账户的增删查改等。
 项目简介：
     基于Eclipse开发环境，记账功能（收支），流水统计（按月），账户信息管理（增删查改），下月预算等。
 
