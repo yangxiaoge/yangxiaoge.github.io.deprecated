@@ -75,15 +75,6 @@ duoshuo_hotartical: false
 # 数学公式
 mathjax: true
 
-# 自动生成sitemap 
-# 站点地图, 针对谷歌和百度
-# 站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。
-# Googlebot等搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。
-sitemap:
-path: sitemap.xml
-baidusitemap:
-path: baidusitemap.xml
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

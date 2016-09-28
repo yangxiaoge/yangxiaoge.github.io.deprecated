@@ -17,7 +17,11 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/):http://theme-next.iissnan.com/
 
 `主要的配置项`:
+14. `hexo提交搜索引擎（百度+谷歌）`(百度,谷歌就能搜索到个人网站)
+>http://tengj.top/2016/03/14/hexo6seo/
+ 
 13. `如何新增导航Menu?`
+
 	- `hexo new page "link"`  (创建一个link目录,并且默认生成index.md)
 	- 主题配置文件`_config.xml`中 `menu节点`下增加 `link: /link`,`menu_icons节点(FontAwesome头像)`增加 `link: chain`
 	- `\themes\next\languages`目录下语言配置文件`zh-Hans.yml`中 `menu节点`增加 `link: 链接`
