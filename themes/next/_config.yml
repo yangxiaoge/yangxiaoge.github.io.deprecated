@@ -130,8 +130,9 @@ social:
   GitHub: https://github.com/yangxiaoge
   Coding: https://coding.net/u/yangxiaoge
   Weibo: http://weibo.com/3227182774
-  简书: http://www.jianshu.com/users/25f8193d5561
-  LittleFish: http://littlefisher.coding.me/
+  jianshu: http://www.jianshu.com/users/25f8193d5561
+  Gmail: mailto:yang.jianan0926@gmail.com
+  Friend: http://littlefisher.coding.me/
   #豆瓣: http://douban.com/people/your-user-name
   #知乎: http://www.zhihu.com/people/your-user-name
   
@@ -148,7 +149,9 @@ social_icons:
   GitHub: github
   Twitter: twitter
   Weibo: weibo
-  LittleFish: github
+  Gmail: envelope-o
+  Friend: github
+  jianshu: fa-jianshu
   
 
 # Sidebar Avatar 侧边栏头像

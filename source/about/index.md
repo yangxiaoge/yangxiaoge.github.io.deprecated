@@ -28,9 +28,9 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 
 学历：全日制本科
 
-联系方式：1865206xxxx(手机)
+联系方式：18652066370(手机)
 
-E-mail：[yangjianan0926@gmail.com](mailto:yangjianan0926@gmail.com) 
+E-mail：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com) 
 
 个人博客: [yangjianan.top](http://yangjianan.top)
 

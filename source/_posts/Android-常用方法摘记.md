@@ -9,18 +9,12 @@ top: 100
 摘自:[习惯沉默的Blog
 ](https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/)
 现在微信不能直接跳转到微信扫一扫:详见 [Android调用微信扫一扫_CSDN](http://blog.csdn.net/l_lhc/article/details/51636130)
-## 访问或者下载单个github文件(2016-9-20 18:43:37)
-**用途:**可以用来存一些配置文件,图片等.
-url固定格式: https://raw.githubusercontent.com/username/repository/branch/filename 
-例如: https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md
-> 参考stackoverflow:[Download single files from GitHub](http://stackoverflow.com/questions/4604663/download-single-files-from-github)
-
-<!-- more -->
 
 ## Gson构造JsonArray(2016-8-23 16:11:25)
 最近项目中请求参数传参用到了 JsonArray对象
 构造方法如下:
 
+<!-- more -->
 ```
     Object[] object = new Object[]{"111", "222", "24G"};
     JsonArray jsonArr = new JsonArray();
@@ -33,6 +27,11 @@ url固定格式: https://raw.githubusercontent.com/username/repository/branch/fi
     System.out.println("jsonArr:  " + jsonArr.toString());
 ```
 
+## 访问或者下载单个github文件(2016-9-20 18:43:37)
+**用途:**可以用来存一些配置文件,图片等.
+url固定格式: https://raw.githubusercontent.com/username/repository/branch/filename 
+例如: https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md
+> 参考stackoverflow:[Download single files from GitHub](http://stackoverflow.com/questions/4604663/download-single-files-from-github)
 
 ## LICEcap录制Gif工具(2016-8-2 18:57:50)
 [官网地址](http://www.cockos.com/licecap/)
