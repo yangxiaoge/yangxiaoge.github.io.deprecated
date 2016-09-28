@@ -14,14 +14,18 @@ categories: Hexo
 <!-- more -->
 
 
-[Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/):http://theme-next.iissnan.com/
+[Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/)
 
-`主要的配置项`:
+**主要的配置项**:
+15. `dashboard持续集成`
+[ci-hexo-coding](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)
+
 14. `hexo提交搜索引擎（百度+谷歌）`(百度,谷歌就能搜索到个人网站)
 >参考: http://tengj.top/2016/03/14/hexo6seo/
-
+`我的访问连接:`
 http://yangxiaoge.coding.me/sitemap.xml
 http://yangxiaoge.coding.me/baidusitemap.xml
+
 13. `如何新增导航Menu?`
 
 	- `hexo new page "link"`  (创建一个link目录,并且默认生成index.md)
@@ -52,7 +56,7 @@ http://michaelxiang.me/2015/11/30/hexo-next-optimize/
 8. `站点访问量`
 [不蒜子](http://service.ibruce.info/) : 只需两行代码就可以完成
 9. `置顶功能`,跟小伙伴[LittleFish](http://littlefisher.coding.me)学习的
-请戳[👉](http://littlefisher.coding.me/2016/07/12/Hexo%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/)
+请戳 👉 [LittleFish](http://littlefisher.coding.me)
 10. `文本、图片`居中
   <blockquote class="blockquote-center">参考: http://theme-next.iissnan.com/tag-plugins.html</blockquote>
 
