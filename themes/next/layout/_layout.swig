@@ -72,9 +72,9 @@
   {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
   
-  <!--点击有爱心效果-->
-  <script type="text/javascript" src="/js/src/love.js"></script>
-  <!--背景动画, 先注释掉,手机端效果不好!(铺满屏幕了!!)-->
+  <!--点击有爱心效果, 先注释掉,作为博客有点花哨!-->
+  <!--<script type="text/javascript" src="/js/src/love.js"></script>-->
+  <!--背景动画-->
   <script type="text/javascript" src="/js/src/particle.js"></script>
   
 </body>
