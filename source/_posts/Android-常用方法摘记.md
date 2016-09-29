@@ -39,7 +39,7 @@ url固定格式: https://raw.githubusercontent.com/username/repository/branch/fi
 ![录制的gif图](http://www.cockos.com/licecap/licecap_rules.gif)
 
 ## 读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(`2016-06-12`)
-
+ 
 *[例如:](http://www.jianshu.com/p/b87fee2f7a23)*
 
 >简书:http://www.jianshu.com/p/b87fee2f7a23
