@@ -17,6 +17,19 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/)
 
 **主要的配置项**:
+16. [站内搜索](http://theme-next.iissnan.com/third-party-services.html#search-system) (add 2016-9-30 14:38:13)
+
+	- 安装 `hexo-generator-search`，在站点的根目录下执行以下命令：
+```
+$ npm install hexo-generator-search --save
+```
+	- 编辑 `站点配置文件`，新增以下内容到任意位置：
+```
+search:
+  path: search.xml
+  field: post
+```
+
 15. `dashboard持续集成`
 [ci-hexo-coding](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)
 

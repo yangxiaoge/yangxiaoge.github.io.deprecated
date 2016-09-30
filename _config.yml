@@ -72,6 +72,14 @@ duoshuo_share: true
 # 多说热评文章 true 或者 false
 duoshuo_hotartical: false
 
+# 设置 Google站点管理工具 的验证字符串，用于提交 sitemap , http://theme-next.iissnan.com/third-party-services.html#local-search
+google_site_verification: p6T6tRm_aY3roIHLSCGC-mw3PH4V-vsHrH_Svp4ax-A
+
+# 站内搜索 http://theme-next.iissnan.com/third-party-services.html#search-system
+search:
+  path: search.xml
+  field: post
+  
 # 数学公式
 mathjax: true
 
@@ -80,5 +88,6 @@ mathjax: true
 deploy:
   type: git
   repo: 
-    github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
+    #注释掉 github, 默认用coding
+    #github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
     coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
