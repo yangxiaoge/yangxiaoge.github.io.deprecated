@@ -38,6 +38,7 @@ search:
 `我的访问连接:`
 http://yangxiaoge.coding.me/sitemap.xml
 http://yangxiaoge.coding.me/baidusitemap.xml
+**注意:** 需要修改`站点配置文件``_config.yml`中`url`这个属性值 (这个url决定了生成的sitemap.xlm,baidusitemap.xml中文章路径)
 
 13. `如何新增导航Menu?`
 
