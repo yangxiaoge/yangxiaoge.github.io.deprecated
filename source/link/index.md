@@ -7,7 +7,7 @@ comments: true
 {% centerquote %}生活不止苟且，还有诗和远方。{% endcenterquote %}
 
 ## Blog Freinds
-* [LittleFish](http://littlefisher.coding.me/) - 同事同学兼好基友
+* [LittleFish](http://littlefisher.coding.me/) - 同学同事兼好基友
 * [IIssNan’s Notes](http://notes.iissnan.com/) - NexT主题作者
 * [ARAO’S BLOG](http://www.arao.me/) - hexo-NexT主题优化
 * [drakeet](https://drakeet.me/) - 阿里Android开发者
