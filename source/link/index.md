@@ -22,6 +22,7 @@ comments: true
 * [Midaoi小站](http://www.midaoi.com/) - 前端
 * [金守旺](http://svend.cc/about/) - WEB前端、Java程序员
 * [MOxFIVE](http://moxfive.xyz/) - 专注于前端
+* [Xesam](http://xesam.github.io/tag/android/) - 靠谱的娱乐型程序员
 	
 -------------------------------
 ## A collection of links
