@@ -3,6 +3,22 @@ title: "About"
 layout: "page"
 comments: false
 ---
+<!-- 标签 方式，要求版本在0.4.5或以上 -->
+{% centerquote %}爱技术、爱生活。{% endcenterquote %}
+
+Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息工程大学](http://www.nuist.edu.cn/) · 计算机科学与技术 2015届毕业。
+
+目前就职于[中兴软创](http://www.ztesoft.com/cn)。
+
+喜欢技术，热爱分享。
+
+一些作品和开源项目，👉 戳 [Mumuxi](https://github.com/yangxiaoge/MumuXi) 与 [Github](https://github.com/yangxiaoge)
+
+喜欢听歌，喜欢的国内歌手有 **陈奕迅** **林宥嘉** **周杰伦** **王菲** **林俊杰** **王力宏** **薛之谦**。
+
+喜欢运动，也喜欢户外，登山等等。
+
+<br>
 
 {% centerquote %}个人简历{% endcenterquote %}
  
@@ -66,7 +82,7 @@ MPT
 整体功能：登录相关验证，多语言，账单查询(流量短信语音)，轮播广告，充值，订购流量，赠送话费，借款等业务
 项目简介：供东南亚某国运营商使用（保密项目）,目前还未上架。
 主要技术：使用了github开源项目orhanobut，butterknife，gson，okhttp3，convenientbanner，eventbus等
-碰到的问题:android的内存管理(单例,非静态内部类等导致)
+碰到的问题:android的内存管理(单例,非静态内部类,service,handler等导致)
 由于这次任务完成表现出色，6月考核评级为S
 
 2015/12 -- 2016/02
