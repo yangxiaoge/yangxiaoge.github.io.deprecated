@@ -23,6 +23,7 @@ comments: true
 * [金守旺](http://svend.cc/about/) - WEB前端、Java程序员
 * [MOxFIVE](http://moxfive.xyz/) - 专注于前端
 * [Xesam](http://xesam.github.io/tag/android/) - 靠谱的娱乐型程序员
+* [楚韵江南](http://chuyun.github.io/)
 	
 -------------------------------
 ## A collection of links
