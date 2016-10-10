@@ -81,6 +81,9 @@ MPT
 责任描述：个人完成整个App端的开发任务
 整体功能：登录相关验证，多语言，账单查询(流量短信语音)，轮播广告，充值，订购流量，赠送话费，借款等业务
 项目简介：供东南亚某国运营商使用（保密项目）,目前还未上架。
+主要技术：使用了github开源项目orhanobut，butterknife，gson，okhttp3，convenientbanner，eventbus等
+碰到的问题:android的内存管理(单例,非静态内部类,service,handler等导致)
+由于这次任务完成表现出色，6月考核评级为S
 
 2015/12 -- 2016/02
 My Busy4G
@@ -94,13 +97,13 @@ My Busy4G
  4，所有界面xml开发， 以及字体颜色大小
 项目简介：
 供加纳运营商MTN 主要为用户提供流量订购，查询，等功能。
-目前已经上架：google play ：https://play.google.com/store/apps/details?id=com.ztesoft.zsmart.datamall.app.ghana
+目前已经上架：[google play](https://play.google.com/store/apps/details?id=com.ztesoft.zsmart.datamall.app.ghana)
 
 2015/07 -- 至今
-Birt报表开发 
-摩洛哥，马里，加纳，卢森堡，缅甸等定制化报表
+Birt报表开发 （查询数据库并设计展示模板，最后以html，xls等格式展示）
+主要设计好数据集，样式，参数，页面尺寸等
+做过的项目：摩洛哥，马里，加纳，卢森堡，缅甸等定制化报表
 报表设计，针对不同项目，根据需求设计相应的库文件（包含：数据集，样式，参数等）
-提升较快的在如下两个项目中：摩洛哥UAT支持，卢森堡post演示报表
 
 2015/02 -- 2015/03
 随手记App（日常收支记录）
@@ -112,7 +115,7 @@ Birt报表开发
 
 ## 职业目标
 
-进入到贵公司短期内，通过不断学习和锻炼，力争成长为一名能担当的软件从业者，熟练掌握Java，Android等。同时愿意学习多种编程语言，向往成为全栈工程师！
+通过不断学习和锻炼，力争成长为一名能担当的软件从业者，熟练掌握Java，Android等。同时愿意学习多种编程语言，向往成为全栈工程师！
 
 ## 兴趣爱好
 运动方面：热爱爬山，跑步
