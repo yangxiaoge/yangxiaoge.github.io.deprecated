@@ -22,13 +22,13 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 
 {% centerquote %}个人简历{% endcenterquote %}
  
-姓名: 杨XX &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：男
+姓名: 杨加南 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：男
 
 毕业院校：[南京信息工程大学](http://www.nuist.edu.cn/) · 计算机科学与技术专业
 
 学历：全日制本科
 
-联系方式：186XXXX6370
+联系方式：18652066370
 
 E-mail：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com) 
 
