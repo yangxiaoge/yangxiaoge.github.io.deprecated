@@ -1,4 +1,4 @@
-﻿# Hexo Configuration
+# Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
@@ -89,5 +89,5 @@ deploy:
   type: git
   repo: 
     #注释掉 github, 默认用coding
-    #github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
+    github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
     coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
