@@ -4,7 +4,7 @@ date: 2016-06-21 14:02:55
 tags: [Android,ORMLite]
 categories: Android
 ---
->本文摘自 [鸿神](http://blog.csdn.net/lmj623565791/article/details/39121377)博客,自己偷懒没写,鸿神的写的很详细,他的博客还有 [ORMLite 框架最佳实践](http://blog.csdn.net/lmj623565791/article/details/39122981).
+>本文摘自 [鸿神](http://blog.csdn.net/lmj623565791/article/details/39121377)博客,自己偷懒没写,鸿神的写的很详细,他的博客还有 [ORMLite 框架最佳实践](http://blog.csdn.net/lmj623565791/article/details/39122981). 
 
 基于鸿神教程运用了ORMLite框架详见我的[Github_QueryCityId](https://github.com/yangxiaoge/queryCityId)
 
