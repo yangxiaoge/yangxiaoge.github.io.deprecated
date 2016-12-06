@@ -1,10 +1,47 @@
-﻿---
+---
 title: Android常用方法摘记以及收集
 date: 2016-01-08 10:50:55
 tags: Android
 categories: Android
 top: 100
 ---
+## 调用系统方法,分享文本图片等(2016-12-06 19:16:43)
+
+```
+/**
+ * Created by _SOLID
+ * Date:2016/4/22
+ * Time:12:45
+ * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
+ */
+public class SystemShareUtils {
+
+    public static void shareText(Context ctx, String text) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.setType("text/plain");
+        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));
+    }
+
+    public static void shareImage(Context ctx, Uri uri) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sendIntent.setType("image/jpeg");
+        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));
+    }
+
+    public static void shareImageList(Context ctx, ArrayList<Uri> uris) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
+        sendIntent.setType("image/*");
+        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));
+    }
+}
+```
+<!-- more -->
 ## Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)
 摘自:[习惯沉默的Blog
 ](https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/)
@@ -14,7 +51,6 @@ top: 100
 最近项目中请求参数传参用到了 JsonArray对象
 构造方法如下:
 
-<!-- more -->
 ```
     Object[] object = new Object[]{"111", "222", "24G"};
     JsonArray jsonArr = new JsonArray();
