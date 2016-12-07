@@ -9,6 +9,7 @@
 <head>
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
+  <meta name="google-site-verification" content="p6T6tRm_aY3roIHLSCGC-mw3PH4V-vsHrH_Svp4ax-A" />
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
