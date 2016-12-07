@@ -1,9 +1,8 @@
-﻿---
+---
 title: ' Android 踩过的坑'
 date: 2016-06-23 11:02:22
 tags: Android
 categories: Android
-top: 8
 ---
 ## AlertDialog弹出框 按钮在高版本中看不见(其实是颜色为白色) (2016-8-16 18:24:05)
 在android 6.0中变成了下面这种
