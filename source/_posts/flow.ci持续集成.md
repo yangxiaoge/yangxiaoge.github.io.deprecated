@@ -7,6 +7,7 @@ tags: [持续集成,Hexo]
 # 言归正传
 其实获得[FlowCi](http://dashboard.flow.ci/)测试资格已经好几个月了， 一直没有去使用它， [FlowCi](http://dashboard.flow.ci/)功能非常强大。 之前我用的是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成博客, 不过今天发现持续集成失败了， 发现是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)升级了， 集成的配置文件需要修改， 我就乘此机会转投[FlowCi](http://dashboard.flow.ci/)的怀抱中了 O(∩_∩)O哈哈~
 那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？
+<!-- more -->
 ## 创建项目
 ![create project](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fai7qzz2unj216v0edgmw.jpg)
 
