@@ -18,11 +18,11 @@
     NexT.{{ theme.scheme }}
   </a>
   <!-- 不蒜子访客数--- 总数 -->
-  <!--
+  
   <span id="busuanzi_container_site_pv" style="margin-right:10px;">
     &nbsp;&nbsp; | &nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_pv"></span>次 
   </span>
-  -->
+  
 
   <!-- 不蒜子访客数--- 人次 -->
   <!--
