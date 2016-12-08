@@ -92,5 +92,5 @@ deploy:
   type: git
   repo: 
     #注释掉 github, 默认用 coding, 一起使用了.
-    #github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
-    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
+    github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
+    #coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
