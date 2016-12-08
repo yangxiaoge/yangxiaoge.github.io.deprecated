@@ -11,22 +11,15 @@ test:
         - mkdir ~/.ssh
         # 将私钥放入目录
         - mv .daocloud/id_rsa ~/.ssh/id_rsa
-		# 将id_rsa.pub放入目录
-        - mv .daocloud/id_rsa.pub ~/.ssh/id_rsa.pub
-		# 将known_hosts放入目录
-        - mv .daocloud/known_hosts ~/.ssh/known_hosts
         # 将ssh配置文件放入目录
         - mv .daocloud/ssh_config ~/.ssh/config
         # 修改私钥和配置文件为可读权限
         - chmod 600 ~/.ssh/id_rsa
-		- chmod 600 ~/.ssh/id_rsa.pub
-		- chmod 600 ~/.ssh/known_hosts
         - chmod 600 ~/.ssh/config
         # 启动ssh-agent
         - eval $(ssh-agent)
         # 添加私钥
         - ssh-add ~/.ssh/id_rsa
-		- ssh-add ~/.ssh/id_rsa.pub
         # 删除存放私钥和配置的目录及文件
         - rm -rf .daocloud
         # 配置git全局的用户名和邮件，没有配置不能clone
