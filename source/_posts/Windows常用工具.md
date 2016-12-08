@@ -12,8 +12,9 @@ categories: 工具
 ## Windowns常用软件
 
 ## 录制Gif工具
-[ScreenToGif](https://screentogif.codeplex.com/) 工具相当不错，而且是绿色软件，真良心~~
 [LICEcap录制Gif工具](http://www.cockos.com/licecap/)
+<!-- more -->
+[ScreenToGif](https://screentogif.codeplex.com/) 工具相当不错，而且是绿色软件，真良心~~
 
 ## 看图
 [FastStoneImageViewer](http://www.faststone.org/) 免费软件，好用到爆！没广告！功能齐全！不光能看图，还能修图！
