@@ -50,6 +50,9 @@ flow_cmd "hexo d" --echo
 
 ![custom script](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1fai8ir2iphj217j0kv77e.jpg)
 
+# 添加FlowCi的 RSA公匙到github以及coding(授予读写权限)
+![RSA公匙配置](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fajdovw24yj21640e4wh4.jpg)
+
 # 快去提交代码吧
 我是单独在coding建了一个新的仓库存放博客源文件,[yangxiaoge-CI](https://coding.net/u/yangxiaoge/p/yangxiaoge-CI)
 之后只要往`yangxiaoge-CI`仓库中提交或者增删改查时, `FlowCi`会自动集成并发布到[yangxiaoge](https://coding.net/u/yangxiaoge/p/yangxiaoge)编译后的博客地址中!
