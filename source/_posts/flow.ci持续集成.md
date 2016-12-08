@@ -47,4 +47,8 @@ flow_cmd "hexo d" --echo
 ```
 
 ![custom script](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1fai8ir2iphj217j0kv77e.jpg)
- 
+
+# 快去提交代码吧
+我是单独在coding建了一个新的仓库存放博客源文件,[yangxiaoge-CI](https://coding.net/u/yangxiaoge/p/yangxiaoge-CI)
+之后只要往`yangxiaoge-CI`仓库中提交或者增删改查时, `FlowCi`会自动集成并发布到[yangxiaoge](https://coding.net/u/yangxiaoge/p/yangxiaoge)编译后的博客地址中!
+**binggo!!!**坐等集成好,登录网站查看变动~~~~是不是很爽, 跨PC更新博客也更方便啦~~~
