@@ -12,7 +12,10 @@ categories: 持续集成
 
 > PS: 强迫症的我把[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成搞好了\(^o^)/~, 不过我还是用FlowCi吧, 尝试新工具哈哈~~~ (2016-12-8 09:31:50 add)
 
+
 <!-- more -->
+
+
 ## 创建项目
 ![create project](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fai7qzz2unj216v0edgmw.jpg)
 
