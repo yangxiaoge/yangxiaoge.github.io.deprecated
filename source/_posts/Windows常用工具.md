@@ -9,11 +9,11 @@ categories: 工具
 总结一下自己常用的软件工具，有正版开源的，还是尽量不要去找破解版、绿色版的了，养成好的习惯：
 
 -----------------------
+<!-- more -->
 ## Windowns常用软件
 
 ## 录制Gif工具
 [LICEcap录制Gif工具](http://www.cockos.com/licecap/)
-<!-- more -->
 [ScreenToGif](https://screentogif.codeplex.com/) 工具相当不错，而且是绿色软件，真良心~~
 
 ## 看图
