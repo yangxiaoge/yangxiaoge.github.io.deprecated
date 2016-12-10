@@ -25,7 +25,7 @@ categories: 持续集成
  ![Workflow select](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fai89o501cj216z0kj76h.jpg)
  
  工作流选择, `Nodejs`(Hexo编译所需环境)，版本选择了最新的`v6.6.0`, 当然还有其他的, `Python`, `Android`, `Php`等。
- 后面我会尝试使用`Android持续集成`，也写相应文章。
+ 后面我会尝试使用`Android持续集成`，也会写相应文章。
  
 ## 触发器(什么时候自动集成)
  设置 触发器-push-正则匹配-master, 意思就是当 hexo博客git的master源文件改变时, 就会触发FlowCi的持续集成!
