@@ -10,7 +10,7 @@ author: Bruce Yang				#您的名字
 language: zh-Hans				#网站使用的语言
 timezone:						#网站时区。Hexo 默认使用您电脑的时区
 
-# URL 网址 
+# URL 网址  
 ## 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
 url: http://yangxiaoge.coding.me/
 root: /
