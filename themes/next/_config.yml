@@ -127,12 +127,12 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
+  Zz: https://zhuzhuyang.github.io/
   GitHub: https://github.com/yangxiaoge
-  Coding: https://coding.net/u/yangxiaoge
   Weibo: http://weibo.com/3227182774
   jianshu: http://www.jianshu.com/users/25f8193d5561
   Gmail: mailto:yang.jianan0926@gmail.com
-  Friend: http://littlefisher.coding.me/
+  基友: http://littlefisher.coding.me/
   #豆瓣: http://douban.com/people/your-user-name
   #知乎: http://www.zhihu.com/people/your-user-name
   
