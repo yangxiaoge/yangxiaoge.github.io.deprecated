@@ -51,7 +51,7 @@ actionDone ： Done，隐藏软键盘，即使不是最后一个文本输入框
 ## 多次点击查询(迅速点击)，listView数据重复（2016-7-25 15:33:44）
 > 单身狗的手速亲测!(；′⌒`)
 
-`例如:`
+`例如:` 
 ```
 RequestApi.qryReachargeHistory(Constants.PREFIX + msisdn, params, new StringCallback() {
 
