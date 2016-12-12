@@ -11,6 +11,7 @@ categories: 持续集成
 那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？
 <!-- more -->
 > PS: (2016-12-8 09:31:50 add) 强迫症的我还是把[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成搞好了\(^o^)/~, 不过我还是用FlowCi吧, 尝试新工具哈哈~~
+*啪啪打脸~~* flowci hook push不及时, 有时候coding源码修改了,但是都不push消息给flowci,所以博客有时候并没有自动集成o(╯□╰)o
 
 ## 创建项目
 ![create project](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fai7qzz2unj216v0edgmw.jpg)
