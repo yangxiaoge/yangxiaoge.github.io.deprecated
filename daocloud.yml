@@ -1,6 +1,6 @@
 version: "2.0"
 test:
-    image: daocloud.io/wangmengzhu/ci-hexo-coding:latest  #使用已经在上一步创建好的Hexo基础环境镜像（并不包括博客项目源码）
+    image: daocloud.io/wangmengzhu/ci-hexo-coding:latest  #使用已经在上一步创建好的Hexo基础环境镜像（并不包括博客项目源码） 
 
     install:
         # 安装npm依赖
