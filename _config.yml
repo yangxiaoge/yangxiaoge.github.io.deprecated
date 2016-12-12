@@ -17,7 +17,7 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
-# Directory 目录配置
+# Directory 目录配置 
 source_dir: source	 #源文件夹，这个文件夹用来存放内容。
 public_dir: public	 #公共文件夹，这个文件夹用于存放生成的站点文件。
 tag_dir: tags		 #标签文件夹
