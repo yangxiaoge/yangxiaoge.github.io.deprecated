@@ -172,8 +172,9 @@ layout: layout
                     <hr><h5><a href="<%= config.root %>about/">ABOUT ME</a></h5>
                     <div class="short-about">
 
+                       <!-- <img src="<%= config['root'] %><%= config['sidebar-avatar'] %>" /> -->
                         <% if(config['sidebar-avatar']) { %>
-                            <img src="<%= config['root'] %><%= config['sidebar-avatar'] %>" />
+                            <img src="<%= config['sidebar-avatar'] %>" />
                         <% } %>
 
                         <% if(config['sidebar-about-description']) { %>
