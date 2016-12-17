@@ -2,6 +2,7 @@
 title: Git语法
 date: 2016-08-03 16:13:45
 tags: Git
+catalog:    true #显示目录
 categories: Git
 ---
 >本文摘自我的小伙伴[KevinJin](http://littlefisher.coding.me/2016/06/08/git/)

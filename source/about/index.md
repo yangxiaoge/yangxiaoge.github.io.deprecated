@@ -1,5 +1,13 @@
-<!-- 标签 方式，要求版本在0.4.5或以上 -->
-{% centerquote %}爱技术、爱生活。{% endcenterquote %}
+---
+layout: "about"
+title: "About"
+description: "Hey, this is Bruce Yang."
+comments: true
+---
+
+<p style="text-align:center;">
+    爱技术、爱生活。
+</p>
 
 Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息工程大学](http://www.nuist.edu.cn/) · 计算机科学与技术 2015届毕业。
 
@@ -14,7 +22,7 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 喜欢运动，也喜欢户外，登山等等。
 
 
-# 近期准备写几篇文章
+### 近期准备写几篇文章
 - 动态，静态广播注册（检测网络变化）
 - 多语言切换
 - 字体切换的几种方法
