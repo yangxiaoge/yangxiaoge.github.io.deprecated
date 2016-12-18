@@ -75,6 +75,9 @@ friends: [
     },{
         title: "ThemeAuthor's Blog",
         href: "http://blog.kaijun.rocks/"
+    },{
+       title: "KinVinJin",
+       href: "littlefisher.coding.me"
     }
 ]
 
