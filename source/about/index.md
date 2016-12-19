@@ -3,6 +3,7 @@ layout: "about"
 title: "About"
 description: "Hey, this is Bruce Yang."
 comments: true
+header-img: "img/ZTEsoft.jpg"
 ---
 
 <p style="text-align:center;">
