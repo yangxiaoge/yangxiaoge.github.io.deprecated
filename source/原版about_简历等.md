@@ -3,8 +3,6 @@ title: "About"
 layout: "page"
 comments: false
 ---
-<!-- 标签 方式，要求HexoNext主题版本在0.4.5或以上 -->
-<!-- {% centerquote %}爱技术、爱生活。{% endcenterquote %} -->
 
 <p style="text-align:center;">
     爱技术、爱生活。
@@ -25,7 +23,9 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 <br>
 
 
-{% centerquote %}个人简历{% endcenterquote %}
+<p style="text-align:center;">
+    个人简历
+</p>
  
 姓名: 杨加南 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性别：男
 
