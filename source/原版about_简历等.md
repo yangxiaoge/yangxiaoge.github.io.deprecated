@@ -22,7 +22,6 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 
 <br>
 
-
 <p style="text-align:center;">
     个人简历
 </p>
