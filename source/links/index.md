@@ -2,12 +2,8 @@
 layout: "links"
 title: "Links"
 description: "友情链接"
-header-img: "img/tag-bg.jpg"
+header-img: "img/CPU_Beauty.jpg"
 ---
-
-<p style="text-align:center;">
-    挥舞着键盘,玩转世界~~~
-</p>
 
 ## Blog Freinds
 * [LittleFish](http://littlefisher.coding.me/) - 同学同事兼好基友

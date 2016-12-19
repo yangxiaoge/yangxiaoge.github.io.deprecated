@@ -3,6 +3,7 @@ title: Android内存泄漏总结
 date: 2016-10-10 13:29:20
 tags: [内存泄漏]
 categories: Android
+catalog:    true #显示目录
 top: 99
 ---
 
