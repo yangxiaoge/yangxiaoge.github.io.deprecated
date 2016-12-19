@@ -33,6 +33,8 @@ categories: 持续集成
  设置 触发器-push-正则匹配-master, 意思就是当 hexo博客git的master源文件改变时, 就会触发FlowCi的持续集成!
  
 ## 自定义脚本
+这里的 `.daocloud文件夹`(文件夹随便怎么命名)是用来存放`id_rsa`的
+
 ```
 # 安装Hexo命令行工具
 flow_cmd "npm install hexo-cli -g" --echo
