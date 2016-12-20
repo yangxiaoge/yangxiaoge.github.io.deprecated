@@ -6,7 +6,8 @@ header-img: "img/CPU_Beauty.jpg"
 ---
 
 ## Blog Freinds
-* [LittleFish](http://littlefisher.coding.me/) - 同学同事兼好基友
+* [黄玄](https://huangxuan.me/about/) -前端, 人很潮~
+* [技术Young](https://android-notes.github.io)
 * [IIssNan’s Notes](http://notes.iissnan.com/) - NexT主题作者
 * [ARAO’S BLOG](http://www.arao.me/) - hexo-NexT主题优化
 * [drakeet](https://drakeet.me/) - 阿里Android开发者
@@ -44,6 +45,7 @@ header-img: "img/CPU_Beauty.jpg"
 - [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
 - [在线工具](http://tool.lu/) - 常用的在线工具
 - [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
+- [演说](http://yanshuo.io/) -随时随地的在线展示文稿
 	
 --------------------------------
 ## 友情链接添加须知：
