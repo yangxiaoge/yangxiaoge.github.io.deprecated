@@ -10,7 +10,6 @@ tags:
     - 前端开发
     - JavaScript
 ---
->原文地址 [Kaijun's Blog](http://blog.kaijun.rocks/)
 下滑这里查看更多内容
 
 7月9日，我在公司内部进行了名为「JavaScript 模块化七日谈」分享，并将该 Slides 分享到了微博上。出乎意料地，这篇微博先后被 @JS小组 @尤小右 @寸志 等近 200 人转发，阅读达到 10w，获得了还不错的评价。
