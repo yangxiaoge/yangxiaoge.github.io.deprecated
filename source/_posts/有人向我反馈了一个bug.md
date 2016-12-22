@@ -6,7 +6,7 @@ tags: [article]
 本文原文地址 : [Midaoi小站](http://www.midaoi.com/2015/08/28/bug/)
 >前言
 
-这篇文章非常有意思！
+这篇文章非常有意思！ 
 
 > [英文原文 →](http://www.reddit.com/r/ProgrammerHumor/comments/2spd2s/when_someone_gives_you_a_bug_long/)
 
