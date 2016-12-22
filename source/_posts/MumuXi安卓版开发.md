@@ -7,6 +7,12 @@ categories: APP开发记
 
 `这也是自己第一个算是正式的练手App项目`
 
+[MumuXi](https://github.com/yangxiaoge/MumuXi) <iframe
+        style="margin-left: 2px; margin-bottom:-5px;"
+        frameborder="0" scrolling="0" width="91px" height="20px"
+        src="https://ghbtns.com/github-btn.html?user=yangxiaoge&repo=MumuXi&type=star&count=true" >
+</iframe>
+
 `目的:` 督促自己不断积累知识经验。
 下面进入正文
 
@@ -36,7 +42,8 @@ categories: APP开发记
 >经过一个星期的折腾,终于完成了第一个版本,并且试着上架了应用商城! O(∩_∩)O~~
 
 ## 下载
-<a href="http://fir.im/sq2t" target="_blank" alt="Fir"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f802wvh1s2j203301cq2q.jpg"/></a>
+
+<a href="http://fir.im/mumuxi" target="_blank" alt="Fir"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f802wvh1s2j203301cq2q.jpg"/></a>
 
 <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.yang.bruce.mumuxi" target="_blank" alt="应用宝"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f5pv5t3kwwj203w01jglf.jpg"/></a>
 
