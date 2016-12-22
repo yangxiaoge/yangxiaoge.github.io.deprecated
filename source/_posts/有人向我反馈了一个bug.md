@@ -8,9 +8,8 @@ tags: [article]
 
 这篇文章非常有意思！
 
-> 英文原文
+> [英文原文 →](http://www.reddit.com/r/ProgrammerHumor/comments/2spd2s/when_someone_gives_you_a_bug_long/)
 
-http://www.reddit.com/r/ProgrammerHumor/comments/2spd2s/when_someone_gives_you_a_bug_long/
 <!--more-->
 //我是一个Android开发者，但我想这个故事对任何开发者都会引起共鸣的
 
