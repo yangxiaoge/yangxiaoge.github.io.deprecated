@@ -25,6 +25,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [Xesam](http://xesam.github.io/tag/android/) - 靠谱的娱乐型程序员
 * [楚韵江南](http://chuyun.github.io/)
 * [张涛-开源实验室](http://www.kymjs.com/works/)
+* [Gitlee李家泉](https://www.gitlee.com/about/) - 兴趣广
 	
 -------------------------------
 ## A collection of links
