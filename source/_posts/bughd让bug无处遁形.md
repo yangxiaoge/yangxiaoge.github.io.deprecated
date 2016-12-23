@@ -8,7 +8,7 @@ categories: BugHD
 [BugHD](http://bughd.com/product/android) 帮助 `Android开发`, 崩溃分析 & 检测更新& 开放 API。
 
 *如何在app中配置？* [*详见官方文档*](http://bughd.com/doc/android)
->[MumuXi](https://github.com/yangxiaoge/MumuXi)app中已经配置好了,可以供参考
+>[MumuXi](https://github.com/yangxiaoge/MumuXi)项目中已经配置好了,可以供参考
 
 集成到app中分为如下几步:
 
