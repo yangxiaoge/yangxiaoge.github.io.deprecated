@@ -26,6 +26,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [楚韵江南](http://chuyun.github.io/)
 * [张涛-开源实验室](http://www.kymjs.com/works/)
 * [Gitlee李家泉](https://www.gitlee.com/resource/) - 兴趣广
+* [edolphin](http://edolphin.site/archives/) - ubuntu搜狗输入法，idea下无法输入中文
 	
 -------------------------------
 ## A collection of links
