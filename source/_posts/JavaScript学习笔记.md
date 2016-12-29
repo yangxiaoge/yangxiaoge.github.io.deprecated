@@ -4,7 +4,7 @@ title:   JavaScript学习笔记
 date:    2016-12-29 09:34:01
 author:     "Bruce Yang"
 catalog:    true
-header-img: "post-bg-js-module.jpg"
+header-img: "vallehermoso_spain_from_google_earth.jpg"
 tags:
     - 前端开发
     - JavaScript
