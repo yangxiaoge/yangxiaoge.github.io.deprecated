@@ -20,7 +20,7 @@ permalink_defaults:
 
 # Site settings
 SEOTitle: 珠珠のBlog
-header-img: img/fir.im_2.png       # home-bg.jpg 
+header-img: img/home-bg.jpg       # home-bg.jpg 
 email: yang.jianan0926@gmail.com
 description: hey, guays!	#网站描述
 keyword: ""
@@ -33,7 +33,7 @@ weibo_username:     3227182774
 github_username:    yangxiaoge
 twitter_username:   wangmengzhuzhu
 #facebook_username:  demonbane.cn
-#linkedin_username:  zhuzhu
+linkedin_username:  加南-杨-881aab132
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
