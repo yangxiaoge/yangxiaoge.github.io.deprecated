@@ -17,6 +17,28 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/)
 
 **主要的配置项**:
+17. 直接跳转博客内静态 html 网站
+在开头加上 
+```
+layout: false
+---
+```
+即如下写法:
+```
+layout: false
+---
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>我的演说 - @演说.io</title>
+  </head>
+  <body>
+  .....
+  </body>
+</html>
+```
+
 16. [站内搜索](http://theme-next.iissnan.com/third-party-services.html#search-system) (add 2016-9-30 14:38:13)
 
 	- 安装 `hexo-generator-search`，在站点的根目录下执行以下命令：
