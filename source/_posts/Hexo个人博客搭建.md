@@ -17,7 +17,7 @@ categories: Hexo
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/)
 
 **主要的配置项**:
-17. 直接跳转博客内静态 html 网站
+17. 直接跳转博客内静态 html 网站,[详情→](https://segmentfault.com/q/1010000002564944/a-1020000002564987)
 在开头加上 
 ```
 layout: false
