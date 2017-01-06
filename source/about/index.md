@@ -28,6 +28,8 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 - 多语言切换
 - 字体切换的几种方法
 - 动态权限
+- [《云阅》一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目](http://www.jianshu.com/p/69a229fb6e1d)
+- [AndroidStudio——Freeline的使用---郭霖公众号](http://mp.weixin.qq.com/s?src=3&timestamp=1483666843&ver=1&signature=zR52bjDsQCSKP-ewe*PItW3c-OROqQEAAbeZ79d*dkIJO1Nu7Awvd4kHAsLtrB-uOTk2lVQuYmCG1H6*WtLkP0PkZeVAc9KS5W*81LSB2Pdxjd0SwjT8EKPAhJjCI-N4CKn*eIT51oa8L8Fo7mvqx8vaAvETHCvfDo9AHySkcTU=)
 
 <!-- data-num-items代表需要展示的访客数 -->
 > 最近访客
