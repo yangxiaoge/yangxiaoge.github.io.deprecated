@@ -5,6 +5,23 @@ tags: Android
 categories: Android
 top: 100
 ---
+## 返回键 app切换至后台
+```
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                // 不退出程序，进入后台
+                moveTaskToBack(true);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+```
+
 ## 调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)
 
 ```
