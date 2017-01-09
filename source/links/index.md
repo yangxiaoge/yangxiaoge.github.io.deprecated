@@ -28,6 +28,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [Gitlee李家泉](https://www.gitlee.com/resource/) - 兴趣广
 * [edolphin](http://edolphin.site/archives/) - ubuntu搜狗输入法，idea下无法输入中文
 * [luckykun](http://luckykun.com/work/2016-07-23/css3-study02.html) - js 酷炫demo
+* [Tinker](http://w4lle.github.io/2017/01/05/one-key-for-tinker/)  - 一键接入Tinker
 	
 -------------------------------
 ## A collection of links
