@@ -42,6 +42,7 @@ header-img: "img/CPU_Beauty.jpg"
 - [玩Android](http://www.xueandroid.com/) - 鸿洋维护的Android学习网站
 - [木水川](http://mushuichuan.com/archives/)
 - [贾鹏辉的技术博客](http://www.devio.org/) - TakePhoto框架作者,Android大神
+- [江清清的React Native教程技术专栏](http://www.lcode.org/)
 	
 -------------------------------
 
