@@ -43,11 +43,15 @@ header-img: "img/CPU_Beauty.jpg"
 - [玩Android](http://www.xueandroid.com/) - 鸿洋维护的Android学习网站
 - [木水川](http://mushuichuan.com/archives/)
 - [贾鹏辉的技术博客](http://www.devio.org/) - crazycodeboy, TakePhoto框架作者, Android大神, [React Native](https://github.com/crazycodeboy/RNStudyNotes)
-- [高仿掘金-React Native](https://github.com/wangdicoder/JueJinClient)
 - [江清清的React Native教程技术专栏](http://www.lcode.org/)
 	
 -------------------------------
+## React Native (是时候学习一波了！)
+- [crazycodeboy的React Native总结](https://github.com/crazycodeboy/RNStudyNotes)
+- [高仿掘金-React Native](http://blog.csdn.net/w337198302/article/details/53225051)
+- [React Native开发工具配置](https://github.com/le0zh/blog/issues/1)
 
+-------------------------------
 ## Tools website
 - [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
 - [在线工具](http://tool.lu/) - 常用的在线工具
