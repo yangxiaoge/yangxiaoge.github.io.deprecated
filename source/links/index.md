@@ -42,7 +42,8 @@ header-img: "img/CPU_Beauty.jpg"
 - [泡在网上的日子](http://www.jcodecraeer.com/plus/list.php?tid=18) - 做最好的移动开发社区
 - [玩Android](http://www.xueandroid.com/) - 鸿洋维护的Android学习网站
 - [木水川](http://mushuichuan.com/archives/)
-- [贾鹏辉的技术博客](http://www.devio.org/) - TakePhoto框架作者,Android大神
+- [贾鹏辉的技术博客](http://www.devio.org/) - crazycodeboy, TakePhoto框架作者, Android大神, [React Native](https://github.com/crazycodeboy/RNStudyNotes)
+- [高仿掘金-React Native](https://github.com/wangdicoder/JueJinClient)
 - [江清清的React Native教程技术专栏](http://www.lcode.org/)
 	
 -------------------------------
