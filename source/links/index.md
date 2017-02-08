@@ -34,6 +34,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [Tinker](http://w4lle.github.io/2017/01/05/one-key-for-tinker/)  - 一键接入Tinker
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
 * [Shinelw Blog](http://shinelw.com/) - android
+- [Werb](http://werb.github.io/) - android视频音频,python打包apk等
 	
 -------------------------------
 ## A collection of links
@@ -48,12 +49,15 @@ header-img: "img/CPU_Beauty.jpg"
 - [木水川](http://mushuichuan.com/archives/)
 - [贾鹏辉的技术博客](http://www.devio.org/) - crazycodeboy, TakePhoto框架作者, Android大神, [React Native](https://github.com/crazycodeboy/RNStudyNotes)
 - [江清清的React Native教程技术专栏](http://www.lcode.org/)
+- [Android开发人员不得不收集的代码(持续更新中)](https://github.com/yangxiaoge/AndroidUtilCode)
+- [工具类之NetworkUtils](http://www.jianshu.com/p/fa877daf7406) - 网络工具类
 
 -------------------------------
 ## 不错的开源项目及技术
 - [《云阅》一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目](http://www.jianshu.com/p/69a229fb6e1d)
 - [高仿微信6.3.31](https://github.com/GitLqr/LQRWeChat)
 ![](/img/高仿微信.gif)
+- [android各种流程源码解析](http://blog.csdn.net/qq_17250009)
 - [AndroidStudio——Freeline的使用---郭霖公众号](http://mp.weixin.qq.com/s?src=3&timestamp=1483666843&ver=1&signature=zR52bjDsQCSKP-ewe*PItW3c-OROqQEAAbeZ79d*dkIJO1Nu7Awvd4kHAsLtrB-uOTk2lVQuYmCG1H6*WtLkP0PkZeVAc9KS5W*81LSB2Pdxjd0SwjT8EKPAhJjCI-N4CKn*eIT51oa8L8Fo7mvqx8vaAvETHCvfDo9AHySkcTU=)
 	
 -------------------------------
