@@ -30,6 +30,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [luckykun](http://luckykun.com/work/2016-07-23/css3-study02.html) - js 酷炫demo
 * [Tinker](http://w4lle.github.io/2017/01/05/one-key-for-tinker/)  - 一键接入Tinker
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
+* [Shinelw Blog](http://shinelw.com/) - android
 	
 -------------------------------
 ## A collection of links
