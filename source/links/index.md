@@ -4,6 +4,8 @@ title: "Links"
 description: "友情链接"
 header-img: "img/CPU_Beauty.jpg"
 ---
+## Winter is coming
+* [Android 渡过寒冬需要掌握知识](http://pan.baidu.com/s/1c1WGbs8) - 紧急任务！
 
 ## Blog Freinds
 * [黄玄](https://huangxuan.me/about/) -前端, 人很潮~
@@ -45,6 +47,13 @@ header-img: "img/CPU_Beauty.jpg"
 - [木水川](http://mushuichuan.com/archives/)
 - [贾鹏辉的技术博客](http://www.devio.org/) - crazycodeboy, TakePhoto框架作者, Android大神, [React Native](https://github.com/crazycodeboy/RNStudyNotes)
 - [江清清的React Native教程技术专栏](http://www.lcode.org/)
+
+-------------------------------
+## 不错的开源项目及技术
+- [《云阅》一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目](http://www.jianshu.com/p/69a229fb6e1d)
+- [高仿微信6.3.31](https://github.com/GitLqr/LQRWeChat)
+![](/img/高仿微信.gif)
+- [AndroidStudio——Freeline的使用---郭霖公众号](http://mp.weixin.qq.com/s?src=3&timestamp=1483666843&ver=1&signature=zR52bjDsQCSKP-ewe*PItW3c-OROqQEAAbeZ79d*dkIJO1Nu7Awvd4kHAsLtrB-uOTk2lVQuYmCG1H6*WtLkP0PkZeVAc9KS5W*81LSB2Pdxjd0SwjT8EKPAhJjCI-N4CKn*eIT51oa8L8Fo7mvqx8vaAvETHCvfDo9AHySkcTU=)
 	
 -------------------------------
 ## React Native (是时候学习一波了！)
