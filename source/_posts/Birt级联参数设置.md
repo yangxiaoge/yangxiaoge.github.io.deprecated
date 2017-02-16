@@ -3,6 +3,7 @@ title: Birt级联参数设置
 date: 2015-09-06 16:05:45
 tags: Birt
 categories: Birt
+catalog:    true #显示目录
 ---
 ![](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f3lr2a94s9j20sg0c6wlh.jpg)
 `级联查询`步骤:

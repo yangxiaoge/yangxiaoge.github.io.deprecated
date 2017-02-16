@@ -34,7 +34,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [Tinker](http://w4lle.github.io/2017/01/05/one-key-for-tinker/)  - 一键接入Tinker
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
 * [Shinelw Blog](http://shinelw.com/) - android
-- [Werb](http://werb.github.io/) - android视频音频,python打包apk等
+* [Werb](http://werb.github.io/) - android视频音频,python打包apk等
 	
 -------------------------------
 ## A collection of links

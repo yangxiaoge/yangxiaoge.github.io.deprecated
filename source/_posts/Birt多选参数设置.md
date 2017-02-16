@@ -3,6 +3,7 @@ title: Birt多选参数设置
 date: 2015-09-06 15:38:39
 tags: Birt
 categories: Birt
+catalog:    true #显示目录
 ---
 
 > 网上相关的资料少之又少,某度搜的博客更是不能信(互相抄)!

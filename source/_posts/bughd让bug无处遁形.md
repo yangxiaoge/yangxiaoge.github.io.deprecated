@@ -3,6 +3,7 @@ title: bughd让bug无处遁形
 date: 2016-08-17 09:21:05
 tags: Android
 categories: BugHD
+catalog:    true #显示目录
 ---
 
 [BugHD](http://bughd.com/product/android) 帮助 `Android开发`, 崩溃分析 & 检测更新& 开放 API。

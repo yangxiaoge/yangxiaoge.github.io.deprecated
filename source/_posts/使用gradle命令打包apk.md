@@ -3,6 +3,7 @@ title: 使用gradle命令打包apk
 date: 2016-05-16 19:04:04
 tags: [Gradle,Android,Android Studio]
 categories: Android
+catalog:    true #显示目录
 ---
 
 # 前言
