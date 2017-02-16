@@ -70,17 +70,17 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "wangmz's Blog",
+        title: "Zz's Blog",
         href: "https://zhuzhuyang.github.io/"
     },{
-        title: "ThemeAuthor",
-        href: "http://blog.kaijun.rocks/"
-    },{
-        title: "KinVinJin",
+        title: "靳基友",
         href: "https://littlefisher.coding.me/"
     },{
         title: "Kevin",
         href: "https://yoloooooooo.coding.me/"
+    },{
+        title: "Theme Author",
+        href: "http://blog.kaijun.rocks/"
     }
 ]
 
@@ -145,7 +145,7 @@ theme: huxblog
 deploy:
   type: git
   repo: 
-    #注释掉 github, 默认用 coding, 一起使用了.
+    #发布到github, coding.
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
     coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
 	
