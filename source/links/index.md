@@ -51,10 +51,18 @@ header-img: "img/CPU_Beauty.jpg"
 - [江清清的React Native教程技术专栏](http://www.lcode.org/)
 - [Android开发人员不得不收集的代码(持续更新中)](https://github.com/yangxiaoge/AndroidUtilCode)
 - [工具类之NetworkUtils](http://www.jianshu.com/p/fa877daf7406) - 网络工具类
+- [给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_1) by [`扔物线`](https://github.com/rengwuxian)
+- 使用CheckStyle检查代码(http://gudong.name/2016/04/07/checkstyle.html)
+- [Android 名企面试题及涉及知识点整理](https://github.com/Mr-YangCheng/ForAndroidInterview)
+- [Android进阶-吹牛专用_stormzhang大神所写,哈哈](https://segmentfault.com/a/1190000000609851)
+- [Android官方培训课程中文版](http://hukai.me/android-training-course-in-chinese/index.html)
 
 -------------------------------
 ## 不错的开源项目及技术
+- [Android 直播播放器+弹幕使用总结](http://www.jianshu.com/p/a5981b8d601b) - 2017年2月16日16:02:06
+![](/img/直播+弹幕.gif)
 - [《云阅》一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目](http://www.jianshu.com/p/69a229fb6e1d)
+![](/img/云阅.gif)
 - [高仿微信6.3.31](https://github.com/GitLqr/LQRWeChat)
 ![](/img/高仿微信.gif)
 - [android各种流程源码解析](http://blog.csdn.net/qq_17250009)
@@ -73,6 +81,10 @@ header-img: "img/CPU_Beauty.jpg"
 - [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
 - [演说](http://yanshuo.io/) -随时随地的在线展示文稿
 	
+--------------------------------
+## 轻松一刻
+- [小彤花园](http://www.jianshu.com/u/4a4eb4feee62)
+
 --------------------------------
 ## 友情链接添加须知：
 - 必须为合法的、内容健康向上的网站；
