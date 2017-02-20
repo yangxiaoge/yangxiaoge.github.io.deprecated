@@ -61,6 +61,7 @@ header-img: "img/CPU_Beauty.jpg"
 
 -------------------------------
 ## 不错的开源项目及技术
+- [打不死的小强,永不crash的Android](https://github.com/android-notes/Cockroach)
 - [Fragmentation](https://github.com/YoKeyword/Fragmentation)一个强大的Android Fragment管理库,[apk下载](https://coding.net/s/fc98d9bb-d7a5-4911-b6de-0bdef0e12113) - 2017年2月20日09:54:56
 - [Android 直播播放器+弹幕使用总结](http://www.jianshu.com/p/a5981b8d601b) - 2017年2月16日16:02:06
 ![](/img/直播+弹幕.gif)
