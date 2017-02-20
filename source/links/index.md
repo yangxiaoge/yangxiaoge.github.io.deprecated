@@ -6,7 +6,8 @@ header-img: "img/CPU_Beauty.jpg"
 ---
 ## Winter is coming
 * [Android 渡过寒冬需要掌握知识](http://pan.baidu.com/s/1c1WGbs8) - 紧急任务！
-* UI(View的绘制、View的布局、View的触摸反馈)，网络(Http、TCP/IP的原理)，线程(线程、线程池的原理、Handler的原理、AsyncTask的原理)
+* UI(View的绘制、View的布局、View的触摸反馈)，网络(Http、TCP/IP的原理)，线程(线程、线程池的原理、Handler的原理、AsyncTask的原理), 三方源码浅析
+* Java基础回顾
 
 ## Blog Freinds
 * [黄玄](https://huangxuan.me/about/) -前端, 人很潮~
