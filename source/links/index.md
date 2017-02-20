@@ -36,6 +36,7 @@ header-img: "img/CPU_Beauty.jpg"
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
 * [Shinelw Blog](http://shinelw.com/) - android
 * [Werb](http://werb.github.io/) - android视频音频,python打包apk等
+* [半栈工程师](https://halfstackdeveloper.github.io/) - 滑动卡片, 悬浮球, JVM, HotFix...
 	
 -------------------------------
 ## A collection of links
