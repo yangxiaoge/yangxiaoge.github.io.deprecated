@@ -86,17 +86,9 @@ header-img: "img/CPU_Beauty.jpg"
 ## 不错的开源项目及技术
 - [开源项目收集 - 后续直接在这里更新开源项目](http://yangxiaoge.coding.me/2016/09/14/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86/)
 - [干货集中营Gank.io](http://gank.io/)
-- [wuchangfeng/one 后台用python抓数据存储在LeanCloud ](https://github.com/wuchangfeng/one) - [对应的后端](https://github.com/wuchangfeng/vino-crawlers)
-- [打不死的小强,永不crash的Android](https://github.com/android-notes/Cockroach)
-- [Fragmentation](https://github.com/YoKeyword/Fragmentation)一个强大的Android Fragment管理库,[apk下载](https://coding.net/s/fc98d9bb-d7a5-4911-b6de-0bdef0e12113) - 2017年2月20日09:54:56
-- [Android 直播播放器+弹幕使用总结](http://www.jianshu.com/p/a5981b8d601b) - 2017年2月16日16:02:06
-![](/img/直播+弹幕.gif)
-- [《云阅》一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目](http://www.jianshu.com/p/69a229fb6e1d)
-![](/img/云阅.gif)
-- [高仿微信6.3.31](https://github.com/GitLqr/LQRWeChat)
-![](/img/高仿微信.gif)
-- [android各种流程源码解析](http://blog.csdn.net/qq_17250009)
-- [AndroidStudio——Freeline的使用---郭霖公众号](http://mp.weixin.qq.com/s?src=3&timestamp=1483666843&ver=1&signature=zR52bjDsQCSKP-ewe*PItW3c-OROqQEAAbeZ79d*dkIJO1Nu7Awvd4kHAsLtrB-uOTk2lVQuYmCG1H6*WtLkP0PkZeVAc9KS5W*81LSB2Pdxjd0SwjT8EKPAhJjCI-N4CKn*eIT51oa8L8Fo7mvqx8vaAvETHCvfDo9AHySkcTU=)
+- [阿里技术沙龙](http://club.alibabatech.org/)
+- [美图技术Blog](http://tech.meituan.com/)
+- [腾讯AlloyTeam Blog](http://www.alloyteam.com/)
 	
 --------------------------------
 ## 轻松一刻
