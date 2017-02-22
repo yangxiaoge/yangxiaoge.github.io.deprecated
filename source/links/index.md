@@ -4,13 +4,36 @@ title: "Links"
 description: "友情链接"
 header-img: "img/CPU_Beauty.jpg"
 ---
+<center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
+
+## PWA
+- [下一代 Web 应用模型 —— Progressive Web App](http://huangxuan.me/2017/02/09/nextgen-web-pwa/)
+
+--------------------------------
 ## Winter is coming
 * [Android 渡过寒冬需要掌握知识](http://pan.baidu.com/s/1c1WGbs8) - 紧急任务！
 * UI(View的绘制、View的布局、View的触摸反馈)，网络(Http、TCP/IP的原理)，线程(线程、线程池的原理、Handler的原理、AsyncTask的原理), 三方源码浅析
-* Java基础回顾
+* [Java基础回顾](http://blog.csdn.net/dd864140130/article/details/55833087)
+* [Android回顾](https://www.diycode.cc/topics/615)
 
-## Blog Freinds
-* [黄玄](https://huangxuan.me/about/) -前端, 人很潮~
+-------------------------------
+## React Native (是时候学习一波了！)
+- [涩郎React-Native](http://godcoder.me/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/React-Native/)
+- [crazycodeboy的React Native总结](https://github.com/crazycodeboy/RNStudyNotes)
+- [高仿掘金-React Native](http://blog.csdn.net/w337198302/article/details/53225051)
+- [React Native开发工具配置](https://github.com/le0zh/blog/issues/1)
+
+-------------------------------
+## Tools website
+- [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
+- [在线工具](http://tool.lu/) - 常用的在线工具
+- [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
+- [演说](http://yanshuo.io/) -随时随地的在线展示文稿
+
+--------------------------------
+## Nice Blog
+* [一个五年Android开发者百度、阿里、聚美、映客的面试心经](http://gdky005.com/2016/07/08/%E4%B8%80%E4%B8%AA%E4%BA%94%E5%B9%B4Android%E5%BC%80%E5%8F%91%E8%80%85%E7%99%BE%E5%BA%A6%E3%80%81%E9%98%BF%E9%87%8C%E3%80%81%E8%81%9A%E7%BE%8E%E3%80%81%E6%98%A0%E5%AE%A2%E7%9A%84%E9%9D%A2%E8%AF%95%E5%BF%83%E7%BB%8F/) - 前人指路
+* [黄玄](https://huangxuan.me/about/) -前端
 * [技术Young](https://android-notes.github.io)
 * [IIssNan’s Notes](http://notes.iissnan.com/) - NexT主题作者
 * [ARAO’S BLOG](http://www.arao.me/) - hexo-NexT主题优化
@@ -61,6 +84,9 @@ header-img: "img/CPU_Beauty.jpg"
 
 -------------------------------
 ## 不错的开源项目及技术
+- [开源项目收集 - 后续直接在这里更新开源项目](http://yangxiaoge.coding.me/2016/09/14/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86/)
+- [干货集中营Gank.io](http://gank.io/)
+- [wuchangfeng/one 后台用python抓数据存储在LeanCloud ](https://github.com/wuchangfeng/one) - [对应的后端](https://github.com/wuchangfeng/vino-crawlers)
 - [打不死的小强,永不crash的Android](https://github.com/android-notes/Cockroach)
 - [Fragmentation](https://github.com/YoKeyword/Fragmentation)一个强大的Android Fragment管理库,[apk下载](https://coding.net/s/fc98d9bb-d7a5-4911-b6de-0bdef0e12113) - 2017年2月20日09:54:56
 - [Android 直播播放器+弹幕使用总结](http://www.jianshu.com/p/a5981b8d601b) - 2017年2月16日16:02:06
@@ -72,25 +98,6 @@ header-img: "img/CPU_Beauty.jpg"
 - [android各种流程源码解析](http://blog.csdn.net/qq_17250009)
 - [AndroidStudio——Freeline的使用---郭霖公众号](http://mp.weixin.qq.com/s?src=3&timestamp=1483666843&ver=1&signature=zR52bjDsQCSKP-ewe*PItW3c-OROqQEAAbeZ79d*dkIJO1Nu7Awvd4kHAsLtrB-uOTk2lVQuYmCG1H6*WtLkP0PkZeVAc9KS5W*81LSB2Pdxjd0SwjT8EKPAhJjCI-N4CKn*eIT51oa8L8Fo7mvqx8vaAvETHCvfDo9AHySkcTU=)
 	
--------------------------------
-## React Native (是时候学习一波了！)
-- [crazycodeboy的React Native总结](https://github.com/crazycodeboy/RNStudyNotes)
-- [高仿掘金-React Native](http://blog.csdn.net/w337198302/article/details/53225051)
-- [React Native开发工具配置](https://github.com/le0zh/blog/issues/1)
-
--------------------------------
-## Tools website
-- [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
-- [在线工具](http://tool.lu/) - 常用的在线工具
-- [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
-- [演说](http://yanshuo.io/) -随时随地的在线展示文稿
-	
 --------------------------------
 ## 轻松一刻
 - [小彤花园](http://www.jianshu.com/u/4a4eb4feee62)
-
---------------------------------
-## 友情链接添加须知：
-- 必须为合法的、内容健康向上的网站；
-- 只接受文字链接，并写好网站介绍；
-- 友情连接是双方站点寻求共同发展、互助互利的方式；
