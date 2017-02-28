@@ -19,7 +19,7 @@ tags: [Java, Android]
 
 ## 3. Glide, Picasso原理?
 
-## 4. 事件传递机制?(参考郭霖博客)
+## 4. 事件传递机制?(参考[郭霖事件分发博客](http://blog.csdn.net/guolin_blog/article/details/9097463/))
 
 ## 5. Okhttp原理,优点
 
