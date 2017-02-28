@@ -21,7 +21,7 @@ tags: [Java, Android]
 
 ## 4. 事件传递机制?(参考[郭霖事件分发博客](http://blog.csdn.net/guolin_blog/article/details/9097463/))
 
-## 5. Okhttp原理,优点
+## 5. Okhttp原理,优点 
 
 ## 6. [内存泄漏全解析](http://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650238704&idx=1&sn=ad334840afdc2d9bdb8215e9f942e54e&scene=0#wechat_redirect)
 
