@@ -68,6 +68,7 @@ header-img: "img/CPU_Beauty.jpg"
 	
 -------------------------------
 ## A collection of links
+- [MIUI系统工程师Gityuan](http://gityuan.com/about/) - 基于Android 6.0的源码，专注于分享Android系统原理、架构分析的原创文章
 - [主席](https://github.com/singwhatiwanna), 微博[任玉刚Coder](http://weibo.com/uc83018062?is_hot=1) - 《Android开发艺术探索》作者
 - [廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) - Python教程讲解的浅显易懂适合初学者
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
