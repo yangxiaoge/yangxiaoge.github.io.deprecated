@@ -32,6 +32,8 @@ header-img: "img/CPU_Beauty.jpg"
 
 --------------------------------
 ## Nice Blog
+* [《Android开发艺术探索》读书笔记](https://hujiaweibujidao.github.io/blog/2015/12/05/art-of-android-development-reading-notes/)
+* [Android样式的开发](http://keeganlee.me/post/android/20150830)- shape、selector、layer-list、level-list、style等
 * [南尘](http://www.cnblogs.com/liushilin) - [内存泄漏全解析](http://www.cnblogs.com/liushilin/p/5900089.html), [Retrofit](http://www.cnblogs.com/liushilin/p/6164901.html)
 * [一个五年Android开发者百度、阿里、聚美、映客的面试心经](http://gdky005.com/2016/07/08/%E4%B8%80%E4%B8%AA%E4%BA%94%E5%B9%B4Android%E5%BC%80%E5%8F%91%E8%80%85%E7%99%BE%E5%BA%A6%E3%80%81%E9%98%BF%E9%87%8C%E3%80%81%E8%81%9A%E7%BE%8E%E3%80%81%E6%98%A0%E5%AE%A2%E7%9A%84%E9%9D%A2%E8%AF%95%E5%BF%83%E7%BB%8F/) - 前人指路
 * [吴长锋](http://allenwu.itscoder.com/Arts-Development-of-Android-12) - android, python
@@ -66,6 +68,7 @@ header-img: "img/CPU_Beauty.jpg"
 	
 -------------------------------
 ## A collection of links
+- [主席](https://github.com/singwhatiwanna), 微博[任玉刚Coder](http://weibo.com/uc83018062?is_hot=1) - 《Android开发艺术探索》作者
 - [廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) - Python教程讲解的浅显易懂适合初学者
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
 - [郭霖](http://blog.csdn.net/guolin_blog/article/details/9097463/) - 国内Android开发大牛,跟鸿洋搅基~~
