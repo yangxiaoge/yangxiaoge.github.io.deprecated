@@ -22,7 +22,7 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 
 一些作品和开源项目，👉 戳 [Mumuxi](https://github.com/yangxiaoge/MumuXi) 与 [Github](https://github.com/yangxiaoge)。
 
-喜欢听歌，喜欢的歌手有 **陈奕迅** **林宥嘉** **周杰伦** **王菲** **刘德华** **薛之谦**，[我的网易云音乐。](http://music.163.com/#/user/home?id=72955955)
+喜欢听歌，喜欢的歌手有 **陈奕迅** **林宥嘉** **周杰伦** **王菲** **刘德华** **薛之谦**，[我的网易云音乐](http://music.163.com/#/user/home?id=72955955)。
 
 喜欢运动，也喜欢户外，登山等等。
 
