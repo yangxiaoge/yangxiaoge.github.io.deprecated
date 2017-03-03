@@ -96,6 +96,7 @@ header-img: "img/CPU_Beauty.jpg"
 - [阿里技术沙龙](http://club.alibabatech.org/)
 - [美图技术Blog](http://tech.meituan.com/)
 - [腾讯AlloyTeam Blog](http://www.alloyteam.com/)
+- [这是一个整理即时通讯（IM）和社交系统（SNS）优秀开源项目](https://github.com/yangxiaoge/Perfect_IM_SNS)
 	
 --------------------------------
 ## 轻松一刻
