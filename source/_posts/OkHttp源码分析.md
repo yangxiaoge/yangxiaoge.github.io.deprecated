@@ -1,0 +1,381 @@
+---
+title: 深入浅出 OkHttp 源码
+date: 2017-03-06 15:29:20
+tags: [Android]
+catalog:   true #显示目录
+---
+> 本文转载 [JayFang-OkHttp源码分析](https://blog.fangjie.info/2017/03/05/OkHttp%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
+
+`OkHttp3`是`Square`出品的高质量Http网络请求库，目前在GitHub上的star数超过17000。很多Android项目的网络组件都是基于OkHttp封装的，还有著名的`Retrofit`也是基于OkHttp封装的。
+## OkHttp的基本使用
+```
+OkHttpClient client = new OkHttpClient();
+Request request = new Request.Builder()
+    .url(ENDPOINT)
+    .build();
+//同步请求    
+Response response = client.newCall(request).execute();
+//异步请求
+client.newCall(request).enqueue(new Callback() {
+  @Override
+  public void onFailure(Call call, IOException e) {
+
+  }
+
+  @Override
+  public void onResponse(Call call, Response response) throws IOException {
+
+  }
+});
+```
+最基本的用法就是先创建一个OkHttpClient，然后build出一个Requset对象，最后发送请求，可以是同步请求，也可以是异步请求。使用起来很简单，但背后是怎么实现的，下面从源码层面来分析下。
+
+## OkHttp 调用流程
+OkHttp内部调用流程图
+![](/img/okhttp/1.jpg)
+### 第一步: new OkHttpClient(Builder)
+```
+//OkHttpClient.java
+public OkHttpClient() {
+    this(new Builder());
+}
+OkHttpClient(Builder builder) {
+    this.dispatcher = builder.dispatcher;
+    this.proxy = builder.proxy;
+    this.protocols = builder.protocols;
+    this.connectionSpecs = builder.connectionSpecs;
+    this.interceptors = Util.immutableList(builder.interceptors);
+    this.networkInterceptors = Util.immutableList(builder.networkInterceptors);
+    ......
+    this.readTimeout = builder.readTimeout;
+    this.writeTimeout = builder.writeTimeout;
+    this.pingInterval = builder.pingInterval;
+}
+```
+这里创建了一个默认的OkHttpCient.Builder，用于配置各种参数。
+
+### 第二步:okhttpclient.newCall(request)
+```
+//OkHttpClient.java
+@Override public Call newCall(Request request) {
+return new RealCall(this, request, false /* for web socket */);
+}
+//RealCall.java
+RealCall(OkHttpClient client, Request originalRequest, boolean forWebSocket) {
+    this.client = client;
+    this.originalRequest = originalRequest;
+    this.forWebSocket = forWebSocket;
+    this.retryAndFollowUpInterceptor = new RetryAndFollowUpInterceptor(client, forWebSocket);
+}
+```
+这里用request对象创建了一个RealCall对象，把一些参数传到RealCall。
+
+### 第三步:execute() or enqueue()
+```
+//RealCall.java
+@Override public Response execute() throws IOException {
+synchronized (this) {
+  if (executed) throw new IllegalStateException("Already Executed");
+  executed = true;
+}
+captureCallStackTrace();
+try {
+  client.dispatcher().executed(this);
+  //核心的函数
+  Response result = getResponseWithInterceptorChain();
+  if (result == null) throw new IOException("Canceled");
+  return result;
+} finally {
+  client.dispatcher().finished(this);
+}
+}
+```
+同步请求，很直接就调用到了最核心的函数getResponseWithInterceptorChain()。再看下异步请求。
+```
+//RealCall.java
+  @Override public void enqueue(Callback responseCallback) {
+    synchronized (this) {
+      if (executed) throw new IllegalStateException("Already Executed");
+      executed = true;
+    }
+    captureCallStackTrace();
+    client.dispatcher().enqueue(new AsyncCall(responseCallback));
+  }
+```
+而异步请求，将用户接口的responseCallback对象封装成一个AsyncCall对象提交给Dispather来处理，这里的AsyncCall是RealCall的一个内部类。再看下这个Dispather怎么处理这个AsyncCall的。
+```
+//Dispatcher.java
+synchronized void enqueue(AsyncCall call) {
+if (runningAsyncCalls.size() < maxRequests && runningCallsForHost(call) < maxRequestsPerHost) {
+  runningAsyncCalls.add(call);
+  executorService().execute(call);
+} else {
+  readyAsyncCalls.add(call);
+}
+}
+```
+Dispather管理了一些请求队列，如果正在执行的异步请求没有达到上限，就直接将这个请求提交给线程池，否则加入到等待队列中。而且这里直接把AsyncCall的对象给了线程池，其实这个AsyncCall就是一个Runnable的实现类。
+```
+//RealCall.java
+final class AsyncCall extends NamedRunnable {
+    private final Callback responseCallback;
+
+    AsyncCall(Callback responseCallback) {
+      super("OkHttp %s", redactedUrl());
+      this.responseCallback = responseCallback;
+    }
+    ......
+    @Override protected void execute() {
+      boolean signalledCallback = false;
+      try {
+        Response response = getResponseWithInterceptorChain();
+        if (retryAndFollowUpInterceptor.isCanceled()) {
+          signalledCallback = true;
+          responseCallback.onFailure(RealCall.this, new IOException("Canceled"));
+        } else {
+          signalledCallback = true;
+          responseCallback.onResponse(RealCall.this, response);
+        }
+      } catch (IOException e) {
+        if (signalledCallback) {
+          // Do not signal the callback twice!
+          Platform.get().log(INFO, "Callback failure for " + toLoggableString(), e);
+        } else {
+          responseCallback.onFailure(RealCall.this, e);
+        }
+      } finally {
+        client.dispatcher().finished(this);
+      }
+    }
+  }
+```
+`AsyncCall`父类的`run()`方法会调用抽象方法`execute()`，也就是将在Dispather里的线程池执行AsyncCall对象的时候，就会执行到`execute()`，在这个方法里同样调用了核心的网络请求方法`getResponseWithInterceptorChain()`。
+而且在`execute()`里会回调用户接口`responseCallback`的回调方法。注意:这里的回调是在非主线程直接回调的，也就是在Android里使用的话要注意这里面不能直接更新UI操作。
+至此，同步请求和异步请求最终都是调用的`getResponseWithInterceptorChain()`;来发送网络请求，只是异步请求涉及到一些线程池操作，包括请求的队列管理、调度。
+
+### 第四步:getResponseWithInterceptorChain()
+```
+//RealCall.java
+Response getResponseWithInterceptorChain() throws IOException {
+// Build a full stack of interceptors.
+List<Interceptor> interceptors = new ArrayList<>();
+interceptors.addAll(client.interceptors());
+interceptors.add(retryAndFollowUpInterceptor);
+interceptors.add(new BridgeInterceptor(client.cookieJar()));
+interceptors.add(new CacheInterceptor(client.internalCache()));
+interceptors.add(new ConnectInterceptor(client));
+if (!forWebSocket) {
+  interceptors.addAll(client.networkInterceptors());
+}
+interceptors.add(new CallServerInterceptor(forWebSocket));
+
+Interceptor.Chain chain = new RealInterceptorChain(
+    interceptors, null, null, null, 0, originalRequest);
+return chain.proceed(originalRequest);
+}
+```
+在这个方法里就是添加了一些拦截器，然后启动一个拦截器调用链，拦截器递归调用之后最后返回请求的响应Response。这里的拦截器分层的思想就是借鉴的网络里的分层模型的思想。请求从最上面一层到最下一层，响应从最下一层到最上一层，每一层只负责自己的任务，对请求或响应做自己负责的那块的修改。
+
+`Q1`: 这里为什么每次都重新创建`RealInterceptorChain`对象，为什么不直接复用上一层的`RealInterceptorChain`对象？(文末给出答案)
+
+## OkHttp拦截器分层结构
+![](/img/2.jpg)
+```
+//RealInterceptorChain.java
+public Response proceed(Request request, StreamAllocation streamAllocation, HttpCodec httpCodec,
+  Connection connection) throws IOException {
+if (index >= interceptors.size()) throw new AssertionError();
+calls++;
+......
+RealInterceptorChain next = new RealInterceptorChain(
+    interceptors, streamAllocation, httpCodec, connection, index + 1, request);
+Interceptor interceptor = interceptors.get(index);
+Response response = interceptor.intercept(next);
+...
+return response;
+}
+```
+RealInterceptorChain的`proceed()`，每次重新创建一个`RealInterceptorChain`对象，然后调用下一层的拦截器的`interceptor.intercept()`方法。
+每一个拦截器的`intercept()`方法都是这样的模型
+```
+@Override public Response intercept(Chain chain) throws IOException {
+    Request request = chain.request();
+    // 1、该拦截器在Request阶段负责的事情
+
+    // 2、调用RealInterceptorChain.proceed()，其实是递归调用下一层拦截器的intercept方法
+    response = ((RealInterceptorChain) chain).proceed(request, streamAllocation, null, null);
+
+    //3、该拦截器在Response阶段负责的事情，然后返回到上一层拦截器的 response阶段
+    return  response;     
+    }
+  }
+```
+这差不多就是OkHttp的分层拦截器模型，借鉴了网络里的OSI七层模型的思想。最底层是CallServerInterceptor，类比网络里的物理层。OkHttp还支持用户自定义拦截器，插入到最顶层和CallServerInterceptor上一层的位置。比如官方写了一个Logging Interceptor，用于打印网络请求日志的拦截器。
+
+## BridgeInterceptor
+```
+Request userRequest = chain.request();
+Request.Builder requestBuilder = userRequest.newBuilder();
+// Request阶段
+RequestBody body = userRequest.body();
+if (body != null) {
+  MediaType contentType = body.contentType();
+    ......
+  long contentLength = body.contentLength();
+  if (contentLength != -1) {
+    requestBuilder.header("Content-Length", Long.toString(contentLength));
+    requestBuilder.removeHeader("Transfer-Encoding");
+  } else {
+    requestBuilder.header("Transfer-Encoding", "chunked");
+    requestBuilder.removeHeader("Content-Length");
+  }
+  if (userRequest.header("Connection") == null) {
+  requestBuilder.header("Connection", "Keep-Alive");
+ }
+}
+    .....
+Response networkResponse = chain.proceed(requestBuilder.build());
+// Response阶段
+    .....
+if (transparentGzip
+    && "gzip".equalsIgnoreCase(networkResponse.header("Content-Encoding"))
+    && HttpHeaders.hasBody(networkResponse)) {
+  GzipSource responseBody = new GzipSource(networkResponse.body().source());
+  Headers strippedHeaders = networkResponse.headers().newBuilder()
+      .removeAll("Content-Encoding")
+      .removeAll("Content-Length")
+      .build();
+  responseBuilder.headers(strippedHeaders);
+  responseBuilder.body(new RealResponseBody(strippedHeaders, Okio.buffer(responseBody)));
+}
+```
+BridgeInterceptor拦截器在Request阶段，将用户的配置信息，重新创建Request.Builder对象，重新build出Request对象，并添加一些请求头，比如:host，content-length，keep-alive等。
+BridgeInterceptor在Response阶段做gzip解压操作。
+
+## CacheInterceptor
+CacheInterceptor拦截器在Request阶段判断该请求是否有缓存，是否需要重新请求，如果不需要重新请求，直接从缓存里取出内容，封装一个Response返回，不需要再调用下一层。
+CacheInterceptor拦截器在Response阶段，就是把下面一层的Response做缓存。
+
+## ConnectInterceptor
+```
+//ConnectInterceptor.java
+RealInterceptorChain realChain = (RealInterceptorChain) chain;
+Request request = realChain.request();
+StreamAllocation streamAllocation = realChain.streamAllocation();
+// We need the network to satisfy this request. Possibly for validating a conditional GET.
+boolean doExtensiveHealthChecks = !request.method().equals("GET");
+HttpCodec httpCodec = streamAllocation.newStream(client, doExtensiveHealthChecks);
+RealConnection connection = streamAllocation.connection();
+return realChain.proceed(request, streamAllocation, httpCodec, connection);
+```
+ConnectInterceptor拦截器只在Request阶段建立连接，Response阶段直接把下一层的Response返回给上一层。再看下建立连接的过程。
+```
+public HttpCodec newStream(OkHttpClient client, boolean doExtensiveHealthChecks) {
+....
+try {
+  RealConnection resultConnection = findHealthyConnection(connectTimeout, readTimeout,
+      writeTimeout, connectionRetryEnabled, doExtensiveHealthChecks);
+  HttpCodec resultCodec = resultConnection.newCodec(client, this);
+......
+} catch (IOException e) {
+  throw new RouteException(e);
+}
+}
+```
+findHealthyConnection()函数寻找一条健康的网络连接，其内部主要调用了findConnection()。
+```
+private RealConnection findConnection(int connectTimeout, int readTimeout, int writeTimeout,
+  boolean connectionRetryEnabled) throws IOException {
+Route selectedRoute;
+synchronized (connectionPool) {
+ .....
+  // Attempt to get a connection from the pool.
+  Internal.instance.get(connectionPool, address, this);
+  if (connection != null) {
+    return connection;
+  }
+
+  selectedRoute = route;
+}
+
+// If we need a route, make one. This is a blocking operation.
+if (selectedRoute == null) {
+  selectedRoute = routeSelector.next();
+}
+
+// Create a connection and assign it to this allocation immediately. This makes it possible for
+// an asynchronous cancel() to interrupt the handshake we're about to do.
+RealConnection result;
+synchronized (connectionPool) {
+  route = selectedRoute;
+  refusedStreamCount = 0;
+  result = new RealConnection(connectionPool, selectedRoute);
+  acquire(result);
+  if (canceled) throw new IOException("Canceled");
+}
+
+// Do TCP + TLS handshakes. This is a blocking operation.
+result.connect(connectTimeout, readTimeout, writeTimeout, connectionRetryEnabled);
+routeDatabase().connected(result.route());
+
+Socket socket = null;
+synchronized (connectionPool) {
+  // Pool the connection.
+  Internal.instance.put(connectionPool, result);
+ .....
+}
+closeQuietly(socket);
+return result;
+}
+```
+这里面大概就是从连接池里去找已有的网络连接，如果有，则复用，减少三次握手；没有的话，则创建一个RealConnection对象，三次握手，建立连接，然后将连接放到连接池。具体的内部connect过程，就不深入了。
+```
+public ConnectionPool() {
+this(5, 5, TimeUnit.MINUTES);
+}
+public ConnectionPool(int maxIdleConnections, long keepAliveDuration, TimeUnit timeUnit) {
+}
+```
+`ConnectionPool`最多支持保持5个地址的连接keep-alive，每个keep-alive 5分钟，并有异步线程循环清理无效的连接。
+
+## CallServerInterceptor
+```
+@Override public Response intercept(Chain chain) throws IOException {
+...
+httpCodec.writeRequestHeaders(request);
+Response.Builder responseBuilder = null;
+if (HttpMethod.permitsRequestBody(request.method()) && request.body() != null) {
+  ......
+  if (responseBuilder == null) {
+    Sink requestBodyOut = httpCodec.createRequestBody(request, request.body().contentLength());
+    BufferedSink bufferedRequestBody = Okio.buffer(requestBodyOut);
+    request.body().writeTo(bufferedRequestBody);
+    bufferedRequestBody.close();
+  }
+}
+httpCodec.finishRequest();
+if (responseBuilder == null) {
+  responseBuilder = httpCodec.readResponseHeaders(false);
+}
+Response response = responseBuilder
+    .request(request)
+    .handshake(streamAllocation.connection().handshake())
+    .sentRequestAtMillis(sentRequestMillis)
+    .receivedResponseAtMillis(System.currentTimeMillis())
+    .build();
+
+int code = response.code();
+.....
+return response;
+}
+```
+CallServerInterceptor 精简出来的代码就是writeRequestHeaders()，flushRequest()，finishRequest()，发送请求，然后readResponseHeaders，openResponseBody读取response。
+CallServerInterceptor底层的IO流读写依赖于Square自家的Okio项目，HttpCodec是封装的IO编码和解码的实现。
+
+至此，OkHttp中几个核心的拦截器就到此为止了，OkHttp最精髓的部分也就体现在这个拦截器上。最后补充几个关于OkHttp的面试问题。
+* OkHttp是如何做链路复用？
+* OkHttp的Intereptor能不能取消一个request？
+这两个问题在分析源码之后应该很容易回答了。
+
+回答上面留的一个问题:
+每次重新创建一个`RealInterceptorChain`对象，因为这里是递归调用，在调用下一层拦截器的interupter()方法的时候，本层的 response阶段还没有执行完成，如果复用`RealInterceptorChain`对象，必然导致下一层修改`RealInterceptorChain`，所以需要重新创建`RealInterceptorChain`对象。
