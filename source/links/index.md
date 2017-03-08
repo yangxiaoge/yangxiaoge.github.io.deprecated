@@ -32,6 +32,7 @@ header-img: "img/CPU_Beauty.jpg"
 
 --------------------------------
 ## Nice Blog
+* [D_clock爱吃葱花](http://blog.coderclock.com/) - [Diycode](https://www.diycode.cc/wiki/about)社区维护者之一, 热爱开源。
 * [《Android开发艺术探索》读书笔记](https://hujiaweibujidao.github.io/blog/2015/12/05/art-of-android-development-reading-notes/)
 * [Android样式的开发](http://keeganlee.me/post/android/20150830)- shape、selector、layer-list、level-list、style等
 * [南尘](http://www.cnblogs.com/liushilin) - [内存泄漏全解析](http://www.cnblogs.com/liushilin/p/5900089.html), [Retrofit](http://www.cnblogs.com/liushilin/p/6164901.html)
