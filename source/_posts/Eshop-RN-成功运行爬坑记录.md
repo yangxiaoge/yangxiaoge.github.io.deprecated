@@ -6,6 +6,7 @@ catalog:   true #显示目录
 ---
 ## 先上图片
 ![终端及代码图](/img/Eshop成功运行.png)
+<!-- more -->
 ![Nexus 5X真机图](/img/eshop-nexus5X截图.png)
 
 ## 问题总结(持续更新ing)

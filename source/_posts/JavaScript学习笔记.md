@@ -18,6 +18,8 @@ tags:
 **以下是笔记**
 ## javascript的五种基本数据类型
 基本数据类型: Undefined，Null，Boolean，Number和String; 此外还含有一种复杂数据类型—Object
+<!-- more -->
+
 ## if判断,传参传的非boolean类型
 ```
 var s = '123';

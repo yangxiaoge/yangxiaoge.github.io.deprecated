@@ -8,6 +8,7 @@ catalog:   true #显示目录
 
 `OkHttp3`是`Square`出品的高质量Http网络请求库，目前在GitHub上的star数超过17000。很多Android项目的网络组件都是基于OkHttp封装的，还有著名的`Retrofit`也是基于OkHttp封装的。
 ## OkHttp的基本使用
+<!-- more -->
 ```
 OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()

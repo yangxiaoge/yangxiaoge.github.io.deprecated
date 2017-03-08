@@ -12,6 +12,7 @@ catalog:    true #显示目录
 #### 1.1.1 典型情况下生命周期分析
 - 通常, `Activity`从`invisible`(即onStop)到`visible`(即onStart)时, `onRestart`方法就会被调用。
 - 点击home键或者打开新`Activity`时, `onPause -> onStop`, 如果按Home键回来回掉是: `onRestart ->  onStart　->　onResume` ; 如果新`Activity`主题是透明的时, 只有`onPause`, 所以当用户返回`原来的Activity`时, 回掉过程是: `onRestart -> onStart -> onResume` (看[Activity生命周期图](/img/Activity金字塔型的生命周期图.png)就知道了)。
+<!-- more -->
 - 分析生命周期图, 可知`onStart`和`onStop`对应(可见到不可见性), `onPause`和`onResume`对应(是否位于前台)。
 
 #### 1.1.2 异常生命周期分析

@@ -15,6 +15,7 @@ tags: [Java, Android]
 上面的语句中 str 放在栈上，用 new 创建出来的字符串对象放在堆上，而“hello”这个字面量放在静态存储区。
 
 ## 2. 重写equals方法时,为什么也需要重写hashCode方法。
+<!-- more -->
 - 1、重写equals方法时需要重写hashCode方法，主要是针对Map、Set等集合类型的使用；
 
     - a: Map、Set等集合类型存放的对象必须是唯一的；
