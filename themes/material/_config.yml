@@ -106,8 +106,8 @@ sns_share:
     facebook: true
     googleplus: true
     weibo: true
-    linkedin: false
-    qq: false
+    linkedin: true
+    qq: true
     telegram: false
 
 # Sidebar Customize
@@ -136,6 +136,9 @@ sidebar:
         友情链接:
             link: "/links"
             divider: false  
+        links archive:
+            link: "/links/"
+            divider: false
         关于:
             link: "/about"
             divider: false
@@ -161,12 +164,13 @@ topPost: false
 
 # Comment Systems
 # Available value of "use":
-#     duoshuo | disqus | disqus_click
+#     duoshuo | disqus | disqus_click 
+# 6278985578214064897
 comment:
     use: duoshuo
     shortname: yangxiaoge
-    duoshuo_thread_key: 6278985578214064897
-    duoshuo_thread_key_type: 6278985578214064897
+    duoshuo_thread_key: 
+    duoshuo_thread_key_type: path
     duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
 
 # Search Systems
@@ -179,7 +183,7 @@ search:
 # Analytics Systems
 analytics:
     baidu_id:
-    google_id:
+    google_id: UA-89143217-1
 
 # Leancloud Views
 leancloud:
