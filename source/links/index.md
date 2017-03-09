@@ -1,9 +1,10 @@
 ---
-layout: "links"
-title: "Links"
+title: Links
+date: 2017-03-09 15:03:51
 description: "友情链接"
 header-img: "img/CPU_Beauty.jpg"
 ---
+
 <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
 
 ## PWA

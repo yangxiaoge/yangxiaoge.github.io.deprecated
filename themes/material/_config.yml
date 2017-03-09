@@ -134,19 +134,19 @@ sidebar:
             link: "/tags"
             divider: false
         友情链接:
-            link: "/links"
+            link: "/friends"
             divider: false  
-        links archive:
-            link: "/links/"
+        链接:
+            link: "/links"
             divider: false
         关于:
             link: "/about"
-            divider: false
+            divider: true
     article_num:
         use: true
         divider: false
     footer:
-        divider: true
+        divider: false
         theme: true
         support: false
         feedback: false
