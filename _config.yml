@@ -6,7 +6,7 @@
 title: 珠珠のBlog				#网站标题
 subtitle: Just do it!			#网站副标题 ,爱生活爱编码
 author: Bruce Yang
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -22,7 +22,7 @@ permalink_defaults:
 SEOTitle: 珠珠のBlog
 header-img: img/home-bg.jpg       # home-bg.jpg 
 email: yang.jianan0926@gmail.com
-description: hey, guays!	#网站描述
+description: 背着键盘的编程侠客!	#网站描述
 keyword: ""
 
 
@@ -138,8 +138,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-## huxblog, cafe
-theme: huxblog
+## huxblog, material
+theme: material
  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
