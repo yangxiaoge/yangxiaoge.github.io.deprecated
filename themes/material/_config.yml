@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "/img/favicon.png"
-    high_res_favicon: "/img/favicon.png"
-    apple_touch_icon: "/img/favicon.png"
+    favicon: "/img/logo.ico"
+    high_res_favicon: "/img/logo.ico"
+    apple_touch_icon: "/img/logo.ico"
     keywords:
 
 # Jump Links Settings
@@ -26,7 +26,7 @@ scheme: Paradox
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "Hi, nice to meet you"
+    slogan: "背着键盘的编程侠客!"
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
@@ -88,15 +88,15 @@ card_elevation: 2
 # SNS Menu
 sns:
     email: yang.jianan0926@gmail.com
-    facebook: "https://www.facebook.com/facebook"
-    twitter: "https://twitter.com/twitter"
-    googleplus: "https://www.google.com/"
-    weibo:
+    facebook: 
+    twitter: "https://twitter.com/wangmengzhuzhu"
+    googleplus: "https://plus.google.com/103585806573251183413"
+    weibo: "http://weibo.com/u/3227182774"
     instagram:
     tumblr:
-    github:
+    github: "http://www.github.com/yangxiaoge"
     linkedin:
-    zhihu:
+    zhihu: "https://www.zhihu.com/people/yang-jia-nan-99"
     bilibili:
     telegram:
 
@@ -114,7 +114,8 @@ sns_share:
 sidebar:
     dropdown:
         Email Me:
-            link: "#"
+            link: "mailto:yang.jianan0926@gmail.com"
+            # link: "/about"
             icon: email
     homepage:
         use: true
@@ -127,11 +128,16 @@ sidebar:
     categories:
         use: true
         icon: chrome_reader_mode
-        divider: false
+        divider: true
     pages:
-        About:
+        标签云:
+            link: "/tags"
+            divider: false
+        友情链接:
+            link: "/links"
+            divider: false  
+        关于:
             link: "/about"
-            icon: person
             divider: false
     article_num:
         use: true
