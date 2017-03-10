@@ -185,11 +185,11 @@ analytics:
     baidu_id:
     google_id: UA-89143217-1
 
-# Leancloud Views
+# Leancloud blog_counter 这个里面统计文章访问量
 leancloud:
     enable: true
-    app_id: vwQnaBdLYT7Is3AWzRoGBABe-gzGzoHsz
-    app_key: YgwmWWm5dFnFi7W4AYUVcXqb
+    app_id: q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz
+    app_key: lApncgeTUTIz5wO8utk7Ynnq
     av_core_mini: "https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"
 
 # Busuanzi 不蒜子 Views
