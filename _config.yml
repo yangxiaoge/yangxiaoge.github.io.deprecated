@@ -149,7 +149,7 @@ deploy:
   repo: 
     #发布到github, coding.
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
-    # coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
+    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
 	
 #deploy: 
 #    type: git
