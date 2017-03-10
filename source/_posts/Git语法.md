@@ -5,7 +5,7 @@ tags: Git
 catalog:    true #显示目录
 categories: Git
 ---
->本文摘自我的小伙伴[KevinJin](http://littlefisher.coding.me/2016/06/08/git/)
+>本文摘自我的小伙伴[KevinJin](http://littlefisher.coding.me/2016/06/08/git%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95/)
 
 开源中国的 [Pro Git（中文版）](http://git.oschina.net/progit/index.html)
 
