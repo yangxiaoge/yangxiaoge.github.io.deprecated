@@ -189,12 +189,12 @@ analytics:
 leancloud:
     enable: true
     app_id: vwQnaBdLYT7Is3AWzRoGBABe-gzGzoHsz
-    app_key: IKwAnIr3V7cnWq3wtpvfQ0Qf
+    app_key: YgwmWWm5dFnFi7W4AYUVcXqb
     av_core_mini: "https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"
 
 # Busuanzi 不蒜子 Views
 busuanzi:
-    enable: true
+    enable: false
     all_site_uv: true
     post_pv: true
     busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
