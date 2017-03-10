@@ -58,7 +58,8 @@ OkHttpClient(Builder builder) {
 ### 第二步:okhttpclient.newCall(request)
 ```
 //OkHttpClient.java
-@Override public Call newCall(Request request) {
+@Override 
+public Call newCall(Request request) {
 return new RealCall(this, request, false /* for web socket */);
 }
 //RealCall.java
@@ -74,7 +75,8 @@ RealCall(OkHttpClient client, Request originalRequest, boolean forWebSocket) {
 ### 第三步:execute() or enqueue()
 ```
 //RealCall.java
-@Override public Response execute() throws IOException {
+@Override 
+public Response execute() throws IOException {
 synchronized (this) {
   if (executed) throw new IllegalStateException("Already Executed");
   executed = true;
@@ -94,7 +96,8 @@ try {
 同步请求，很直接就调用到了最核心的函数getResponseWithInterceptorChain()。再看下异步请求。
 ```
 //RealCall.java
-  @Override public void enqueue(Callback responseCallback) {
+  @Override 
+  public void enqueue(Callback responseCallback) {
     synchronized (this) {
       if (executed) throw new IllegalStateException("Already Executed");
       executed = true;
@@ -126,7 +129,8 @@ final class AsyncCall extends NamedRunnable {
       this.responseCallback = responseCallback;
     }
     ......
-    @Override protected void execute() {
+    @Override 
+    protected void execute() {
       boolean signalledCallback = false;
       try {
         Response response = getResponseWithInterceptorChain();
@@ -199,7 +203,8 @@ return response;
 RealInterceptorChain的`proceed()`，每次重新创建一个`RealInterceptorChain`对象，然后调用下一层的拦截器的`interceptor.intercept()`方法。
 每一个拦截器的`intercept()`方法都是这样的模型
 ```
-@Override public Response intercept(Chain chain) throws IOException {
+@Override 
+public Response intercept(Chain chain) throws IOException {
     Request request = chain.request();
     // 1、该拦截器在Request阶段负责的事情
 
@@ -341,7 +346,8 @@ public ConnectionPool(int maxIdleConnections, long keepAliveDuration, TimeUnit t
 
 ## CallServerInterceptor
 ```
-@Override public Response intercept(Chain chain) throws IOException {
+@Override 
+public Response intercept(Chain chain) throws IOException {
 ...
 httpCodec.writeRequestHeaders(request);
 Response.Builder responseBuilder = null;

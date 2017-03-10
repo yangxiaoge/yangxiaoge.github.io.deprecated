@@ -7,6 +7,9 @@ header-img: "img/CPU_Beauty.jpg"
 
 <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
 
+## Android View
+- [安卓自定义View教程目录](http://www.gcssloop.com/customview/CustomViewIndex)
+
 ## PWA
 - [下一代 Web 应用模型 —— Progressive Web App](http://huangxuan.me/2017/02/09/nextgen-web-pwa/)
 
