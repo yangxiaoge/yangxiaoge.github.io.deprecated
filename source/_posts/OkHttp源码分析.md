@@ -184,7 +184,7 @@ return chain.proceed(originalRequest);
 `Q1`: 这里为什么每次都重新创建`RealInterceptorChain`对象，为什么不直接复用上一层的`RealInterceptorChain`对象？(文末给出答案)
 
 ## OkHttp拦截器分层结构
-![](/img/2.jpg)
+![](/img/okhttp/2.jpg)
 ```
 //RealInterceptorChain.java
 public Response proceed(Request request, StreamAllocation streamAllocation, HttpCodec httpCodec,
