@@ -7,18 +7,13 @@ header-img: "img/CPU_Beauty.jpg"
 
 <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
 
-## Android View
-- [安卓自定义View教程目录](http://www.gcssloop.com/customview/CustomViewIndex)
-
-## PWA
-- [下一代 Web 应用模型 —— Progressive Web App](http://huangxuan.me/2017/02/09/nextgen-web-pwa/)
-
 --------------------------------
-## Winter is coming
-* [Android 渡过寒冬需要掌握知识](http://pan.baidu.com/s/1c1WGbs8) - 紧急任务！
-* UI(View的绘制、View的布局、View的触摸反馈)，网络(Http、TCP/IP的原理)，线程(线程、线程池的原理、Handler的原理、AsyncTask的原理), 三方源码浅析
-* [Java基础回顾](http://blog.csdn.net/dd864140130/article/details/55833087)
-* [Android回顾](https://www.diycode.cc/topics/615)
+## 每日必看
+- [stormzhang张奇](http://stormzhang.com/) - 励志
+- [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
+- [郭霖](http://blog.csdn.net/guolin_blog/article/details/9097463/) - 国内Android开发大牛,跟鸿洋搅基~~
+- 微信公众号 :[stormzhang](http://weixin.sogou.com/weixin?type=1&s_from=input&query=AndroidDeveloper&ie=utf8&_sug_=n&_sug_type_=), [郭霖](http://weixin.sogou.com/weixin?type=1&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=&w=01015002&oq=&ri=2&sourceid=sugg&sut=893&sst0=1477555640580&lkt=1%2C1477555640477%2C1477555640477), [鸿洋](http://weixin.sogou.com/weixin?type=1&query=hongyangAndroid&ie=utf8&_sug_=y&_sug_type_=&w=01015002&oq=hong&ri=0&sourceid=sugg&stj=0%3B0%3B0%3B0&stj2=0&stj0=0&stj1=0&hp=32&hp1=&sut=3487&sst0=1477555714123&lkt=1%2C1477555714016%2C1477555714016)
+- [w4lle王令龙](http://w4lle.github.io/)  - 热补丁, 模块化, 一键接入Tinker
 
 -------------------------------
 ## React Native (是时候学习一波了！)
@@ -26,13 +21,6 @@ header-img: "img/CPU_Beauty.jpg"
 - [crazycodeboy的React Native总结](https://github.com/crazycodeboy/RNStudyNotes)
 - [高仿掘金-React Native](http://blog.csdn.net/w337198302/article/details/53225051)
 - [React Native开发工具配置](https://github.com/le0zh/blog/issues/1)
-
--------------------------------
-## Tools website
-- [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
-- [在线工具](http://tool.lu/) - 常用的在线工具
-- [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
-- [演说](http://yanshuo.io/) -随时随地的在线展示文稿
 
 --------------------------------
 ## Nice Blog
@@ -65,7 +53,6 @@ header-img: "img/CPU_Beauty.jpg"
 * [Gitlee李家泉](https://www.gitlee.com/resource/) - 兴趣广
 * [edolphin](http://edolphin.site/archives/) - ubuntu搜狗输入法，idea下无法输入中文
 * [luckykun](http://luckykun.com/work/2016-07-23/css3-study02.html) - js 酷炫demo
-* [Tinker](http://w4lle.github.io/2017/01/05/one-key-for-tinker/)  - 一键接入Tinker
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
 * [Shinelw Blog](http://shinelw.com/) - android
 * [Werb](http://werb.github.io/) - android视频音频,python打包apk等
@@ -76,9 +63,6 @@ header-img: "img/CPU_Beauty.jpg"
 - [MIUI系统工程师Gityuan](http://gityuan.com/about/) - 基于Android 6.0的源码，专注于分享Android系统原理、架构分析的原创文章
 - [主席](https://github.com/singwhatiwanna), 微博[任玉刚Coder](http://weibo.com/uc83018062?is_hot=1) - 《Android开发艺术探索》作者
 - [廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) - Python教程讲解的浅显易懂适合初学者
-- [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
-- [郭霖](http://blog.csdn.net/guolin_blog/article/details/9097463/) - 国内Android开发大牛,跟鸿洋搅基~~
-- 微信公众号 : [郭霖](http://weixin.sogou.com/weixin?type=1&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=&w=01015002&oq=&ri=2&sourceid=sugg&sut=893&sst0=1477555640580&lkt=1%2C1477555640477%2C1477555640477)，[鸿洋](http://weixin.sogou.com/weixin?type=1&query=hongyangAndroid&ie=utf8&_sug_=y&_sug_type_=&w=01015002&oq=hong&ri=0&sourceid=sugg&stj=0%3B0%3B0%3B0&stj2=0&stj0=0&stj1=0&hp=32&hp1=&sut=3487&sst0=1477555714123&lkt=1%2C1477555714016%2C1477555714016)
 - [Trinea](https://github.com/Trinea/android-open-project) - Android 开源项目分类汇总
 - [Android Arsenal](http://android-arsenal.com/) - 收集最新github开源项目
 - [泡在网上的日子](http://www.jcodecraeer.com/plus/list.php?tid=18) - 做最好的移动开发社区
@@ -96,12 +80,31 @@ header-img: "img/CPU_Beauty.jpg"
 
 -------------------------------
 ## 不错的开源项目及技术
+- [安卓自定义View教程目录](http://www.gcssloop.com/customview/CustomViewIndex)
 - [开源项目收集 - 后续直接在这里更新开源项目](http://yangxiaoge.coding.me/2016/09/14/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86/)
 - [干货集中营Gank.io](http://gank.io/)
 - [阿里技术沙龙](http://club.alibabatech.org/)
 - [美图技术Blog](http://tech.meituan.com/)
 - [腾讯AlloyTeam Blog](http://www.alloyteam.com/)
 - [这是一个整理即时通讯（IM）和社交系统（SNS）优秀开源项目](https://github.com/yangxiaoge/Perfect_IM_SNS)
+
+--------------------------------
+## PWA
+- [下一代 Web 应用模型 —— Progressive Web App](http://huangxuan.me/2017/02/09/nextgen-web-pwa/)
+
+--------------------------------
+## Winter is coming
+* [Android 渡过寒冬需要掌握知识](http://pan.baidu.com/s/1c1WGbs8) - 紧急任务！
+* UI(View的绘制、View的布局、View的触摸反馈)，网络(Http、TCP/IP的原理)，线程(线程、线程池的原理、Handler的原理、AsyncTask的原理), 三方源码浅析
+* [Java基础回顾](http://blog.csdn.net/dd864140130/article/details/55833087)
+* [Android回顾](https://www.diycode.cc/topics/615)
+
+-------------------------------
+## Tools website
+- [极客导航](http://www.jikedaohang.com/) - 极客导航-程序员自己的导航
+- [在线工具](http://tool.lu/) - 常用的在线工具
+- [菜鸟工具](http://c.runoob.com/) - 编译以及前端工具
+- [演说](http://yanshuo.io/) -随时随地的在线展示文稿
 	
 --------------------------------
 ## 轻松一刻

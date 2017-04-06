@@ -16,7 +16,7 @@ header-img: "img/ZTEsoft.jpg"
 
 Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息工程大学](http://www.nuist.edu.cn/) · 计算机科学与技术 2015年毕业。
 
-目前就职于[中兴软创](http://www.ztesoft.com/cn)。
+曾就职于[中兴软创](http://www.ztesoft.com/cn)。
 
 喜欢技术，热爱分享。
 

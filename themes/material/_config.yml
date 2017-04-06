@@ -90,14 +90,14 @@ sns:
     email: yang.jianan0926@gmail.com
     facebook: 
     twitter: "https://twitter.com/wangmengzhuzhu"
-    googleplus: "https://plus.google.com/103585806573251183413"
+    # googleplus: "https://plus.google.com/103585806573251183413"
     weibo: "http://weibo.com/u/3227182774"
     instagram:
     tumblr:
     github: "http://www.github.com/yangxiaoge"
     linkedin:
-    zhihu: "https://www.zhihu.com/people/yang-jia-nan-99"
-    bilibili:
+    # zhihu: "https://www.zhihu.com/people/yang-jia-nan-99"
+    bilibili: "http://space.bilibili.com/2461710"
     telegram:
 
 # SNS Share Switch
@@ -186,6 +186,7 @@ analytics:
     google_id: UA-89143217-1
 
 # Leancloud blog_counter 这个里面统计文章访问量
+# blog_counter --》 https://leancloud.cn/dashboard/data.html?appid=q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz#/Counter
 leancloud:
     enable: true
     app_id: q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz
@@ -195,6 +196,6 @@ leancloud:
 # Busuanzi 不蒜子 Views
 busuanzi:
     enable: false
-    all_site_uv: true
-    post_pv: true
+    all_site_uv: false
+    post_pv: false
     busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
