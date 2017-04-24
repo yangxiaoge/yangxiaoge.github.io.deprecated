@@ -138,7 +138,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-## huxblog, material
+## material, next , indigo, xone主题
 theme: material
  
 # Deployment
