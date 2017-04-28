@@ -8,6 +8,10 @@ header-img: "img/CPU_Beauty.jpg"
 <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
 
 --------------------------------
+## New Collection
+- [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
+
+--------------------------------
 ## 每日必看
 - [stormzhang张奇](http://stormzhang.com/) - 励志
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
