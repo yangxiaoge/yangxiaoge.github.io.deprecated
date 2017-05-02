@@ -20,7 +20,8 @@ url:
 # Style Settings
 # ---------------------------------------------------------------
 
-# Schemes
+# Schemes： Paradox（默认），Isolation（至简样式），Nexus（开发中）
+#scheme: Nexus
 scheme: Paradox
 #scheme: Isolation
 
@@ -70,9 +71,9 @@ img:
     footerico: "/img/footer/footer_ico-"
     random_thumbnail: "/img/random/material-"
     footer_image:
-        #upyun_logo:
-            #link: "https://www.upyun.com/"
-            #src: "/img/upyun_logo.png"
+        # zhuzhu:
+        #     link: "https://www.upyun.com/"
+        #     src: "/img/upyun_logo.png"
 
 # Custom Fonts
 fonts: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
@@ -147,7 +148,7 @@ sidebar:
         divider: false
     footer:
         divider: false
-        theme: true
+        theme: false
         support: false
         feedback: false
         material: false
@@ -176,7 +177,7 @@ topPost: false
 
 # disqus自动加载，disqus_click手动加载
 comment:
-    use: disqus
+    use: disqus_click
     shortname: yangxiaoge
 
 # Search Systems
