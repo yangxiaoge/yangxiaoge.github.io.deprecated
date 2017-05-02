@@ -2,6 +2,7 @@
 title: Eshop-RN 成功运行爬坑记录
 date: 2017-02-09 15:21:42
 tags: [React Native]
+categories: React Native
 catalog:   true #显示目录
 ---
 ## 先上图片

@@ -6,6 +6,7 @@ author:     "Bruce Yang"
 catalog:    true
 header-img: "vallehermoso_spain_from_google_earth.jpg"
 tags: [Java, Android]
+categories: 知识点
 ---
 <center><font color=SkyBlue size="6px">**持续更行中**</font></center>
 

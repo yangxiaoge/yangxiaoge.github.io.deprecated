@@ -2,6 +2,7 @@
 title: 深入浅出 OkHttp 源码
 date: 2017-03-02 15:29:20
 tags: [Android]
+categories: Android
 catalog:   true #显示目录
 ---
 > 本文转载 [JayFang-OkHttp源码分析](https://blog.fangjie.info/2017/03/05/OkHttp%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)

@@ -8,6 +8,7 @@ header-img: "vallehermoso_spain_from_google_earth.jpg"
 tags:
     - 前端开发
     - JavaScript
+categories: JavaScript
 ---
 
 # 廖雪峰 js教程

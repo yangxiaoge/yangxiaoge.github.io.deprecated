@@ -2,6 +2,7 @@
 title: 有人向我反馈了一个bug
 date: 2016-9-23 12:55:26
 tags: [article]
+categories: bug小场景
 ---
 本文原文地址 : [Midaoi小站](http://www.midaoi.com/2015/08/28/bug/)
 >前言

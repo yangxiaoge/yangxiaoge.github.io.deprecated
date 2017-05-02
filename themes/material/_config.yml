@@ -166,12 +166,17 @@ topPost: false
 # Available value of "use":
 #     duoshuo | disqus | disqus_click 
 # 6278985578214064897
+
+# comment:
+#     use: duoshuo #先屏蔽（多说2017年6月1日正式关停服务）
+#     shortname: yangxiaoge
+#     duoshuo_thread_key_type: path
+#     # duoshuo_embed_js_url: ""
+#     duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
+
 comment:
-    use: duoshuo
+    use: disqus_click
     shortname: yangxiaoge
-    duoshuo_thread_key_type: path
-    # duoshuo_embed_js_url: ""
-    duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
 
 # Search Systems
 # Available value:

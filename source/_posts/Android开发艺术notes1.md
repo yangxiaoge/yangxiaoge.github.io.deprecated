@@ -2,6 +2,7 @@
 title: 《Android开发艺术探索》读书笔记 (1)
 date: 2017-03-03 13:14:14
 tags: [Android开发艺术探索,Android]
+categories: Android开发艺术探索
 catalog:    true #显示目录
 ---
 <center><font color=SkyBlue size="6px">**重拾课本, 温故Android开发艺术探索!**</font></center>
