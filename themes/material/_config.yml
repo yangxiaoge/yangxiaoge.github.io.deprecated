@@ -174,8 +174,9 @@ topPost: false
 #     # duoshuo_embed_js_url: ""
 #     duoshuo_embed_js_url: "https://static.duoshuo.com/embed.js"
 
+# disqus自动加载，disqus_click手动加载
 comment:
-    use: disqus_click
+    use: disqus
     shortname: yangxiaoge
 
 # Search Systems
