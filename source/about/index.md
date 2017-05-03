@@ -27,5 +27,7 @@ Hey，我是**Bruce Yang**，Android 开发者 & 独立开发者，[南京信息
 喜欢运动，也喜欢户外，登山等等。
 
 <!-- data-num-items代表需要展示的访客数 -->
+<!--
 > 最近访客
+-->
 <div class="ds-recent-visitors" data-num-items="1000" data-avatar-size="42" id="ds-recent-visitors"></div>

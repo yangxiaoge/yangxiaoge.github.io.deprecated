@@ -42,13 +42,14 @@ js_effect:
     smoothscroll: false
 
 # Reading experience
+# 默认显示80字
 reading:
-    entry_excerpt: 80
+    entry_excerpt: 30
 
 # Thumbnail Settings
 thumbnail:
     purecolor:
-    random_amount: 19
+    random_amount: 20
 
 # Background Settings
 # bing available parameter:
