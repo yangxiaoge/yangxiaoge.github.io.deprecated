@@ -3,6 +3,7 @@ title: Android源码编译
 date: 2017-05-04 11:40:24
 tags: 源码
 categories: Android源码
+thumbnail: /img/mountain-bg.jpg
 ---
 
 进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）
