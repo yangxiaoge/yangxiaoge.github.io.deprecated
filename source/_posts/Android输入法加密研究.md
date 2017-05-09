@@ -1,0 +1,30 @@
+---
+title: Android输入法加密研究
+date: 2017-05-09 09:51:03
+tags: 输入法
+categories: 输入法
+thumbnail: /img/Android输入法加密研究/input_method1.png
+---
+
+近期接到一个微信，QQ 聊天时加密文字的需求。
+我当时的心情是这样的：
+<img src="/img/Android输入法加密研究/kidding_me.png" width = "150" alt="are you kidding me?" align=center />
+
+## 开源项目入手
+冷静下来，细细思考，要不开发一个输入发？不现实呀！然后就找到了 Goolge 开源的 PinyinIME（Android 4.4.4）。
+毕竟输入法将输入的文字设置到编辑框要走 BaseInputConnection 中 commitText 方法，那么我就想在这个地方动手脚呗。嗯，说干就干，我就撸了一下 PinyinIME 项目中的代码，实现效果如下：(加密后的文字后面我加了一个 “中” 字)
+<img src="/img/Android输入法加密研究/撸了个加密.png" width = "350" alt="加密前后" align=center />
+
+哎呦，看着也还凑活哈。嗯，然后打开搜狗，百度输入法一看，用户就不乐意了，你家输入法真挫！一怒之下不用了。虽然这是个笑话，但是开发输入法代价太大了，毕竟要大量时间，人力。
+
+## 源码分析入手
+所以啊，我想要不从系统层入手？（[查了下 Api](https://developer.android.com/reference/android/inputmethodservice/InputMethodService.html?hl=zh-cn)）
+- `frameworks/base/...` 下有个类 `InputMethodManager` (输入法管理器，管理各部分的交互。它是一个客户端API，存在于各个应用程序的 context 中，用来沟通管理所有进程间交互的全局系统服务。) 中有个方法 showSoftInput (View view, int flags, ResultReceiver resultReceiver)。 注意到一个 view 参数，此参数就是输入框（微信，QQ，等输入框，webview除外）的 View，既然有了 view，那么我就可以 getText，setText 等等操作。
+我将 view 中的内容 Toast 出来效果如下：
+<img src="/img/Android输入法加密研究/input_method2.png" width = "350" alt="InputMethodManager中获取输入框对象，随时可以获取文本" align=center />
+
+- `InputMethodService`，每个`输入法 App` 应用都是继承自它！那么就可以对它的生命周期下手了。输入法显示的时候开启一个自定义的服务（有悬浮窗的），输入法关闭的时候结束服务并且释放相应的静态变量。重点就在于生命周期的研究！
+
+- 目的是，将 `InputMethodManager` 中的 编辑框 View 对象存起来，然后在 InputMethodService 中启动的服务 暂且叫做 `MyFloatEncryService` 中获取这个 View，之后就直接可以 get，set 加密了。
+
+实现方案在开发中，后续补充~~~ 

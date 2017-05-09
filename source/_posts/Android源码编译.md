@@ -10,6 +10,7 @@ thumbnail: /img/mountain-bg.jpg
 - `source build/envsetup.sh`
 - `lunch` (我的项目中选了 79)
 - `make -j8`（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）
+ > Android 编译命令 [make j8 2>&1 | tee build.log](http://www.cnblogs.com/ifzy/p/3854560.html) 解释: 其中 make 是编译命令，-j8 这里的 8 指的是线程数量，就是开启几个线程去编译这个工程，一般会是 CPU 核心数的 2 倍。开多的话电脑会卡死。2 是标准错误，&1 是标准输出，2>&1 意思就是将标准错误输出到标准输出中。如果没有 2>&1，只会有标准输出，没有错误；tee 的作用同时输出到控制台和文件，make > build.log  是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果 make 执行出现错误，那么就不会写到 build.log 中，而是输出到屏幕上，2>&1 是错误和结果都重定向到 build.log 中！可以到根目录看到 build.log。
 - 模块编译，节约时间(比方说我修改了 frameworks/base 下的某个文件直接编译这个模块就行)
   - `mmm frameworks/base`
   - `make snod` （这个不要忘！）
@@ -24,12 +25,12 @@ thumbnail: /img/mountain-bg.jpg
 刷机开始
 -  `MTK 刷机`（KONKAS6 代码）使用 `Smart Phone Flash Tool` 工具： 注意KONKA手机关机即可，首先选中 `Scatter-loading File` 这行的 `choose` ，然后`右击计算机`选择`映射网络驱动器`输入 `\\192.168.20.220\share`（这个是 `ubuntu` 共享的文件夹），然后进入对于源码目录找到 `KONKAS6\alps\out\target\product\kon6753_66c_s6_m0\MT6753_Android_scatter.txt`
 - `原生 AOSP` 用 Nexus 刷机（AOSP-6.0.1_r17 代码）：注意手机关机进入 `fastboot` 界面，进入编译生成的目录下 `begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/out/target/product/bullhead$`，然后依次刷入如下命令：
-  - `sudo fastboot flash system system.img`
-  - `sudo fastboot flash recovery recovery.img`
-  - `sudo fastboot flash vendor vendor.img`
-  - `sudo fastboot flash cache cache.img`
-  - `sudo fastboot flash userdata userdata.img`
-  - `sudo fastboot reboot` 最后一步，重启手机。
+  - sudo fastboot flash system system.img
+  - sudo fastboot flash recovery recovery.img
+  - sudo fastboot flash vendor vendor.img
+  - sudo fastboot flash cache cache.img
+  - sudo fastboot flash userdata userdata.img
+  - sudo fastboot reboot 最后一步，重启手机。
 - 刷机录像：注意，gif最后点击 `download` 之后再用 usb 连接关机的 KONKA 手机
 ![MTK刷机录制](/img/MTK刷机录制.gif)
 
