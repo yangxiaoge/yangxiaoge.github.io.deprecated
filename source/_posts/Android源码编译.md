@@ -12,8 +12,9 @@ thumbnail: /img/mountain-bg.jpg
 - `make -j8`（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）
  > Android 编译命令 [make j8 2>&1 | tee build.log](http://www.cnblogs.com/ifzy/p/3854560.html) 解释: 其中 make 是编译命令，-j8 这里的 8 指的是线程数量，就是开启几个线程去编译这个工程，一般会是 CPU 核心数的 2 倍。开多的话电脑会卡死。2 是标准错误，&1 是标准输出，2>&1 意思就是将标准错误输出到标准输出中。如果没有 2>&1，只会有标准输出，没有错误；tee 的作用同时输出到控制台和文件，make > build.log  是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果 make 执行出现错误，那么就不会写到 build.log 中，而是输出到屏幕上，2>&1 是错误和结果都重定向到 build.log 中！可以到根目录看到 build.log。
 - 模块编译，节约时间(比方说我修改了 frameworks/base 下的某个文件直接编译这个模块就行)
-  - `mmm frameworks/base`
-  - `make snod` （这个不要忘！）
+  - `mmm frameworks/base` （单独编译某个模块）
+  - `make snod` （重新打包 Android 系统镜像文件 system.img， 这个不要忘！）
+> 编译源码等指令可以看老罗的 [Android 系统源代码情景分析教程](http://0xcc0xcd.com/p/books/978-7-121-18108-5/c161.php)
 
 刷机
 - [刷机工具下载](https://share.weiyun.com/aef417d93a44dce31802087732ac4d8b)
