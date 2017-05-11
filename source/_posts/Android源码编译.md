@@ -37,12 +37,11 @@ thumbnail: /img/mountain-bg.jpg
 
 `Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释onCreate中的部分代码，略去登录注册等功能)
 
-
-如下是编译的录屏
+如下是编译的录屏, 临时弄个 `枪火` 先占坑，视屏抽空录制。
 <!--宽占满，高度自适应。 poster 预加载显示的图像-->
 <video width="100%" height="auto" id="video" controls="" preload="none" 
       poster="http://media.w3.org/2010/05/sintel/poster.png">
-      <source id="mp4" src="http://home.ustc.edu.cn/~mmmwhy/GEM.mp4" type="video/mp4">
+      <source id="mp4" src="http://cn-fjxm2-dx-v-03.acgvideo.com/vg1/f/84/5465980-1.mp4?expires=1494488400&platform=html5&ssig=sFyLhO5klFhNKadv0P9gtA&oi=1968780062&nfa=fkYkF/LEe5xFyJPq/bZ9eQ==&dynamic=1&hfa=2066162576" type="video/mp4">
       <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
       <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
 </video>
