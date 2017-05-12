@@ -37,13 +37,11 @@ thumbnail: /img/mountain-bg.jpg
 
 `Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释onCreate中的部分代码，略去登录注册等功能)
 
-如下是编译的录屏, 临时弄个 `枪火` 先占坑，视屏抽空录制。
+<!--如下是编译的录屏, 临时弄个 `枪火` 先占坑，视屏抽空录制。
+以下是哔哩哔哩的html5播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ -->
+<iframe src="https://www.bilibili.com/html/html5player.html?cid=5465980&aid=3444552" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 <!--宽占满，高度自适应。 poster 预加载显示的图像-->
-<iframe   
-    height=498 width=510   
-    src="http://www.bilibili.com/video/av3444552/"   
-    frameborder=0 allowfullscreen>  
-</iframe>
 <!--<video width="100%" height="auto" id="video" controls="" preload="none" 
       poster="http://media.w3.org/2010/05/sintel/poster.png">
       <source id="mp4" src="http://cn-fjxm2-dx-v-03.acgvideo.com/vg1/f/84/5465980-1.mp4?expires=1494488400&platform=html5&ssig=sFyLhO5klFhNKadv0P9gtA&oi=1968780062&nfa=fkYkF/LEe5xFyJPq/bZ9eQ==&dynamic=1&hfa=2066162576" type="video/mp4">

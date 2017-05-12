@@ -5,14 +5,26 @@
         <%- partial('_partial/footer-left') %>
 
         <!--Copyright-->
-        <div id="copyright">
+        <!--<div id="copyright">
             Copyright&nbsp;©&nbsp;
             <script type="text/javascript">
                 var fd = new Date();
                 document.write(fd.getFullYear());
             </script>
             &nbsp;<%- config.title %>
-        </div>
+        </div>-->
+        <div id="copyright">	<script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+			<script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+			<div id="time">
+				<script>
+					var begin = moment([2015,04,11]);
+					var now = moment();
+					setInterval(function (){document.getElementById('time').innerHTML ="本站已运行 "+now.diff(begin,'days')+" 天"+"<br>"+moment().format("YYYY-MM-DD HH:mm:ss"),1000})
+				</script>
+				</div>
+				<div id="lwlhitokoto"><script>lwlhitokoto()</script></div>
+			</div>
+
 
         <!-- Paradox Footer Right Section -->
 
