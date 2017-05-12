@@ -28,6 +28,7 @@ header-img: "img/CPU_Beauty.jpg"
 
 --------------------------------
 ## Nice Blog
+* [王亟亟的大牛之路](http://blog.csdn.net/ddwhan0123?viewmode=contents) - Android, iOS, react-native
 * [D_clock爱吃葱花](http://blog.coderclock.com/) - [Diycode](https://www.diycode.cc/wiki/about)社区维护者之一, 热爱开源。
 * [《Android开发艺术探索》读书笔记](https://hujiaweibujidao.github.io/blog/2015/12/05/art-of-android-development-reading-notes/)
 * [Android样式的开发](http://keeganlee.me/post/android/20150830)- shape、selector、layer-list、level-list、style等
