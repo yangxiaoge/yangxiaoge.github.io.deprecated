@@ -148,7 +148,7 @@ deploy:
   repo: 
     #发布到github, coding. 先注解掉coding， coding缓存有问题，仓库内存不够！
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
-    #coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
+    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
 	
 #deploy: 
 #    type: git
