@@ -9,4 +9,4 @@ categories: mock
 ![看图一目了然](/img/fiddler mock.png)
 
 ## [Easy Mock](https://easy-mock.com/)
-![easy-mock](easy-mock.png)
+![easy-mock](/img/easy-mock.png)
