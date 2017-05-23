@@ -11,6 +11,11 @@ thumbnail: /img/preview-hero.png
 本文重点是 Android O 的上手视频，迫不及待的把测试机 Nexus 5X 刷成了 Android 0，[Android O 系统映像文件下载](https://developer.android.com/preview/download.html)，官网介绍特性：[Android O 新特性介绍](https://developer.android.com/preview/index.html)。
 
 **上手视频：**
-<video height="800" controls>
+<!--<video height="800" controls>
     <source src="/img/video/Android8.0device-2017-05-19-131435.mp4">
+</video>-->
+<!--宽占满，高度自适应。 poster 预加载显示的图像-->
+<video height="700" id="video" controls="" preload="none" 
+      poster="/img/video/Android_O_Preload.png">
+      <source id="mp4" src="/img/video/Android8.0device-2017-05-19-131435.mp4" type="video/mp4">
 </video>
