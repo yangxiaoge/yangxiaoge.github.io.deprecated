@@ -4,6 +4,7 @@ title: "About"
 description: "Hey, this is Bruce Yang."
 comments: true
 header-img: "img/ZTEsoft.jpg"
+thumbnail: "/img/ZTEsoft.jpg"
 ---
 
 <p style="text-align:center;;font-size:20px">
@@ -16,8 +17,8 @@ Hey，我是 **Bruce Yang**，Android 开发者 & 独立开发者，[南京信�
 
 > 个人履历
 
-[江苏北弓智能科技有限公司](http://begoit.com/)  2017.04 - 至今
-[中兴软创](http://www.ztesoft.com/cn)  2015.07 - 2017.04
+[江苏北弓](http://begoit.com/)  2017.04 - 至今
+[ZTEsoft中兴软创](http://www.ztesoft.com/cn)  2015.07 - 2017.04
 
 喜欢技术，热爱分享。
 
