@@ -5,6 +5,7 @@ description: "Hey, this is Bruce Yang."
 comments: true
 header-img: "img/ZTEsoft.jpg"
 thumbnail: "/img/ZTEsoft.jpg"
+notag: true # 关于页面不需要显示tag
 ---
 
 <p style="text-align:center;;font-size:20px">
