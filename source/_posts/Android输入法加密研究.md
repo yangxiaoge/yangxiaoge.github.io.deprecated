@@ -4,6 +4,7 @@ date: 2017-05-09 09:51:03
 tags: 输入法
 categories: 输入法
 thumbnail: /img/Android输入法加密研究/input_method1.png
+layout: private
 ---
 
 近期接到一个微信，QQ 聊天时加密文字的需求。
