@@ -65,7 +65,7 @@ background:
 
 # Images Settings
 img:
-    logo: "/img/logo.gif"
+    logo: "/img/logo.png" #logo.gif
     avatar: "/img/avatar.png"
     daily_pic: "/img/daily_pic.png"
     sidebar_header: "/img/sidebar_header.png"
