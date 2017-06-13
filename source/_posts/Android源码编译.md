@@ -41,6 +41,11 @@ thumbnail: /img/mountain-bg.jpg
 以下是哔哩哔哩的html5播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ 
 <iframe src="https://www.bilibili.com/html/html5player.html?cid=5465980&aid=3444552" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+`add ↓↓↓↓↓↓` 
+## 源码代码提示的命令 2017-6-13 15:46:06
+`mmm development/tools/idegen/ sh ./development/tools/idegen/idegen.sh`，会在项目的更目录下会生成 `android.ipr`，用 `andorid studio` 打开这个文件，源码代码就有提示了!
+
+
 <!--宽占满，高度自适应。 poster 预加载显示的图像-->
 <!--<video width="100%" height="auto" id="video" controls="" preload="none" 
       poster="http://media.w3.org/2010/05/sintel/poster.png">
