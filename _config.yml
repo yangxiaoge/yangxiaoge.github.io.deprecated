@@ -11,7 +11,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yangxiaoge.coding.me/
+url: https://yangxiaoge.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -53,7 +53,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 #ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
 ga_track_id: 'UA-89143217-1'            # Format: UA-xxxxxx-xx
-ga_domain: yangxiaoge.coding.me
+ga_domain: yangxiaoge.github.io
 
 
 # Sidebar settings
