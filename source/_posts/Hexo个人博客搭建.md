@@ -98,5 +98,5 @@ http://michaelxiang.me/2015/11/30/hexo-next-optimize/
   <blockquote class="blockquote-center">参考: http://theme-next.iissnan.com/tag-plugins.html</blockquote>
 
 ![](http://theme-next.iissnan.com/uploads/tags/full-image.jpg)
-11. 百度统计网站统计
+11. 百度统计网站统计 （账号：yangxiaoge 密码：******）
 https://tongji.baidu.com/web
