@@ -40,6 +40,12 @@ thumbnail: /img/mountain-bg.jpg
 **源码代码提示的命令** `2017-6-13 15:46:06` add
 `mmm development/tools/idegen/ sh ./development/tools/idegen/idegen.sh`，会在项目的更目录下会生成 `android.ipr`，用 `andorid studio` 打开这个文件，源码代码就有提示了!
 
+**内置 apk** `2017-6-27 11:08:49` add
+- KONKAS6/alps/device/konka/kon6753_66c_s6_m0/begoit 路径下将需要的 apk(TopActivity.apk) 安装包放进来
+- 在上述路径下 Android.mk 文件中将 apk 信息加进来（这个模仿其他的内置apk）
+- KONKAS6/alps/device/konka/kon6753_66c_s6_m0/full_kon6753_66c_s6_m0.mk 文件中增加 `TopActivity \`
+- 如果 apk 中有 so 库那么需要加别的东西，目前没有用到，可自行 google
+
 如下是编译的录屏, 临时弄个 `枪火` 先占坑，视频抽空录制（视频太大暂不录制）。
 以下是哔哩哔哩的html5播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ 
 <iframe src="https://www.bilibili.com/html/html5player.html?cid=5465980&aid=3444552" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
