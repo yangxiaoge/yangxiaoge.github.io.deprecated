@@ -45,6 +45,7 @@ thumbnail: /img/mountain-bg.jpg
 - 在上述路径下 Android.mk 文件中将 apk 信息加进来（这个模仿其他的内置apk）
 - KONKAS6/alps/device/konka/kon6753_66c_s6_m0/full_kon6753_66c_s6_m0.mk 文件中增加 `TopActivity \`
 - 如果 apk 中有 so 库那么需要加别的东西，目前没有用到，可自行 google
+- 以上操作完成之后需要重新编译项目
 
 如下是编译的录屏, 临时弄个 `枪火` 先占坑，视频抽空录制（视频太大暂不录制）。
 以下是哔哩哔哩的html5播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ 
