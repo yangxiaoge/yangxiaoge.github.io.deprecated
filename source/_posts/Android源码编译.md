@@ -38,7 +38,7 @@ thumbnail: /img/mountain-bg.jpg
 `Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释onCreate中的部分代码，略去登录注册等功能)
 
 **源码代码提示的命令** `2017-6-13 15:46:06` add
-`mmm development/tools/idegen/ sh ./development/tools/idegen/idegen.sh`，会在项目的更目录下会生成 `android.ipr`，用 `andorid studio` 打开这个文件，源码代码就有提示了!
+`mmm development/tools/idegen/sh ./development/tools/idegen/idegen.sh`，会在项目的更目录下会生成 `android.ipr`，用 `andorid studio` 打开这个文件，源码代码就有提示了!
 
 **内置 apk** `2017-6-27 11:08:49` add
 - KONKAS6/alps/device/konka/kon6753_66c_s6_m0/begoit 路径下将需要的 apk(TopActivity.apk) 安装包放进来
