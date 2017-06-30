@@ -24,7 +24,7 @@ thumbnail: /img/mountain-bg.jpg
 ![flash_tool](/img/flash_tool.png)
 
 刷机开始
--  `MTK 刷机`（KONKAS6 代码）使用 `Smart Phone Flash Tool` 工具： 注意KONKA手机关机即可，首先选中 `Scatter-loading File` 这行的 `choose` ，然后`右击计算机`选择`映射网络驱动器`输入 `\\192.168.20.220\share`（这个是 `ubuntu` 共享的文件夹），然后进入对于源码目录找到 `KONKAS6\alps\out\target\product\kon6753_66c_s6_m0\MT6753_Android_scatter.txt`
+-  `MTK 刷机`（KONKAS6 代码）使用 `Smart Phone Flash Tool` 工具： 注意 KONKA 手机关机即可，首先选中 `Scatter-loading File` 这行的 `choose` ，然后`右击计算机`选择`映射网络驱动器`输入 `\\192.168.20.220\share`（这个是 `ubuntu` 共享的文件夹），然后进入对于源码目录找到 `KONKAS6\alps\out\target\product\kon6753_66c_s6_m0\MT6753_Android_scatter.txt`
 - `原生 AOSP` 用 Nexus 刷机（AOSP-6.0.1_r17 代码）：注意手机关机进入 `fastboot` 界面，进入编译生成的目录下 `begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/out/target/product/bullhead$`，然后依次刷入如下命令：
   - sudo fastboot flash system system.img
   - sudo fastboot flash recovery recovery.img
@@ -32,10 +32,10 @@ thumbnail: /img/mountain-bg.jpg
   - sudo fastboot flash cache cache.img
   - sudo fastboot flash userdata userdata.img
   - sudo fastboot reboot 最后一步，重启手机。
-- 刷机录像：注意，gif最后点击 `download` 之后再用 usb 连接关机的 KONKA 手机
+- 刷机录像：注意，gif 最后点击 `download` 之后再用 usb 连接关机的 KONKA 手机
 ![MTK刷机录制](/img/MTK刷机录制.gif)
 
-`Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释onCreate中的部分代码，略去登录注册等功能)
+`Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释 onCreate 中的部分代码，略去登录注册等功能)
 
 **源码代码提示的命令** `2017-6-13 15:46:06` add
 `mmm development/tools/idegen/sh ./development/tools/idegen/idegen.sh`，会在项目的更目录下会生成 `android.ipr`，用 `andorid studio` 打开这个文件，源码代码就有提示了!
@@ -47,8 +47,11 @@ thumbnail: /img/mountain-bg.jpg
 - 如果 apk 中有 so 库那么需要加别的东西，目前没有用到，可自行 google
 - 以上操作完成之后需要重新编译项目
 
+**加快编译速度** `2017-6-30 17:46:53` add
+`prebuilts/misc/linux-x86/ccache/ccache -M 50G` 设置 cache 缓存为 50 G
+
 如下是编译的录屏, 临时弄个 `枪火` 先占坑，视频抽空录制（视频太大暂不录制）。
-以下是哔哩哔哩的html5播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ 
+以下是哔哩哔哩的 html5 播放视频，参考文章：http://login926.github.io/2016/12/24/Bilibilihtml5Player/ 
 <iframe src="https://www.bilibili.com/html/html5player.html?cid=5465980&aid=3444552" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
