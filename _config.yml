@@ -138,7 +138,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-## material, next , indigo, xone主题
+## material, cafe主题
 theme: cafe
  
 # Deployment
@@ -148,7 +148,7 @@ deploy:
   repo: 
     #发布到github, coding. 先注解掉coding， coding仓库内存不够！(真扣)
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
-    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
+    #coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
 	
 #deploy: 
 #    type: git
