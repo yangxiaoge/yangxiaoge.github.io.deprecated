@@ -6,30 +6,31 @@ categories: Android
 catalog:   true #显示目录
 ---
 > forked from [xdtianyu/SourceAnalysis](https://github.com/xdtianyu/SourceAnalysis)
+
 # Binder 源码分析
 
 本文是基于 [Android 6.0.0](https://github.com/xdtianyu/android-6.0.0_r1) 和 [kernel 3.4](https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow) 源码 及 Android SDK 23 展开的。
 
 **目录**
 
-- [1. 简介](#1-%E7%AE%80%E4%BB%8B)
-- [2. Binder 与 AIDL](#2-binder-%E4%B8%8E-aidl)
-  - [2.1 AIDL 客户端](#21-aidl-%E5%AE%A2%E6%88%B7%E7%AB%AF)
-  - [2.2 AIDL 服务端](#22-aidl-%E6%9C%8D%E5%8A%A1%E7%AB%AF)
-  - [2.3 远程服务的获取与使用](#23-%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E7%9A%84%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BD%BF%E7%94%A8)
-- [3. Binder 框架及 Native 层](#3-binder-%E6%A1%86%E6%9E%B6%E5%8F%8A-native-%E5%B1%82)
-  - [3.1 Binder Native 的入口](#31-binder-native-%E7%9A%84%E5%85%A5%E5%8F%A3)
-  - [3.2 Binder 本地层的整个函数/方法调用过程](#32-binder-%E6%9C%AC%E5%9C%B0%E5%B1%82%E7%9A%84%E6%95%B4%E4%B8%AA%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B)
-  - [3.3 Binder 设备文件的打开和读写](#33-binder-%E8%AE%BE%E5%A4%87%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%BC%80%E5%92%8C%E8%AF%BB%E5%86%99)
-- [4. Binder 驱动](#4-binder-%E9%A9%B1%E5%8A%A8)
-  - [4.1 binder 设备的创建](#41-binder-%E8%AE%BE%E5%A4%87%E7%9A%84%E5%88%9B%E5%BB%BA)
-  - [4.2 binder 协议和数据结构](#42-binder-%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
-  - [4.3 binder 驱动文件操作](#43-binder-%E9%A9%B1%E5%8A%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C)
-- [5. Binder 与系统服务](#5-binder-%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1)
+- [1. 简介](#1-简介)
+- [2. Binder 与 AIDL](#2-binder-与-aidl)
+  - [2.1 AIDL 客户端](#21-aidl-客户端)
+  - [2.2 AIDL 服务端](#22-aidl-服务端)
+  - [2.3 远程服务的获取与使用](#23-远程服务的获取与使用)
+- [3. Binder 框架及 Native 层](#3-binder-框架及-native-层)
+  - [3.1 Binder Native 的入口](#31-binder-native-的入口)
+  - [3.2 Binder 本地层的整个函数/方法调用过程](#32-binder-本地层的整个函数/方法调用过程)
+  - [3.3 Binder 设备文件的打开和读写](#33-binder-设备文件的打开和读写)
+- [4. Binder 驱动](#4-binder-驱动)
+  - [4.1 binder 设备的创建](#41-binder-设备的创建)
+  - [4.2 binder 协议和数据结构](#42-binder-协议和数据结构)
+  - [4.3 binder 驱动文件操作](#43-binder-驱动文件操作)
+- [5. Binder 与系统服务](#5-binder-与系统服务)
   - [5.1 Context.getSystemService()](#51-contextgetsystemservice)
-  - [5.2 Context.getSystemService() 源码分析](#52-contextgetsystemservice-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90)
-- [6. 结论](#6-%E7%BB%93%E8%AE%BA)
-- [7. 参考](#7-%E5%8F%82%E8%80%83)
+  - [5.2 Context.getSystemService() 源码分析](#52-contextgetsystemservice-源码分析)
+- [6. 结论](#6-结论)
+- [7. 参考](#7-参考)
 
 ## 1. 简介
 
