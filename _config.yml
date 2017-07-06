@@ -139,7 +139,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 ## material, next , indigo, xone主题
-theme: material
+theme: cafe
  
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
