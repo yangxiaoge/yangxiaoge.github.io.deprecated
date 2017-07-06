@@ -99,7 +99,7 @@ favicon: /favicon.png
 
 ## 网易云跟帖
 ### 使用说明 http://cafe.giscafer.com/2017/04/14/gentie-test/
-gentie_productKey: e2fb4051c49842688ce669e634bc983f
+gentie_productKey: false
 
 ## 畅言 (不使用请将appid和appkey都设空或者false)
 ### 使用说明：http://changyan.kuaizhan.com/static/help/
@@ -120,7 +120,7 @@ gitment:
   client_secret: 97f37d5c27c4a511xx4fxx623d391c85cb97f8 
 
 ## disqus
-disqus_shortname: false
+disqus_shortname: yangxiaoge
 
 google_plus:
 fb_admins:
