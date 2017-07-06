@@ -15,7 +15,7 @@ header-img: "img/CPU_Beauty.jpg"
 
 --------------------------------
 ## 每日必看
-- [diycode社区](https://www.diycode.cc/news)
+- [diycode社区](https://www.diycode.cc/news) - diycode社区
 - [stormzhang张奇](http://stormzhang.com/) - 励志
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
 - [郭霖](http://blog.csdn.net/guolin_blog/article/details/9097463/) - 国内Android开发大牛,跟鸿洋搅基~~
