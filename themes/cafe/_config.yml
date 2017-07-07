@@ -2,6 +2,7 @@
 menu:
   首页: /
   归档: /archives
+  链接: /links
   关于: /about
 rss: /atom.xml
 
@@ -17,10 +18,10 @@ fancybox: true
 social_title: Follow me
 # Social links 社交链接
 social:
-  github: https://github.com/giscafer
-  weibo: http://weibo.com/laohoubin
-  zhihu: http://www.zhihu.com/people/giscafer
-  email: 'youemail@outlook.com'
+  github: https://github.com/yangxiaoge
+  weibo: http://weibo.com/3227182774
+  #zhihu: http://www.zhihu.com/people/giscafer
+  email: 'yang.jianan0926@gmail.com'
 
 # WeChat 微信公众号二维码url
 wechat_url: http://blog.giscafer.com/static/images/qrcode_giscafer.jpg ## 启用wechat widget才会生效

@@ -7,8 +7,6 @@ catalog:   true #显示目录
 ---
 > forked from [xdtianyu/SourceAnalysis](https://github.com/xdtianyu/SourceAnalysis)
 
-# Binder 源码分析
-
 本文是基于 [Android 6.0.0](https://github.com/xdtianyu/android-6.0.0_r1) 和 [kernel 3.4](https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow) 源码 及 Android SDK 23 展开的。
 
 **目录**
