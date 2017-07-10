@@ -106,11 +106,11 @@ sns:
 sns_share:
     twitter: true
     facebook: true
-    googleplus: true
+    googleplus: false
     weibo: true
-    linkedin: true
+    linkedin: false
     qq: true
-    telegram: true
+    telegram: false
 
 # Sidebar Customize
 sidebar:
