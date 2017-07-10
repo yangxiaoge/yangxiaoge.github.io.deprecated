@@ -11,7 +11,7 @@ head:
 
 # Jump Links Settings
 url:
-    rss:
+    rss: /atom.xml
     daily_pic: "#"
     logo: "/about"
 
@@ -49,7 +49,7 @@ reading:
 # Thumbnail Settings
 thumbnail:
     purecolor:
-    random_amount: 20
+    random_amount: 15
 
 # Background Settings
 # bing available parameter:
@@ -110,7 +110,7 @@ sns_share:
     weibo: true
     linkedin: true
     qq: true
-    telegram: false
+    telegram: true
 
 # Sidebar Customize
 sidebar:
