@@ -12,6 +12,7 @@ header-img: "img/CPU_Beauty.jpg"
 - [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [diycode客户端](https://github.com/GcsSloop/diycode)
+- [Android 开发进阶: 自定义 View 1-1 绘制基础](http://hencoder.com/ui-1-1/)
 
 --------------------------------
 ## 每日必看
