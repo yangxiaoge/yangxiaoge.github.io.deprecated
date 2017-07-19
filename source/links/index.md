@@ -13,6 +13,8 @@ header-img: "img/CPU_Beauty.jpg"
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [diycode客户端](https://github.com/GcsSloop/diycode)
 - [Android 开发进阶: 自定义 View 1-1 绘制基础](http://hencoder.com/ui-1-1/)
+- [Kotlin Gitbook](https://huanglizhuo.gitbooks.io/kotlin-in-chinese/content/GettingStarted/Basic-Syntax.html?q=)
+- [Kotlin系统入门与进阶 ¥ 99.00](http://coding.imooc.com/class/evaluation/108.html?page=3)
 
 --------------------------------
 ## 每日必看
