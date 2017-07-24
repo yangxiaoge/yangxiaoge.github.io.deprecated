@@ -141,6 +141,9 @@ sidebar:
         链接:
             link: "/links"
             divider: false
+        项目收集:
+            link: "/project_collection"
+            divider: false
         关于:
             link: "/about"
             divider: true
