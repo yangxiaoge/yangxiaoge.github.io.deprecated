@@ -11,6 +11,7 @@ header-img: "/img/music.jpg"
 ## New Collection
 - [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
+- [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) - 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等
 - [diycode客户端](https://github.com/GcsSloop/diycode)
 - [Android 开发进阶: 自定义 View 1-1 绘制基础](http://hencoder.com/ui-1-1/)
 - [Kotlin Gitbook](https://huanglizhuo.gitbooks.io/kotlin-in-chinese/content/GettingStarted/Basic-Syntax.html?q=)
