@@ -9,6 +9,7 @@ header-img: "/img/music.jpg"
 
 --------------------------------
 ## New Collection
+- [android大全网站](http://androidcat.com/?step=1&view=CatFragment) - AndroidCat
 - [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) - 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等
