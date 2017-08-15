@@ -9,7 +9,7 @@ header-img: "/img/music.jpg"
 
 --------------------------------
 ## New Collection
-- [学习正则的开源项目](https://github.com/zeeshanu/learn-regex/blob/master/README-cn.md) - 帅逼张（stormzhang）推荐
+- [学习正则的开源项目](https://github.com/zeeshanu/learn-regex/blob/master/README-cn.md) - 帅比张「stormzhang」推荐
 - [easy_mock_api](https://github.com/heimashi/easy_mock_api) - NodeJs 编写的，给客户端（Android iOS）同学本地模拟 json 接口的小工具
 - [easy-mock](https://easy-mock.com/) - 在线 mock
 - [android大全网站](http://androidcat.com/?step=1&view=CatFragment) - AndroidCat
