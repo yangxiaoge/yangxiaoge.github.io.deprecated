@@ -9,11 +9,13 @@ header-img: "/img/music.jpg"
 
 --------------------------------
 ## New Collection
+- [CityPickerViewV2.0 重磅来袭](http://crazyandcoder.github.io/2017/08/22/CityPickerViewV2-0%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD/) - CityPickerViewV2.0 重磅来袭
 - [学习正则的开源项目](https://github.com/zeeshanu/learn-regex/blob/master/README-cn.md) - 帅比张「stormzhang」推荐
 - [easy_mock_api](https://github.com/heimashi/easy_mock_api) - NodeJs 编写的，给客户端（Android iOS）同学本地模拟 json 接口的小工具
 - [easy-mock](https://easy-mock.com/) - 在线 mock
 - [android大全网站](http://androidcat.com/?step=1&view=CatFragment) - AndroidCat
 - [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
+- [RxTools](https://github.com/vondear/RxTools) - 支付，购物车控件，分享，圆图，二维码，压缩，webview，滑动验证，location 等等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) - 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等
 - [diycode客户端](https://github.com/GcsSloop/diycode)
