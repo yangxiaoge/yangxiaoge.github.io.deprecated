@@ -15,7 +15,7 @@ header-img: "/img/music.jpg"
 - [easy-mock](https://easy-mock.com/) - 在线 mock
 - [android大全网站](http://androidcat.com/?step=1&view=CatFragment) - AndroidCat
 - [haohao](https://githubhaohao.github.io) -MVVM, 主题切换，Tinker， IPC等
-- [RxTools](https://github.com/vondear/RxTools) - 支付，购物车控件，分享，圆图，二维码，压缩，webview，滑动验证，location 等等
+- [RxTools](https://github.com/vondear/RxTools) - 支付，购物车控件，分享，圆图，二维码，压缩，webview，滑动验证，location，电影票选座，联系人，跑马灯，Toast，登录 等等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) - 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等
 - [diycode客户端](https://github.com/GcsSloop/diycode)
