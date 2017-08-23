@@ -5,7 +5,11 @@ description: "友情链接"
 header-img: "/img/music.jpg"
 ---
 
-<center><font color=SkyBlue size="6px">**常用链接收藏**</font></center>
+<!-- <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center> -->
+
+--------------------------------
+## 温故而知新
+- [Android 基础,进阶,View,面试](https://github.com/linsir6/AndroidNote)
 
 --------------------------------
 ## New Collection
