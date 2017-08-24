@@ -10,10 +10,13 @@ header-img: "/img/music.jpg"
 --------------------------------
 ## 温故而知新
 - [Android 基础,进阶,View,面试](https://github.com/linsir6/AndroidNote)
+- [Android工程师之Android面试大纲](http://mp.weixin.qq.com/s/bvB2U0-6ZJ1j06iVV4NmjQ)
 
 --------------------------------
 ## New Collection
-- [CityPickerViewV2.0 重磅来袭](http://crazyandcoder.github.io/2017/08/22/CityPickerViewV2-0%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD/) - CityPickerViewV2.0 重磅来袭
+- [使用 Jenkins 实现持续集成 (Android)](http://www.pgyer.com/doc/view/jenkins)
+- [Hensen_ 的全栈式导航](http://blog.csdn.net/qq_30379689/article/details/52637226) - 全栈
+- [CityPickerViewV2.0 重磅来袭](http://crazyandcoder.github.io/2017/08/22/CityPickerViewV2-0%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD/) - 城市选择 CityPickerViewV2.0 重磅来袭
 - [学习正则的开源项目](https://github.com/zeeshanu/learn-regex/blob/master/README-cn.md) - 帅比张「stormzhang」推荐
 - [easy_mock_api](https://github.com/heimashi/easy_mock_api) - NodeJs 编写的，给客户端（Android iOS）同学本地模拟 json 接口的小工具
 - [easy-mock](https://easy-mock.com/) - 在线 mock
