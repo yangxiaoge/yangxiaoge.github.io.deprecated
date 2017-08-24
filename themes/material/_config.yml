@@ -135,10 +135,10 @@ sidebar:
         标签云:
             link: "/tags"
             divider: false
-        友情链接:
+        友链:
             link: "/friends"
             divider: false  
-        链接:
+        常用链接:
             link: "/links"
             divider: false
         项目收集:
