@@ -87,3 +87,7 @@ date: 2016-09-14 11:39:56
 ![](https://camo.githubusercontent.com/1cfc3b399e45dea852e8b20d11b46c5f1a2d1d88/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f32303136313230393231313432363833363f77617465726d61726b2f322f746578742f6148523063446f764c324a736232637559334e6b626935755a58517662476c716156393459773d3d2f666f6e742f3561364c354c32542f666f6e7473697a652f3430302f66696c6c2f49304a42516b46434d413d3d2f646973736f6c76652f37302f677261766974792f536f75746845617374)
 51. [史上最简单侧滑菜单](https://github.com/mcxtzhang/SwipeDelMenuLayout)
 ![](https://github.com/mcxtzhang/SwipeDelMenuLayout/raw/master/gif/FlowSwipe.gif)
+52.[GankMM -- 干货营](https://github.com/maning0303/GankMM) - 包含 泡网，天气，常用工具，换肤等
+![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_day_01.png)
+![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_night_02.jpg)
+![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_12.png)
