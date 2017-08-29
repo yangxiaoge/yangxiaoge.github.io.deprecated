@@ -25,7 +25,7 @@ header-img: "/img/music.jpg"
 - [RxTools](https://github.com/vondear/RxTools) - 支付，购物车控件，分享，圆图，二维码，压缩，webview，滑动验证，location，电影票选座，联系人，跑马灯，Toast，登录 等等
 - [Android 工具集](https://github.com/yangxiaoge/AndroidUtilCode) -囊括所有你能想到的utils，不用自己去写工具了。
 - [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) - 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等
-- [diycode客户端](https://github.com/GcsSloop/diycode)
+- [diycode客户端](https://github.com/GcsSloop/diycode) - 自定义View教程
 - [Android 开发进阶: 自定义 View 1-1 绘制基础](http://hencoder.com/ui-1-1/)
 - [Kotlin Gitbook](https://huanglizhuo.gitbooks.io/kotlin-in-chinese/content/GettingStarted/Basic-Syntax.html?q=)
 - [Kotlin系统入门与进阶 ¥ 99.00](http://coding.imooc.com/class/evaluation/108.html?page=3)
