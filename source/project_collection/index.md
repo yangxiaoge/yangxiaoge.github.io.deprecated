@@ -91,3 +91,7 @@ date: 2016-09-14 11:39:56
 ![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_day_01.png)
 ![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_night_02.jpg)
 ![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_12.png)
+52.[Android 录音功能直接拿去用](https://github.com/developerHaoz/SoundRecorderUtils) - code小生
+![](https://camo.githubusercontent.com/7b1bcd5810b58cdb67bcebd2ba15e0be2c957c28/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031372f382f31322f3262623461356666333233663130333934323538663532376363363237393133)
+53.[Android 实现 dialog 的 3D 翻转](https://mp.weixin.qq.com/s/LEOB83WC5Jn_LT-dWVPSqw)
+![](http://upload-images.jianshu.io/upload_images/3161635-11f4134590e19e86?imageMogr2/auto-orient/strip)
