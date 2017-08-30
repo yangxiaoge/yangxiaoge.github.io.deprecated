@@ -38,7 +38,6 @@ header-img: "/img/music.jpg"
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
 - [郭霖](http://blog.csdn.net/guolin_blog/article/details/9097463/) - 国内Android开发大牛,跟鸿洋搅基~~
 - 微信公众号 :[stormzhang](http://weixin.sogou.com/weixin?type=1&s_from=input&query=AndroidDeveloper&ie=utf8&_sug_=n&_sug_type_=), [郭霖](http://weixin.sogou.com/weixin?type=1&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=&w=01015002&oq=&ri=2&sourceid=sugg&sut=893&sst0=1477555640580&lkt=1%2C1477555640477%2C1477555640477), [鸿洋](http://weixin.sogou.com/weixin?type=1&query=hongyangAndroid&ie=utf8&_sug_=y&_sug_type_=&w=01015002&oq=hong&ri=0&sourceid=sugg&stj=0%3B0%3B0%3B0&stj2=0&stj0=0&stj1=0&hp=32&hp1=&sut=3487&sst0=1477555714123&lkt=1%2C1477555714016%2C1477555714016)
-- [w4lle王令龙](http://w4lle.github.io/)  - 热补丁, 模块化, 一键接入Tinker
 
 -------------------------------
 ## React Native (是时候学习一波了！)
@@ -83,6 +82,7 @@ header-img: "/img/music.jpg"
 * [Shinelw Blog](http://shinelw.com/) - android
 * [Werb](http://werb.github.io/) - android视频音频,python打包apk等
 * [半栈工程师](https://halfstackdeveloper.github.io/) - 滑动卡片, 悬浮球, JVM, HotFix...
+- [w4lle王令龙](http://w4lle.github.io/)  - 热补丁, 模块化, 一键接入Tinker
 	
 -------------------------------
 ## A collection of links
