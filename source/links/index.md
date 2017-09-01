@@ -33,6 +33,7 @@ header-img: "/img/music.jpg"
 
 --------------------------------
 ## 每日必看
+- [玩Android](xueandroid.com/index) - 鸿洋维护的 Android 技术网站
 - [diycode社区](https://www.diycode.cc/news) - diycode社区
 - [stormzhang张奇](http://stormzhang.com/) - 励志
 - [鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents) - 国内Android开发大牛
