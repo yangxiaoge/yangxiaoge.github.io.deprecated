@@ -3,6 +3,9 @@
     <span class="visuallyhidden">share</span>
 </button>
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+
+
+    <!-- 文章阅读量统计 start ， 先注释掉不蒜子的文章数统计，只用 leancloud 统计： 首页的访客数用的也是 leancloud-->
     <% if(theme.leancloud.enable === true) { %>
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
@@ -15,15 +18,17 @@
     <% if(theme.busuanzi.enable === true) { %>
         <% if(theme.busuanzi.post_pv === true) { %>
             <!-- Busuanzi Views -->
-            <a class="post_share-link" href="#">
+            <!-- <a class="post_share-link" href="#">
                 <li class="mdl-menu__item">
                     <span id="busuanzi_container_page_pv">
                         <span id="busuanzi_value_page_pv"></span>&nbsp;<%= __('post.views') %>
                     </span>
                 </li>
-            </a>
+            </a> -->
         <% } %>
     <% } %>
+
+    <!-- 文章阅读量统计 end -->
 
     <!-- Share Weibo -->
     <% if(theme.sns_share.weibo === true) { %>

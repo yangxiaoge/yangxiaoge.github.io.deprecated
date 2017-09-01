@@ -40,16 +40,27 @@
             <span class="visuallyhidden">show menu</span>
         </button>
         <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+
+            <!-- 访问量量统计 start ， 先注释掉不蒜子的访问数统计，只用 leancloud 统计： 首页的访客数用的也是 leancloud-->
+            <% if(theme.leancloud.enable === true) { %>
+                    <!-- Leancloud Views -->
+                        <a class="post_share-link" href="#">
+                            <li class="mdl-menu__item">
+                                <%- partial('_widget/leancloud-views_num') %>
+                            </li>
+                        </a>
+            <% } %>
             <% if(theme.busuanzi.all_site_uv === true) { %>
                 <!-- All Site UV -->
-                <a class="index_share-link" href="#">
+                <!-- <a class="index_share-link" href="#">
                     <li class="mdl-menu__item mdl-js-ripple-effect">
                         <span id="busuanzi_container_site_uv">
                             <span id="busuanzi_value_site_uv"></span>&nbsp;<%= __('post.views') %>
                         </span>
                     </li>
-                </a>
+                </a> -->
             <% } %>
+               <!-- 访问量量统计 end -->
 
             <% if(theme.url.rss) { %>
                 <a class="index_share-link" href="<%= theme.url.rss || '#' %>">
