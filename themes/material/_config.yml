@@ -99,8 +99,8 @@ sns:
     github: "http://www.github.com/yangxiaoge"
     linkedin:
     # zhihu: "https://www.zhihu.com/people/yang-jia-nan-99"
-    bilibili: "http://space.bilibili.com/2461710"
-    telegram:
+    # bilibili: "http://space.bilibili.com/2461710"
+    telegram: "https://t.me/yangyangyang"
 
 # SNS Share Switch
 sns_share:
@@ -110,7 +110,7 @@ sns_share:
     weibo: true
     linkedin: false
     qq: true
-    telegram: false
+    telegram: true
 
 # Sidebar Customize
 sidebar:
