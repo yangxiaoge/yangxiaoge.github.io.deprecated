@@ -141,14 +141,14 @@ pagination_dir: page
 ## material, cafe主题
 theme: material
  
-# Deployment
+# Deployment 
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: 
     #发布到github, coding. 先注解掉coding， coding仓库内存不够！(真扣)
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
-    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,coding_blog
+    coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
 	
 #deploy: # 小祖宗的 github
 #    type: git
