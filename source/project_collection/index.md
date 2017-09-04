@@ -95,3 +95,5 @@ date: 2016-09-14 11:39:56
 ![](https://camo.githubusercontent.com/7b1bcd5810b58cdb67bcebd2ba15e0be2c957c28/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031372f382f31322f3262623461356666333233663130333934323538663532376363363237393133)
 53.[Android 实现 dialog 的 3D 翻转](https://mp.weixin.qq.com/s/LEOB83WC5Jn_LT-dWVPSqw)
 ![](http://upload-images.jianshu.io/upload_images/3161635-11f4134590e19e86?imageMogr2/auto-orient/strip)
+54.[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
+![](https://github.com/sfsheng0322/DroidVR/raw/master/DroidVR.gif)
