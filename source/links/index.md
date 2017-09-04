@@ -7,6 +7,9 @@ header-img: "/img/music.jpg"
 
 <!-- <center><font color=SkyBlue size="6px">**常用链接收藏**</font></center> -->
 
+[<div align=center><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201503/19/212638snhia4axi14x5rt5.jpg"/></div>](/project_collection)
+<div align=center>开源项目收集 👆👆👆</div>
+
 --------------------------------
 ## 温故而知新
 - [Android 基础,进阶,View,面试](https://github.com/linsir6/AndroidNote)
@@ -82,7 +85,7 @@ header-img: "/img/music.jpg"
 * [拥抱 Android Studio ：Gradle 插件开发](http://kvh.io/cn/tags/EmbraceAndroidStudio/)
 * [Shinelw Blog](http://shinelw.com/) - android
 * [Werb](http://werb.github.io/) - android视频音频,python打包apk等
-* [半栈工程师](https://halfstackdeveloper.github.io/) - 滑动卡片, 悬浮球, JVM, HotFix...
+* [半栈工程师](https://halfstackdeveloper.github.io/) - 滑动卡片, 悬浮球, JVM, HotFix等
 - [w4lle王令龙](http://w4lle.github.io/)  - 热补丁, 模块化, 一键接入Tinker
 	
 -------------------------------
@@ -108,7 +111,6 @@ header-img: "/img/music.jpg"
 -------------------------------
 ## 不错的开源项目及技术
 - [安卓自定义View教程目录](http://www.gcssloop.com/customview/CustomViewIndex)
-- [开源项目收集 - 后续直接在这里更新开源项目](http://yangxiaoge.coding.me/2016/09/14/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86/)
 - [干货集中营Gank.io](http://gank.io/)
 - [阿里技术沙龙](http://club.alibabatech.org/)
 - [美图技术Blog](http://tech.meituan.com/)

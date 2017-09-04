@@ -1,5 +1,5 @@
 ---
-title: 开源项目以及学习资料收集
+title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
 1. [Android最新源码汇总](http://androidblog.cn/index.php/Source)

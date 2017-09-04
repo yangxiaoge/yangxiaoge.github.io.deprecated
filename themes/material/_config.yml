@@ -121,7 +121,7 @@ sidebar:
             icon: email
     homepage:
         use: true
-        icon: home
+        # icon: home
         divider: false
     archives:
         use: true
@@ -140,15 +140,17 @@ sidebar:
             divider: false  
         常用链接:
             link: "/links"
-            divider: false
-        项目收集:
-            link: "/project_collection"
-            divider: false
+            divider: true
+        # 项目收集:
+        #     use: true
+        #     link: "/project_collection"
+        #     divider: true
         关于:
             link: "/about"
-            divider: true
-    article_num:
-        use: true
+            icon: person
+            divider: false
+    article_num: # 文章总数
+        use: false
         divider: false
     footer:
         divider: false
