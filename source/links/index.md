@@ -17,6 +17,11 @@ header-img: "/img/music.jpg"
 - [java-design-patterns](https://github.com/iluwatar/java-design-patterns) - Java 设计模式详细 Demo
 
 --------------------------------
+## VR
+-[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
+-[Android 三种姿势带你玩转 360 度全景图功能](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ) -  鸿洋公众号推荐
+
+--------------------------------
 ## New Collection
 - [使用 Jenkins 实现持续集成 (Android)](http://www.pgyer.com/doc/view/jenkins)
 - [Hensen_ 的全栈式导航](http://blog.csdn.net/qq_30379689/article/details/52637226) - 全栈
