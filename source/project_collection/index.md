@@ -2,6 +2,7 @@
 title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
+1. [AndroidTVLauncher 猫桌面](https://github.com/JackyAndroid/AndroidTVLauncher/blob/master/README-CN.md) - [中国首位 00 后 CEO 公然抄袭、复制我的开源作品](https://juejin.im/post/59ad758a518825243d1f28cb), 原作者的项目都很棒！坚决抵制这种炒作抄袭行为！
 1. [Android最新源码汇总](http://androidblog.cn/index.php/Source)
 1. [Arsenal](http://android-arsenal.com/)
 1. [Trinea](https://github.com/Trinea/android-open-project)
