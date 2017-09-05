@@ -12,6 +12,7 @@ header-img: "/img/music.jpg"
 
 --------------------------------
 ## 温故而知新
+- [AndroidInterview-Q-A](https://github.com/JackyAndroid/AndroidInterview-Q-A)
 - [Android 基础,进阶,View,面试](https://github.com/linsir6/AndroidNote)
 - [Android工程师之Android面试大纲](http://mp.weixin.qq.com/s/bvB2U0-6ZJ1j06iVV4NmjQ)
 - [java-design-patterns](https://github.com/iluwatar/java-design-patterns) - Java 设计模式详细 Demo
