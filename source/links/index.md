@@ -67,6 +67,7 @@ header-img: "/img/music.jpg"
 - [React Native开发工具配置](https://github.com/le0zh/blog/issues/1) -->
 
 <!-- ## Nice Blog
+* [中二病也要开发 ANDROID](http://kaedea.com/)
 * [王亟亟的大牛之路](http://blog.csdn.net/ddwhan0123?viewmode=contents) - Android, iOS, react-native
 * [D_clock爱吃葱花](http://blog.coderclock.com/) - 
 * [《Android开发艺术探索》读书笔记](https://hujiaweibujidao.github.io/blog/2015/12/05/art-of-android-development-reading-notes/)
