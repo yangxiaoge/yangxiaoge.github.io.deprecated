@@ -16,10 +16,12 @@ header-img: "/img/music.jpg"
 - [Android工程师之Android面试大纲](http://mp.weixin.qq.com/s/bvB2U0-6ZJ1j06iVV4NmjQ)
 - [java-design-patterns](https://github.com/iluwatar/java-design-patterns) - Java 设计模式详细 Demo
 
+## AndroidChromium
+- [谷歌浏览器安卓版源码项目](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) - 本项目是世界级的安卓架构,本项目会长期跟进并升级谷歌浏览器内核版本
 --------------------------------
 ## VR
--[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
--[Android 三种姿势带你玩转 360 度全景图功能](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ) -  鸿洋公众号推荐
+- [360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
+- [Android 三种姿势带你玩转 360 度全景图功能](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ) -  鸿洋公众号推荐
 
 --------------------------------
 ## New Collection
