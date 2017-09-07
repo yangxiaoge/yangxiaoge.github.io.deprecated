@@ -75,10 +75,12 @@ date: 2016-09-14 11:39:56
 > 用nodejs（express+react）搭建的极简的服务器，给定一个url就返回一个特定的Json数据，提供给客户端开发同学用的模拟Json服务器接口的项目，项目尽可能的简单，核心代码只有100多行，简单而实用，方便扩展。
 46. [Spotlight-支持引导路径高亮的方案。](https://github.com/TakuSemba/Spotlight)
 ![](https://raw.githubusercontent.com/TakuSemba/Spotlight/master/arts/customTarget.gif)
-47. [Matisse](https://github.com/zhihu/Matisse)
+47. [Matisse](https://github.com/zhihu/Matisse) - 知乎图片选择
 ![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_zhihu.png)
 ![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_dracula.png)
 ![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_preview.png)
+47.[TelegramGallery](https://github.com/TangXiaoLv/TelegramGallery) - 抽取 Telegram 相册功能
+![](https://github.com/TangXiaoLv/TelegramGallery/raw/master/png/1.gif)
 48. [仿全民TV](https://github.com/a371166028/likequanmintv)
 ![](https://camo.githubusercontent.com/aafb4558f73227e6f896edb55d2f9431932b3ac6/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303934383231393736)
 ![](https://camo.githubusercontent.com/d6aee7389ceecc64132eda7f31cfc97a18c1a0ce/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303935303130393739)
@@ -98,3 +100,4 @@ date: 2016-09-14 11:39:56
 ![](http://upload-images.jianshu.io/upload_images/3161635-11f4134590e19e86?imageMogr2/auto-orient/strip)
 54.[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
 ![](https://github.com/sfsheng0322/DroidVR/raw/master/DroidVR.gif)
+
