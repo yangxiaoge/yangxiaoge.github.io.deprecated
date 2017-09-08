@@ -5,6 +5,34 @@ tags: Android
 categories: Android
 top: 100
 ---
+## 获取当前页面 activity 实例 （随便什么地方都可以获取）
+```
+//获取当前页面 activity 实例
+    public static Activity getGlobleActivity() {
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            Object activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);
+            Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
+            activitiesField.setAccessible(true);
+            Map activities = (Map) activitiesField.get(activityThread);
+            for (Object activityRecord : activities.values()) {
+                Class activityRecordClass = activityRecord.getClass();
+                Field pausedField = activityRecordClass.getDeclaredField("paused");
+                pausedField.setAccessible(true);
+                if (!pausedField.getBoolean(activityRecord)) {
+                    Field activityField = activityRecordClass.getDeclaredField("activity");
+                    activityField.setAccessible(true);
+                    Activity activity = (Activity) activityField.get(activityRecord);
+                    return activity;
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+```
+
 ## 返回键 app切换至后台
 ```
 	@Override
