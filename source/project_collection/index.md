@@ -100,4 +100,6 @@ date: 2016-09-14 11:39:56
 ![](http://upload-images.jianshu.io/upload_images/3161635-11f4134590e19e86?imageMogr2/auto-orient/strip)
 54.[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
 ![](https://github.com/sfsheng0322/DroidVR/raw/master/DroidVR.gif)
+55.[Android-SVProgressHUD 精仿 iOS 的提示库](https://github.com/saiwu-bigkoo/Android-SVProgressHUD)
+![](https://github.com/saiwu-bigkoo/Android-SVProgressHUD/raw/master/preview/svprogresshuddemo.gif)
 
