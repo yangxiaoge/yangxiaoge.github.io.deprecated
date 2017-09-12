@@ -13,7 +13,6 @@ header-img: "/img/music.jpg"
 | :----------- | :-----------|
 |[鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents)| 国内 Android 开发大牛 |
 |[郭霖](http://weixin.sogou.com/weixin?type=1&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=&w=01015002&oq=&ri=2&sourceid=sugg&sut=893&sst0=1477555640580&lkt=1%2C1477555640477%2C1477555640477)| 国内 Android 开发大牛，鸿洋搅基 |
-|[鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents)| 国内 Android 开发大牛 |
 |[Gank](http://gank.io/) | 干货集中营 |
 
 ## 温故而知新
@@ -33,6 +32,7 @@ header-img: "/img/music.jpg"
 |[AndroidChromium](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) | 谷歌浏览器安卓版源码项目，世界级的安卓架构 |
 |[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)| VR |
 |[Android 三种姿势带你玩转 360 度全景图功能](http://www.jianshu.com/p/adfab8201660) |   VR，[鸿洋](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ)公众号推荐 |
+|[ 轻松入门 Android 直播相关技术 从 0 搭建直播系统](http://blog.csdn.net/lmj623565791/article/details/77937483)| 鸿洋大牛的直播入门教程，我已经试过，并记录了截图 |
 
 ## 教学类
 | 链接        |     简介     |
