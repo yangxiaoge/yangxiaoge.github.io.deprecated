@@ -32,7 +32,7 @@ header-img: "/img/music.jpg"
 |[AndroidChromium](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) | 谷歌浏览器安卓版源码项目，世界级的安卓架构 |
 |[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)| VR |
 |[Android 三种姿势带你玩转 360 度全景图功能](http://www.jianshu.com/p/adfab8201660) |   VR，[鸿洋](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ)公众号推荐 |
-|[ 轻松入门 Android 直播相关技术 从 0 搭建直播系统](http://blog.csdn.net/lmj623565791/article/details/77937483)| 鸿洋大牛的直播入门教程，我已经试过，并记录了截图 |
+|[轻松入门 Android 直播相关技术 从 0 搭建直播系统](http://blog.csdn.net/lmj623565791/article/details/77937483)| 鸿洋大牛的直播入门教程，我已经试过，并记录了截图 |
 
 ## 教学类
 | 链接        |     简介     |
