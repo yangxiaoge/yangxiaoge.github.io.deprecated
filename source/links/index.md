@@ -25,6 +25,7 @@ header-img: "/img/music.jpg"
 |[自定义 View](http://www.gcssloop.com/customview/CustomViewIndex) | 自定义 View 教程目录 |
 |[HenCoder View](http://hencoder.com/ui-1-1/) | 抛物线的自定义 View 开发进阶 |
 |[Hensen_ 的全栈式导航](http://blog.csdn.net/qq_30379689/article/details/52637226) | 从基础到进阶复习 |
+|[那些年 Android 黑科技](http://www.jianshu.com/p/cb2deed0f2d8)，[DevNote - 香脆的大鸡排](https://github.com/BolexLiu/DevNote) | Android 黑科技①②③ ，值得一看！ |
 
 ## 紧跟时代
 | 链接        |     简介     |
