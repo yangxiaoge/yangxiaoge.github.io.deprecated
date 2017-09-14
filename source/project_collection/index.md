@@ -61,7 +61,7 @@ date: 2016-09-14 11:39:56
 41. [RapidFloatingActionButton](https://github.com/wangjiegulu/RapidFloatingActionButton)
 ![](/img/RapidFloatingActionButton.gif)
 42. [sealtalk-android：基于融云开发的 Android 版即时通讯（IM）应用程序 - 嗨豹 - 鸿洋微信推荐](https://github.com/sealtalk/sealtalk-android/)
-![](/img/嗨豹/SealTalk_UML(嗨豹, 个人认为与 微信流程差不多!).png)
+![](/img/嗨豹/SealTalk_UML与微信流程差不多.png)
 ![](/img/嗨豹/嗨豹audio_video.gif)
 ![](/img/嗨豹/chat.gif)
 43. [DropDownMenu开源库](https://github.com/JayFang1993/DropDownMenu)
