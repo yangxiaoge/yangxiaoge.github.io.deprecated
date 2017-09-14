@@ -61,29 +61,21 @@ date: 2016-09-14 11:39:56
 41. [RapidFloatingActionButton](https://github.com/wangjiegulu/RapidFloatingActionButton)
 ![](/img/RapidFloatingActionButton.gif)
 42. [sealtalk-android：基于融云开发的 Android 版即时通讯（IM）应用程序 - 嗨豹 - 鸿洋微信推荐](https://github.com/sealtalk/sealtalk-android/)
-![](/img/嗨豹/SealTalk_UML与微信流程差不多.png)
-![](/img/嗨豹/嗨豹audio_video.gif)
-![](/img/嗨豹/chat.gif)
+![](/img/嗨豹/SealTalk_UML与微信流程差不多.png)![](/img/嗨豹/嗨豹audio_video.gif)![](/img/嗨豹/chat.gif)
 43. [DropDownMenu开源库](https://github.com/JayFang1993/DropDownMenu)
-<img src="https://github.com/JayFang1993/DropDownMenu/blob/master/screenshot.gif" width="270" height="450"/>
+<img src="https://raw.githubusercontent.com/JayFang1993/DropDownMenu/master/screenshot.gif" width="270" height="450"/>
 44. [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout) - Android 智能下拉刷新框架-SmartRefreshLayout
-![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_practive_weibo.gif)
-![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_BezierRadar.gif)
-![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_Classics.gif)
-![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_FlyRefresh.gif)
+![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_practive_weibo.gif)![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_BezierRadar.gif)![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_Classics.gif)![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_FlyRefresh.gif)
 45. [easy_mock_api](https://github.com/heimashi/easy_mock_api) - 给客户端（Android iOS）同学的模拟json接口的小工具
 > 用nodejs（express+react）搭建的极简的服务器，给定一个url就返回一个特定的Json数据，提供给客户端开发同学用的模拟Json服务器接口的项目，项目尽可能的简单，核心代码只有100多行，简单而实用，方便扩展。
 46. [Spotlight-支持引导路径高亮的方案。](https://github.com/TakuSemba/Spotlight)
 ![](https://raw.githubusercontent.com/TakuSemba/Spotlight/master/arts/customTarget.gif)
 47. [Matisse](https://github.com/zhihu/Matisse) - 知乎图片选择
-![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_zhihu.png)
-![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_dracula.png)
-![](https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_preview.png)
+<img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_zhihu.png" width="270" height="450"/><img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_dracula.png" width="270" height="450"/><img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_preview.png" width="270" height="450"/>
 47.[TelegramGallery](https://github.com/TangXiaoLv/TelegramGallery) - 抽取 Telegram 相册功能
 ![](https://github.com/TangXiaoLv/TelegramGallery/raw/master/png/1.gif)
 48. [仿全民TV](https://github.com/a371166028/likequanmintv)
-![](https://camo.githubusercontent.com/aafb4558f73227e6f896edb55d2f9431932b3ac6/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303934383231393736)
-![](https://camo.githubusercontent.com/d6aee7389ceecc64132eda7f31cfc97a18c1a0ce/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303935303130393739)
+![](https://camo.githubusercontent.com/aafb4558f73227e6f896edb55d2f9431932b3ac6/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303934383231393736)![](https://camo.githubusercontent.com/d6aee7389ceecc64132eda7f31cfc97a18c1a0ce/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303935303130393739)
 49. [高仿全民直播（全民TV）](https://github.com/jenly1314/KingTV)
 ![](https://user-images.githubusercontent.com/12471093/28506574-e8541924-705e-11e7-8af3-6842b72a8ff3.gif)
 50. [ 高仿iOS 滚轮实现 省市区 城市选择三级联动](https://github.com/crazyandcoder/citypicker)
@@ -91,9 +83,7 @@ date: 2016-09-14 11:39:56
 51. [史上最简单侧滑菜单](https://github.com/mcxtzhang/SwipeDelMenuLayout)
 ![](https://github.com/mcxtzhang/SwipeDelMenuLayout/raw/master/gif/FlowSwipe.gif)
 52.[GankMM -- 干货营](https://github.com/maning0303/GankMM) - 包含 泡网，天气，常用工具，换肤等
-![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_day_01.png)
-![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_night_02.jpg)
-![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_12.png)
+![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_day_01.png)![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_night_02.jpg)![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_12.png)
 52.[Android 录音功能直接拿去用](https://github.com/developerHaoz/SoundRecorderUtils) - code小生
 ![](https://camo.githubusercontent.com/7b1bcd5810b58cdb67bcebd2ba15e0be2c957c28/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031372f382f31322f3262623461356666333233663130333934323538663532376363363237393133)
 53.[Android 实现 dialog 的 3D 翻转](https://mp.weixin.qq.com/s/LEOB83WC5Jn_LT-dWVPSqw)
