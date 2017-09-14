@@ -65,7 +65,7 @@ date: 2016-09-14 11:39:56
 ![](/img/嗨豹/嗨豹audio_video.gif)
 ![](/img/嗨豹/chat.gif)
 43. [DropDownMenu开源库](https://github.com/JayFang1993/DropDownMenu)
-![](/img/DropDownMenu 开源项目.gif)
+<img src="https://github.com/JayFang1993/DropDownMenu/blob/master/screenshot.gif" width="270" height="450"/>
 44. [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout) - Android 智能下拉刷新框架-SmartRefreshLayout
 ![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_practive_weibo.gif)
 ![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_BezierRadar.gif)
