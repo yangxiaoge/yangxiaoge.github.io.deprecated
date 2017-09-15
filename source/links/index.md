@@ -41,6 +41,8 @@ header-img: "/img/music.jpg"
 |[学习正则的开源项目](https://github.com/zeeshanu/learn-regex/blob/master/README-cn.md) | 帅比张「stormzhang」推荐 |
 |[Kotlin Gitbook](https://huanglizhuo.gitbooks.io/kotlin-in-chinese/content/GettingStarted/Basic-Syntax.html?q=) | Kotlin gitbook |
 |[Kotlin 系统入门与进阶 ¥ 99.00](http://coding.imooc.com/class/evaluation/108.html?page=3) | 慕课网教学 |
+|[MIUI 系统工程师 Gityuan](http://gityuan.com/about/) | 基于Android 6.0的源码，专注于分享Android系统原理、架构分析的原创文章 |
+|[廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) | Python教程讲解的浅显易懂适合初学者|
 
 ## 工具集
 | 链接        |     简介     |
@@ -90,9 +92,7 @@ header-img: "/img/music.jpg"
 * [半栈工程师](https://halfstackdeveloper.github.io/) - 滑动卡片, 悬浮球, JVM, HotFix等 -->
 
 <!-- ## A collection of links
-- [MIUI系统工程师Gityuan](http://gityuan.com/about/) - 基于Android 6.0的源码，专注于分享Android系统原理、架构分析的原创文章
 - [主席](https://github.com/singwhatiwanna), 微博[任玉刚Coder](http://weibo.com/uc83018062?is_hot=1) - 《Android开发艺术探索》作者
-- [廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) - Python教程讲解的浅显易懂适合初学者
 - [泡在网上的日子](http://www.jcodecraeer.com/plus/list.php?tid=18) - 做最好的移动开发社区
 - [给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_1) by [`扔物线`](https://github.com/rengwuxian)
 - 使用CheckStyle检查代码(http://gudong.name/2016/04/07/checkstyle.html) -->
