@@ -37,6 +37,11 @@ thumbnail: /img/mountain-bg.jpg
 
 `Attention`： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释 onCreate 中的部分代码，略去登录注册等功能)
 
+**打 Patch 包**（将 A 项目的提交打 Patch 导入到 B 项目中） `2017-9-18 18:14:57` add
+1. `git format-patch -1`（-1 指最近一次 Git 提交） - A 项目根目录，生成 Patch 包
+2. 将生成的 `0001-.patch` 拷贝到 B 项目根目录下
+3. `git am 0001-.patch` - B 项目根目录打入 Patch 包
+
 **源码代码提示的命令** `2017-6-13 15:46:06` add
 运行 `source build/envsetup.sh`
 `mmm development/tools/idegen/`
