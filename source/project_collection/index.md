@@ -2,6 +2,7 @@
 title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
+1. [如何掌握 Android - 21 个应用程序](https://techbeacon.com/how-master-android-what-developers-can-learn-21-apps)
 1. [AndroidTVLauncher 猫桌面](https://github.com/JackyAndroid/AndroidTVLauncher/blob/master/README-CN.md) - [中国首位 00 后 CEO 公然抄袭、复制我的开源作品](https://juejin.im/post/59ad758a518825243d1f28cb), 原作者的项目都很棒！坚决抵制这种炒作抄袭行为！
 1. [Android最新源码汇总](http://androidblog.cn/index.php/Source)
 1. [Arsenal](http://android-arsenal.com/)
@@ -101,4 +102,6 @@ date: 2016-09-14 11:39:56
 <src="https://camo.githubusercontent.com/858932c75508773ecdb50a884804841962a0ddc7/687474703a2f2f6f736e6f65783676662e626b742e636c6f7564646e2e636f6d2f737570657274657874766965772e6a7067" width="540" height="900"/>
 58.[AndroidAllDemos](https://github.com/lygttpod/AndroidAllDemos) - 继承当下主流框架，实现快速开发 2017-9-18 10:23:03
 ![](https://github.com/lygttpod/AndroidAllDemos/raw/master/buletooth.gif)![](https://github.com/lygttpod/AndroidAllDemos/raw/master/desgin.gif)![](https://github.com/lygttpod/AndroidAllDemos/raw/master/dialog.gif)![](https://github.com/lygttpod/AndroidAllDemos/raw/master/gesturelockpsd.gif)![](https://github.com/lygttpod/AndroidAllDemos/raw/master/likeneteasy.gif)![](https://github.com/lygttpod/AndroidAllDemos/raw/master/recyclerview.gif)
+59.[Amaze 文件管理器](https://github.com/TeamAmaze/AmazeFileManager) - 文件管理器
+![](https://techbeacon.com/sites/default/files/styles/inline_image/public/screenshot_2014-11-12-03-54-12_framed1.jpg?itok=4XMxgw7k)
 
