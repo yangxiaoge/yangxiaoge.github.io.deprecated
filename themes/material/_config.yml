@@ -39,7 +39,7 @@ uiux:
 # JS Effect Switches
 js_effect:
     fade: true
-    smoothscroll: false
+    smoothscroll: true
 
 # Reading experience
 # 默认显示80字
@@ -65,7 +65,7 @@ background:
 
 # Images Settings
 img:
-    logo: "/img/logo.png" #logo.gif
+    logo: "https://ooo.0o0.ooo/2017/06/13/593fc524edf62.png" # "/img/logo.png" #logo.gif
     avatar: "/img/avatar.png"
     daily_pic: "/img/daily_pic.png"
     sidebar_header: "/img/sidebar_header.png"
@@ -145,6 +145,10 @@ sidebar:
         #     use: true
         #     link: "/project_collection"
         #     divider: true
+        映像:
+            link: "/gallery"
+            icon: image
+            divider: false  
         关于:
             link: "/about"
             icon: person
