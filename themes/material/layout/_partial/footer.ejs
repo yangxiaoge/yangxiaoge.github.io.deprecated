@@ -13,27 +13,26 @@
             </script>
             &nbsp;<%- config.title %>
         </div>-->
-            <div id="copyright">
-                <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
-                <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
-                <div id="time">
-                    <script>
-                        var begin = moment([2015, 04, 11]);
-                        var now = moment();
-                        setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
-                    </script>
-                </div>
-                <div id="lwlhitokoto">
-                    <script>
-                        lwlhitokoto()
-                    </script>
-                </div>
+        <div id="copyright">
+            <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+            <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+            <div id="time">
+                <script>
+                    var begin = moment([2015, 04, 11]);
+                    var now = moment();
+                    setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
+                </script>
             </div>
+            <div id="lwlhitokoto">
+                <script>
+                    lwlhitokoto()
+                </script>
+            </div>
+        </div>
 
+    <!-- Paradox Footer Right Section -->
 
-            <!-- Paradox Footer Right Section -->
-
-            <!--
+        <!--
         I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
         It will not impact the appearance and can give developers a lot of support :)
 
@@ -41,11 +40,11 @@
         它不会影响美观并可以给开发者很大的支持。 :)
         -->
 
-            <div class="mdl-mini-footer--right-section">
-                <div>
-                    <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                    <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-                </div>
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
-            <% } %>
+        </div>
+    <% } %>
 </footer>
