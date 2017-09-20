@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            实现多行多列的RadioButton | 
+        
+        珠珠のBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.ico">
+    <link rel="icon" sizes="192x192" href="/img/logo.ico">
+    <link rel="apple-touch-icon" href="/img/logo.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Bruce Yang">
+    <meta name="description" content="背着键盘的编程侠客!">
+    <meta name="keywords" content="null,Android">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://yangxiaoge.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="实现多行多列的RadioButton | 珠珠のBlog">
+    <meta property="og:description" content="背着键盘的编程侠客!">
+    <meta property="og:article:tag" content="Android"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?b19c2660e6c6a466ee86915e4db2a561';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-89143217-1', 'auto');ga('send', 'pageview');
+    </script>
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始造轮子-分为四步"><span class="post-toc-number">1.</span> <span class="post-toc-text">开始造轮子: 分为四步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重写RadioGroup–-gt-目的是使-RadioButton可以自动换行"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">重写RadioGroup–>目的是使 RadioButton可以自动换行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布局中引用MyRadioGroupAuto"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">布局中引用MyRadioGroupAuto</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码中根据数据动态添加RadioButton-然后MyRadioGroup通过addView把RadioButton加进去"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">代码中根据数据动态添加RadioButton,然后MyRadioGroup通过addView把RadioButton加进去</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置RadioGroup点击事件"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">设置RadioGroup点击事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面直接上代码-三步"><span class="post-toc-number">2.</span> <span class="post-toc-text">下面直接上代码: 三步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义MyRadioGroupAuto"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">自定义MyRadioGroupAuto</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布局中引用MyRadioGroupAuto-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">布局中引用MyRadioGroupAuto</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码中动态添加RadioButton"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">代码中动态添加RadioButton</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结:</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 15 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                实现多行多列的RadioButton
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Bruce Yang</strong>
+        <span>8月 02, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC20lEQVR42u3aS27cMBAFwLn/pZOtN1Hea8q2RBZXhjEjsdqAG/35/DnyfLCxsbGxsbGxsbEfyf7EJ//W7Plfv/uv5yzdGRsbG3tr9n/+9V9+pr108q7rZ87ujI2NjX0Ce/bK5Al5sJL3tnfGxsbGxm7Z109uE9gs0NjY2NjYM0BbJOQFxiMSGDY2Nvbj2e0rVxjXQWyHB9/eS8PGxsZ+PHs2gv3dn390vo2NjY39YHZ7Zks2s7ZR3oqKbo6NjY29KTtPDG2Jkhc8SfhW7omNjY19Anu93V+UBHGTKB/0RhZsbGzsTdmz9HNdkLRBTEKTpL26qYSNjY29BXt9XTIBzMa3eVhv2FTCxsbGfjl7faSaAxLMyipPPd/GxsbG3oKdt+ln49iVBZ12kHxD3sbGxsZ+FXvW9MkHrnlqzMe6bdCxsbGxT2Dnr5kNgGdJcZY4h4NebGxs7Neyk9Fs2/Svl2lGJU1+E2xsbOy92bPmTl5CzMYDbfMoWuXExsbG3pS9gsyvMlsJmg0Plga92NjY2C9k5w2jdvFxZb3yrvEDNjY29gns9Ve2o4IkTHlzqmhIYWNjY2/Kbps1+XVnpHadqBg8Y2NjY2/KXkknKy2ethSZFSfY2NjYJ7BzzErLqX1LvpSTPAEbGxt7b/Z6kbASxLbFnwcFGxsb+zT2bKDbNqeS9lNSoszug42NjX0Cewb+xGc2YG5T43DnFBsbG3sL9iwhtZ9ZaQzlQa/zNjY2NvZG7LzBdNfyZTJsaNNkncCwsbGxX8teSRjtGHg2Qm4HzFEpgo2Njb0Re9YSmg1cc3DbhIoCh42Njb01uyXNypIk2dy19ImNjY19JrtdxMxDkIdjdqIyCRsbGxu7LBLy38xCk483sLGxsbHzVHQXuF3lGY4HsLGxsbdjt4Ck/MjXbvJ02P6psLGxsU9gzxo318Pg2fD4O0KDjY2NvTf7nIONjY2NjY2NjY39mPMXEYA/cdKyC6gAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+
+
+    <!-- 文章阅读量统计 start ， 先注释掉不蒜子的文章数统计，只用 leancloud 统计： 首页的访客数用的也是 leancloud-->
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2016/08/02/实现多行多列的RadioButton/" class="leancloud-views_num" data-flag-title="实现多行多列的RadioButton">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <!-- <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a> -->
+        
+    
+
+    <!-- 文章阅读量统计 end -->
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=实现多行多列的RadioButton&url=https://yangxiaoge.github.io//2016/08/02/实现多行多列的RadioButton/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=实现多行多列的RadioButton&url=https://yangxiaoge.github.io//2016/08/02/实现多行多列的RadioButton/index.html&via=Bruce Yang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io//2016/08/02/实现多行多列的RadioButton/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=实现多行多列的RadioButton&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/logo.ico&url=https://yangxiaoge.github.io/2016/08/02/实现多行多列的RadioButton/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io//2016/08/02/实现多行多列的RadioButton/index.html&text=实现多行多列的RadioButton" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <blockquote>
+<p>由于最近的项目中多处需要用到多行多列的RadioButton,而google原生的RadioGroup又不能实现!因此就要自己动手实现了~</p>
+</blockquote>
+<p><code>注意:</code><em>这里所说的RadioButton都是在代码中动态添加的!</em></p>
+<p>看下效果图:<br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6fkjnjio2j20b404ewed.jpg" alt="实现多行多列的RadioButton"><br><a id="more"></a><br><img src="http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f6ga5gamz4j20ba047mx3.jpg" alt="行列对齐RadioButton"></p>
+<h2 id="开始造轮子-分为四步"><a href="#开始造轮子-分为四步" class="headerlink" title="开始造轮子: 分为四步"></a>开始造轮子: <em>分为四步</em></h2><h3 id="重写RadioGroup–-gt-目的是使-RadioButton可以自动换行"><a href="#重写RadioGroup–-gt-目的是使-RadioButton可以自动换行" class="headerlink" title="重写RadioGroup–&gt;目的是使 RadioButton可以自动换行"></a>重写RadioGroup–&gt;目的是使 RadioButton可以自动换行</h3><h3 id="布局中引用MyRadioGroupAuto"><a href="#布局中引用MyRadioGroupAuto" class="headerlink" title="布局中引用MyRadioGroupAuto"></a>布局中引用MyRadioGroupAuto</h3><h3 id="代码中根据数据动态添加RadioButton-然后MyRadioGroup通过addView把RadioButton加进去"><a href="#代码中根据数据动态添加RadioButton-然后MyRadioGroup通过addView把RadioButton加进去" class="headerlink" title="代码中根据数据动态添加RadioButton,然后MyRadioGroup通过addView把RadioButton加进去"></a>代码中根据数据动态添加RadioButton,然后MyRadioGroup通过<code>addView</code>把RadioButton加进去</h3><ul>
+<li>这里需要讲下RadioButton的<code>几个属性</code><ul>
+<li>radioButton.setPadding(20, 0, screenWidth / 6, 0);// 设置文字距离按钮图片四周的距离</li>
+<li>radioButton.setButtonDrawable(R.drawable.transfer_radiobutton_drawable); //点击效果</li>
+<li>radioButton.setTag(loanAndFeeList.get(i)); // 设置tag,可以存一些数据</li>
+<li>radioButton.setTextSize(13); //默认单位是 sp</li>
+<li>radioButton.setHeight(50); //默认单位是px</li>
+<li>RadioButton clickRadioButton = (RadioButton) radioGroup.findViewById(checkedId); //通过RadioGroup对象获取点击的RadioButton组件</li>
+</ul>
+</li>
+</ul>
+<h3 id="设置RadioGroup点击事件"><a href="#设置RadioGroup点击事件" class="headerlink" title="设置RadioGroup点击事件"></a>设置RadioGroup点击事件</h3><h2 id="下面直接上代码-三步"><a href="#下面直接上代码-三步" class="headerlink" title="下面直接上代码: 三步"></a>下面直接上代码: <em>三步</em></h2><h3 id="自定义MyRadioGroupAuto"><a href="#自定义MyRadioGroupAuto" class="headerlink" title="自定义MyRadioGroupAuto"></a>自定义MyRadioGroupAuto</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Author: 0027008122 [yang.jianan@zte.com.cn]</div><div class="line"> * Time: 2016-08-02 11:33</div><div class="line"> * Version: 1.0</div><div class="line"> * TaskId:</div><div class="line"> * Description:</div><div class="line"> */</div><div class="line"> <span class="keyword">public</span> class MyRadioGroupAuto extends RadioGroup &#123;</div><div class="line">    <span class="keyword">public</span> MyRadioGroupAuto(Context context) &#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> MyRadioGroupAuto(Context context, AttributeSet attrs) &#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> onMeasure(<span class="built_in">int</span> widthMeasureSpec, <span class="built_in">int</span> heightMeasureSpec) &#123;</div><div class="line">        <span class="comment">//获取最大宽度</span></div><div class="line">        <span class="built_in">int</span> maxWidth = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">        <span class="comment">//获取Group中的Child数量</span></div><div class="line">        <span class="built_in">int</span> childCount = getChildCount();</div><div class="line">        <span class="comment">//设置Group的左边距，下面也会使用x计算每行所占的宽度</span></div><div class="line">        <span class="built_in">int</span> x = <span class="number">0</span>;</div><div class="line">        <span class="comment">//设置Group的上边距，下面也会使用y计算Group所占的高度</span></div><div class="line">        <span class="built_in">int</span> y = <span class="number">30</span>;</div><div class="line">        <span class="comment">//设置Group的行数</span></div><div class="line">        <span class="built_in">int</span> row = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> index = <span class="number">0</span>; index &lt; childCount; index++) &#123;</div><div class="line">            <span class="keyword">final</span> View child = getChildAt(index);</div><div class="line">            <span class="keyword">if</span> (child.getVisibility() != View.GONE) &#123;</div><div class="line">                child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);</div><div class="line">                <span class="comment">//重新计算child的宽高</span></div><div class="line">                <span class="built_in">int</span> <span class="built_in">width</span> = child.getMeasuredWidth();</div><div class="line">                <span class="built_in">int</span> <span class="built_in">height</span> = child.getMeasuredHeight();</div><div class="line">                <span class="comment">//添加到X中，(width+10) 设置child左边距</span></div><div class="line">                x += (<span class="built_in">width</span> + <span class="number">10</span>);</div><div class="line">                <span class="comment">//行数*child高度+这次child高度=现在Group的高度,(height + 10)设置child上边距</span></div><div class="line">                y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                <span class="comment">//当前行宽X大于Group的最大宽度时，进行换行</span></div><div class="line">                <span class="keyword">if</span> (x &gt; maxWidth) &#123;</div><div class="line">                    <span class="comment">//当index不为0时，进行row++，防止FirstChild出现大于maxWidth时,提前进行row++</span></div><div class="line">                    <span class="keyword">if</span> (index != <span class="number">0</span>)</div><div class="line">                        row++;</div><div class="line">                    <span class="comment">//child的width大于maxWidth时，重新设置child的width为最大宽度</span></div><div class="line">                    <span class="keyword">if</span> (<span class="built_in">width</span> &gt;= maxWidth) &#123;</div><div class="line">                        <span class="built_in">width</span> = maxWidth - <span class="number">30</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">//重新设置当前X</span></div><div class="line">                    x = (<span class="built_in">width</span> + <span class="number">20</span>);</div><div class="line">                    <span class="comment">//重新设置现在Group的高度</span></div><div class="line">                    y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 设置容器所需的宽度和高度</span></div><div class="line">        setMeasuredDimension(maxWidth, y);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> onLayout(<span class="built_in">boolean</span> changed, <span class="built_in">int</span> l, <span class="built_in">int</span> t, <span class="built_in">int</span> r, <span class="built_in">int</span> b) &#123;</div><div class="line">        <span class="keyword">final</span> <span class="built_in">int</span> childCount = getChildCount();</div><div class="line">        <span class="built_in">int</span> maxWidth = r - l;</div><div class="line">        <span class="built_in">int</span> x = <span class="number">10</span>;</div><div class="line">        <span class="built_in">int</span> y = <span class="number">0</span>;</div><div class="line">        <span class="built_in">int</span> row = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</div><div class="line">            <span class="keyword">final</span> View child = <span class="keyword">this</span>.getChildAt(i);</div><div class="line">            <span class="keyword">if</span> (child.getVisibility() != View.GONE) &#123;</div><div class="line">                <span class="built_in">int</span> <span class="built_in">width</span> = child.getMeasuredWidth();</div><div class="line">                <span class="built_in">int</span> <span class="built_in">height</span> = child.getMeasuredHeight();</div><div class="line">                x += (<span class="built_in">width</span> + <span class="number">10</span>);</div><div class="line">                y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                <span class="keyword">if</span> (x &gt; maxWidth) &#123;</div><div class="line">                    <span class="keyword">if</span> (i != <span class="number">0</span>)</div><div class="line">                        row++;</div><div class="line">                    <span class="keyword">if</span> (<span class="built_in">width</span> &gt;= maxWidth) &#123;</div><div class="line">                        <span class="built_in">width</span> = maxWidth - <span class="number">30</span>;</div><div class="line">                    &#125;</div><div class="line">                    x = (<span class="built_in">width</span> + <span class="number">20</span>);</div><div class="line">                    y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                &#125;</div><div class="line">                child.layout(x - <span class="built_in">width</span>, y - <span class="built_in">height</span>, x, y);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="布局中引用MyRadioGroupAuto-1"><a href="#布局中引用MyRadioGroupAuto-1" class="headerlink" title="布局中引用MyRadioGroupAuto"></a>布局中引用MyRadioGroupAuto</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;com<span class="selector-class">.ztesoft</span><span class="selector-class">.zsmart</span><span class="selector-class">.datamall</span><span class="selector-class">.app</span><span class="selector-class">.widget</span><span class="selector-class">.MyRadioGroupAuto</span></div><div class="line">        android:id=<span class="string">"@+id/my_radio_group_auto"</span></div><div class="line">        android:layout_width=<span class="string">"match_parent"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_marginBottom=<span class="string">"33dp"</span></div><div class="line">        android:layout_marginLeft=<span class="string">"22dp"</span></div><div class="line">        android:layout_marginRight=<span class="string">"22dp"</span></div><div class="line">        android:layout_marginTop=<span class="string">"16dp"</span>&gt;</div><div class="line">&lt;/com<span class="selector-class">.ztesoft</span><span class="selector-class">.zsmart</span><span class="selector-class">.datamall</span><span class="selector-class">.app</span><span class="selector-class">.widget</span><span class="selector-class">.MyRadioGroupAuto</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="代码中动态添加RadioButton"><a href="#代码中动态添加RadioButton" class="headerlink" title="代码中动态添加RadioButton"></a>代码中动态添加RadioButton</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> CheckboxRadiobuttonDemo extends Activity &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Called when the activity is first created.</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> RadioGroupAuto rgp;</div><div class="line">    <span class="keyword">private</span> RadioGroup yuansheng;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span>[] loanList;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span>[] loanFeeList;</div><div class="line">    <span class="keyword">private</span> List&lt;<span class="keyword">String</span>&gt; loanAndFeeList;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.main);</div><div class="line"></div><div class="line">        <span class="comment">//获取屏幕信息</span></div><div class="line">        DisplayMetrics dm = <span class="keyword">new</span> DisplayMetrics();</div><div class="line">        getWindowManager().getDefaultDisplay().getMetrics(dm);</div><div class="line">        <span class="keyword">int</span> screenWidth = dm.widthPixels;</div><div class="line"></div><div class="line">        loanAndFeeList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        loanList = <span class="string">"800,1000,1600,200,300,500,700"</span>.split(<span class="string">","</span>);</div><div class="line">        loanFeeList = <span class="string">"50,80,100,20,30,50,70"</span>.split(<span class="string">","</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//求最大最小值 (为了保持RadioButton文字长度一致,跟最长的保持一致!)</span></div><div class="line">        <span class="keyword">int</span> <span class="built_in">max</span> = Integer.<span class="built_in">parseInt</span>(loanList[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">int</span> <span class="built_in">min</span> = Integer.<span class="built_in">parseInt</span>(loanList[<span class="number">0</span>]);</div><div class="line">        <span class="built_in">for</span> (<span class="keyword">String</span> i : loanList) &#123;</div><div class="line">            <span class="keyword">int</span> j = Integer.<span class="built_in">parseInt</span>(i);</div><div class="line">            <span class="built_in">max</span> = <span class="built_in">max</span> &gt; j ? <span class="built_in">max</span> : j;</div><div class="line">            <span class="built_in">min</span> = <span class="built_in">min</span> &lt; j ? <span class="built_in">min</span> : j;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">String</span> maxS = <span class="keyword">String</span>.valueOf(<span class="built_in">max</span>);</div><div class="line">        <span class="keyword">int</span> maxLen = maxS.length();</div><div class="line"></div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; loanList.length; i++) &#123;</div><div class="line">            loanAndFeeList.add( loanList[i] + <span class="string">","</span> + loanFeeList[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        rgp = (RadioGroupAuto) findViewById(R.id.RadioGroup01);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> len = loanAndFeeList.<span class="built_in">size</span>();</div><div class="line"></div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</div><div class="line"></div><div class="line">            RadioButton radioButton = <span class="keyword">new</span> RadioButton(<span class="keyword">this</span>);</div><div class="line">            radioButton.setPadding(<span class="number">20</span>, <span class="number">0</span>, screenWidth / <span class="number">6</span>, <span class="number">0</span>); <span class="comment">// 设置文字距离按钮四周的距离</span></div><div class="line">            radioButton.setButtonDrawable(R.drawable.transfer_radiobutton_drawable);</div><div class="line"></div><div class="line">            <span class="keyword">String</span> newLoanList = loanList[j];</div><div class="line">            <span class="built_in">if</span> (loanList[j].length() &lt; maxLen) &#123;</div><div class="line">                newLoanList = newLoanList + appendLength(maxLen - loanList[j].length());</div><div class="line"></div><div class="line">                <span class="comment">// 实现 TextView同时显示两种风格文字 http://txlong-onz.iteye.com/blog/1142781</span></div><div class="line">                SpannableStringBuilder sb = <span class="keyword">new</span> SpannableStringBuilder(newLoanList);</div><div class="line">                final ForegroundColorSpan fcs = <span class="keyword">new</span> ForegroundColorSpan(Color.WHITE);</div><div class="line">                sb.setSpan(fcs, loanList[j].length(), maxLen, Spannable.SPAN_INCLUSIVE_INCLUSIVE);</div><div class="line">                radioButton.setText(sb);</div><div class="line">            &#125; <span class="built_in">else</span> &#123;</div><div class="line">                newLoanList = loanList[j];</div><div class="line">                radioButton.setText(newLoanList);</div><div class="line">            &#125;</div><div class="line">			</div><div class="line">			radioButton.setId(j); <span class="comment">//设置RadioButton的id</span></div><div class="line">            radioButton.setTag(loanAndFeeList.<span class="built_in">get</span>(j));</div><div class="line">            radioButton.<span class="built_in">setTextSize</span>(<span class="number">13</span>); <span class="comment">//默认单位是 sp</span></div><div class="line">            radioButton.setHeight(<span class="number">50</span>); <span class="comment">//默认单位是px</span></div><div class="line">            rgp.addView(radioButton); <span class="comment">//添加到RadioGroup中</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        rgp.setOnCheckedChangeListener(<span class="keyword">new</span> RadioGroup.OnCheckedChangeListener() &#123;</div><div class="line"></div><div class="line">            @Override</div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> onCheckedChanged(RadioGroup group, <span class="keyword">int</span> checkedId) &#123;</div><div class="line">                RadioButton clickRadioButton = (RadioButton) group.findViewById(checkedId);</div><div class="line"></div><div class="line">                <span class="keyword">String</span> tipInfo = <span class="string">"id: "</span> + clickRadioButton.getId() + <span class="string">" text: "</span> + clickRadioButton.getText() +</div><div class="line">                        <span class="comment">/*"hint: " + clickRadioButton.getHint() +*/</span> <span class="string">" tag:"</span> + clickRadioButton.getTag();</div><div class="line">                System.out.<span class="built_in">println</span>(tipInfo);</div><div class="line"></div><div class="line">                Toast.makeText(CheckboxRadiobuttonDemo.<span class="keyword">this</span>, tipInfo,</div><div class="line">                        Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">		</div><div class="line">		<span class="comment">//根据这个来设置默认选中的项, 注意,这个要设置在监听之后!,否则默认点击监听不到!虽然有选中效果</span></div><div class="line">        <span class="comment">//参考 http://blog.csdn.net/lzqjfly/article/details/16963645</span></div><div class="line">        <span class="comment">//以及http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android</span></div><div class="line">        rgp.check(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 补全长度,保持最长的长度</div><div class="line">     *</div><div class="line">     * @param count 字符串长度</div><div class="line">     * @return 补全后的长度</div><div class="line">     * 这里长度不够的就用 "s" 占位, 赋值的时候将字体设置白色!</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="keyword">String</span> appendLength(<span class="keyword">int</span> count) &#123;</div><div class="line">        <span class="keyword">String</span> st = <span class="string">""</span>;</div><div class="line">        <span class="built_in">if</span> (count &lt; <span class="number">0</span>) &#123;</div><div class="line">            count = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">            st = st + <span class="string">"s"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> st;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>碰到的问题: RadioGroup中RadioButton不能互斥<br>解决方法: 需要用<code>RadioGroup.check(id)</code>,来设置被默认选中的项，其中id为RadioButton的id，如果<code>动态添加的RadioButton</code>，需要设置好<code>id</code><br>参考:<a href="http://blog.csdn.net/lzqjfly/article/details/16963645" target="_blank" rel="external">http://blog.csdn.net/lzqjfly/article/details/16963645</a> , <a href="http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android" target="_blank" rel="external">http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android</a></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS_CLICK -->
+    <div id="disqus-comment">	
+        <div id="disqus_thread"></div>
+<!-- include js -->
+<script src="/js/ripple.js"></script>
+
+<!-- add animation -->
+<style>
+        .ripple-container {
+        }
+        .ripple-container .ripple{
+            background-color: rgba(255,255,255,0.4);
+            animation: ripple 2s forwards cubic-bezier(0, 0, 0.2, 1);
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            80% {
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+		.disqus_click_btn {
+            background-color: dodgerblue;
+            color: white;
+            padding: 10px 20px;
+            border:0;
+            font-size: 14px;
+            cursor: pointer
+        }
+</style>
+	
+<!-- add data-ripple attribute -->
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" data-ripple>阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+	
+<script>
+    // add effect to elements
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'), function(element){
+        // find all elements and attach effect
+        new RippleEffect(element); // element is instance of javascript element node
+    });
+</script>
+
+<script>
+    $('.btn_click_load').click(function() {  //click to load comments
+        var disqus_config = function () {
+            this.page.url = 'https://yangxiaoge.github.io/2016/08/02/实现多行多列的RadioButton/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2016/08/02/实现多行多列的RadioButton/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//yangxiaoge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/06/23/Android-踩过的坑/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/08/03/Git语法/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Bruce Yang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        yang.jianan0926@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:yang.jianan0926@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">九月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">六月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/APP开发记/">APP开发记<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android-O/">Android O<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android-Studio插件/">Android Studio插件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android开发艺术探索/">Android开发艺术探索<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android源码/">Android源码<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Birt/">Birt<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/BugHD/">BugHD<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Git/">Git<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/JavaScript/">JavaScript<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Markdown语法/">Markdown语法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Music/">Music<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/React-Native/">React Native<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/bug小场景/">bug小场景<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mock/">mock<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人总结/">个人总结<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/在线PPT/">在线PPT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术文档/">技术文档<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/持续集成/">持续集成<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识点/">知识点<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/输入法/">输入法<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/friends" title="友链">
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="常用链接">
+                
+                常用链接
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/gallery" title="映像">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                映像
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/wangmengzhuzhu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/u/3227182774" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://www.github.com/yangxiaoge" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/yangyangyang" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-telegram.png);">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+</div>
+
+
+            <!--Copyright-->
+            <!--<div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;珠珠のBlog
+        </div>-->
+            <div id="copyright">
+                <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+                <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+                <div id="time">
+                    <script>
+                        var begin = moment([2015, 04, 11]);
+                        var now = moment();
+                        setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
+                    </script>
+                </div>
+                <div id="lwlhitokoto">
+                    <script>
+                        lwlhitokoto()
+                    </script>
+                </div>
+            </div>
+
+
+            <!-- Paradox Footer Right Section -->
+
+            <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+            <div class="mdl-mini-footer--right-section">
+                <div>
+                    <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                    <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+                </div>
+            </div>
+            
+</footer>
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz', 'lApncgeTUTIz5wO8utk7Ynnq');
+    </script>
+    <script>
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+            <!-- 自动加空格的工具 pangu.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/3.2.1/pangu.min.js"></script>
+            <script> pangu.spacingPage(); </script>
+            <!-- 自动加空格的工具 pangu.js -->
+        </body>
+    
+</html>

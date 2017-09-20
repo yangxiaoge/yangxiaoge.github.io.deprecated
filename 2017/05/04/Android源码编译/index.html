@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+    <!-- 
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.0 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            Android源码编译 | 
+        
+        珠珠のBlog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/logo.ico">
+    <link rel="icon" sizes="192x192" href="/img/logo.ico">
+    <link rel="apple-touch-icon" href="/img/logo.ico">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Bruce Yang">
+    <meta name="description" content="背着键盘的编程侠客!">
+    <meta name="keywords" content="null,源码">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://yangxiaoge.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Android源码编译 | 珠珠のBlog">
+    <meta property="og:description" content="背着键盘的编程侠客!">
+    <meta property="og:article:tag" content="源码"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/queue.js"></script>
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?b19c2660e6c6a466ee86915e4db2a561';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-89143217-1', 'auto');ga('send', 'pageview');
+    </script>
+    
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/mountain-bg.jpg)">
+    
+            <p class="article-headline-p">
+                Android源码编译
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Bruce Yang</strong>
+        <span>5月 04, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC4UlEQVR42u3aOXLjQBAEQP7/05K7DsiqHiiInUlYCko4EjRKfbx+jjxe2NjY2NjY2NjY2I9kv+Lj37+/OvfylhdnXX3yAVA+MzY2NvYJ7OQ2+ScJsr3y+7OiZ8bGxsY+gJ2EVhshH0Il+G0ehx+eGRsbGxs7iJ8kSPKAzJ8BGxsbG/sudh5FSTGz0tjCxsbGPpOdN/fzc/+ikfSFXho2Njb249krg95v/fzl+TY2Njb2Y9jt0RYbs9FCuxIUPTk2Njb2puzZMDVfo8nZbdOqHRJjY2Nj78pu20PvI+192KyPb9vBBjY2NvYJ7LwMaGFtc//q7m10FaUINjY29hbsvHk0ayflgDaW8jYWNjY29gnsWQtpNhJIAi8Ptvxq2NjY2Cewk9Z8O7KdNZjal5IUJNjY2NgnsGcXXR/Z5kVIXtJgY2Njn8zOm0H3LtasNKf+pALDxsbG/q/Y+QJNHnvtyGHlLtGXgY2Njb01u12vaR/o3iWhWeGEjY2NfQI7H6CuD19nhcrsa8DGxsbem9029NuQy4uZvAhp74KNjY19AntlGJC/pjbG2iWeOsCwsbGxt2DPCpJZ475u6AfIYpyAjY2NvSk7H+iuLFO25c1dbSlsbGzsE9htY6iNpbwNVC9TtoMKbGxs7K3ZyQAgL0XaOGxfTfLibt45xcbGxn4wu/2H/t5HXxn01sNmbGxs7E3ZeYC1rZ82uvKhb16uYGNjY5/JztdiVoqEvCW0Mh7GxsbGPoG9dKFyEbMtNvLXF30N2NjY2Juy26MtJ/LrtMuX+YvDxsbG3ps9KxhmpcgsqGZNLmxsbOzT2MkDrYTcythgNpaIKjBsbGzs7djrizV5oTIrOdq4xcbGxsbOw2O9VfT+SfJC5fITbGxsbOzR4Lb9y5ViZthUwsbGxt6InTd08tXJJALz8JsNjLGxsbFPYM8WHFdaP3kJkfCG4wFsbGzsLdjnHNjY2NjY2NjY2NiPOX4B2vC5zAVRIWUAAAAASUVORK5CYII=">
+        </ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/源码/">源码</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+
+
+    <!-- 文章阅读量统计 start ， 先注释掉不蒜子的文章数统计，只用 leancloud 统计： 首页的访客数用的也是 leancloud-->
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2017/05/04/Android源码编译/" class="leancloud-views_num" data-flag-title="Android源码编译">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <!-- <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a> -->
+        
+    
+
+    <!-- 文章阅读量统计 end -->
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android源码编译&url=https://yangxiaoge.github.io//2017/05/04/Android源码编译/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android源码编译&url=https://yangxiaoge.github.io//2017/05/04/Android源码编译/index.html&via=Bruce Yang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io//2017/05/04/Android源码编译/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Android源码编译&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/logo.ico&url=https://yangxiaoge.github.io/2017/05/04/Android源码编译/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io//2017/05/04/Android源码编译/index.html&text=Android源码编译" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）</p>
+<ul>
+<li><code>source build/envsetup.sh</code></li>
+<li><code>lunch</code> (我的项目中选了 79)</li>
+<li><code>make -j8</code>（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）<blockquote>
+<p>Android 编译命令 <a href="http://www.cnblogs.com/ifzy/p/3854560.html" target="_blank" rel="external">make -j8 -k 2&gt;&amp;1 | tee build.log</a> 解释: 其中 make 是编译命令，-j8 这里的 8 指的是线程数量，就是开启几个线程去编译这个工程，一般会是 CPU 核心数的 2 倍, 开多的话电脑会卡死。-k 2 是标准错误，&amp;1 是标准输出，2&gt;&amp;1 意思就是将标准错误输出到标准输出中。如果没有 2&gt;&amp;1，只会有标准输出，没有错误；tee 的作用同时输出到控制台和文件，make &gt; build.log  是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果 make 执行出现错误，那么就不会写到 build.log 中，而是输出到屏幕上，2&gt;&amp;1 是错误和结果都重定向到 build.log 中！可以到根目录看到 build.log。</p>
+</blockquote>
+</li>
+<li>模块编译，节约时间(比方说我修改了 frameworks/base 下的某个文件直接编译这个模块就行)<ul>
+<li><code>mmm frameworks/base</code> （单独编译某个模块）</li>
+<li><code>make snod</code> （重新打包 Android 系统镜像文件 system.img， 这个不要忘！）<blockquote>
+<p>编译源码等指令可以看老罗的 <a href="http://0xcc0xcd.com/p/books/978-7-121-18108-5/c161.php" target="_blank" rel="external">Android 系统源代码情景分析教程</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>刷机</p>
+<ul>
+<li><a href="https://share.weiyun.com/aef417d93a44dce31802087732ac4d8b" target="_blank" rel="external">刷机工具下载</a><br><img src="/img/刷机工具.png" alt="4个刷机工具"></li>
+<li>安装下载的工具</li>
+<li>打开 SP_Flash_Tool_exe_Windows_v5.1644.00.000\flash_tool.exe<br><img src="/img/flash_tool.png" alt="flash_tool"></li>
+</ul>
+<p>刷机开始</p>
+<ul>
+<li><code>MTK 刷机</code>（KONKAS6 代码）使用 <code>Smart Phone Flash Tool</code> 工具： 注意 KONKA 手机关机即可，首先选中 <code>Scatter-loading File</code> 这行的 <code>choose</code> ，然后<code>右击计算机</code>选择<code>映射网络驱动器</code>输入 <code>\\192.168.20.220\share</code>（这个是 <code>ubuntu</code> 共享的文件夹），然后进入对于源码目录找到 <code>KONKAS6\alps\out\target\product\kon6753_66c_s6_m0\MT6753_Android_scatter.txt</code></li>
+<li><code>原生 AOSP</code> 用 Nexus 刷机（AOSP-6.0.1_r17 代码）：注意手机关机进入 <code>fastboot</code> 界面，进入编译生成的目录下 <code>begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/out/target/product/bullhead$</code>，然后依次刷入如下命令：<ul>
+<li>sudo fastboot flash system system.img</li>
+<li>sudo fastboot flash recovery recovery.img</li>
+<li>sudo fastboot flash vendor vendor.img</li>
+<li>sudo fastboot flash cache cache.img</li>
+<li>sudo fastboot flash userdata userdata.img</li>
+<li>sudo fastboot reboot 最后一步，重启手机。</li>
+</ul>
+</li>
+<li>刷机录像：注意，gif 最后点击 <code>download</code> 之后再用 usb 连接关机的 KONKA 手机<br><img src="/img/MTK刷机录制.gif" alt="MTK刷机录制"></li>
+</ul>
+<p><code>Attention</code>： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释 onCreate 中的部分代码，略去登录注册等功能)</p>
+<p><strong>打 Patch 包</strong>（将 A 项目的提交打 Patch 导入到 B 项目中） <code>2017-9-18 18:14:57</code> add</p>
+<ol>
+<li><code>git format-patch -1</code>（-1 指最近一次 Git 提交） - A 项目根目录，生成 Patch 包</li>
+<li>将生成的 <code>0001-.patch</code> 拷贝到 B 项目根目录下</li>
+<li><code>git am 0001-.patch</code> - B 项目根目录打入 Patch 包</li>
+</ol>
+<p><strong>源码代码提示的命令</strong> <code>2017-6-13 15:46:06</code> add<br>运行 <code>source build/envsetup.sh</code><br><code>mmm development/tools/idegen/</code><br><code>sh ./development/tools/idegen/idegen.sh</code> （三行全选运行），会在项目的更目录下会生成 <code>android.ipr</code>，用 <code>andorid studio</code> 打开这个文件，源码代码就有提示了!</p>
+<p><strong>内置 apk</strong> <code>2017-6-27 11:08:49</code> add</p>
+<ul>
+<li>KONKAS6/alps/device/konka/kon6753_66c_s6_m0/begoit 路径下将需要的 apk(TopActivity.apk) 安装包放进来</li>
+<li>在上述路径下 Android.mk 文件中将 apk 信息加进来（这个模仿其他的内置apk）</li>
+<li>KONKAS6/alps/device/konka/kon6753_66c_s6_m0/full_kon6753_66c_s6_m0.mk 文件中增加 <code>TopActivity \</code></li>
+<li>如果 apk 中有 so 库那么需要加别的东西，目前没有用到，可自行 google</li>
+<li>以上操作完成之后需要重新编译项目</li>
+</ul>
+<p><strong>加快编译速度</strong> <code>2017-6-30 17:46:53</code> add<br><code>prebuilts/misc/linux-x86/ccache/ccache -M 50G</code> 设置 cache 缓存为 50 G</p>
+<p>如下是编译的录屏, 临时弄个 <code>枪火</code> 先占坑，视频抽空录制（视频太大暂不录制）。<br>以下是哔哩哔哩的 html5 播放视频，参考文章：<a href="http://login926.github.io/2016/12/24/Bilibilihtml5Player/" target="_blank" rel="external">http://login926.github.io/2016/12/24/Bilibilihtml5Player/</a> </p>
+<iframe src="https://www.bilibili.com/html/html5player.html?cid=5465980&aid=3444552" width="640" height="480" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+
+
+<!--宽占满，高度自适应。 poster 预加载显示的图像-->
+<!--<video width="100%" height="auto" id="video" controls="" preload="none" 
+      poster="http://media.w3.org/2010/05/sintel/poster.png">
+      <source id="mp4" src="http://cn-fjxm2-dx-v-03.acgvideo.com/vg1/f/84/5465980-1.mp4?expires=1494488400&platform=html5&ssig=sFyLhO5klFhNKadv0P9gtA&oi=1968780062&nfa=fkYkF/LEe5xFyJPq/bZ9eQ==&dynamic=1&hfa=2066162576" type="video/mp4">
+      <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+      <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+</video>-->
+<p><strong>未完待续。。。</strong></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS_CLICK -->
+    <div id="disqus-comment">	
+        <div id="disqus_thread"></div>
+<!-- include js -->
+<script src="/js/ripple.js"></script>
+
+<!-- add animation -->
+<style>
+        .ripple-container {
+        }
+        .ripple-container .ripple{
+            background-color: rgba(255,255,255,0.4);
+            animation: ripple 2s forwards cubic-bezier(0, 0, 0.2, 1);
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            80% {
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+		.disqus_click_btn {
+            background-color: dodgerblue;
+            color: white;
+            padding: 10px 20px;
+            border:0;
+            font-size: 14px;
+            cursor: pointer
+        }
+</style>
+	
+<!-- add data-ripple attribute -->
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn" data-ripple>阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+	
+<script>
+    // add effect to elements
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'), function(element){
+        // find all elements and attach effect
+        new RippleEffect(element); // element is instance of javascript element node
+    });
+</script>
+
+<script>
+    $('.btn_click_load').click(function() {  //click to load comments
+        var disqus_config = function () {
+            this.page.url = 'https://yangxiaoge.github.io/2017/05/04/Android源码编译/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "2017/05/04/Android源码编译/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//yangxiaoge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/03/03/Android开发艺术notes1/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/05/09/Android输入法加密研究/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Bruce Yang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        yang.jianan0926@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:yang.jianan0926@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/06/">六月 2016<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/01/">一月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/09/">九月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/06/">六月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/APP开发记/">APP开发记<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android-O/">Android O<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android-Studio插件/">Android Studio插件<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android开发艺术探索/">Android开发艺术探索<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android源码/">Android源码<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Birt/">Birt<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/BugHD/">BugHD<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Git/">Git<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/JavaScript/">JavaScript<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Markdown语法/">Markdown语法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Music/">Music<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/React-Native/">React Native<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/bug小场景/">bug小场景<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/mock/">mock<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/个人总结/">个人总结<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/在线PPT/">在线PPT<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/">工具<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术文档/">技术文档<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/持续集成/">持续集成<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识点/">知识点<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/输入法/">输入法<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/friends" title="友链">
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="常用链接">
+                
+                常用链接
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/gallery" title="映像">
+                
+                    <i class="material-icons sidebar-material-icons">image</i>
+                
+                映像
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/wangmengzhuzhu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/u/3227182774" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://www.github.com/yangxiaoge" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/yangyangyang" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-telegram.png);">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+</div>
+
+
+            <!--Copyright-->
+            <!--<div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;珠珠のBlog
+        </div>-->
+            <div id="copyright">
+                <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+                <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+                <div id="time">
+                    <script>
+                        var begin = moment([2015, 04, 11]);
+                        var now = moment();
+                        setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
+                    </script>
+                </div>
+                <div id="lwlhitokoto">
+                    <script>
+                        lwlhitokoto()
+                    </script>
+                </div>
+            </div>
+
+
+            <!-- Paradox Footer Right Section -->
+
+            <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+            <div class="mdl-mini-footer--right-section">
+                <div>
+                    <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                    <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+                </div>
+            </div>
+            
+</footer>
+
+                    <!-- Import File -->
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz', 'lApncgeTUTIz5wO8utk7Ynnq');
+    </script>
+    <script>
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+            <!-- 自动加空格的工具 pangu.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/3.2.1/pangu.min.js"></script>
+            <script> pangu.spacingPage(); </script>
+            <!-- 自动加空格的工具 pangu.js -->
+        </body>
+    
+</html>
