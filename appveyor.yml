@@ -5,6 +5,7 @@ environment:
     secure: MEwnEHVqTUceMq8wSFSCeNLHQbfFdGPSkAc+zHyIayJb4UMET5atJT79SqfA/ioh
 
 install:
+  - ps: Install-Product node 6.0 #申明 Node 6.0，这句可以去掉的。
   - node --version
   - npm --version
   - npm install
