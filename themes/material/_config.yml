@@ -72,6 +72,9 @@ img:
     footerico: "/img/footer/footer_ico-"
     random_thumbnail: "/img/random/material-"
     footer_image:
+        AppVeyor:
+            link: 'https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io'
+            src: 'https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true'
         # zhuzhu:
         #     link: "https://www.upyun.com/"
         #     src: "/img/upyun_logo.png"
