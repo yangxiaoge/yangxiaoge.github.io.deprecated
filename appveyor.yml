@@ -2,7 +2,7 @@ clone_depth: 5
 
 environment:
   access_token:
-    secure: AqUW5JjYbKggC6IEf7mPGlWkiKVQ8EMrhUJnSnMRXceJp6e4T4VhqsL6LfttuCIK
+    secure: MEwnEHVqTUceMq8wSFSCeNLHQbfFdGPSkAc+zHyIayJb4UMET5atJT79SqfA/ioh
 
 install:
   - node --version
