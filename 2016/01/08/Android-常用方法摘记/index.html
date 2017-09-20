@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html style="display: none;" lang="zh">
     <head>
-    <!-- 
+    <meta charset="utf-8">
+    <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.3.0 -->
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Title -->
     
@@ -15,22 +46,29 @@
         珠珠のBlog
     </title>
 
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Bruce Yang">
+    <meta name="description" itemprop="description" content="获取当前页面 activity 实例 （随便什么地方都可以获取）123456789101112131415161718192021222324//获取当前页面 activity 实例    public static Activity getGlobleActivity() &amp;#123;        try &amp;#123;            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);            activitiesField.setAccessible(true);            Map activities = (Map) activitiesField.get(activityThread);            for (Object activityRecord : activities.values()) &amp;#123;                Class activityRecordClass = activityRecord.getClass();                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);                pausedField.setAccessible(true);                if (!pausedField.getBoolean(activityRecord)) &amp;#123;                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);                    activityField.setAccessible(true);                    Activity activity = (Activity) activityField.get(activityRecord);                    return activity;                &amp;#125;            &amp;#125;        &amp;#125; catch (Exception e) &amp;#123;        &amp;#125;        return null;    &amp;#125;
+返回键 app切换至后台12345678910111213@Override   public boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;       if (keyCode == KeyEvent.KEYCODE_BACK) &amp;#123;           if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &amp;#123;               mBinding.drawerLayout.closeDrawer(GravityCompat.START);           &amp;#125; else &amp;#123;               // 不退出程序，进入后台               moveTaskToBack(true);           &amp;#125;           return true;       &amp;#125;       return super.onKeyDown(keyCode, event);   &amp;#125;
+调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)1234567891011121314151617181920212223242526272829303132/** * Created by _SOLID * Date:2016/4/22 * Time:12:45 * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java */public class SystemShareUtils &amp;#123;    public static void shareText(Context ctx, String text) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_TEXT, text);        sendIntent.setType(&quot;text/plain&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImage(Context ctx, Uri uri) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);        sendIntent.setType(&quot;image/jpeg&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);        sendIntent.setType(&quot;image/*&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;&amp;#125;">
+    <meta name="keywords" content="null,Android">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/logo.ico">
     <link rel="icon" sizes="192x192" href="/img/logo.ico">
     <link rel="apple-touch-icon" href="/img/logo.ico">
 
-    <!-- Meta & Info -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Bruce Yang">
-    <meta name="description" content="背着键盘的编程侠客!">
-    <meta name="keywords" content="null,Android">
-
     <!--iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-title" content="Title">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -45,12 +83,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
 
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
-    <meta property="og:description" content="背着键盘的编程侠客!">
-    <meta property="og:article:tag" content="Android"> 
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/atom+xml" href="/atom.xml">
+        
+    
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -61,15 +103,27 @@
     <![endif]-->
 
     <!-- Import CSS -->
-    <link rel="stylesheet" href="/css/material.min.css">
-    <link rel="stylesheet" href="/css/style.min.css">
-    <!-- Config CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -127,6 +181,7 @@
     color: #00838F;
     text-decoration: underline;
   }
+
 </style>
 
 
@@ -165,47 +220,118 @@
     </style>
 
 
+<!-- Import Font -->
+<!-- Import Roboto -->
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/queue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
-    <!-- UC Browser Compatible -->
-    <script>
-        var agent = navigator.userAgent.toLowerCase();
-        if(agent.indexOf('ucbrowser')>0) {
-            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
-            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://yangxiaoge.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
+    <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
+    <meta property="og:description" content="获取当前页面 activity 实例 （随便什么地方都可以获取）123456789101112131415161718192021222324//获取当前页面 activity 实例    public static Activity getGlobleActivity() &amp;#123;        try &amp;#123;            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);            activitiesField.setAccessible(true);            Map activities = (Map) activitiesField.get(activityThread);            for (Object activityRecord : activities.values()) &amp;#123;                Class activityRecordClass = activityRecord.getClass();                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);                pausedField.setAccessible(true);                if (!pausedField.getBoolean(activityRecord)) &amp;#123;                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);                    activityField.setAccessible(true);                    Activity activity = (Activity) activityField.get(activityRecord);                    return activity;                &amp;#125;            &amp;#125;        &amp;#125; catch (Exception e) &amp;#123;        &amp;#125;        return null;    &amp;#125;
+返回键 app切换至后台12345678910111213@Override   public boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;       if (keyCode == KeyEvent.KEYCODE_BACK) &amp;#123;           if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &amp;#123;               mBinding.drawerLayout.closeDrawer(GravityCompat.START);           &amp;#125; else &amp;#123;               // 不退出程序，进入后台               moveTaskToBack(true);           &amp;#125;           return true;       &amp;#125;       return super.onKeyDown(keyCode, event);   &amp;#125;
+调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)1234567891011121314151617181920212223242526272829303132/** * Created by _SOLID * Date:2016/4/22 * Time:12:45 * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java */public class SystemShareUtils &amp;#123;    public static void shareText(Context ctx, String text) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_TEXT, text);        sendIntent.setType(&quot;text/plain&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImage(Context ctx, Uri uri) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);        sendIntent.setType(&quot;image/jpeg&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);        sendIntent.setType(&quot;image/*&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;&amp;#125;">
+    <meta property="og:article:tag" content="Android"> 
+
+    
+        <meta property="article:published_time" content="Fri Jan 08 2016 10:50:55 GMT+0000" />
+        <meta property="article:modified_time" content="Wed Sep 20 2017 09:55:11 GMT+0000" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
+    <meta name="twitter:description" content="获取当前页面 activity 实例 （随便什么地方都可以获取）123456789101112131415161718192021222324//获取当前页面 activity 实例    public static Activity getGlobleActivity() &amp;#123;        try &amp;#123;            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);            activitiesField.setAccessible(true);            Map activities = (Map) activitiesField.get(activityThread);            for (Object activityRecord : activities.values()) &amp;#123;                Class activityRecordClass = activityRecord.getClass();                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);                pausedField.setAccessible(true);                if (!pausedField.getBoolean(activityRecord)) &amp;#123;                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);                    activityField.setAccessible(true);                    Activity activity = (Activity) activityField.get(activityRecord);                    return activity;                &amp;#125;            &amp;#125;        &amp;#125; catch (Exception e) &amp;#123;        &amp;#125;        return null;    &amp;#125;
+返回键 app切换至后台12345678910111213@Override   public boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;       if (keyCode == KeyEvent.KEYCODE_BACK) &amp;#123;           if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &amp;#123;               mBinding.drawerLayout.closeDrawer(GravityCompat.START);           &amp;#125; else &amp;#123;               // 不退出程序，进入后台               moveTaskToBack(true);           &amp;#125;           return true;       &amp;#125;       return super.onKeyDown(keyCode, event);   &amp;#125;
+调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)1234567891011121314151617181920212223242526272829303132/** * Created by _SOLID * Date:2016/4/22 * Time:12:45 * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java */public class SystemShareUtils &amp;#123;    public static void shareText(Context ctx, String text) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_TEXT, text);        sendIntent.setType(&quot;text/plain&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImage(Context ctx, Uri uri) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);        sendIntent.setType(&quot;image/jpeg&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);        sendIntent.setType(&quot;image/*&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;&amp;#125;">
+    <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://yangxiaoge.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html",
+    "headline": "Android常用方法摘记以及收集",
+    "datePublished": "Fri Jan 08 2016 10:50:55 GMT+0000",
+    "dateModified": "Wed Sep 20 2017 09:55:11 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Bruce Yang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "背着键盘的编程侠客!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "珠珠のBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/logo.ico"
         }
-    </script>
+    },
+    "keywords": ",Androidnull",
+    "description": "获取当前页面 activity 实例 （随便什么地方都可以获取）123456789101112131415161718192021222324//获取当前页面 activity 实例    public static Activity getGlobleActivity() &amp;#123;        try &amp;#123;            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);            activitiesField.setAccessible(true);            Map activities = (Map) activitiesField.get(activityThread);            for (Object activityRecord : activities.values()) &amp;#123;                Class activityRecordClass = activityRecord.getClass();                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);                pausedField.setAccessible(true);                if (!pausedField.getBoolean(activityRecord)) &amp;#123;                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);                    activityField.setAccessible(true);                    Activity activity = (Activity) activityField.get(activityRecord);                    return activity;                &amp;#125;            &amp;#125;        &amp;#125; catch (Exception e) &amp;#123;        &amp;#125;        return null;    &amp;#125;
+返回键 app切换至后台12345678910111213@Override   public boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;       if (keyCode == KeyEvent.KEYCODE_BACK) &amp;#123;           if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &amp;#123;               mBinding.drawerLayout.closeDrawer(GravityCompat.START);           &amp;#125; else &amp;#123;               // 不退出程序，进入后台               moveTaskToBack(true);           &amp;#125;           return true;       &amp;#125;       return super.onKeyDown(keyCode, event);   &amp;#125;
+调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)1234567891011121314151617181920212223242526272829303132/** * Created by _SOLID * Date:2016/4/22 * Time:12:45 * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java */public class SystemShareUtils &amp;#123;    public static void shareText(Context ctx, String text) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_TEXT, text);        sendIntent.setType(&quot;text/plain&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImage(Context ctx, Uri uri) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);        sendIntent.setType(&quot;image/jpeg&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) &amp;#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);        sendIntent.setType(&quot;image/*&quot;);        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));    &amp;#125;&amp;#125;",
+}
+</script>
+
 
     
-    <!-- Baidu Analytics -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {var hm = document.createElement('script');
-        hm.src = 'https://hm.baidu.com/hm.js?b19c2660e6c6a466ee86915e4db2a561';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    
 
+    <!-- Analytics -->
     
-    <!-- Google Analytics -->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-89143217-1', 'auto');ga('send', 'pageview');
-    </script>
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-89143217-1', 'auto');ga('send', 'pageview');
+</script>
     
-
-    <!-- Bing Background -->
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?b19c2660e6c6a466ee86915e4db2a561';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
     
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -246,21 +372,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取当前页面-activity-实例-（随便什么地方都可以获取）"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取当前页面 activity 实例 （随便什么地方都可以获取）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回键-app切换至后台"><span class="post-toc-number">2.</span> <span class="post-toc-text">返回键 app切换至后台</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用系统方法弹出-分享文本图片等-2016-12-06-19-16-43"><span class="post-toc-number">3.</span> <span class="post-toc-text">调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47"><span class="post-toc-number">4.</span> <span class="post-toc-text">Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gson构造JsonArray-2016-8-23-16-11-25"><span class="post-toc-number">5.</span> <span class="post-toc-text">Gson构造JsonArray(2016-8-23 16:11:25)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#访问或者下载单个github文件-2016-9-20-18-43-37"><span class="post-toc-number">6.</span> <span class="post-toc-text">访问或者下载单个github文件(2016-9-20 18:43:37)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LICEcap录制Gif工具-2016-8-2-18-57-50"><span class="post-toc-number">7.</span> <span class="post-toc-text">LICEcap录制Gif工具(2016-8-2 18:57:50)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读取Assets-下面-cityId查询天气-中的是另一种读取方法-目录下文件-2016-06-12"><span class="post-toc-number">8.</span> <span class="post-toc-text">读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(2016-06-12)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cityId查询天气-2016-6-20-19-00-35"><span class="post-toc-number">9.</span> <span class="post-toc-text">cityId查询天气(2016-6-20 19:00:35)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#双击两次返回键退出-2秒内退出"><span class="post-toc-number">10.</span> <span class="post-toc-text">双击两次返回键退出 (2秒内退出)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RadioButton-点击事件-2016-06-08"><span class="post-toc-number">11.</span> <span class="post-toc-text">RadioButton 点击事件 (2016-06-08)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#夜神-模拟器连接-2016-6-22-13-44-46"><span class="post-toc-number">12.</span> <span class="post-toc-text">夜神 模拟器连接(2016-6-22 13:44:46)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#海马玩-模拟器连接-2016-06-14"><span class="post-toc-number">13.</span> <span class="post-toc-text">海马玩 模拟器连接(2016-06-14)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#app启动页面-AlphaAnimation渐变-2016-06-14"><span class="post-toc-number">14.</span> <span class="post-toc-text">app启动页面(AlphaAnimation渐变) (2016-06-14)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adapter中setTag-的使用"><span class="post-toc-number">15.</span> <span class="post-toc-text">adapter中setTag()的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gson把JsonArray的字符串转成bean实体类"><span class="post-toc-number">16.</span> <span class="post-toc-text">Gson把JsonArray的字符串转成bean实体类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#圆形进度条-2016-7-1-13-20-24"><span class="post-toc-number">17.</span> <span class="post-toc-text">圆形进度条(2016-7-1 13:20:24)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#保存图片到本地文件-2016-7-11-12-35-51"><span class="post-toc-number">18.</span> <span class="post-toc-text">保存图片到本地文件(2016-7-11 12:35:51)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#样式统一设置-2016-7-12-15-06-40"><span class="post-toc-number">19.</span> <span class="post-toc-text">样式统一设置 (2016-7-12 15:06:40)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06"><span class="post-toc-number">20.</span> <span class="post-toc-text">touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProgressDialog使用-例如登录等待时-2016-7-15-14-55-24"><span class="post-toc-number">21.</span> <span class="post-toc-text">ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#远程调试App或者WiFi调试-2016-7-19-19-34-09"><span class="post-toc-number">22.</span> <span class="post-toc-text">远程调试App或者WiFi调试(2016-7-19 19:34:09)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ScrollView初始化数据时不置顶-2016-7-20-16-36-01"><span class="post-toc-number">23.</span> <span class="post-toc-text">ScrollView初始化数据时不置顶(2016-7-20 16:36:01)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32"><span class="post-toc-number">24.</span> <span class="post-toc-text">使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58"><span class="post-toc-number">25.</span> <span class="post-toc-text">EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AS快捷键-2016-8-2-18-58-02"><span class="post-toc-number">26.</span> <span class="post-toc-text">AS快捷键(2016-8-2 18:58:02)</span></a></li></ol>
-
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
+    
 
 
 
@@ -280,10 +404,11 @@
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script>
+            <script type="text/ls-javascript" id="post-thumbnail-script">
     var randomNum = Math.floor(Math.random() * 15 + 1);
 
-    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
 </script>
 
         
@@ -324,13 +449,16 @@
     <!-- Qrcode -->
     
         <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">devices other</i>
-            <span class="visuallyhidden">devices other</span>
-        </button>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1UlEQVR42u3aQXIbMQwEQP3/08k1VY7tGUBxJLJ5UsUrLZuXCQA+fl25HtjY2NjY2NjY2NgvyX7E68/nP37++Gt/eXH5/GffbfeMjY2NfQO7fWXyuf1W8vbVt7CxsbEvYLehNQySOCaTIEz2jI2NjY2dR8jXgHblIYqNjY2N3QZYvrnnNpKwsbGxsfdNpbZJlCCTTf/nXho2Njb2y7P3g96f//wS821sbGzsF2DP1qbpPwukJ+wZGxsb+1B2C2i3no9v8wFD2xTDxsbGvofdjnjzQ2nHwLMD/eZ5bGxs7AvYLaZt6LdNomTMUAwqsLGxsQ9lz4IkOY48GvejiOF4ABsbG/sg9mz0uyld2iFB/pYiwLCxsbGPYOft9bxZPystZu2qpJmFjY2NfQN708ppxwztsSa//IQ7p9jY2Nhvy579d38WMG2TaBZ4UYBhY2NjH8TeNO43cVK3hOIGVp3b2NjY2G/Obi/EtEHyrAFDfjWnyG1sbGzsg9iz17RlQ86eDR6+OT5sbGzsQ9l5wdBerGmPtR361pd4sLGxsS9jt+2hPHLykmNWzKyu7GBjY2O/ITtvMO0bPZvyIx9Of/p2bGxs7EPZmwJgH2D/YmBQlCLY2NjYR7CTI8hDKN/W/jpOW5xgY2Njn8rOo6UNvDYI82eiCzrY2NjYl7HzAHvWtZ72yVncYmNjY9/Dzhv0bSs/L0va8qYOP2xsbOyj2W0xMPtrHo0tNdobNjY29mXsljorYFp8OxLAxsbGvoHdrqQ4aVv8m8MqAg8bGxv7UHYbDJtrPclIeDZ+WM23sbGxsY9gzwqD9hdmjE2LChsbG/s2dhstefmRbHR2fTMvbLCxsbGx82dmg+RN2yj6F2xsbGzs9Xg4L0WKVtG+qYSNjY19ELstHvKGUV6i5MedD56xsbGxb2BvBr2z2Ps6DpOjqQ8IGxsb+1D2PQsbGxsbGxsbGxv7ZdZvYWuktx1jgyIAAAAASUVORK5CYII=">
-        </ul>
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1UlEQVR42u3aQXIbMQwEQP3/08k1VY7tGUBxJLJ5UsUrLZuXCQA+fl25HtjY2NjY2NjY2NgvyX7E68/nP37++Gt/eXH5/GffbfeMjY2NfQO7fWXyuf1W8vbVt7CxsbEvYLehNQySOCaTIEz2jI2NjY2dR8jXgHblIYqNjY2N3QZYvrnnNpKwsbGxsfdNpbZJlCCTTf/nXho2Njb2y7P3g96f//wS821sbGzsF2DP1qbpPwukJ+wZGxsb+1B2C2i3no9v8wFD2xTDxsbGvofdjnjzQ2nHwLMD/eZ5bGxs7AvYLaZt6LdNomTMUAwqsLGxsQ9lz4IkOY48GvejiOF4ABsbG/sg9mz0uyld2iFB/pYiwLCxsbGPYOft9bxZPystZu2qpJmFjY2NfQN708ppxwztsSa//IQ7p9jY2Nhvy579d38WMG2TaBZ4UYBhY2NjH8TeNO43cVK3hOIGVp3b2NjY2G/Obi/EtEHyrAFDfjWnyG1sbGzsg9iz17RlQ86eDR6+OT5sbGzsQ9l5wdBerGmPtR361pd4sLGxsS9jt+2hPHLykmNWzKyu7GBjY2O/ITtvMO0bPZvyIx9Of/p2bGxs7EPZmwJgH2D/YmBQlCLY2NjYR7CTI8hDKN/W/jpOW5xgY2Njn8rOo6UNvDYI82eiCzrY2NjYl7HzAHvWtZ72yVncYmNjY9/Dzhv0bSs/L0va8qYOP2xsbOyj2W0xMPtrHo0tNdobNjY29mXsljorYFp8OxLAxsbGvoHdrqQ4aVv8m8MqAg8bGxv7UHYbDJtrPclIeDZ+WM23sbGxsY9gzwqD9hdmjE2LChsbG/s2dhstefmRbHR2fTMvbLCxsbGx82dmg+RN2yj6F2xsbGzs9Xg4L0WKVtG+qYSNjY19ELstHvKGUV6i5MedD56xsbGxb2BvBr2z2Ps6DpOjqQ8IGxsb+1D2PQsbGxsbGxsbGxv7ZdZvYWuktx1jgyIAAAAASUVORK5CYII=">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->
@@ -383,7 +511,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android常用方法摘记以及收集&url=https://yangxiaoge.github.io//2016/01/08/Android-常用方法摘记/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android常用方法摘记以及收集&url=https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html&pic=https://yangxiaoge.github.io/img/logo.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -392,7 +520,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android常用方法摘记以及收集&url=https://yangxiaoge.github.io//2016/01/08/Android-常用方法摘记/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android常用方法摘记以及收集&url=https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -401,7 +529,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io//2016/01/08/Android-常用方法摘记/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -425,7 +553,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io//2016/01/08/Android-常用方法摘记/index.html&text=Android常用方法摘记以及收集" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html&text=Android常用方法摘记以及收集" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -509,6 +637,17 @@
 <h2 id="EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58"><a href="#EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58" class="headerlink" title="EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)"></a>EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">etUsertel.addTextChangedListener(<span class="keyword">new</span> TextChange());</div><div class="line">   etPassword.addTextChangedListener(<span class="keyword">new</span> TextChange());</div><div class="line"></div><div class="line"><span class="comment">// EditText监听器</span></div><div class="line">   <span class="class"><span class="keyword">class</span> <span class="title">TextChange</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable arg0)</span> </span>&#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence arg0, <span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2,</span></span></div><div class="line"><span class="function"><span class="params">               <span class="keyword">int</span> arg3)</span> </span>&#123;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence cs, <span class="keyword">int</span> start, <span class="keyword">int</span> before,</span></span></div><div class="line"><span class="function"><span class="params">               <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line"></div><div class="line">           <span class="keyword">boolean</span> Sign2 = et_usertel.getText().length() &gt; <span class="number">0</span>;</div><div class="line">           <span class="keyword">boolean</span> Sign3 = et_password.getText().length() &gt; <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="comment">// 设置登录按钮的颜色,以及是否可点击!</span></div><div class="line">           <span class="keyword">if</span> (Sign2 &amp; Sign3) &#123;</div><div class="line">               btnLogin.setTextColor(<span class="number">0xFFFFFFFF</span>);</div><div class="line">               btnLogin.setEnabled(<span class="keyword">true</span>);</div><div class="line">           &#125;</div><div class="line">           <span class="comment">// 在layout文件中，对Button的text属性应预先设置默认值，否则刚打开程序的时候Button是无显示的</span></div><div class="line">           <span class="keyword">else</span> &#123;</div><div class="line">               btnLogin.setTextColor(<span class="number">0xFFD0EFC6</span>);</div><div class="line">               btnLogin.setEnabled(<span class="keyword">false</span>);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <h2 id="AS快捷键-2016-8-2-18-58-02"><a href="#AS快捷键-2016-8-2-18-58-02" class="headerlink" title="AS快捷键(2016-8-2 18:58:02)"></a>AS快捷键(2016-8-2 18:58:02)</h2><p><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6fkhxh18yj214k0pw4bs.jpg" alt="android_studio快捷键"></p>
 
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 Unported License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/">https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/</a>
+                    </p>
+                </blockquote>
+        
     
 
     
@@ -520,65 +659,69 @@
                 <!-- Post Comments -->
                 
                     
-
-
-
-
     <!-- 使用 DISQUS_CLICK -->
-    <div id="disqus-comment">	
-        <div id="disqus_thread"></div>
-<!-- include js -->
-<script src="/js/ripple.js"></script>
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
 
 <!-- add animation -->
 <style>
-        .ripple-container {
-        }
-        .ripple-container .ripple{
-            background-color: rgba(255,255,255,0.4);
-            animation: ripple 2s forwards cubic-bezier(0, 0, 0.2, 1);
-        }
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            80% {
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-		.disqus_click_btn {
-            background-color: dodgerblue;
-            color: white;
-            padding: 10px 20px;
-            border:0;
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
             font-size: 14px;
-            cursor: pointer
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0
         }
 </style>
 	
-<!-- add data-ripple attribute -->
 <div class="btn_click_load"> 
-    <button class="disqus_click_btn" data-ripple>阅读评论（请确保 disqus 可以正常加载）</button>
+    <button class="disqus_click_btn" style="display: none">阅读评论（请确保 disqus 可以正常加载）</button>
 </div>
-	
-<script>
-    // add effect to elements
-    Array.prototype.forEach.call(document.querySelectorAll('[data-ripple]'), function(element){
-        // find all elements and attach effect
-        new RippleEffect(element); // element is instance of javascript element node
-    });
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 </script>
 
-<script>
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//yangxiaoge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.btn_click_load').css('display','none');
+        })(),
+        error: function() {
+          $('.btn_click_load').css('display','block');
+        }
+    });
     $('.btn_click_load').click(function() {  //click to load comments
-        var disqus_config = function () {
-            this.page.url = 'https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html';  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = "2016/01/08/Android-常用方法摘记/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document;
             var s = d.createElement('script');
@@ -591,13 +734,14 @@
 </script>
   	
 
-    </div>
-    <style>
-        #disqus-comment{
-            background-color: #eee;
-            padding: 2pc;
-        }
-    </style>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
 
                 
             </div>
@@ -690,7 +834,7 @@
     <!-- Homepage -->
     
         <li id="sidebar-first-li">
-            <a href="/" target="_self">
+            <a href="/">
                 
                 主页
             </a>
@@ -732,14 +876,26 @@
             </ul>
         </li>
         
-            <li class="divider"></li>
-        
     
 
     <!-- Pages  -->
     
         <li>
+            <a href="/timeline.html" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
             <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">local_offer</i>
                 
                 标签云
             </a>
@@ -749,6 +905,8 @@
         <li>
             <a href="/friends" title="友链">
                 
+                    <i class="material-icons sidebar-material-icons">people</i>
+                
                 友链
             </a>
         </li>
@@ -756,6 +914,8 @@
     
         <li>
             <a href="/links" title="常用链接">
+                
+                    <i class="material-icons sidebar-material-icons">collections</i>
                 
                 常用链接
             </a>
@@ -777,7 +937,7 @@
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">person</i>
+                    <i class="material-icons sidebar-material-icons">face</i>
                 
                 关于
             </a>
@@ -828,8 +988,8 @@ It will not impact the appearance and can give developers a lot of support :)
     
     <span id="footer-image">
         <a href="https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io" target="_blank" title="AppVeyor">
-            <img src="https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true" alt="AppVeyor">
-        </a>
+            <img src="https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true" alt="AppVeyor"><!--
+     --></a>
     </span>
 
 
@@ -839,7 +999,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
                     
                         <!-- Footer Top Button -->
-                        <div class="toTop-wrap">
+                        <div id="back-to-top" class="toTop-wrap">
     <a href="#top" class="toTop">
         <i class="material-icons footer_top-i">expand_less</i>
     </a>
@@ -855,7 +1015,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <!-- Twitter -->
     
         <a href="https://twitter.com/wangmengzhuzhu" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-twitter.png);">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
                 <span class="visuallyhidden">Twitter</span>
             </button><!--
      --></a>
@@ -870,7 +1030,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <!-- Weibo -->
     
         <a href="http://weibo.com/u/3227182774" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
                 <span class="visuallyhidden">Weibo</span>
             </button><!--
      --></a>
@@ -885,7 +1045,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <!-- Github -->
     
         <a href="http://www.github.com/yangxiaoge" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
                 <span class="visuallyhidden">Github</span>
             </button><!--
      --></a>
@@ -903,10 +1063,13 @@ It will not impact the appearance and can give developers a lot of support :)
     <!-- Telegram -->
     
         <a href="https://t.me/yangyangyang" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-telegram.png);">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
                 <span class="visuallyhidden">Telegram</span>
             </button><!--
      --></a>
+    
+    
+    <!-- V2EX -->
     
 </div>
 
@@ -920,27 +1083,26 @@ It will not impact the appearance and can give developers a lot of support :)
             </script>
             &nbsp;珠珠のBlog
         </div>-->
-            <div id="copyright">
-                <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
-                <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
-                <div id="time">
-                    <script>
-                        var begin = moment([2015, 04, 11]);
-                        var now = moment();
-                        setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
-                    </script>
-                </div>
-                <div id="lwlhitokoto">
-                    <script>
-                        lwlhitokoto()
-                    </script>
-                </div>
+        <div id="copyright">
+            <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+            <script type="text/javascript" src="https://api.lwl12.com/hitokoto/main/get?encode=js&charset=utf-8"></script>
+            <div id="time">
+                <script>
+                    var begin = moment([2015, 04, 11]);
+                    var now = moment();
+                    setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
+                </script>
             </div>
+            <div id="lwlhitokoto">
+                <script>
+                    lwlhitokoto()
+                </script>
+            </div>
+        </div>
 
+    <!-- Paradox Footer Right Section -->
 
-            <!-- Paradox Footer Right Section -->
-
-            <!--
+        <!--
         I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
         It will not impact the appearance and can give developers a lot of support :)
 
@@ -948,21 +1110,30 @@ It will not impact the appearance and can give developers a lot of support :)
         它不会影响美观并可以给开发者很大的支持。 :)
         -->
 
-            <div class="mdl-mini-footer--right-section">
-                <div>
-                    <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                    <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-                </div>
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
-            
+        </div>
+    
 </footer>
 
-                    <!-- Import File -->
-<script src="/js/lazyload.min.js"></script>
-<script src="/js/js.min.js"></script>
-<script src="/js/nprogress.js"></script>
 
-<script type="text/javascript">
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
     NProgress.configure({
         showSpinner: true
     });
@@ -985,7 +1156,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-    <script src="/js/smoothscroll.js"></script>
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
 
 
 
@@ -994,7 +1167,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <script>
         AV.initialize('q6w53VfC1AyGdnJUpic1t0Hg-gzGzoHsz', 'lApncgeTUTIz5wO8utk7Ynnq');
     </script>
-    <script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
     function showTime(Counter) {
         var query = new AV.Query(Counter);
         $('.leancloud-views_num').each(function() {
@@ -1081,26 +1254,75 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+   <!-- 使用 DISQUS js 代码 -->
 
 
 
 
-<!-- Swiftye -->
 
 
-<!-- Local Search-->
-
-
-<!-- Window Load-->
+<!-- UC Browser Compatible -->
 <script>
-    $(window).load(function() {
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+    
 </script>
 
 <!-- MathJax Load-->
 
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
 
                 </main>
             </div>
