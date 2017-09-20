@@ -149,7 +149,7 @@ deploy:
     #发布到github, coding. 先注解掉coding， coding仓库内存不够！(真扣)
     github: git@github.com:yangxiaoge/yangxiaoge.github.io.git
     #coding: git@git.coding.net:yangxiaoge/yangxiaoge.git,master
-    oschina: git@git.oschina.net:yangjianan/yangjianan.git,master
+    #oschina: git@git.oschina.net:yangjianan/yangjianan.git,master
 	
 #deploy: # 小祖宗的 github
 #    type: git
