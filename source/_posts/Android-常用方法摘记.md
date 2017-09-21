@@ -5,6 +5,34 @@ tags: Android
 categories: Android
 top: 100
 ---
+
+## 将美化后的 Json 字符串展示到 TextView 上
+```
+/**
+     * 美化 Json
+     * @param jsonString json
+     * @return prettyJson
+     */
+    public static String printJson(String jsonString) {
+        String prettyJson;
+        try {
+            if (jsonString.startsWith("{")) {
+                JSONObject jsonObject = new JSONObject(jsonString);
+                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
+            } else if (jsonString.startsWith("[")) {
+                JSONArray jsonArray = new JSONArray(jsonString);
+                prettyJson = jsonArray.toString(4);
+            } else {
+                prettyJson = jsonString;
+            }
+        } catch (JSONException e) {
+            prettyJson = jsonString;
+        }
+        Log.d("message", "" + prettyJson);
+        return prettyJson;
+    }
+```
+
 ## 获取当前页面 activity 实例 （随便什么地方都可以获取）
 ```
 //获取当前页面 activity 实例
