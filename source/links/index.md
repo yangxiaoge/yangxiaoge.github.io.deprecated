@@ -63,7 +63,7 @@ header-img: "/img/music.jpg"
 	
 --------------------------------
 ## 轻松一刻
-- [小彤花园](http://www.jianshu.com/u/4a4eb4feee62)
+- [小彤花园](http://www.jianshu.com/u/4a4eb4feee62) - [vivianchen](http://www.vivianchen.cn/about/) 主编
 
 <!-- ## React Native (是时候学习一波了！)
 - [涩郎React-Native](http://godcoder.me/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/React-Native/)
