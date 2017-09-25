@@ -35,13 +35,22 @@ scheme: Paradox
 # UI & UX: slogan, color, effect
 uiux:
     slogan: "背着键盘的编程侠客!"
-    theme_color: "#0097A7"
-    theme_sub_color: "#00838F"
-    hyperlink_color: "#00838F"
-    button_color: "#757575"
-    android_chrome_color: "#0097A7"
-    nprogress_color: "#29d"
-    nprogress_buffer: "800"
+    theme_color: "#546E7A"
+    theme_sub_color: "#424242"
+    hyperlink_color: "#607D8B"
+    button_color: "#546E7A"
+    android_chrome_color: "#455A64"
+    nprogress_color: "#212121"
+    nprogress_buffer: "350"
+
+    # 以下是原版博客主题色
+    #theme_color: "#0097A7"
+    #theme_sub_color: "#00838F"
+    #hyperlink_color: "#00838F"
+    #button_color: "#757575"
+    #android_chrome_color: "#0097A7"
+    #nprogress_color: "#29d"
+    #nprogress_buffer: "800"
 
 # JS Effect Switches
 js_effect:
