@@ -206,7 +206,7 @@ sidebar:
             icon: email
     homepage:
         use: true
-        # icon: home
+        icon: home
         divider: false
     archives:
         use: true
