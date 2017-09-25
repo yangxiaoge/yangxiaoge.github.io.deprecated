@@ -52,99 +52,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#455A64">
     <meta name="author" content="Bruce Yang">
-    <meta name="description" itemprop="description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&amp;quot;{&amp;quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&amp;quot;[&amp;quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&amp;quot;message&amp;quot;, &amp;quot;&amp;quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&amp;quot;android.app.ActivityThread&amp;quot;);
-            Object activityThread = activityThreadClass.getMethod(&amp;quot;currentActivityThread&amp;quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&amp;quot;mActivities&amp;quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&amp;quot;paused&amp;quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&amp;quot;activity&amp;quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&amp;quot;text/plain&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&amp;quot;image/jpeg&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&amp;quot;image/*&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-}
-">
+    <meta name="description" itemprop="description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上">
     <meta name="keywords" content="null,Android">
 
     <!-- Import lsloader -->
@@ -363,201 +271,17 @@ public class SystemShareUtils {
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
     <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
-    <meta property="og:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&amp;quot;{&amp;quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&amp;quot;[&amp;quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&amp;quot;message&amp;quot;, &amp;quot;&amp;quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&amp;quot;android.app.ActivityThread&amp;quot;);
-            Object activityThread = activityThreadClass.getMethod(&amp;quot;currentActivityThread&amp;quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&amp;quot;mActivities&amp;quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&amp;quot;paused&amp;quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&amp;quot;activity&amp;quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&amp;quot;text/plain&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&amp;quot;image/jpeg&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&amp;quot;image/*&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-}
-">
+    <meta property="og:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上">
     <meta property="og:article:tag" content="Android"> 
 
     
         <meta property="article:published_time" content="Fri Jan 08 2016 10:50:55 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Sep 25 2017 08:51:07 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 09:52:39 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
-    <meta name="twitter:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&amp;quot;{&amp;quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&amp;quot;[&amp;quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&amp;quot;message&amp;quot;, &amp;quot;&amp;quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&amp;quot;android.app.ActivityThread&amp;quot;);
-            Object activityThread = activityThreadClass.getMethod(&amp;quot;currentActivityThread&amp;quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&amp;quot;mActivities&amp;quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&amp;quot;paused&amp;quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&amp;quot;activity&amp;quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&amp;quot;text/plain&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&amp;quot;image/jpeg&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&amp;quot;image/*&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-}
-">
+    <meta name="twitter:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -579,7 +303,7 @@ public class SystemShareUtils {
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/01/08/Android-常用方法摘记/index.html",
     "headline": "Android常用方法摘记以及收集",
     "datePublished": "Fri Jan 08 2016 10:50:55 GMT+0000",
-    "dateModified": "Mon Sep 25 2017 08:51:07 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 09:52:39 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -598,99 +322,7 @@ public class SystemShareUtils {
         }
     },
     "keywords": ",Androidnull",
-    "description": "本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&amp;quot;{&amp;quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&amp;quot;[&amp;quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&amp;quot;message&amp;quot;, &amp;quot;&amp;quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&amp;quot;android.app.ActivityThread&amp;quot;);
-            Object activityThread = activityThreadClass.getMethod(&amp;quot;currentActivityThread&amp;quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&amp;quot;mActivities&amp;quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&amp;quot;paused&amp;quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&amp;quot;activity&amp;quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&amp;quot;text/plain&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&amp;quot;image/jpeg&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&amp;lt;Uri&amp;gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&amp;quot;image/*&amp;quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &amp;quot;分享至&amp;quot;));
-    }
-}
-",
+    "description": "本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上",
 }
 </script>
 
@@ -958,7 +590,8 @@ public class SystemShareUtils {
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"><a href="#本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！" class="headerlink" title="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"></a>本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！</h2><h3 id="将美化后的-Json-字符串展示到-TextView-上"><a href="#将美化后的-Json-字符串展示到-TextView-上" class="headerlink" title="将美化后的 Json 字符串展示到 TextView 上"></a>将美化后的 Json 字符串展示到 TextView 上</h3><pre><code>/**
+        <h2 id="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"><a href="#本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！" class="headerlink" title="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"></a>本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！</h2><h3 id="将美化后的-Json-字符串展示到-TextView-上"><a href="#将美化后的-Json-字符串展示到-TextView-上" class="headerlink" title="将美化后的 Json 字符串展示到 TextView 上"></a>将美化后的 Json 字符串展示到 TextView 上</h3><a id="more"></a>
+<pre><code>/**
      * 美化 Json
      * @param jsonString json
      * @return prettyJson
@@ -1050,7 +683,7 @@ public class SystemShareUtils {
         ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
     }
 }
-</code></pre><a id="more"></a>
+</code></pre><!-- more -->
 <h3 id="Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47"><a href="#Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47" class="headerlink" title="Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)"></a>Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)</h3><p>摘自:<a href="https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/" target="_blank" rel="external">习惯沉默的Blog
 </a><br>现在微信不能直接跳转到微信扫一扫:详见 <a href="http://blog.csdn.net/l_lhc/article/details/51636130" target="_blank" rel="external">Android调用微信扫一扫_CSDN</a></p>
 <h3 id="Gson构造JsonArray-2016-8-23-16-11-25"><a href="#Gson构造JsonArray-2016-8-23-16-11-25" class="headerlink" title="Gson构造JsonArray(2016-8-23 16:11:25)"></a>Gson构造JsonArray(2016-8-23 16:11:25)</h3><p>最近项目中请求参数传参用到了 JsonArray对象<br>构造方法如下:</p>

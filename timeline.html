@@ -937,9 +937,6 @@ sour...
 							重拾课本, 温故Android开发艺术探索!
 
 本文是Android开发艺术读书笔记系列第一篇。内容结合书本/网络，自己概括而来。书中源码地址 Github
-第1章 Activity的生命周期和启动模式1.1 Activity生命周期全面分析1.1.1 典型情况下生命周期分析
-通常, Activity从invisible(即onStop)到visible(即onStart)时, onRestart方法就会被调用。
-点击home键或者打开新Activity时, onPause -&gt; onStop, 如果按Home键回来回掉是: onRestart -&gt;  onStart　-&gt;　onResume ; 如果新Activity主题是透明的时, 只有onPause, 所以当用户返回原来的Activity时, 回掉过程是: onRestart -&gt; onStart -&gt; onResume (看Activity生命周期图就知道了)。
 						...
 					</p>
                     		</div>
@@ -993,8 +990,7 @@ OkHttp的基本使用
 						
 							持续更行中
 
-1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。String str = new String(“hello”);上面的语句中 str 放在栈上，用 new 创建出来的字符串对象放在堆上，而“hello”这个字面量放在静态存储区。
-2. 重写equals方法时,为什么也需要重写hashCode方法。
+1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。
 						...
 					</p>
                     		</div>
@@ -1045,7 +1041,6 @@ OkHttp的基本使用
 							转眼间，2016即将结束。本打算明天(12月31号)写年终总结的，不过明天放假O(∩_∩)O~~
 掐指一算已经工作近2年了，啊~~我又老了一岁￣へ￣。虽然怀念学校安逸的生活，但是相比之下我还是喜欢踏实的工作，花着自己辛苦挣来的工资，很开心！
 下面说说毕业后在软创学到的东西吧, 软创是我毕业来的第一家公司,主要学习的知识点方向有两个: Android, Birt(报表,涉及数据库的CRUD知识点)。
-概括一下Android的学习，毕竟这是我个人爱好的！（当然，今年IT也面临了寒冬，不过也不用恐慌，做好自己！！！）
 						...
 					</p>
                     		</div>
@@ -1099,7 +1094,7 @@ javascript的五种基本数据类型基本数据类型: Undefined，Null，Bool
 					<p class="md-timeline-excerpt">
 						
 							好久没有写博客了o(╯□╰)o , 终于忙完Android项目了。接下来给自己定个长期目标， 每个月至少写一篇博文，可以是感想闲聊篇也可是技术篇， 哈哈看心情啦。
-言归正传其实获得FlowCi测试资格已经好几个月了， 一直没有去使用它， FlowCi功能非常强大。 之前我用的是daocloud持续集成博客, 不过今天发现持续集成失败了， 发现是daocloud升级了， 集成的配置文件需要修改， 我就乘此机会转投FlowCi的怀抱中了 O(∩_∩)O哈哈~那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？
+言归正传其实获得FlowCi测试资格已经好几个月了， 一直没有去使用它， FlowCi功能非常强大。
 						...
 					</p>
                     		</div>
@@ -1123,7 +1118,8 @@ javascript的五种基本数据类型基本数据类型: Undefined，Null，Bool
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							
+							介绍 mock 数据的集中方法。
+
 						...
 					</p>
                     		</div>
@@ -1147,8 +1143,7 @@ javascript的五种基本数据类型基本数据类型: Undefined，Null，Bool
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。
-我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。
+							内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，
 						...
 					</p>
                     		</div>
@@ -1347,8 +1342,6 @@ QQ上拉弹出键盘 AndroidKeyboardListener
 MumuXi项目中已经配置好了,可以供参考
 
 集成到app中分为如下几步:
-General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，请勿泄露，建立每个项目时将自动生成项目对应的 General Key，可在项目列表页查看每个项目对应的 General Key值
-
 						...
 					</p>
                     		</div>
@@ -1463,7 +1456,6 @@ General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，
 
 基于鸿神教程运用了ORMLite框架详见我的Github_QueryCityId
 转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/39121377
-大家在Android项目中或多或少的都会使用数据库，为了提高我们的开发效率，当然少不了数据库ORM框架了，尤其是某些数据库操作特别频繁的app；本篇博客将详细介绍ORMLite的简易用法。
 						...
 					</p>
                     		</div>
@@ -1493,8 +1485,6 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 oval: 椭圆形，用得比较多的是画正圆
 line: 线形，可以画实线和虚线
 ring: 环形，可以画环形进度条
-
-gradient代表渐变，可以按照如下的使用：
 						...
 					</p>
                     		</div>
@@ -1579,7 +1569,6 @@ Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
 本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。
-随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。
 						...
 					</p>
                     		</div>
@@ -1632,99 +1621,7 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&quot;{&quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&quot;[&quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&quot;message&quot;, &quot;&quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);
-            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&quot;text/plain&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&quot;image/jpeg&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&lt;Uri&gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&quot;image/*&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-}
-
+							本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上
 						...
 					</p>
                     		</div>
@@ -2013,8 +1910,6 @@ colorPrimaryDark
 					<p class="md-timeline-excerpt">
 						
 							前言一直想要一个自己的独立博客，今天偶然发现Hexo这个优秀的静态博客框架，于是乎，便开始着手搭建个人博客。当然要搭配现在流行的gitHub(国内的coding也是相当不错的)，简直是完美写博客的黄金搭档（免费+方便），毕竟咱就是体验下而已，并不需要去买域名(当然,阿里云有的域名很便宜,我买了个第一年4元的,续费就也就几十块,不需要就用github默认域名就OK)！搭建过程也是磕磕碰碰，主要参考如下！供需要的小伙伴借鉴！
-
-主要参考如下两个博客:嘟嘟独立博客CrazyMilkLogin926 - Material主题的优化
 						...
 					</p>
                     		</div>
@@ -2038,7 +1933,12 @@ colorPrimaryDark
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							
+							欢迎使用马克飞象@(示例笔记本)[马克飞象|帮助|Markdown]
+马克飞象是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+
+功能丰富 ：支持高亮代码块、LaTeX 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；
+得心应手 ：简洁高效的编辑器，提供桌面客户端以及离线Chrome App，支持移动端 Web；
+深度整合 ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。
 						...
 					</p>
                     		</div>

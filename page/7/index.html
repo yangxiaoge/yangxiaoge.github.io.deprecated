@@ -374,7 +374,6 @@ Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
 本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。
-随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -501,99 +500,7 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上/**
-     * 美化 Json
-     * @param jsonString json
-     * @return prettyJson
-     */
-    public static String printJson(String jsonString) {
-        String prettyJson;
-        try {
-            if (jsonString.startsWith(&quot;{&quot;)) {
-                JSONObject jsonObject = new JSONObject(jsonString);
-                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
-            } else if (jsonString.startsWith(&quot;[&quot;)) {
-                JSONArray jsonArray = new JSONArray(jsonString);
-                prettyJson = jsonArray.toString(4);
-            } else {
-                prettyJson = jsonString;
-            }
-        } catch (JSONException e) {
-            prettyJson = jsonString;
-        }
-        Log.d(&quot;message&quot;, &quot;&quot; + prettyJson);
-        return prettyJson;
-    }
-获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
-    public static Activity getGlobleActivity() {
-        try {
-            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);
-            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);
-            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);
-            activitiesField.setAccessible(true);
-            Map activities = (Map) activitiesField.get(activityThread);
-            for (Object activityRecord : activities.values()) {
-                Class activityRecordClass = activityRecord.getClass();
-                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);
-                pausedField.setAccessible(true);
-                if (!pausedField.getBoolean(activityRecord)) {
-                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);
-                    activityField.setAccessible(true);
-                    Activity activity = (Activity) activityField.get(activityRecord);
-                    return activity;
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-返回键 app切换至后台    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
-            } else {
-                // 不退出程序，进入后台
-                moveTaskToBack(true);
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
- * Created by _SOLID
- * Date:2016/4/22
- * Time:12:45
- * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
- */
-public class SystemShareUtils {
-
-    public static void shareText(Context ctx, String text) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-        sendIntent.setType(&quot;text/plain&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-
-    public static void shareImage(Context ctx, Uri uri) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType(&quot;image/jpeg&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-
-    public static void shareImageList(Context ctx, ArrayList&lt;Uri&gt; uris) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
-        sendIntent.setType(&quot;image/*&quot;);
-        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
-    }
-}
-
+            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！将美化后的 Json 字符串展示到 TextView 上
         
         &nbsp;&nbsp;&nbsp;
         <span>

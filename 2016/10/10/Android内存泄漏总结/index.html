@@ -52,8 +52,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#455A64">
     <meta name="author" content="Bruce Yang">
-    <meta name="description" itemprop="description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。
-我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。">
+    <meta name="description" itemprop="description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，">
     <meta name="keywords" content="null,内存泄漏">
 
     <!-- Import lsloader -->
@@ -272,19 +271,17 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Android内存泄漏总结 | 珠珠のBlog">
     <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
-    <meta property="og:description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。
-我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。">
+    <meta property="og:description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，">
     <meta property="og:article:tag" content="内存泄漏"> 
 
     
         <meta property="article:published_time" content="Mon Oct 10 2016 13:29:20 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Sep 25 2017 08:51:07 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 09:52:39 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Android内存泄漏总结 | 珠珠のBlog">
-    <meta name="twitter:description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。
-我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。">
+    <meta name="twitter:description" content="内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -306,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/10/10/Android内存泄漏总结/index.html",
     "headline": "Android内存泄漏总结",
     "datePublished": "Mon Oct 10 2016 13:29:20 GMT+0000",
-    "dateModified": "Mon Sep 25 2017 08:51:07 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 09:52:39 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -325,8 +322,7 @@
         }
     },
     "keywords": ",内存泄漏null",
-    "description": "内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。
-我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。",
+    "description": "内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，",
 }
 </script>
 
@@ -594,9 +590,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，打算做个 总结 沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。</p>
+        <p>内存管理的目的就是让我们在开发中怎么有效的避免我们的应用出现内存泄漏的问题。内存泄漏大家都不陌生了，简单粗俗的讲，就是该被释放的对象没有释放，一直被某个或某些实例所持有却不再被使用导致 GC 不能回收。最近自己阅读了大量相关的文档资料，<a id="more"></a>打算做个总结沉淀下来跟大家一起分享和学习，也给自己一个警示，以后 coding 时怎么避免这些情况，提高应用的体验和质量。</p>
 <p>我会从 java 内存泄漏的基础知识开始，并通过具体例子来说明 Android 引起内存泄漏的各种原因，以及如何利用工具来分析应用内存泄漏，最后再做总结。</p>
-<a id="more"></a>
+<!-- more -->
 <h2 id="Java-内存分配策略"><a href="#Java-内存分配策略" class="headerlink" title="Java 内存分配策略"></a>Java 内存分配策略</h2><p>Java 程序运行时的内存分配策略有三种,分别是静态分配,栈式分配,和堆式分配，对应的，三种存储策略使用的内存空间主要分别是静态存储区（也称方法区）、栈区和堆区。</p>
 <ul>
 <li><p>静态存储区（方法区）：主要存放静态数据、全局 static 数据和常量。这块内存在程序编译时就已经分配好，并且在程序整个运行期间都存在。</p>
