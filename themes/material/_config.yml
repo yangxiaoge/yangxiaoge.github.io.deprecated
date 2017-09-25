@@ -216,12 +216,20 @@ sidebar:
     categories:
         use: true
         icon: chrome_reader_mode
-        divider: false
+        divider: true
     pages:
         时间轴:
             link: '/timeline.html'
             icon: inbox
-            divider: true
+            divider: false  
+        常用链接:
+            link: "/links"
+            icon: collections
+            divider: false
+        # 项目收集:
+        #     use: true
+        #     link: "/project_collection"
+        #     divider: true
         标签:
             link: "/tags"
             icon: bookmark
@@ -229,15 +237,7 @@ sidebar:
         友链:
             link: "/friends"
             icon: people
-            divider: false  
-        常用链接:
-            link: "/links"
-            icon: collections
-            divider: true
-        # 项目收集:
-        #     use: true
-        #     link: "/project_collection"
-        #     divider: true
+            divider: false
         映像:
             link: "/gallery"
             icon: image
