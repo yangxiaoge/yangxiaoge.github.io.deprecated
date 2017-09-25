@@ -100,10 +100,12 @@ img:
 #        - If you have setup your custom font-family, don't forget to add style tag with @font-face or link.tag with font css
 #          to /source/data/head.yml as custom code, to load custom font files.
 fonts:
-    family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
-    use: google
+    family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif
+    #family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
+    use: catnet
+    #use: google
     custom_font_host:
-
+    
 # Card Elevation Level
 card_elevation: 2
 
@@ -158,8 +160,7 @@ hanabi:
 #   For example, you can setup a CC license as:
 #       'This blog is under a <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 Unported License</a>'
 # You can also use Front-Matter `license` to override this setting.
-license: '<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
-<br/>本作品采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。'
+license: " 本文采用 <a rel='nofollow noopener' href='https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh' target='_blank'>CC BY-NC-SA 3.0 Unported</a> 协议进行许可，阅读 <a href='/creativecommons.html' target='_blank'> 相关说明 </a>"
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -221,9 +222,9 @@ sidebar:
             link: '/timeline.html'
             icon: inbox
             divider: true
-        标签云:
+        标签:
             link: "/tags"
-            icon: local_offer
+            icon: bookmark
             divider: false
         友链:
             link: "/friends"
@@ -244,9 +245,9 @@ sidebar:
         关于:
             link: "/about"
             icon: face
-            divider: false
+            divider: true
     article_num: # 文章总数
-        use: false
+        use: true
         divider: false
     footer:
         divider: false
