@@ -8,6 +8,7 @@ categories: Android
 ## 本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！
 
 ### 将美化后的 Json 字符串展示到 TextView 上
+<!--more-->
 ```
 /**
      * 美化 Json

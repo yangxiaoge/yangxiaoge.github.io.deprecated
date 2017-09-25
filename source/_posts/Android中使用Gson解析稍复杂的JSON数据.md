@@ -17,7 +17,6 @@ JSON官网(中文版)：http://www.json.org/json-zh.html
 >* “名/值”对的集合（A collection of name/value pairs）。不同的语言中，它被理解为**对象（object）**，纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。
 * 值的有序列表（An ordered list of values）。在大部分语言中，它被理解为**数组（array）**。
 
-
 **JSON可以有以下格式**：
 >1.对象是一个无序的“ ‘名称/值’ 对”集合。一个对象以“{”（左括号）开始，“}”（右括号）结束。每个“名称”后跟一个“:”（冒号）；“‘名称/值’ 对”之间使用“,”（逗号）分隔。
 

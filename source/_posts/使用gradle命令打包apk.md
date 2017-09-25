@@ -17,9 +17,9 @@ catalog:    true #显示目录
 **整个过程默认`翻墙`！**
 
 本文参考了[`Android Studio系列教程五–Gradle命令详解与导入第三方包`](http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/)，[`gradle项目构建`](http://www.cnblogs.com/smyhvae/p/4456420.html)这两篇博客以及[`Gradle官网`](https://guides.codepath.com/android/Getting-Started-with-Gradle)上关于Gradle使用说明。
-
-随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。
 <!-- more -->
+随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。
+
 # `下载Gradle与生成APK`
 
 在Android Studio中的`Terminal`窗口下输入：`gradlew -v` 。来查看下项目所用的`Gradle版本`。

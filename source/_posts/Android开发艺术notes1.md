@@ -10,7 +10,7 @@ catalog:    true #显示目录
 
 本文是Android开发艺术读书笔记系列第一篇。内容结合书本/网络，自己概括而来。
 [书中源码地址 Github](https://github.com/singwhatiwanna/android-art-res)
-
+<!--more-->
 ##  第1章 Activity的生命周期和启动模式
 
 ### 1.1 Activity生命周期全面分析

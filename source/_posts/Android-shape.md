@@ -10,9 +10,9 @@ categories: Android
 2. `oval`: `椭圆形`，用得比较多的是画正圆
 3. `line`: `线形`，可以画实线和虚线
 4. `ring`: `环形`，可以画环形进度条
-
-`gradient`代表渐变，可以按照如下的使用：
 <!-- more -->
+`gradient`代表渐变，可以按照如下的使用：
+
 ```
 <gradient
        android:angle="0"
@@ -23,6 +23,10 @@ categories: Android
 ```
 
 `solid`代表实心，可以按照如下的使用：
+```
+<solid android:color="#F0FFFF" />
+```
+`solid`代表描边，可以按照如下的使用：
 ```
 <stroke
        android:width="10dp"

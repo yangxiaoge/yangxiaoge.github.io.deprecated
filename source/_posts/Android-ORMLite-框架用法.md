@@ -9,9 +9,9 @@ categories: Android
 基于鸿神教程运用了ORMLite框架详见我的[Github_QueryCityId](https://github.com/yangxiaoge/queryCityId)
 
 转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/39121377
-
-大家在Android项目中或多或少的都会使用数据库，为了提高我们的开发效率，当然少不了数据库ORM框架了，尤其是某些数据库操作特别频繁的app；本篇博客将详细介绍ORMLite的简易用法。
 <!-- more -->
+大家在Android项目中或多或少的都会使用数据库，为了提高我们的开发效率，当然少不了数据库ORM框架了，尤其是某些数据库操作特别频繁的app；本篇博客将详细介绍ORMLite的简易用法。
+
 下面开始介绍ORMLite的入门用法~
 
 # 下载 ORMLite Jar

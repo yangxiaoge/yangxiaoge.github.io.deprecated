@@ -8,9 +8,9 @@ categories: 持续集成
 好久没有写博客了o(╯□╰)o , 终于忙完Android项目了。接下来`给自己定个长期目标`， 每个月至少写一篇博文，可以是感想闲聊篇也可是技术篇， 哈哈看心情啦。
 
 **言归正传**
-其实获得[FlowCi](http://dashboard.flow.ci/)测试资格已经好几个月了， 一直没有去使用它， [FlowCi](http://dashboard.flow.ci/)功能非常强大。 之前我用的是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成博客, 不过今天发现持续集成失败了， 发现是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)升级了， 集成的配置文件需要修改， 我就乘此机会转投[FlowCi](http://dashboard.flow.ci/)的怀抱中了 O(∩_∩)O哈哈~
+其实获得[FlowCi](http://dashboard.flow.ci/)测试资格已经好几个月了， 一直没有去使用它， [FlowCi](http://dashboard.flow.ci/)功能非常强大。 <!-- more -->之前我用的是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成博客, 不过今天发现持续集成失败了， 发现是[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)升级了， 集成的配置文件需要修改， 我就乘此机会转投[FlowCi](http://dashboard.flow.ci/)的怀抱中了 O(∩_∩)O哈哈~
 那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？
-<!-- more -->
+
 > PS: (2016-12-8 09:31:50 add) 强迫症的我还是把[daocloud](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)持续集成搞好了\(^o^)/~, 不过我还是用FlowCi吧, 尝试新工具哈哈~~
 *啪啪打脸~~* flowci hook push不及时, 有时候coding源码修改了,但是都不push消息给flowci,所以博客有时候并没有自动集成o(╯□╰)o
 

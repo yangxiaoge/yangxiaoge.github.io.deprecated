@@ -12,7 +12,7 @@ catalog:    true #显示目录
 >[MumuXi](https://github.com/yangxiaoge/MumuXi)项目中已经配置好了,可以供参考
 
 集成到app中分为如下几步:
-
+<!-- more -->
 ## General Key
     General Key 用来唯一标识您的应用，为防止别人滥用，请勿泄露，建立每个项目时将自动生成项目对应的 General Key，可在项目列表页查看每个项目对应的 General Key值
 <!-- more -->   

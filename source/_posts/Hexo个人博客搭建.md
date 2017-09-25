@@ -7,13 +7,11 @@ categories: Hexo
 ![](http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f813o9fsiuj20zk0fawgp.jpg)
 **前言**
 一直想要一个自己的独立博客，今天偶然发现[Hexo](https://hexo.io/)这个优秀的`静态博客框架`，于是乎，便开始着手搭建个人博客。当然要搭配现在流行的`gitHub`(国内的`coding`也是相当不错的)，简直是完美写博客的黄金搭档（免费+方便），毕竟咱就是体验下而已，并不需要去买域名(当然,`阿里云`有的域名很便宜,我买了个第一年4元的,续费就也就几十块,不需要就用`github`默认域名就OK)！搭建过程也是磕磕碰碰，主要参考如下！供需要的小伙伴借鉴！
-
+<!-- more -->
 > 主要参考如下两个博客:
 >[嘟嘟独立博客](http://tengj.top/2016/02/22/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89hexo+gitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/)
 >[CrazyMilk](http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/)
 >[Login926](http://login926.github.io/) - Material主题的优化
-<!-- more -->
-
 
 [Next](https://github.com/iissnan/hexo-theme-next)主题相关配置: [详见官方文档](http://theme-next.iissnan.com/)
 
