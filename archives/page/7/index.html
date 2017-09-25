@@ -201,22 +201,6 @@
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -473,10 +457,100 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            将美化后的 Json 字符串展示到 TextView 上1234567891011121314151617181920212223/**     * 美化 Json     * @param jsonString json     * @return prettyJson     */    public static String printJson(String jsonString) &#123;        String prettyJson;        try &#123;            if (jsonString.startsWith("&#123;")) &#123;                JSONObject jsonObject = new JSONObject(jsonString);                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数            &#125; else if (jsonString.startsWith("[")) &#123;                JSONArray jsonArray = new JSONArray(jsonString);                prettyJson = jsonArray.toString(4);            &#125; else &#123;                prettyJson = jsonString;            &#125;        &#125; catch (JSONException e) &#123;            prettyJson = jsonString;        &#125;        Log.d("message", "" + prettyJson);        return prettyJson;    &#125;
-获取当前页面 activity 实例 （随便什么地方都可以获取）123456789101112131415161718192021222324//获取当前页面 activity 实例    public static Activity getGlobleActivity() &#123;        try &#123;            Class activityThreadClass = Class.forName("android.app.ActivityThread");            Object activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);            Field activitiesField = activityThreadClass.getDeclaredField("mActivities");            activitiesField.setAccessible(true);            Map activities = (Map) activitiesField.get(activityThread);            for (Object activityRecord : activities.values()) &#123;                Class activityRecordClass = activityRecord.getClass();                Field pausedField = activityRecordClass.getDeclaredField("paused");                pausedField.setAccessible(true);                if (!pausedField.getBoolean(activityRecord)) &#123;                    Field activityField = activityRecordClass.getDeclaredField("activity");                    activityField.setAccessible(true);                    Activity activity = (Activity) activityField.get(activityRecord);                    return activity;                &#125;            &#125;        &#125; catch (Exception e) &#123;        &#125;        return null;    &#125;
-返回键 app切换至后台12345678910111213@Override   public boolean onKeyDown(int keyCode, KeyEvent event) &#123;       if (keyCode == KeyEvent.KEYCODE_BACK) &#123;           if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &#123;               mBinding.drawerLayout.closeDrawer(GravityCompat.START);           &#125; else &#123;               // 不退出程序，进入后台               moveTaskToBack(true);           &#125;           return true;       &#125;       return super.onKeyDown(keyCode, event);   &#125;
-调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)1234567891011121314151617181920212223242526272829303132/** * Created by _SOLID * Date:2016/4/22 * Time:12:45 * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java */public class SystemShareUtils &#123;    public static void shareText(Context ctx, String text) &#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_TEXT, text);        sendIntent.setType("text/plain");        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));    &#125;    public static void shareImage(Context ctx, Uri uri) &#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND);        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);        sendIntent.setType("image/jpeg");        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));    &#125;    public static void shareImageList(Context ctx, ArrayList&lt;Uri&gt; uris) &#123;        Intent sendIntent = new Intent();        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);        sendIntent.setType("image/*");        ctx.startActivity(Intent.createChooser(sendIntent, "分享至"));    &#125;&#125;
+            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！
+将美化后的 Json 字符串展示到 TextView 上/**
+     * 美化 Json
+     * @param jsonString json
+     * @return prettyJson
+     */
+    public static String printJson(String jsonString) {
+        String prettyJson;
+        try {
+            if (jsonString.startsWith(&quot;{&quot;)) {
+                JSONObject jsonObject = new JSONObject(jsonString);
+                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
+            } else if (jsonString.startsWith(&quot;[&quot;)) {
+                JSONArray jsonArray = new JSONArray(jsonString);
+                prettyJson = jsonArray.toString(4);
+            } else {
+                prettyJson = jsonString;
+            }
+        } catch (JSONException e) {
+            prettyJson = jsonString;
+        }
+        Log.d(&quot;message&quot;, &quot;&quot; + prettyJson);
+        return prettyJson;
+    }
+获取当前页面 activity 实例 （随便什么地方都可以获取）//获取当前页面 activity 实例
+    public static Activity getGlobleActivity() {
+        try {
+            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);
+            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);
+            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);
+            activitiesField.setAccessible(true);
+            Map activities = (Map) activitiesField.get(activityThread);
+            for (Object activityRecord : activities.values()) {
+                Class activityRecordClass = activityRecord.getClass();
+                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);
+                pausedField.setAccessible(true);
+                if (!pausedField.getBoolean(activityRecord)) {
+                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);
+                    activityField.setAccessible(true);
+                    Activity activity = (Activity) activityField.get(activityRecord);
+                    return activity;
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+返回键 app切换至后台    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                // 不退出程序，进入后台
+                moveTaskToBack(true);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)/**
+ * Created by _SOLID
+ * Date:2016/4/22
+ * Time:12:45
+ * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
+ */
+public class SystemShareUtils {
+
+    public static void shareText(Context ctx, String text) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.setType(&quot;text/plain&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+
+    public static void shareImage(Context ctx, Uri uri) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sendIntent.setType(&quot;image/jpeg&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+
+    public static void shareImageList(Context ctx, ArrayList&lt;Uri&gt; uris) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
+        sendIntent.setType(&quot;image/*&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+}
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -1168,6 +1242,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1178,6 +1256,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

@@ -205,22 +205,6 @@
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -254,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Tue Aug 02 2016 18:21:33 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Sep 22 2017 09:14:38 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 03:25:25 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -285,7 +269,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/08/02/实现多行多列的RadioButton/index.html",
     "headline": "实现多行多列的RadioButton",
     "datePublished": "Tue Aug 02 2016 18:21:33 GMT+0000",
-    "dateModified": "Fri Sep 22 2017 09:14:38 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 03:25:25 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -592,10 +576,217 @@
 </ul>
 </li>
 </ul>
-<h3 id="设置RadioGroup点击事件"><a href="#设置RadioGroup点击事件" class="headerlink" title="设置RadioGroup点击事件"></a>设置RadioGroup点击事件</h3><h2 id="下面直接上代码-三步"><a href="#下面直接上代码-三步" class="headerlink" title="下面直接上代码: 三步"></a>下面直接上代码: <em>三步</em></h2><h3 id="自定义MyRadioGroupAuto"><a href="#自定义MyRadioGroupAuto" class="headerlink" title="自定义MyRadioGroupAuto"></a>自定义MyRadioGroupAuto</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Author: 0027008122 [yang.jianan@zte.com.cn]</span></div><div class="line"><span class="comment"> * Time: 2016-08-02 11:33</span></div><div class="line"><span class="comment"> * Version: 1.0</span></div><div class="line"><span class="comment"> * TaskId:</span></div><div class="line"><span class="comment"> * Description:</span></div><div class="line"><span class="comment"> */</span></div><div class="line"> <span class="keyword">public</span> class MyRadioGroupAuto extends RadioGroup &#123;</div><div class="line">    <span class="keyword">public</span> MyRadioGroupAuto(Context context) &#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> MyRadioGroupAuto(Context context, AttributeSet attrs) &#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> onMeasure(<span class="built_in">int</span> widthMeasureSpec, <span class="built_in">int</span> heightMeasureSpec) &#123;</div><div class="line">        <span class="comment">//获取最大宽度</span></div><div class="line">        <span class="built_in">int</span> maxWidth = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line">        <span class="comment">//获取Group中的Child数量</span></div><div class="line">        <span class="built_in">int</span> childCount = getChildCount();</div><div class="line">        <span class="comment">//设置Group的左边距，下面也会使用x计算每行所占的宽度</span></div><div class="line">        <span class="built_in">int</span> x = <span class="number">0</span>;</div><div class="line">        <span class="comment">//设置Group的上边距，下面也会使用y计算Group所占的高度</span></div><div class="line">        <span class="built_in">int</span> y = <span class="number">30</span>;</div><div class="line">        <span class="comment">//设置Group的行数</span></div><div class="line">        <span class="built_in">int</span> row = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> index = <span class="number">0</span>; index &lt; childCount; index++) &#123;</div><div class="line">            <span class="keyword">final</span> View child = getChildAt(index);</div><div class="line">            <span class="keyword">if</span> (child.getVisibility() != View.GONE) &#123;</div><div class="line">                child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);</div><div class="line">                <span class="comment">//重新计算child的宽高</span></div><div class="line">                <span class="built_in">int</span> <span class="built_in">width</span> = child.getMeasuredWidth();</div><div class="line">                <span class="built_in">int</span> <span class="built_in">height</span> = child.getMeasuredHeight();</div><div class="line">                <span class="comment">//添加到X中，(width+10) 设置child左边距</span></div><div class="line">                x += (<span class="built_in">width</span> + <span class="number">10</span>);</div><div class="line">                <span class="comment">//行数*child高度+这次child高度=现在Group的高度,(height + 10)设置child上边距</span></div><div class="line">                y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                <span class="comment">//当前行宽X大于Group的最大宽度时，进行换行</span></div><div class="line">                <span class="keyword">if</span> (x &gt; maxWidth) &#123;</div><div class="line">                    <span class="comment">//当index不为0时，进行row++，防止FirstChild出现大于maxWidth时,提前进行row++</span></div><div class="line">                    <span class="keyword">if</span> (index != <span class="number">0</span>)</div><div class="line">                        row++;</div><div class="line">                    <span class="comment">//child的width大于maxWidth时，重新设置child的width为最大宽度</span></div><div class="line">                    <span class="keyword">if</span> (<span class="built_in">width</span> &gt;= maxWidth) &#123;</div><div class="line">                        <span class="built_in">width</span> = maxWidth - <span class="number">30</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">//重新设置当前X</span></div><div class="line">                    x = (<span class="built_in">width</span> + <span class="number">20</span>);</div><div class="line">                    <span class="comment">//重新设置现在Group的高度</span></div><div class="line">                    y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 设置容器所需的宽度和高度</span></div><div class="line">        setMeasuredDimension(maxWidth, y);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> onLayout(<span class="built_in">boolean</span> changed, <span class="built_in">int</span> l, <span class="built_in">int</span> t, <span class="built_in">int</span> r, <span class="built_in">int</span> b) &#123;</div><div class="line">        <span class="keyword">final</span> <span class="built_in">int</span> childCount = getChildCount();</div><div class="line">        <span class="built_in">int</span> maxWidth = r - l;</div><div class="line">        <span class="built_in">int</span> x = <span class="number">10</span>;</div><div class="line">        <span class="built_in">int</span> y = <span class="number">0</span>;</div><div class="line">        <span class="built_in">int</span> row = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</div><div class="line">            <span class="keyword">final</span> View child = <span class="keyword">this</span>.getChildAt(i);</div><div class="line">            <span class="keyword">if</span> (child.getVisibility() != View.GONE) &#123;</div><div class="line">                <span class="built_in">int</span> <span class="built_in">width</span> = child.getMeasuredWidth();</div><div class="line">                <span class="built_in">int</span> <span class="built_in">height</span> = child.getMeasuredHeight();</div><div class="line">                x += (<span class="built_in">width</span> + <span class="number">10</span>);</div><div class="line">                y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                <span class="keyword">if</span> (x &gt; maxWidth) &#123;</div><div class="line">                    <span class="keyword">if</span> (i != <span class="number">0</span>)</div><div class="line">                        row++;</div><div class="line">                    <span class="keyword">if</span> (<span class="built_in">width</span> &gt;= maxWidth) &#123;</div><div class="line">                        <span class="built_in">width</span> = maxWidth - <span class="number">30</span>;</div><div class="line">                    &#125;</div><div class="line">                    x = (<span class="built_in">width</span> + <span class="number">20</span>);</div><div class="line">                    y = row * (<span class="built_in">height</span> + <span class="number">10</span>) + (<span class="built_in">height</span> + <span class="number">10</span>);</div><div class="line">                &#125;</div><div class="line">                child.layout(x - <span class="built_in">width</span>, y - <span class="built_in">height</span>, x, y);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="布局中引用MyRadioGroupAuto-1"><a href="#布局中引用MyRadioGroupAuto-1" class="headerlink" title="布局中引用MyRadioGroupAuto"></a>布局中引用MyRadioGroupAuto</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;com<span class="selector-class">.ztesoft</span><span class="selector-class">.zsmart</span><span class="selector-class">.datamall</span><span class="selector-class">.app</span><span class="selector-class">.widget</span><span class="selector-class">.MyRadioGroupAuto</span></div><div class="line">        android:id=<span class="string">"@+id/my_radio_group_auto"</span></div><div class="line">        android:layout_width=<span class="string">"match_parent"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_marginBottom=<span class="string">"33dp"</span></div><div class="line">        android:layout_marginLeft=<span class="string">"22dp"</span></div><div class="line">        android:layout_marginRight=<span class="string">"22dp"</span></div><div class="line">        android:layout_marginTop=<span class="string">"16dp"</span>&gt;</div><div class="line">&lt;/com<span class="selector-class">.ztesoft</span><span class="selector-class">.zsmart</span><span class="selector-class">.datamall</span><span class="selector-class">.app</span><span class="selector-class">.widget</span><span class="selector-class">.MyRadioGroupAuto</span>&gt;</div></pre></td></tr></table></figure>
-<h3 id="代码中动态添加RadioButton"><a href="#代码中动态添加RadioButton" class="headerlink" title="代码中动态添加RadioButton"></a>代码中动态添加RadioButton</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> class CheckboxRadiobuttonDemo extends Activity &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * Called when the activity is first created.</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> RadioGroupAuto rgp;</div><div class="line">    <span class="keyword">private</span> RadioGroup yuansheng;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span>[] loanList;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">String</span>[] loanFeeList;</div><div class="line">    <span class="keyword">private</span> List&lt;<span class="keyword">String</span>&gt; loanAndFeeList;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.main);</div><div class="line"></div><div class="line">        <span class="comment">//获取屏幕信息</span></div><div class="line">        DisplayMetrics dm = <span class="keyword">new</span> DisplayMetrics();</div><div class="line">        getWindowManager().getDefaultDisplay().getMetrics(dm);</div><div class="line">        <span class="built_in">int</span> screenWidth = dm.widthPixels;</div><div class="line"></div><div class="line">        loanAndFeeList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        loanList = <span class="string">"800,1000,1600,200,300,500,700"</span>.<span class="built_in">split</span>(<span class="string">","</span>);</div><div class="line">        loanFeeList = <span class="string">"50,80,100,20,30,50,70"</span>.<span class="built_in">split</span>(<span class="string">","</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//求最大最小值 (为了保持RadioButton文字长度一致,跟最长的保持一致!)</span></div><div class="line">        <span class="built_in">int</span> <span class="built_in">max</span> = Integer.parseInt(loanList[<span class="number">0</span>]);</div><div class="line">        <span class="built_in">int</span> <span class="built_in">min</span> = Integer.parseInt(loanList[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">String</span> i : loanList) &#123;</div><div class="line">            <span class="built_in">int</span> j = Integer.parseInt(i);</div><div class="line">            <span class="built_in">max</span> = <span class="built_in">max</span> &gt; j ? <span class="built_in">max</span> : j;</div><div class="line">            <span class="built_in">min</span> = <span class="built_in">min</span> &lt; j ? <span class="built_in">min</span> : j;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">String</span> maxS = <span class="keyword">String</span>.valueOf(<span class="built_in">max</span>);</div><div class="line">        <span class="built_in">int</span> maxLen = maxS.length();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; loanList.length; i++) &#123;</div><div class="line">            loanAndFeeList.<span class="built_in">add</span>( loanList[i] + <span class="string">","</span> + loanFeeList[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        rgp = (RadioGroupAuto) findViewById(R.id.RadioGroup01);</div><div class="line"></div><div class="line">        <span class="built_in">int</span> len = loanAndFeeList.<span class="built_in">size</span>();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</div><div class="line"></div><div class="line">            RadioButton radioButton = <span class="keyword">new</span> RadioButton(<span class="keyword">this</span>);</div><div class="line">            radioButton.setPadding(<span class="number">20</span>, <span class="number">0</span>, screenWidth / <span class="number">6</span>, <span class="number">0</span>); <span class="comment">// 设置文字距离按钮四周的距离</span></div><div class="line">            radioButton.setButtonDrawable(R.drawable.transfer_radiobutton_drawable);</div><div class="line"></div><div class="line">            <span class="keyword">String</span> newLoanList = loanList[j];</div><div class="line">            <span class="keyword">if</span> (loanList[j].length() &lt; maxLen) &#123;</div><div class="line">                newLoanList = newLoanList + appendLength(maxLen - loanList[j].length());</div><div class="line"></div><div class="line">                <span class="comment">// 实现 TextView同时显示两种风格文字 http://txlong-onz.iteye.com/blog/1142781</span></div><div class="line">                SpannableStringBuilder sb = <span class="keyword">new</span> SpannableStringBuilder(newLoanList);</div><div class="line">                <span class="keyword">final</span> ForegroundColorSpan fcs = <span class="keyword">new</span> ForegroundColorSpan(Color.WHITE);</div><div class="line">                sb.setSpan(fcs, loanList[j].length(), maxLen, Spannable.SPAN_INCLUSIVE_INCLUSIVE);</div><div class="line">                radioButton.setText(sb);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                newLoanList = loanList[j];</div><div class="line">                radioButton.setText(newLoanList);</div><div class="line">            &#125;</div><div class="line">			</div><div class="line">			radioButton.setId(j); <span class="comment">//设置RadioButton的id</span></div><div class="line">            radioButton.setTag(loanAndFeeList.<span class="built_in">get</span>(j));</div><div class="line">            radioButton.setTextSize(<span class="number">13</span>); <span class="comment">//默认单位是 sp</span></div><div class="line">            radioButton.setHeight(<span class="number">50</span>); <span class="comment">//默认单位是px</span></div><div class="line">            rgp.addView(radioButton); <span class="comment">//添加到RadioGroup中</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        rgp.setOnCheckedChangeListener(<span class="keyword">new</span> RadioGroup.OnCheckedChangeListener() &#123;</div><div class="line"></div><div class="line">            @Override</div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> onCheckedChanged(RadioGroup group, <span class="built_in">int</span> checkedId) &#123;</div><div class="line">                RadioButton clickRadioButton = (RadioButton) group.findViewById(checkedId);</div><div class="line"></div><div class="line">                <span class="keyword">String</span> tipInfo = <span class="string">"id: "</span> + clickRadioButton.getId() + <span class="string">" text: "</span> + clickRadioButton.getText() +</div><div class="line">                        <span class="comment">/*"hint: " + clickRadioButton.getHint() +*/</span> <span class="string">" tag:"</span> + clickRadioButton.getTag();</div><div class="line">                System.out.<span class="built_in">println</span>(tipInfo);</div><div class="line"></div><div class="line">                Toast.makeText(CheckboxRadiobuttonDemo.<span class="keyword">this</span>, tipInfo,</div><div class="line">                        Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">		</div><div class="line">		<span class="comment">//根据这个来设置默认选中的项, 注意,这个要设置在监听之后!,否则默认点击监听不到!虽然有选中效果</span></div><div class="line">        <span class="comment">//参考 http://blog.csdn.net/lzqjfly/article/details/16963645</span></div><div class="line">        <span class="comment">//以及http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android</span></div><div class="line">        rgp.check(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 补全长度,保持最长的长度</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * @param count 字符串长度</span></div><div class="line"><span class="comment">     * @return 补全后的长度</span></div><div class="line"><span class="comment">     * 这里长度不够的就用 "s" 占位, 赋值的时候将字体设置白色!</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">String</span> appendLength(<span class="built_in">int</span> count) &#123;</div><div class="line">        <span class="keyword">String</span> st = <span class="string">""</span>;</div><div class="line">        <span class="keyword">if</span> (count &lt; <span class="number">0</span>) &#123;</div><div class="line">            count = <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">            st = st + <span class="string">"s"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> st;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>碰到的问题: RadioGroup中RadioButton不能互斥<br>解决方法: 需要用<code>RadioGroup.check(id)</code>,来设置被默认选中的项，其中id为RadioButton的id，如果<code>动态添加的RadioButton</code>，需要设置好<code>id</code><br>参考:<a href="http://blog.csdn.net/lzqjfly/article/details/16963645" target="_blank" rel="external">http://blog.csdn.net/lzqjfly/article/details/16963645</a> , <a href="http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android" target="_blank" rel="external">http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android</a></p>
+<h3 id="设置RadioGroup点击事件"><a href="#设置RadioGroup点击事件" class="headerlink" title="设置RadioGroup点击事件"></a>设置RadioGroup点击事件</h3><h2 id="下面直接上代码-三步"><a href="#下面直接上代码-三步" class="headerlink" title="下面直接上代码: 三步"></a>下面直接上代码: <em>三步</em></h2><h3 id="自定义MyRadioGroupAuto"><a href="#自定义MyRadioGroupAuto" class="headerlink" title="自定义MyRadioGroupAuto"></a>自定义MyRadioGroupAuto</h3><pre><code>/**
+ * Author: 0027008122 [yang.jianan@zte.com.cn]
+ * Time: 2016-08-02 11:33
+ * Version: 1.0
+ * TaskId:
+ * Description:
+ */
+ public class MyRadioGroupAuto extends RadioGroup {
+    public MyRadioGroupAuto(Context context) {
+        super(context);
+    }
+
+    public MyRadioGroupAuto(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        //获取最大宽度
+        int maxWidth = MeasureSpec.getSize(widthMeasureSpec);
+        //获取Group中的Child数量
+        int childCount = getChildCount();
+        //设置Group的左边距，下面也会使用x计算每行所占的宽度
+        int x = 0;
+        //设置Group的上边距，下面也会使用y计算Group所占的高度
+        int y = 30;
+        //设置Group的行数
+        int row = 0;
+        for (int index = 0; index &lt; childCount; index++) {
+            final View child = getChildAt(index);
+            if (child.getVisibility() != View.GONE) {
+                child.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+                //重新计算child的宽高
+                int width = child.getMeasuredWidth();
+                int height = child.getMeasuredHeight();
+                //添加到X中，(width+10) 设置child左边距
+                x += (width + 10);
+                //行数*child高度+这次child高度=现在Group的高度,(height + 10)设置child上边距
+                y = row * (height + 10) + (height + 10);
+                //当前行宽X大于Group的最大宽度时，进行换行
+                if (x &gt; maxWidth) {
+                    //当index不为0时，进行row++，防止FirstChild出现大于maxWidth时,提前进行row++
+                    if (index != 0)
+                        row++;
+                    //child的width大于maxWidth时，重新设置child的width为最大宽度
+                    if (width &gt;= maxWidth) {
+                        width = maxWidth - 30;
+                    }
+                    //重新设置当前X
+                    x = (width + 20);
+                    //重新设置现在Group的高度
+                    y = row * (height + 10) + (height + 10);
+                }
+            }
+        }
+        // 设置容器所需的宽度和高度
+        setMeasuredDimension(maxWidth, y);
+    }
+
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        final int childCount = getChildCount();
+        int maxWidth = r - l;
+        int x = 10;
+        int y = 0;
+        int row = 0;
+        for (int i = 0; i &lt; childCount; i++) {
+            final View child = this.getChildAt(i);
+            if (child.getVisibility() != View.GONE) {
+                int width = child.getMeasuredWidth();
+                int height = child.getMeasuredHeight();
+                x += (width + 10);
+                y = row * (height + 10) + (height + 10);
+                if (x &gt; maxWidth) {
+                    if (i != 0)
+                        row++;
+                    if (width &gt;= maxWidth) {
+                        width = maxWidth - 30;
+                    }
+                    x = (width + 20);
+                    y = row * (height + 10) + (height + 10);
+                }
+                child.layout(x - width, y - height, x, y);
+            }
+        }
+    }
+}
+</code></pre><h3 id="布局中引用MyRadioGroupAuto-1"><a href="#布局中引用MyRadioGroupAuto-1" class="headerlink" title="布局中引用MyRadioGroupAuto"></a>布局中引用MyRadioGroupAuto</h3><pre><code>&lt;com.ztesoft.zsmart.datamall.app.widget.MyRadioGroupAuto
+        android:id=&quot;@+id/my_radio_group_auto&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginBottom=&quot;33dp&quot;
+        android:layout_marginLeft=&quot;22dp&quot;
+        android:layout_marginRight=&quot;22dp&quot;
+        android:layout_marginTop=&quot;16dp&quot;&gt;
+&lt;/com.ztesoft.zsmart.datamall.app.widget.MyRadioGroupAuto&gt;
+</code></pre><h3 id="代码中动态添加RadioButton"><a href="#代码中动态添加RadioButton" class="headerlink" title="代码中动态添加RadioButton"></a>代码中动态添加RadioButton</h3><pre><code>public class CheckboxRadiobuttonDemo extends Activity {
+    /**
+     * Called when the activity is first created.
+     */
+    private RadioGroupAuto rgp;
+    private RadioGroup yuansheng;
+
+    private String[] loanList;
+    private String[] loanFeeList;
+    private List&lt;String&gt; loanAndFeeList;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        //获取屏幕信息
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int screenWidth = dm.widthPixels;
+
+        loanAndFeeList = new ArrayList&lt;&gt;();
+        loanList = &quot;800,1000,1600,200,300,500,700&quot;.split(&quot;,&quot;);
+        loanFeeList = &quot;50,80,100,20,30,50,70&quot;.split(&quot;,&quot;);
+
+        //求最大最小值 (为了保持RadioButton文字长度一致,跟最长的保持一致!)
+        int max = Integer.parseInt(loanList[0]);
+        int min = Integer.parseInt(loanList[0]);
+        for (String i : loanList) {
+            int j = Integer.parseInt(i);
+            max = max &gt; j ? max : j;
+            min = min &lt; j ? min : j;
+        }
+
+        String maxS = String.valueOf(max);
+        int maxLen = maxS.length();
+
+        for (int i = 0; i &lt; loanList.length; i++) {
+            loanAndFeeList.add( loanList[i] + &quot;,&quot; + loanFeeList[i]);
+        }
+
+
+        rgp = (RadioGroupAuto) findViewById(R.id.RadioGroup01);
+
+        int len = loanAndFeeList.size();
+
+        for (int j = 0; j &lt; len; j++) {
+
+            RadioButton radioButton = new RadioButton(this);
+            radioButton.setPadding(20, 0, screenWidth / 6, 0); // 设置文字距离按钮四周的距离
+            radioButton.setButtonDrawable(R.drawable.transfer_radiobutton_drawable);
+
+            String newLoanList = loanList[j];
+            if (loanList[j].length() &lt; maxLen) {
+                newLoanList = newLoanList + appendLength(maxLen - loanList[j].length());
+
+                // 实现 TextView同时显示两种风格文字 http://txlong-onz.iteye.com/blog/1142781
+                SpannableStringBuilder sb = new SpannableStringBuilder(newLoanList);
+                final ForegroundColorSpan fcs = new ForegroundColorSpan(Color.WHITE);
+                sb.setSpan(fcs, loanList[j].length(), maxLen, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                radioButton.setText(sb);
+            } else {
+                newLoanList = loanList[j];
+                radioButton.setText(newLoanList);
+            }
+
+            radioButton.setId(j); //设置RadioButton的id
+            radioButton.setTag(loanAndFeeList.get(j));
+            radioButton.setTextSize(13); //默认单位是 sp
+            radioButton.setHeight(50); //默认单位是px
+            rgp.addView(radioButton); //添加到RadioGroup中
+
+        }
+
+        rgp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton clickRadioButton = (RadioButton) group.findViewById(checkedId);
+
+                String tipInfo = &quot;id: &quot; + clickRadioButton.getId() + &quot; text: &quot; + clickRadioButton.getText() +
+                        /*&quot;hint: &quot; + clickRadioButton.getHint() +*/ &quot; tag:&quot; + clickRadioButton.getTag();
+                System.out.println(tipInfo);
+
+                Toast.makeText(CheckboxRadiobuttonDemo.this, tipInfo,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //根据这个来设置默认选中的项, 注意,这个要设置在监听之后!,否则默认点击监听不到!虽然有选中效果
+        //参考 http://blog.csdn.net/lzqjfly/article/details/16963645
+        //以及http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android
+        rgp.check(0);
+    }
+
+    /**
+     * 补全长度,保持最长的长度
+     *
+     * @param count 字符串长度
+     * @return 补全后的长度
+     * 这里长度不够的就用 &quot;s&quot; 占位, 赋值的时候将字体设置白色!
+     */
+    public String appendLength(int count) {
+        String st = &quot;&quot;;
+        if (count &lt; 0) {
+            count = 0;
+        }
+        for (int i = 0; i &lt; count; i++) {
+            st = st + &quot;s&quot;;
+        }
+        return st;
+    }
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><p>碰到的问题: RadioGroup中RadioButton不能互斥<br>解决方法: 需要用<code>RadioGroup.check(id)</code>,来设置被默认选中的项，其中id为RadioButton的id，如果<code>动态添加的RadioButton</code>，需要设置好<code>id</code><br>参考:<a href="http://blog.csdn.net/lzqjfly/article/details/16963645" target="_blank" rel="external">http://blog.csdn.net/lzqjfly/article/details/16963645</a> , <a href="http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android" target="_blank" rel="external">http://stackoverflow.com/questions/9175635/how-to-set-radio-button-checked-as-default-in-radiogroup-with-android</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1233,6 +1424,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1243,6 +1438,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

@@ -201,22 +201,6 @@
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -469,7 +453,11 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            git回滚到指定版本方法(2016-01-08 14:55:44)1234git reset --hard &lt;commit ID号&gt;例如: git reset --hard dc972ec版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+            git回滚到指定版本方法(2016-01-08 14:55:44) git reset --hard &lt;commit ID号&gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -603,7 +591,19 @@ N多依赖jar包
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            1. orhanobut/logger123456789101112allprojects &#123;    repositories &#123;        jcenter()        // 项目gradle中添加 jitpack仓库        maven &#123; url "https://jitpack.io" &#125;    &#125;&#125;dependencies &#123;        //  moudle/gradle中添加  	  compile 'com.github.orhanobut:logger:1.12'&#125;
+            1. orhanobut/loggerallprojects {
+    repositories {
+        jcenter()
+        // 项目gradle中添加 jitpack仓库
+        maven { url &quot;https://jitpack.io&quot; }
+    }
+}
+
+dependencies {
+        //  moudle/gradle中添加
+        compile &#39;com.github.orhanobut:logger:1.12&#39;
+}
+
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -1167,6 +1167,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1177,6 +1181,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

@@ -208,22 +208,6 @@ General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -260,7 +244,7 @@ General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，
 
     
         <meta property="article:published_time" content="Wed Aug 17 2016 09:21:05 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Sep 22 2017 09:14:37 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 03:25:25 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -294,7 +278,7 @@ General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/08/17/bughd让bug无处遁形/index.html",
     "headline": "bughd让bug无处遁形",
     "datePublished": "Wed Aug 17 2016 09:21:05 GMT+0000",
-    "dateModified": "Fri Sep 22 2017 09:14:37 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 03:25:25 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -597,15 +581,65 @@ General KeyGeneral Key 用来唯一标识您的应用，为防止别人滥用，
 <h2 id="General-Key"><a href="#General-Key" class="headerlink" title="General Key"></a>General Key</h2><pre><code>General Key 用来唯一标识您的应用，为防止别人滥用，请勿泄露，建立每个项目时将自动生成项目对应的 General Key，可在项目列表页查看每个项目对应的 General Key值
 </code></pre><a id="more"></a>   
 <h2 id="导入SDK-–-gt-其一方法-通过-Gradle-自动构建"><a href="#导入SDK-–-gt-其一方法-通过-Gradle-自动构建" class="headerlink" title="导入SDK –&gt;其一方法: 通过 Gradle 自动构建"></a>导入SDK –&gt;其一方法: 通过 <code>Gradle</code> 自动构建</h2><pre><code>在项目的 build.gradle（Top-level build file，项目最外层的 build.gradle 文件）中添加这个 maven repositories，例如：
-</code></pre><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line"></div><div class="line">  <span class="keyword">repositories</span> &#123;</div><div class="line">    jcenter()</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:1.0.0'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">allprojects</span> &#123;</div><div class="line">  <span class="keyword">repositories</span> &#123;</div><div class="line">    jcenter()</div><div class="line"></div><div class="line">    maven &#123;</div><div class="line">      url <span class="string">"http://maven.bughd.com/public"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>在要集成的项目中的 build.gradle 中添加依赖，如下：
-</code></pre><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="section">dependencies</span> &#123;</div><div class="line">  <span class="attribute">compile</span> <span class="string">'im.fir:fir-sdk:latest.integration<span class="variable">@aar</span>'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">manifest……</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 必选 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.ACCESS_NETWORK_STATE"</span>&gt;</span><span class="tag">&lt;/<span class="name">uses-permission</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.ACCESS_WIFI_STATE"</span>&gt;</span><span class="tag">&lt;/<span class="name">uses-permission</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>&gt;</span><span class="tag">&lt;/<span class="name">uses-permission</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_PHONE_STATE"</span>&gt;</span><span class="tag">&lt;/<span class="name">uses-permission</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 可选 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.GET_TASKS"</span>&gt;</span><span class="tag">&lt;/<span class="name">uses-permission</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">application</span> ……&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">activity</span> ……/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:value</span>=<span class="string">"你的GENERAL_KEY"</span> <span class="attr">android:name</span>=<span class="string">"BUG_HD_SDK_GENERAL_KEY"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="调用SDK"><a href="#调用SDK" class="headerlink" title="调用SDK"></a>调用SDK</h2><pre><code>继承 Application，并在 onCreate() 方法中的第一行加入 FIR.init(this) 
-</code></pre><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    public void onCreate() &#123;</div><div class="line"></div><div class="line">        <span class="keyword">super</span>.onCreate();</div><div class="line">        <span class="type">FIR</span>.init(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>修改 AndroidManifest.xml，在其中加入 android:name=&quot;xxxx&quot;，使用继承过的的 application 类,例如
-</code></pre><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="built_in">application</span></div><div class="line">    android:<span class="built_in">name</span>=<span class="string">".MyApplication"</span></div><div class="line">    android:allowBackup=<span class="string">"true"</span></div><div class="line">    android:icon=<span class="string">"@drawable/ic_launcher"</span></div><div class="line">    android:label=<span class="string">"@string/app_name"</span></div><div class="line">    android:theme=<span class="string">"@style/AppTheme"</span> &gt;</div><div class="line">    ....</div><div class="line">&lt;/<span class="built_in">application</span>&gt;</div></pre></td></tr></table></figure>
-<p><strong>如上配置归纳,就是3步</strong><br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6whn2lru1j20sy0blabf.jpg" alt="如上配置归纳,就是3步"><br><strong>最后看下分析界面</strong><br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6wgxou5muj211n0ktwie.jpg" alt="bughd应用崩溃分析界面"></p>
+</code></pre><pre><code>buildscript {
+
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath &#39;com.android.tools.build:gradle:1.0.0&#39;
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
+
+    maven {
+      url &quot;http://maven.bughd.com/public&quot;
+    }
+  }
+}
+</code></pre><pre><code>在要集成的项目中的 build.gradle 中添加依赖，如下：
+</code></pre><pre><code>dependencies {
+  compile &#39;im.fir:fir-sdk:latest.integration@aar&#39;
+}
+</code></pre><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code>&lt;manifest……&gt;
+  &lt;!-- 必选 --&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;&gt;&lt;/uses-permission&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;&gt;&lt;/uses-permission&gt;
+  &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;&gt;&lt;/uses-permission&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot;&gt;&lt;/uses-permission&gt;
+
+  &lt;!-- 可选 --&gt;
+  &lt;uses-permission android:name=&quot;android.permission.GET_TASKS&quot;&gt;&lt;/uses-permission&gt;
+
+  &lt;application ……&gt;
+    &lt;activity ……/&gt;
+    &lt;meta-data android:value=&quot;你的GENERAL_KEY&quot; android:name=&quot;BUG_HD_SDK_GENERAL_KEY&quot; /&gt;
+  &lt;/application&gt;
+&lt;/manifest&gt;
+</code></pre><h2 id="调用SDK"><a href="#调用SDK" class="headerlink" title="调用SDK"></a>调用SDK</h2><pre><code>继承 Application，并在 onCreate() 方法中的第一行加入 FIR.init(this) 
+</code></pre><pre><code>public class MyApplication extends Application {
+
+    @Override
+    public void onCreate() {
+
+        super.onCreate();
+        FIR.init(this);
+    }
+}
+</code></pre><pre><code>修改 AndroidManifest.xml，在其中加入 android:name=&quot;xxxx&quot;，使用继承过的的 application 类,例如
+</code></pre><pre><code>&lt;application
+    android:name=&quot;.MyApplication&quot;
+    android:allowBackup=&quot;true&quot;
+    android:icon=&quot;@drawable/ic_launcher&quot;
+    android:label=&quot;@string/app_name&quot;
+    android:theme=&quot;@style/AppTheme&quot; &gt;
+    ....
+&lt;/application&gt;
+</code></pre><p><strong>如上配置归纳,就是3步</strong><br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6whn2lru1j20sy0blabf.jpg" alt="如上配置归纳,就是3步"><br><strong>最后看下分析界面</strong><br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6wgxou5muj211n0ktwie.jpg" alt="bughd应用崩溃分析界面"></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1243,6 +1277,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1253,6 +1291,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

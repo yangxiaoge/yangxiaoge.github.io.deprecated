@@ -201,22 +201,6 @@
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -246,7 +230,7 @@
 
     
         <meta property="article:published_time" content="Wed Apr 29 2015 13:52:49 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Sep 22 2017 09:14:38 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 03:25:25 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +257,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2015/04/29/酷炫的android-dialog弹出框/index.html",
     "headline": "酷炫的android dialog弹出框",
     "datePublished": "Wed Apr 29 2015 13:52:49 GMT+0000",
-    "dateModified": "Fri Sep 22 2017 09:14:38 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 03:25:25 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -551,17 +535,73 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>基于github开源框架基础上运用在自己的项目中,<br><code>效果如下</code>:<br><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3dxm8t071g20cm0jqnpd.gif" alt="弹出框动图"><br><a id="more"></a><br>本演示项目 基于<code>Android Studio</code>开发,<br>在对应<code>moudle</code>下的<code>gradle.build</code>中添加以下依赖<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.nineoldandroids:library:2.4.0'</span> </div><div class="line"><span class="keyword">compile</span> <span class="string">'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'</span></div></pre></td></tr></table></figure></p>
-<p><code>核心代码</code>列出:</p>
+        <p>基于github开源框架基础上运用在自己的项目中,<br><code>效果如下</code>:<br><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3dxm8t071g20cm0jqnpd.gif" alt="弹出框动图"><br><a id="more"></a><br>本演示项目 基于<code>Android Studio</code>开发,<br>在对应<code>moudle</code>下的<code>gradle.build</code>中添加以下依赖</p>
+<pre><code>compile &#39;com.nineoldandroids:library:2.4.0&#39; 
+compile &#39;com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar&#39;
+</code></pre><p><code>核心代码</code>列出:</p>
 <blockquote>
 <p>effect是样式(具体要根据需求来)</p>
 </blockquote>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">String []type = &#123;<span class="string">"Fadein"</span>, <span class="string">"Slideleft"</span>, <span class="string">"Slidetop"</span>, <span class="string">"SlideBottom"</span>, <span class="string">"Slideright"</span>, <span class="string">"Fall"</span>, <span class="string">"Newspager"</span>, <span class="string">"Fliph"</span>, <span class="string">"Flipv"</span>, <span class="string">"RotateBottom"</span>, <span class="string">"RotateLeft"</span>, <span class="string">"Slit"</span>, <span class="string">"Shake"</span>, <span class="string">"Sidefill"</span>&#125;;</div><div class="line">           int i= (int) (type.length*Math.random());</div><div class="line">           Effectstype effect = null;</div><div class="line">           switch (i)&#123;</div><div class="line">               <span class="keyword">case</span> <span class="number">0</span><span class="symbol">:effect=Effectstype</span>.Fadein;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">1</span><span class="symbol">:effect=Effectstype</span>.Slideright;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">2</span><span class="symbol">:effect=Effectstype</span>.Slideleft;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">3</span><span class="symbol">:effect=Effectstype</span>.Slidetop;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">4</span><span class="symbol">:effect=Effectstype</span>.SlideBottom;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">5</span><span class="symbol">:effect=Effectstype</span>.Newspager;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">6</span><span class="symbol">:effect=Effectstype</span>.Fall;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">7</span><span class="symbol">:effect=Effectstype</span>.Sidefill;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">8</span><span class="symbol">:effect=Effectstype</span>.Fliph;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">9</span><span class="symbol">:effect=Effectstype</span>.Flipv;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">10</span><span class="symbol">:effect=Effectstype</span>.RotateBottom;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">11</span><span class="symbol">:effect=Effectstype</span>.RotateLeft;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">12</span><span class="symbol">:effect=Effectstype</span>.Slit;<span class="keyword">break</span>;</div><div class="line">               <span class="keyword">case</span> <span class="number">13</span><span class="symbol">:effect=Effectstype</span>.Shake;<span class="keyword">break</span>;</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>    String []type = {&quot;Fadein&quot;, &quot;Slideleft&quot;, &quot;Slidetop&quot;, &quot;SlideBottom&quot;, &quot;Slideright&quot;, &quot;Fall&quot;, &quot;Newspager&quot;, &quot;Fliph&quot;, &quot;Flipv&quot;, &quot;RotateBottom&quot;, &quot;RotateLeft&quot;, &quot;Slit&quot;, &quot;Shake&quot;, &quot;Sidefill&quot;};
+            int i= (int) (type.length*Math.random());
+            Effectstype effect = null;
+            switch (i){
+                case 0:effect=Effectstype.Fadein;break;
+                case 1:effect=Effectstype.Slideright;break;
+                case 2:effect=Effectstype.Slideleft;break;
+                case 3:effect=Effectstype.Slidetop;break;
+                case 4:effect=Effectstype.SlideBottom;break;
+                case 5:effect=Effectstype.Newspager;break;
+                case 6:effect=Effectstype.Fall;break;
+                case 7:effect=Effectstype.Sidefill;break;
+                case 8:effect=Effectstype.Fliph;break;
+                case 9:effect=Effectstype.Flipv;break;
+                case 10:effect=Effectstype.RotateBottom;break;
+                case 11:effect=Effectstype.RotateLeft;break;
+                case 12:effect=Effectstype.Slit;break;
+                case 13:effect=Effectstype.Shake;break;
+            }
+</code></pre><blockquote>
 <p>弹出框核心如下</p>
 </blockquote>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">        dialogBuilder</div><div class="line">                <span class="comment">// 重点设置</span></div><div class="line">                .withEffect(effect)        <span class="comment">//设置对话框弹出样式</span></div><div class="line">                <span class="comment">//.setCustomView(R.layout.custom, MainActivity.this) // 设置自定义对话框的布局</span></div><div class="line">                .withDuration(<span class="number">700</span>)              <span class="comment">//动画显现的时间（时间长就类似放慢动作）</span></div><div class="line"></div><div class="line">                <span class="comment">// 基本设置</span></div><div class="line">                .withTitle(<span class="string">"Info"</span>)         <span class="comment">//设置对话框标题</span></div><div class="line">                .withTitleColor(<span class="string">"#FFFFFF"</span>)          <span class="comment">//设置标题字体颜色</span></div><div class="line">                .withDividerColor(<span class="string">"#11000000"</span>)      <span class="comment">//设置分隔线的颜色</span></div><div class="line">                .withMessage(<span class="string">"Are you sure logout?"</span>)<span class="comment">//设置对话框显示内容</span></div><div class="line">                .withMessageColor(<span class="string">"#FFFFFFFF"</span>)       <span class="comment">//设置消息字体的颜色</span></div><div class="line">                .withDialogColor(<span class="string">"#FFE74C3C"</span>)        <span class="comment">//设置对话框背景的颜色</span></div><div class="line">                <span class="comment">//.withIcon(getResources().getDrawable(R.drawable.logo)) //设置标题的图标</span></div><div class="line">                <span class="comment">// 设置是否模态，默认false，表示模态，</span></div><div class="line">                <span class="comment">//要求必须采取行动才能继续进行剩下的操作 | isCancelable(true)</span></div><div class="line">                .isCancelableOnTouchOutside(<span class="keyword">true</span>)</div><div class="line">                .withButton1Text(<span class="string">"Yes"</span>)               <span class="comment">//设置按钮1的文本</span></div><div class="line">                .withButton2Text(<span class="string">"No"</span>)          <span class="comment">//设置按钮2的文本</span></div><div class="line"></div><div class="line">                .setButton1Click(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                        Toast.makeText(v.getContext(), <span class="string">"I am btnYes"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                        dialogBuilder.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .setButton2Click(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                        Toast.makeText(v.getContext(), <span class="string">"I am btnNo"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                        dialogBuilder.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .show();</div></pre></td></tr></table></figure>
-<p>app <a href="http://fir.im/NiftyDialog" target="_blank" rel="external">demo</a>下载地址: <a href="http://fir.im/NiftyDialog" target="_blank" rel="external">http://fir.im/NiftyDialog</a></p>
+<pre><code>    final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(this);
+
+            dialogBuilder
+                    // 重点设置
+                    .withEffect(effect)        //设置对话框弹出样式
+                    //.setCustomView(R.layout.custom, MainActivity.this) // 设置自定义对话框的布局
+                    .withDuration(700)              //动画显现的时间（时间长就类似放慢动作）
+
+                    // 基本设置
+                    .withTitle(&quot;Info&quot;)         //设置对话框标题
+                    .withTitleColor(&quot;#FFFFFF&quot;)          //设置标题字体颜色
+                    .withDividerColor(&quot;#11000000&quot;)      //设置分隔线的颜色
+                    .withMessage(&quot;Are you sure logout?&quot;)//设置对话框显示内容
+                    .withMessageColor(&quot;#FFFFFFFF&quot;)       //设置消息字体的颜色
+                    .withDialogColor(&quot;#FFE74C3C&quot;)        //设置对话框背景的颜色
+                    //.withIcon(getResources().getDrawable(R.drawable.logo)) //设置标题的图标
+                    // 设置是否模态，默认false，表示模态，
+                    //要求必须采取行动才能继续进行剩下的操作 | isCancelable(true)
+                    .isCancelableOnTouchOutside(true)
+                    .withButton1Text(&quot;Yes&quot;)               //设置按钮1的文本
+                    .withButton2Text(&quot;No&quot;)          //设置按钮2的文本
+
+                    .setButton1Click(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(v.getContext(), &quot;I am btnYes&quot;, Toast.LENGTH_SHORT).show();
+                            dialogBuilder.dismiss();
+                        }
+                    })
+                    .setButton2Click(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(v.getContext(), &quot;I am btnNo&quot;, Toast.LENGTH_SHORT).show();
+                            dialogBuilder.dismiss();
+                        }
+                    })
+                    .show();
+</code></pre><p>app <a href="http://fir.im/NiftyDialog" target="_blank" rel="external">demo</a>下载地址: <a href="http://fir.im/NiftyDialog" target="_blank" rel="external">http://fir.im/NiftyDialog</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1199,6 +1239,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1209,6 +1253,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 

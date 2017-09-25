@@ -52,7 +52,11 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Bruce Yang">
-    <meta name="description" itemprop="description" content="git回滚到指定版本方法(2016-01-08 14:55:44)1234git reset --hard &amp;lt;commit ID号&amp;gt;例如: git reset --hard dc972ec版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号">
+    <meta name="description" itemprop="description" content="git回滚到指定版本方法(2016-01-08 14:55:44) git reset --hard &amp;lt;commit ID号&amp;gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+">
     <meta name="keywords" content="null,Git">
 
     <!-- Import lsloader -->
@@ -201,22 +205,6 @@
 
 <!-- Fade Effect -->
 
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
 
 <!-- Import Font -->
 <!-- Import Roboto -->
@@ -241,17 +229,25 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Git使用 | 珠珠のBlog">
     <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
-    <meta property="og:description" content="git回滚到指定版本方法(2016-01-08 14:55:44)1234git reset --hard &amp;lt;commit ID号&amp;gt;例如: git reset --hard dc972ec版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号">
+    <meta property="og:description" content="git回滚到指定版本方法(2016-01-08 14:55:44) git reset --hard &amp;lt;commit ID号&amp;gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+">
     <meta property="og:article:tag" content="Git"> 
 
     
         <meta property="article:published_time" content="Wed Jun 24 2015 13:12:52 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Sep 22 2017 09:14:37 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 03:25:25 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Git使用 | 珠珠のBlog">
-    <meta name="twitter:description" content="git回滚到指定版本方法(2016-01-08 14:55:44)1234git reset --hard &amp;lt;commit ID号&amp;gt;例如: git reset --hard dc972ec版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号">
+    <meta name="twitter:description" content="git回滚到指定版本方法(2016-01-08 14:55:44) git reset --hard &amp;lt;commit ID号&amp;gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -273,7 +269,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2015/06/24/Git使用/index.html",
     "headline": "Git使用",
     "datePublished": "Wed Jun 24 2015 13:12:52 GMT+0000",
-    "dateModified": "Fri Sep 22 2017 09:14:37 GMT+0000",
+    "dateModified": "Mon Sep 25 2017 03:25:25 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -292,7 +288,11 @@
         }
     },
     "keywords": ",Gitnull",
-    "description": "git回滚到指定版本方法(2016-01-08 14:55:44)1234git reset --hard &amp;lt;commit ID号&amp;gt;例如: git reset --hard dc972ec版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号",
+    "description": "git回滚到指定版本方法(2016-01-08 14:55:44) git reset --hard &amp;lt;commit ID号&amp;gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+",
 }
 </script>
 
@@ -560,10 +560,17 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="git回滚到指定版本方法-2016-01-08-14-55-44"><a href="#git回滚到指定版本方法-2016-01-08-14-55-44" class="headerlink" title="git回滚到指定版本方法(2016-01-08 14:55:44)"></a>git回滚到指定版本方法(2016-01-08 14:55:44)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">reset</span> <span class="comment">--hard &lt;commit ID号&gt;</span></div><div class="line">例如: git <span class="keyword">reset</span> <span class="comment">--hard dc972ec</span></div><div class="line"></div><div class="line">版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="提交本地项目-未受控-到远程Git仓库"><a href="#提交本地项目-未受控-到远程Git仓库" class="headerlink" title="提交本地项目(未受控)到远程Git仓库"></a>提交本地项目(未受控)到远程Git仓库</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line"><span class="bash">git commit -m <span class="string">"first commit"</span></span></div><div class="line"><span class="bash">git remote add origin https://git.coding.net/yangxiaoge/Gank.git</span></div><div class="line"><span class="bash">git push -u origin master</span></div></pre></td></tr></table></figure>
-<p><code>git add .</code>: add后面有空格</p>
+        <h2 id="git回滚到指定版本方法-2016-01-08-14-55-44"><a href="#git回滚到指定版本方法-2016-01-08-14-55-44" class="headerlink" title="git回滚到指定版本方法(2016-01-08 14:55:44)"></a>git回滚到指定版本方法(2016-01-08 14:55:44)</h2><pre><code> git reset --hard &lt;commit ID号&gt;
+ 例如: git reset --hard dc972ec
+
+ 版本号查看方法: 打开github项目，点击commits就能看到提交记录以及版本号
+</code></pre><a id="more"></a>
+<h2 id="提交本地项目-未受控-到远程Git仓库"><a href="#提交本地项目-未受控-到远程Git仓库" class="headerlink" title="提交本地项目(未受控)到远程Git仓库"></a>提交本地项目(未受控)到远程Git仓库</h2><pre><code>git init
+git add .
+git commit -m &quot;first commit&quot;
+git remote add origin https://git.coding.net/yangxiaoge/Gank.git
+git push -u origin master
+</code></pre><p><code>git add .</code>: add后面有空格</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1201,6 +1208,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -1211,6 +1222,10 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
     
 </script>
 
