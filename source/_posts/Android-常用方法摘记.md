@@ -6,7 +6,9 @@ categories: Android
 top: 100
 ---
 
-## 将美化后的 Json 字符串展示到 TextView 上
+本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！
+
+### 将美化后的 Json 字符串展示到 TextView 上
 ```
 /**
      * 美化 Json
@@ -33,7 +35,7 @@ top: 100
     }
 ```
 
-## 获取当前页面 activity 实例 （随便什么地方都可以获取）
+### 获取当前页面 activity 实例 （随便什么地方都可以获取）
 ```
 //获取当前页面 activity 实例
     public static Activity getGlobleActivity() {
@@ -61,7 +63,7 @@ top: 100
     }
 ```
 
-## 返回键 app切换至后台
+### 返回键 app切换至后台
 ```
 	@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -78,7 +80,7 @@ top: 100
     }
 ```
 
-## 调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)
+### 调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)
 
 ```
 /**
@@ -115,12 +117,12 @@ public class SystemShareUtils {
 }
 ```
 <!-- more -->
-## Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)
+### Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)
 摘自:[习惯沉默的Blog
 ](https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/)
 现在微信不能直接跳转到微信扫一扫:详见 [Android调用微信扫一扫_CSDN](http://blog.csdn.net/l_lhc/article/details/51636130)
 
-## Gson构造JsonArray(2016-8-23 16:11:25)
+### Gson构造JsonArray(2016-8-23 16:11:25)
 最近项目中请求参数传参用到了 JsonArray对象
 构造方法如下:
 
@@ -136,18 +138,18 @@ public class SystemShareUtils {
     System.out.println("jsonArr:  " + jsonArr.toString());
 ```
 
-## 访问或者下载单个github文件(2016-9-20 18:43:37)
+### 访问或者下载单个github文件(2016-9-20 18:43:37)
 **用途:**可以用来存一些配置文件,图片等.
 url固定格式: https://raw.githubusercontent.com/username/repository/branch/filename 
 例如: https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md
 > 参考stackoverflow:[Download single files from GitHub](http://stackoverflow.com/questions/4604663/download-single-files-from-github)
 
-## LICEcap录制Gif工具(2016-8-2 18:57:50)
+### LICEcap录制Gif工具(2016-8-2 18:57:50)
 [官网地址](http://www.cockos.com/licecap/)
 
 ![录制的gif图](http://www.cockos.com/licecap/licecap_rules.gif)
 
-## 读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(`2016-06-12`)
+### 读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(`2016-06-12`)
  
 *[例如:](http://www.jianshu.com/p/b87fee2f7a23)*
 
@@ -164,7 +166,7 @@ InputStreamReader isr = new InputStreamReader(this.getClass()
 BufferedReader bfr = new BufferedReader(isr);
 ```
 
-## cityId查询天气(`2016-6-20 19:00:35`)
+### cityId查询天气(`2016-6-20 19:00:35`)
 1. citycode.txt是cityid文件(数据 101190101=南京 ) 
 2. 下面代码是 逐行根据"="分隔符,读写城市id跟name,可以写到文件中
 
@@ -199,7 +201,7 @@ BufferedReader bfr = new BufferedReader(isr);
 ```
 
 
-## 双击两次返回键退出 (2秒内退出)
+### 双击两次返回键退出 (2秒内退出)
 ``` 
 private long exitTime = 0; // 返回键 退出时间
  /**
@@ -265,7 +267,7 @@ private long exitTime = 0; // 返回键 退出时间
 
 
 
-## RadioButton 点击事件 (`2016-06-08`)
+### RadioButton 点击事件 (`2016-06-08`)
 
 >借助[`ButterKnife`](https://github.com/JakeWharton/butterknife)快速实现
 
@@ -278,7 +280,7 @@ void onTagChecked(RadioButton searchRb, boolean checked) {
 }
 ```
 
-## 夜神 模拟器连接(`2016-6-22 13:44:46`)
+### 夜神 模拟器连接(`2016-6-22 13:44:46`)
 `流畅度杠杆的!`
 ```
 adb connect 127.0.0.1:62001
@@ -287,14 +289,14 @@ adb connect 127.0.0.1:62001
 1)![模拟器抓包配置](http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg)
 2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: http://10.45.16.34:8888/(10.45.16.34就是本机地址, 所有模拟器都是这么访问)
 
-## 海马玩 模拟器连接(`2016-06-14`)
+### 海马玩 模拟器连接(`2016-06-14`)
 > http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091
 ```
 adb connect 127.0.0.1:26944
 ```
 `抓包设置`: 代理服务器主机名: 10.0.3.2 (genymotion也是这个), 夜神的是电脑ip
 
-## app启动页面(AlphaAnimation渐变) (`2016-06-14`)
+### app启动页面(AlphaAnimation渐变) (`2016-06-14`)
 
 `效果图:`![AlphaAnimation透明到不透明](http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f4x1cf5056g20kb0k3nb0.gif)
 
@@ -338,7 +340,7 @@ public class StartActivity extends AppCompatActivity {
     }
 }
 ```
-## adapter中setTag()的使用
+### adapter中setTag()的使用
 
 可以用来当前方法中传数据
 
@@ -365,7 +367,7 @@ public class StartActivity extends AppCompatActivity {
  ---> 	HashMap<String, Object> radioMap = (HashMap<String, Object>) group.getTag(); // getTag()
 ```
 
-## Gson把JsonArray的字符串转成bean实体类
+### Gson把JsonArray的字符串转成bean实体类
 
 ```
 	String offerItemGroupStr;
@@ -376,12 +378,12 @@ public class StartActivity extends AppCompatActivity {
         }.getType());
 ```
 
-## [圆形进度条](https://github.com/DmitryMalkovich/circular-with-floating-action-button)(`2016-7-1 13:20:24`)
+### [圆形进度条](https://github.com/DmitryMalkovich/circular-with-floating-action-button)(`2016-7-1 13:20:24`)
 ![Float Button 圆形进度条效果](http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg)
 
 `week`开源啦!! [alibaba-week入口](https://github.com/alibaba/weex)
 
-## 保存图片到本地文件(2016-7-11 12:35:51)
+### 保存图片到本地文件(2016-7-11 12:35:51)
 参考: [Mumuxi代码](https://github.com/yangxiaoge/MumuXi/blob/master/app/src/main/java/com/yang/bruce/mumuxi/util/ImgSaveUtil.java)
 
 ```
@@ -426,7 +428,7 @@ public class ImgSaveUtil {
 }
 ```
 
-## 样式统一设置 (2016-7-12 15:06:40)
+### 样式统一设置 (2016-7-12 15:06:40)
 >例如:
 
 ```
@@ -447,7 +449,7 @@ public class ImgSaveUtil {
     </style>
 ```
 
-## touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)
+### touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)
 
 >具体可以看 开源中国源码: [MainActivity](http://git.oschina.net/oschina/android-app/blob/v2.6.3/app/src/main/java/net/oschina/app/ui/MainActivity.java?dir=0&filepath=app%2Fsrc%2Fmain%2Fjava%2Fnet%2Foschina%2Fapp%2Fui%2FMainActivity.java&oid=b7ab17b172b074e42015b3f5d806473216aec919&sha=0e04398d8fd738c25abf7a0a61f988d15cbf2a08)中
 
@@ -474,7 +476,7 @@ public class ImgSaveUtil {
     }
 ```
 
-## ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)
+### ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)
 `下面的代码可以参考 Afrimax或者MPT的[BaseActivity](https://coding.net/u/yangxiaoge/p/AfrimaxMI/git/blob/master/app/src/main/java/com/ztesoft/zsmart/datamall/app/base/BaseActivity.java)`
 
 ```
@@ -531,19 +533,19 @@ public class ImgSaveUtil {
     // =======================DIALOG_CONTROL_INTERFACE END==========================
 ```
 
-## 远程调试App或者WiFi调试(2016-7-19 19:34:09)
+### 远程调试App或者WiFi调试(2016-7-19 19:34:09)
 >http://www.jianshu.com/p/e9c243b5060b
 
 ![效果图](http://upload-images.jianshu.io/upload_images/721315-6978db5b6f2c1c75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/400)
 
-## ScrollView初始化数据时不置顶(2016-7-20 16:36:01)
+### ScrollView初始化数据时不置顶(2016-7-20 16:36:01)
 >ScrollView布局设置一个属性即可!如果不设置,那么默认显示位置在ListView(等等..)底部
 具体可以参考: [ScrollView嵌套ListView不置顶显示](http://blog.csdn.net/ronaldong99/article/details/50736423)
 ```
 mScrollView.smoothScrollTo(0, 0);
 ```
 
-## 使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)
+### 使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)
 ```
  //----------------发送广播 , intent传值--------------//
  private void sendRefreshAccountBroadcast() {
@@ -578,7 +580,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 ```
 
-## EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)
+### EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)
 ```
 	etUsertel.addTextChangedListener(new TextChange());
     etPassword.addTextChangedListener(new TextChange());
@@ -619,5 +621,5 @@ public void onCreate(Bundle savedInstanceState) {
     }
 ```
 
-## AS快捷键(2016-8-2 18:58:02)
+### AS快捷键(2016-8-2 18:58:02)
 ![android_studio快捷键](http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6fkhxh18yj214k0pw4bs.jpg)

@@ -45,7 +45,7 @@ uiux:
 
 # JS Effect Switches
 js_effect:
-    fade: true
+    fade: false
     smoothscroll: true
 
 # Reading experience
@@ -139,7 +139,7 @@ prettify:
 #                    - If `includeDefaultColors` is true, this will append colors to the color pool
 #                    - If `includeDefaultColors` is false, this will instead default color pool
 hanabi:
-    enable: false
+    enable: true
     line_number: true
     includeDefaultColors: true
     customColors: 
