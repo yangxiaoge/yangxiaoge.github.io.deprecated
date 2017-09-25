@@ -3,10 +3,9 @@ title: Android常用方法摘记以及收集
 date: 2016-01-08 10:50:55
 tags: Android
 categories: Android
-top: 100
 ---
 
-本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！
+## 本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！
 
 ### 将美化后的 Json 字符串展示到 TextView 上
 ```
