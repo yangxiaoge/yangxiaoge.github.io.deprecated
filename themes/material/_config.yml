@@ -220,7 +220,7 @@ sidebar:
     pages:
         时间轴:
             link: '/timeline.html'
-            icon: inbox
+            icon: timeline
             divider: false  
         常用链接:
             link: "/links"
