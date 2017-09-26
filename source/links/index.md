@@ -26,6 +26,8 @@ header-img: "/img/music.jpg"
 |[HenCoder View](http://hencoder.com/ui-1-1/) | 抛物线的自定义 View 开发进阶 |
 |[Hensen_ 的全栈式导航](http://blog.csdn.net/qq_30379689/article/details/52637226) | 从基础到进阶复习 |
 |[那些年 Android 黑科技](http://www.jianshu.com/p/cb2deed0f2d8)，[DevNote - 香脆的大鸡排](https://github.com/BolexLiu/DevNote) | Android 黑科技①②③ ，值得一看！ |
+|[合理优雅的进程保活方式
+](https://github.com/D-clock/AndroidDaemonService) | ![](https://avatars0.githubusercontent.com/u/6497308?v=4&s=40)D-clock - AndroidDaemonService |
 
 ## 紧跟时代
 | 链接        |     简介     |
