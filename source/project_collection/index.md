@@ -107,7 +107,8 @@ date: 2016-09-14 11:39:56
 60. [开源整理：三个优秀的 Android 图表开源控件](D-clock.github.io/2017/08/01/android/open-source-android-chart-library/) - _clock 爱吃葱花
 {% youtube ufaK_Hd6BpI %}
 61. [乐乐音乐 5.0](https://github.com/zhangliangming/HappyPlayer5) - 2017-9-27 17:20:59
-主要是基于 ijkplayer 框架开发的 Android 音乐播放器，它支持多种音频格式 (mp3,ape,flac 等) 和动感歌词 (ksc,krc,hrcs 等)、翻译和音译歌词，界面高仿酷狗
+主要是基于 ijkplayer 框架开发的 Android 音乐播放器，它支持多种音频格式 (mp3,ape,flac 等) 和动感歌词 (ksc,krc,hrcs 等)、翻译和音译歌词，界面高仿酷狗。
+体验 [APK 下载](https://coding.net/s/634c0e52-970a-4928-8922-df59826011ef)
 <img src="https://camo.githubusercontent.com/4a7ce1095fc0eabd38d69d4e1a0b6d287f4f7120/68747470733a2f2f692e696d6775722e636f6d2f6d77376d7944382e6a7067" width="270" height="450"/><img src="https://camo.githubusercontent.com/e6a62bf750ea6541d3dd5c1a0d4f1085d2cecddf/68747470733a2f2f692e696d6775722e636f6d2f426554457258672e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/fbd61e39ccc6dad070e0d17251607b7a9ab576d7/68747470733a2f2f692e696d6775722e636f6d2f52433739754d552e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/a5981ce5cdb0f791850e2ac847ff1f450acb321f/68747470733a2f2f692e696d6775722e636f6d2f55324164564d432e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/38bb75635ec21330dd13357a674fbab623a0790c/68747470733a2f2f692e696d6775722e636f6d2f544661435263332e706e67" width="270" height="450"/>
 62. [Android上展示word、excel、pdf、ppt~](https://github.com/ZhongXiaoHong/superFileView) - 基于腾讯浏览服务，支持多种文件格式，例如 doc、excel、ppt、excel、pdf 等格式
 ![](https://github.com/ZhongXiaoHong/superFileView/blob/master/record.gif?raw=true)
