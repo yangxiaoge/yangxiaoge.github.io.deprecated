@@ -1,5 +1,5 @@
 ---
-title: Android Studio常用的引用jar整理 for 自用
+title: Android Studio常用的引用jar整理 && 常用插件 for 自用
 date: 2015-05-10 15:29:50
 tags: [Android Studio,Gradle]
 categories: Android
@@ -71,4 +71,12 @@ compile 'com.zhy:okhttputils:2.4.1'
 ```
 compile 'com.google.code.gson:gson:2.2.4'
 ```
+
+## 6. AS 插件，更多的可以访问 http://www.jianshu.com/p/087a7ad0fe82
+1. [AndroidProguardPlugin](https://github.com/zhonghanwen/AndroidProguardPlugin)
+一键生成项目混淆代码插件(目前可能有些第三方项目的混淆还未添加完全
+2. [Android Resource Usage Count](https://github.com/niorgai/Android-Resource-Usage-Count) 
+统计资源文件中每个标签被引用的次数
+
+
 
