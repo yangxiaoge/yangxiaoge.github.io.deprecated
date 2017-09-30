@@ -47,6 +47,7 @@ header-img: "/img/music.jpg"
 |[Kotlin 系统入门与进阶 ¥ 99.00](http://coding.imooc.com/class/evaluation/108.html?page=3) | 慕课网教学 |
 |[MIUI 系统工程师 Gityuan](http://gityuan.com/about/) | 基于Android 6.0的源码，专注于分享Android系统原理、架构分析的原创文章 |
 |[廖雪峰Python教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143184474383175eeea92a8b0439fab7b392a8a32f8fa000) | Python教程讲解的浅显易懂适合初学者|
+|[知乎 x RxJava Meetup](https://github.com/zhihu/zhihu-rxjava-meetup) | 三位讲师的 slides 已上传。照片和视频，待整理好以后会继续分享到这里。 |
 
 ## 工具集
 | 链接        |     简介     |
