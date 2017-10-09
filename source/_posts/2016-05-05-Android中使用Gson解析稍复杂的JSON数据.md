@@ -11,8 +11,8 @@ categories: Android
 # 一、Json简介
 JSON官网(中文版)：http://www.json.org/json-zh.html
 
-**JSON(JavaScript Object Notation)**是一种轻量级(轻量级？简单、易操作、快捷)的数据交换格式。主要目的就是给出一套通用的数据格式，大家按照这种格式定义自己的数据，方便数据的交换。特点是(相对来说) **易于人阅读和编写，易于机器解析和生成** 。
-<!-- more -->
+**JSON(JavaScript Object Notation)**是一种轻量级(轻量级？简单、易操作、快捷)的数据交换格式。<!-- more -->主要目的就是给出一套通用的数据格式，大家按照这种格式定义自己的数据，方便数据的交换。特点是(相对来说) **易于人阅读和编写，易于机器解析和生成** 。
+
 **Rules**：
 >* “名/值”对的集合（A collection of name/value pairs）。不同的语言中，它被理解为**对象（object）**，纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。
 * 值的有序列表（An ordered list of values）。在大部分语言中，它被理解为**数组（array）**。
