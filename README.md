@@ -9,6 +9,7 @@
 - add github Repository Hunter 仓库贡献图 - 2017-9-20 10:01:58
 - 改用 [appveyor](https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io) 做持续集成，详细操作流程见:https://formulahendry.github.io/2016/12/04/hexo-ci/ - 2017-9-20 13:00:58
 
+**~~.daocloud~~ 和 ~~Dockerfile~~ 都是 daocloud 持续集成的相关配置**（已废弃）
 # 博客目的
 - 总结所接触学习的技术
 - 养成良好的梳理知识喜欢
