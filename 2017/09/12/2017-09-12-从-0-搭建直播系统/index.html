@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Tue Sep 12 2017 15:45:18 GMT+0000" />
-        <meta property="article:modified_time" content="Wed Oct 11 2017 08:54:45 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Oct 12 2017 15:45:59 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/09/12/2017-09-12-从-0-搭建直播系统/index.html",
     "headline": "从 0 搭建直播系统",
     "datePublished": "Tue Sep 12 2017 15:45:18 GMT+0000",
-    "dateModified": "Wed Oct 11 2017 08:54:45 GMT+0000",
+    "dateModified": "Thu Oct 12 2017 15:45:59 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -586,11 +586,11 @@
 <blockquote>
 <p>服务器系统：Ubuntu 16.10 系统<br>推流，拉流系统：Win 7, Android</p>
 </blockquote>
-<p>一个简易的直播系统，大致可以由三部分组成（详情见鸿洋博客）：</p>
+<p>一个简易的直播系统，大致可以由三部分组成（详情见<a href="http://blog.csdn.net/lmj623565791/article/details/77937483" target="_blank" rel="external">鸿洋博客</a>）：</p>
 <ul>
-<li>搭建一个 rtmp 媒体服务器：这里使用 srs</li>
-<li>推流端：这里使用 obs</li>
-<li>拉流端：这里使用播放器 vlc</li>
+<li>搭建一个 rtmp 媒体服务器：这里使用 srs，链接为：<a href="https://github.com/ossrs/srs" target="_blank" rel="external">https://github.com/ossrs/srs</a></li>
+<li>推流端：这里使用 obs，链接为：<a href="https://obsproject.com/" target="_blank" rel="external">https://obsproject.com/</a></li>
+<li>拉流端：这里使用播放器 vlc，链接为：<a href="http://www.videolan.org/vlc/" target="_blank" rel="external">http://www.videolan.org/vlc/</a></li>
 </ul>
 <h3 id="使用第三方-SDK-推流"><a href="#使用第三方-SDK-推流" class="headerlink" title="使用第三方 SDK 推流"></a>使用第三方 SDK 推流</h3><p>这里以百度云的直播 SDK 为例，下载地址：<br><a href="https://cloud.baidu.com/doc/Downloadcenter/Push.html#.E7.89.88.E6.9C.AC.E6.9B.B4.E6.96.B0.E8.AF.B4.E6.98.8E" target="_blank" rel="external">https://cloud.baidu.com/doc/Downloadcenter/Push.html#.E7.89.88.E6.9C.AC.E6.9B.B4.E6.96.B0.E8.AF.B4.E6.98.8E</a></p>
 <p>修改推流地址之后上传到了我的 <a href="https://github.com/yangxiaoge/PushFlowLive" target="_blank" rel="external">PushFlowLive</a></p>
@@ -606,7 +606,7 @@
 <p>大家可以自己下载 ffmepg 的源码，然后按照网上的方式去编成 so，简单的一点而且比较实用的，就是编出可以执行 ffmpeg 命令的 so，这样就能干很多事情了。</p>
 <p>这里，由于篇幅，我们就直接使用别人编好的项目了。</p>
 <p><a href="https://github.com/WritingMinds/ffmpeg-android-java" target="_blank" rel="external">https://github.com/WritingMinds/ffmpeg-android-java</a></p>
-<p><strong><em>搭建过程截图</em></strong>：<br><img src="https://raw.githubusercontent.com/yangxiaoge/Zz_Application/fc9482b0e15cf82aa60e0a7b943e41d22cac09c9/gif_public/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%E7%9B%B4%E6%92%AD%E7%B3%BB%E7%BB%9F/photo_2017-09-12_14-43-43.jpg" alt=""></p>
+<p><strong><em>搭建过程截图</em></strong>：<br>直播步骤：1，开启rtmp 媒体服务器 2，推流（推流客户端，apk等） 3，拉流（vlc等）<br><img src="https://raw.githubusercontent.com/yangxiaoge/Zz_Application/fc9482b0e15cf82aa60e0a7b943e41d22cac09c9/gif_public/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%E7%9B%B4%E6%92%AD%E7%B3%BB%E7%BB%9F/photo_2017-09-12_14-43-43.jpg" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/yangxiaoge/Zz_Application/fc9482b0e15cf82aa60e0a7b943e41d22cac09c9/gif_public/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%E7%9B%B4%E6%92%AD%E7%B3%BB%E7%BB%9F/photo_2017-09-12_14-43-51.jpg" alt="利用手机端推流，电脑端通过 VLC 拉流"></p>
 <p><img src="https://raw.githubusercontent.com/yangxiaoge/Zz_Application/fc9482b0e15cf82aa60e0a7b943e41d22cac09c9/gif_public/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%E7%9B%B4%E6%92%AD%E7%B3%BB%E7%BB%9F/photo_2017-09-12_14-43-57.jpg" alt="利用手机端推流，电脑端通过 VLC 拉流"></p>
 <p><img src="https://raw.githubusercontent.com/yangxiaoge/Zz_Application/fc9482b0e15cf82aa60e0a7b943e41d22cac09c9/gif_public/%E4%BB%8E%200%20%E6%90%AD%E5%BB%BA%E7%9B%B4%E6%92%AD%E7%B3%BB%E7%BB%9F/photo_2017-09-12_14-44-02.jpg" alt="利用手机端推流，电脑端通过 VLC 拉流"></p>
