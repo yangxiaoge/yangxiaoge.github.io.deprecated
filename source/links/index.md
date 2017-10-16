@@ -62,7 +62,8 @@ header-img: "/img/music.jpg"
 |[easy-mock](https://easy-mock.com/) | 在线 mock |
 |[RxTools](https://github.com/vondear/RxTools) | 支付，购物车控件，分享，圆图，二维码，压缩，webview，滑动验证，location，电影票选座，联系人，跑马灯，Toast，登录 等等 |
 |[Android 工具集](https://github.com/Blankj/AndroidUtilCode) | 囊括所有你能想到的utils，不用自己去写工具了。 |
-| [快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) | 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等 |
+|[快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) | 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等 |
+|[µTorrent](http://www.utorrent.com/intl/zh/) | BT 下载软件，如 µTorrent、qBittorrent、Transmission 和 Vuze等 |
 	
 --------------------------------
 ## 轻松一刻
