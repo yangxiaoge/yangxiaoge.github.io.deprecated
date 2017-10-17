@@ -52,7 +52,7 @@ header-img: "/img/music.jpg"
 ## 工具集
 | 链接        |     简介     |
 | :----------- | :-----------|
-|[VIP 视频](http://ilxdh.com/) | 你懂得 |
+|[VIP 视频](http://ilxdh.com/) | 你懂得,[龙轩导航](http://ilxdh.com/) |
 |[极客导航](http://www.jikedaohang.com/) | 程序员自己的导航 |
 |[在线工具](http://tool.lu/) | 常用的在线工具 |
 |[菜鸟工具](http://c.runoob.com/) | 编译以及前端工具 |
@@ -64,6 +64,8 @@ header-img: "/img/music.jpg"
 |[Android 工具集](https://github.com/Blankj/AndroidUtilCode) | 囊括所有你能想到的utils，不用自己去写工具了。 |
 |[快速开发工具类收集](https://github.com/AbrahamCaiJin/CommonUtilLibrary) | 银行卡管理，sp，appinfo，cache，phoneinfo，viewutils等 |
 |[µTorrent](http://www.utorrent.com/intl/zh/) | BT 下载软件，如 µTorrent、qBittorrent、Transmission 和 Vuze等 |
+|[Windows 绝赞应用](https://amazing-apps.gitbooks.io/windows-apps-that-amaze-us/content/zh-CN/china-apps.html)| Windows 绝赞应用 |
+|[Mac 绝赞应用](https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md#%E7%9B%AE%E5%BD%95)| Mac 绝赞应用 |
 	
 --------------------------------
 ## 轻松一刻
