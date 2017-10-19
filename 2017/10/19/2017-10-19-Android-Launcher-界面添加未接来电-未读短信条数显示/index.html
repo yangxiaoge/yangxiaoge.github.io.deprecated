@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Thu Oct 19 2017 16:00:50 GMT+0000" />
-        <meta property="article:modified_time" content="Thu Oct 19 2017 08:50:49 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Oct 19 2017 09:07:41 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/10/19/2017-10-19-Android-Launcher-界面添加未接来电-未读短信条数显示/index.html",
     "headline": "Android Launcher 界面添加未接来电/未读短信条数显示",
     "datePublished": "Thu Oct 19 2017 16:00:50 GMT+0000",
-    "dateModified": "Thu Oct 19 2017 08:50:49 GMT+0000",
+    "dateModified": "Thu Oct 19 2017 09:07:41 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -404,7 +404,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Launcher-java"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Launcher.java</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改对比"><span class="post-toc-number">2.</span> <span class="post-toc-text">修改对比</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Launcher-java"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Launcher.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Utilities-java"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. Utilities.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-AndroidManifest-xml"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-修改对比"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 修改对比</span></a></li></ol>
     </ul>
     
 
@@ -600,145 +600,249 @@
 <p>具体的思路：<code>Launcher</code> 中注册 <code>ContentObserver</code> 来监听短信和电话数据库，当数据发生变化时，读取读取数据库未读数目之后通过 ICON_NAME ，<code>重新绘制</code>短信，电话的图标（在原图右上角画圆和数字）。</p>
 <hr>
 <p>具体代码：</p>
-<h3 id="1-Launcher-java"><a href="#1-Launcher-java" class="headerlink" title="1. Launcher.java"></a>1. <em>Launcher.java</em></h3><ol>
-<li>首先是定义两个 ContentObserver<br>```<br>private final static int UPDATE_MMS_ICON = 826;<br>private final static int UPDATE_CALL_ICON = 1206;</li>
-</ol>
-<p>public class SMSContentObserver extends ContentObserver {<br>    private Handler mHandler;</p>
-<pre><code>public SMSContentObserver(Context context, Handler handler) {
-    super(handler);
-    mHandler = handler;
+<h4 id="1-Launcher-java"><a href="#1-Launcher-java" class="headerlink" title="1. Launcher.java"></a>1. <em>Launcher.java</em></h4><ul>
+<li>首先是定义两个 ContentObserver</li>
+</ul>
+<pre><code>private final static int UPDATE_MMS_ICON = 826;  
+private final static int UPDATE_CALL_ICON = 1206;
+
+public class SMSContentObserver extends ContentObserver {
+    private Handler mHandler;
+
+    public SMSContentObserver(Context context, Handler handler) {
+        super(handler);
+        mHandler = handler;
+    }
+
+    @Override
+    public void onChange(boolean selfChange) {
+        Log.i(&quot;Launcher-&quot;,&quot;SMSContentObserver onChange&quot;);
+        mHandler.removeMessages(UPDATE_MMS_ICON);
+        Message msg = mHandler.obtainMessage(UPDATE_MMS_ICON);
+        msg.obj = getMissMmsCount();
+        mHandler.sendMessage(msg);
+    }
 }
 
-@Override
-public void onChange(boolean selfChange) {
-    Log.i(&quot;Launcher-&quot;,&quot;SMSContentObserver onChange&quot;);
-    mHandler.removeMessages(UPDATE_MMS_ICON);
-    Message msg = mHandler.obtainMessage(UPDATE_MMS_ICON);
-    msg.obj = getMissMmsCount();
-    mHandler.sendMessage(msg);
+public class CallContentObserver extends ContentObserver {
+    private Handler mHandler;
+    public CallContentObserver(Context context, Handler handler) {
+        super(handler);
+        mHandler = handler;
+    }
+
+    @Override
+    public void onChange(boolean selfChange) {
+        Log.i(&quot;Launcher-&quot;,&quot;CallContentObserver onChange&quot;);
+        mHandler.removeMessages(UPDATE_CALL_ICON);
+        Message msg = mHandler.obtainMessage(UPDATE_CALL_ICON);
+        msg.obj = getMissCallCount();
+        mHandler.sendMessage(msg);
+    }
 }
-</code></pre><p>}</p>
-<p>public class CallContentObserver extends ContentObserver {<br>    private Handler mHandler;<br>    public CallContentObserver(Context context, Handler handler) {<br>        super(handler);<br>        mHandler = handler;<br>    }</p>
-<pre><code>@Override
-public void onChange(boolean selfChange) {
-    Log.i(&quot;Launcher-&quot;,&quot;CallContentObserver onChange&quot;);
-    mHandler.removeMessages(UPDATE_CALL_ICON);
-    Message msg = mHandler.obtainMessage(UPDATE_CALL_ICON);
-    msg.obj = getMissCallCount();
-    mHandler.sendMessage(msg);
+</code></pre><ul>
+<li>在 onCreate() 中注册 ContentObserver</li>
+</ul>
+<pre><code>private SMSContentObserver smsContentObserver = null;  
+private CallContentObserver callContentObserver = null;  
+
+smsContentObserver = new SMSContentObserver(this,mHandler);
+callContentObserver =new CallContentObserver(this,mHandler);
+
+getContentResolver().registerContentObserver(Calls.CONTENT_URI,true,callContentObserver);
+getContentResolver().registerContentObserver(Uri.parse(&quot;content://mms-sms/&quot;),true,smsContentObserver);
+</code></pre><ul>
+<li>定义两个 ICON_NAME</li>
+</ul>
+<pre><code>// 这两个 ICON_NAME 根据自己实际系统短信和电话页面对应包名填写
+private final static String PHONE_ICON_NAME = &quot;com.android.dialer.DialtactsActivity&quot;;
+private final static String MMS_ICON_NAME = &quot;com.android.messaging.ui.conversationlist.ConversationListActivity&quot;;
+</code></pre><ul>
+<li>mHandler 中处理</li>
+</ul>
+<pre><code>@Thunk
+final Handler mHandler = new Handler(new Handler.Callback() {
+    @Override
+    public boolean handleMessage(Message msg) {
+        Log.i(&quot;Launcher-&quot;,&quot;mHandler msg.what = &quot; + msg.what);
+        if (msg.what == ADVANCE_MSG) {
+            int i = 0;
+            for (View key : mWidgetsToAdvance.keySet()) {
+                final View v = key.findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);
+                final int delay = mAdvanceStagger * i;
+                if (v instanceof Advanceable) {
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            ((Advanceable) v).advance();
+                        }
+                    }, delay);
+                }
+                i++;
+            }
+            sendAdvanceMessage(mAdvanceInterval);
+        }
+        //ADD BY Bruce Yang FOR SHOW UNREAD MMS
+        else if (msg.what == UPDATE_MMS_ICON) {
+            setMmsOrPhoneNum(MMS_ICON_NAME, getMissMmsCount());
+        } else if (msg.what == UPDATE_CALL_ICON) {
+            setMmsOrPhoneNum(PHONE_ICON_NAME, getMissCallCount());
+        }
+        return true;
+    }
+});
+</code></pre><ul>
+<li>获取数据库中未读数目</li>
+</ul>
+<pre><code> private int getMissMmsCount() {
+    Log.i(&quot;Launcher-&quot;,&quot;getMissMmsCount&quot;);
+    int missSmsCount = 0;
+    Cursor cursorSMS = null;
+    Cursor cursorMMS = null;
+    try {
+        cursorSMS = getContentResolver().query(
+                Uri.parse(&quot;content://sms&quot;), null, &quot;(read=0 and type=1)&quot;,
+                null, null);
+        cursorMMS = getContentResolver().query(
+                Uri.parse(&quot;content://mms&quot;), null, &quot;(read=0)&quot;, null,
+                null);
+    } catch (SQLiteException e) {
+        return missSmsCount;
+    }
+    if (cursorSMS != null) {
+        missSmsCount = cursorSMS.getCount();
+        cursorSMS.close();
+    }
+    if (cursorMMS != null) {
+            missSmsCount = missSmsCount + cursorMMS.getCount();
+        cursorMMS.close();
+    }
+
+    Log.i(&quot;Launcher-&quot;,&quot;getMissMmsCount  missSmsCount = &quot; + missSmsCount);
+    return missSmsCount;
 }
-</code></pre><p>}</p>
-<pre><code>2. 在 onCreate() 中注册 ContentObserver
-</code></pre><p>private SMSContentObserver smsContentObserver = null;<br>private CallContentObserver callContentObserver = null;  </p>
-<p>smsContentObserver = new SMSContentObserver(this,mHandler);<br>callContentObserver =new CallContentObserver(this,mHandler);</p>
-<p>getContentResolver().registerContentObserver(Calls.CONTENT_URI,true,callContentObserver);<br>getContentResolver().registerContentObserver(Uri.parse(“content://mms-sms/“),true,smsContentObserver);</p>
-<pre><code>3. 定义两个 ICON_NAME
-</code></pre><p>// 这两个 ICON_NAME 根据自己实际系统短信和电话页面对应包名填写<br>private final static String PHONE_ICON_NAME = “com.android.dialer.DialtactsActivity”;<br>private final static String MMS_ICON_NAME = “com.android.messaging.ui.conversationlist.ConversationListActivity”;</p>
-<pre><code>
-4. mHandler 中处理
-</code></pre><p>@Thunk<br>final Handler mHandler = new Handler(new Handler.Callback() {<br>    @Override<br>    public boolean handleMessage(Message msg) {<br>        Log.i(“Launcher-“,”mHandler msg.what = “ + msg.what);<br>        if (msg.what == ADVANCE_MSG) {<br>            int i = 0;<br>            for (View key : mWidgetsToAdvance.keySet()) {<br>                final View v = key.findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);<br>                final int delay = mAdvanceStagger * i;<br>                if (v instanceof Advanceable) {<br>                    mHandler.postDelayed(new Runnable() {<br>                        public void run() {<br>                            ((Advanceable) v).advance();<br>                        }<br>                    }, delay);<br>                }<br>                i++;<br>            }<br>            sendAdvanceMessage(mAdvanceInterval);<br>        }<br>        //ADD BY Bruce Yang FOR SHOW UNREAD MMS<br>        else if (msg.what == UPDATE_MMS_ICON) {<br>            setMmsOrPhoneNum(MMS_ICON_NAME, getMissMmsCount());<br>        } else if (msg.what == UPDATE_CALL_ICON) {<br>            setMmsOrPhoneNum(PHONE_ICON_NAME, getMissCallCount());<br>        }<br>        return true;<br>    }<br>});</p>
-<pre><code>
-5. 获取数据库中未读数目
-</code></pre><p> private int getMissMmsCount() {<br>    Log.i(“Launcher-“,”getMissMmsCount”);<br>    int missSmsCount = 0;<br>    Cursor cursorSMS = null;<br>    Cursor cursorMMS = null;<br>    try {<br>        cursorSMS = getContentResolver().query(<br>                Uri.parse(“content://sms”), null, “(read=0 and type=1)”,<br>                null, null);<br>        cursorMMS = getContentResolver().query(<br>                Uri.parse(“content://mms”), null, “(read=0)”, null,<br>                null);<br>    } catch (SQLiteException e) {<br>        return missSmsCount;<br>    }<br>    if (cursorSMS != null) {<br>        missSmsCount = cursorSMS.getCount();<br>        cursorSMS.close();<br>    }<br>    if (cursorMMS != null) {<br>            missSmsCount = missSmsCount + cursorMMS.getCount();<br>        cursorMMS.close();<br>    }</p>
-<pre><code>Log.i(&quot;Launcher-&quot;,&quot;getMissMmsCount  missSmsCount = &quot; + missSmsCount);
-return missSmsCount;
-</code></pre><p>}</p>
-<p>private int getMissCallCount() {<br>    Log.i(“Launcher-“,”getMissCallCount”);<br>    int missCallCount = 0;<br>    Uri missingCallUri = Calls.CONTENT_URI;<br>    String where = Calls.TYPE + “=’” + Calls.MISSED_TYPE + “‘“</p>
-<pre><code>        + &quot; AND new=1&quot;;
-Cursor cursorCall = null;
-try {
-    cursorCall = getContentResolver().query(missingCallUri,
-            null, where, null, null);
-} catch (SQLiteException e) {
+
+private int getMissCallCount() {
+    Log.i(&quot;Launcher-&quot;,&quot;getMissCallCount&quot;);
+    int missCallCount = 0;
+    Uri missingCallUri = Calls.CONTENT_URI;
+    String where = Calls.TYPE + &quot;=&#39;&quot; + Calls.MISSED_TYPE + &quot;&#39;&quot;
+            + &quot; AND new=1&quot;;
+    Cursor cursorCall = null;
+    try {
+        cursorCall = getContentResolver().query(missingCallUri,
+                null, where, null, null);
+    } catch (SQLiteException e) {
+        return missCallCount;
+    }
+
+    if (cursorCall != null) {
+        missCallCount = cursorCall.getCount();
+        cursorCall.close();
+    }
+    Log.i(&quot;Launcher-&quot;,&quot;getMissCallCount  missCallCount = &quot; + missCallCount);
     return missCallCount;
 }
+</code></pre><ul>
+<li>设置 ICON 未读数</li>
+</ul>
+<pre><code>/**
+    *
+    * @param flag 更新电话或短信 ICON
+    * @param missCount 未读数
+*/
+private void setMmsOrPhoneNum(final String flag, final int missCount) {
+    Log.i(&quot;Launcher-&quot;,&quot;flag = &quot;+flag +&quot; missCount = &quot;+missCount);
+    if(mWorkspace == null) return;
+    ArrayList&lt;CellLayout&gt; cellLayouts = mWorkspace.getWorkspaceAndHotseatCellLayouts();
+    for (final CellLayout layoutParent: cellLayouts) {
+        final ViewGroup shortcutAndWidgetContainer = layoutParent.getShortcutsAndWidgets();
 
-if (cursorCall != null) {
-    missCallCount = cursorCall.getCount();
-    cursorCall.close();
-}
-Log.i(&quot;Launcher-&quot;,&quot;getMissCallCount  missCallCount = &quot; + missCallCount);
-return missCallCount;
-</code></pre><p>}</p>
-<pre><code>
-6. 设置 ICON 未读数
-</code></pre><p>/<em>*
-    </em></p>
-<pre><code>* @param flag 更新电话或短信 ICON
-* @param missCount 未读数
-</code></pre><p>*/<br>private void setMmsOrPhoneNum(final String flag, final int missCount) {<br>    Log.i(“Launcher-“,”flag = “+flag +” missCount = “+missCount);<br>    if(mWorkspace == null) return;<br>    ArrayList<celllayout> cellLayouts = mWorkspace.getWorkspaceAndHotseatCellLayouts();<br>    for (final CellLayout layoutParent: cellLayouts) {<br>        final ViewGroup shortcutAndWidgetContainer = layoutParent.getShortcutsAndWidgets();</celllayout></p>
-<pre><code>    mWorkspace.post(new Runnable() {
-        public void run() {
+        mWorkspace.post(new Runnable() {
+            public void run() {
 
-            int childCount = shortcutAndWidgetContainer.getChildCount();
-            for (int j = 0; j &lt;childCount; j++) {
-                View view = shortcutAndWidgetContainer.getChildAt(j);
+                int childCount = shortcutAndWidgetContainer.getChildCount();
+                for (int j = 0; j &lt;childCount; j++) {
+                    View view = shortcutAndWidgetContainer.getChildAt(j);
 
-                Object tag = view.getTag();
-                if (tag instanceof ShortcutInfo) {
-                    final ShortcutInfo info = (ShortcutInfo) tag;
-                    final Intent intent = info.intent;
+                    Object tag = view.getTag();
+                    if (tag instanceof ShortcutInfo) {
+                        final ShortcutInfo info = (ShortcutInfo) tag;
+                        final Intent intent = info.intent;
 
-                    if (intent != null) {
-                        final ComponentName name = intent.getComponent();
-                        if (name != null &amp;&amp; name.getClassName().equals(flag)) {
-                            BubbleTextView bv = (BubbleTextView) view;
-                            Bitmap defaultIconBitmap = Bitmap.createBitmap(info.getIcon(mIconCache));
-                            Bitmap bitmap = Utilities.createIconBitmap(defaultIconBitmap, missCount);
-                            bv.setCompoundDrawablesWithIntrinsicBounds(null,
-                                    new FastBitmapDrawable(bitmap),
-                                    null, null);
+                        if (intent != null) {
+                            final ComponentName name = intent.getComponent();
+                            if (name != null &amp;&amp; name.getClassName().equals(flag)) {
+                                BubbleTextView bv = (BubbleTextView) view;
+                                Bitmap defaultIconBitmap = Bitmap.createBitmap(info.getIcon(mIconCache));
+                                Bitmap bitmap = Utilities.createIconBitmap(defaultIconBitmap, missCount);
+                                bv.setCompoundDrawablesWithIntrinsicBounds(null,
+                                        new FastBitmapDrawable(bitmap),
+                                        null, null);
+                            }
                         }
                     }
                 }
             }
-        }
-    });
+        });
+    }
 }
-</code></pre><p>}</p>
-<pre><code>
-7. 第一次启动 Launcher 就能获取未读数目，在 finishBindingItems() 添加逻辑
-</code></pre><p>//ADD BY Bruce Yang<br>int missCall = getMissCallCount();<br>int missMms = getMissMmsCount();<br>if(missCall != 0) {<br>    setMmsOrPhoneNum(PHONE_ICON_NAME, missCall);<br>}<br>if(missMms != 0) {<br>    setMmsOrPhoneNum(MMS_ICON_NAME, missMms);<br>}</p>
-<pre><code>
-8. 在 onDestroy() 中反注册 ContentObserver
-</code></pre><p>getContentResolver().unregisterContentObserver(smsContentObserver);<br>getContentResolver().unregisterContentObserver(callContentObserver);</p>
-<pre><code>
-### 2. *Utilities.java*
-
-新增构造方法，用于重新绘制带数字的应用图标。
-</code></pre><p>//add by Bruce Yang for …<br>static Bitmap createIconBitmap(Bitmap b, int count) {<br>    Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888,true);<br>    Log.i(“Launcher-“,”b.isMutable() = “+b.isMutable()); // 如果为 false 就会抛出 java.lang.IllegalStateException 异常， <a href="http://bbs.csdn.net/topics/370021698" target="_blank" rel="external">http://bbs.csdn.net/topics/370021698</a><br>    if (count == 0) return b;<br>    int textureWidth = bitmap.getWidth();<br>    final Canvas canvas = sCanvas;<br>    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);<br>    canvas.setBitmap(bitmap);</p>
-<pre><code>paint.setColor(Color.RED);
-canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
-paint.setColor(Color.WHITE);
-paint.setStyle(Paint.Style.STROKE);
-paint.setStrokeWidth(2);
-canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
-
-Paint countPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
-countPaint.setColor(Color.WHITE);
-countPaint.setTextSize(26f);
-countPaint.setTypeface(Typeface.DEFAULT_BOLD);
-
-float x = textureWidth - 24-4;
-if (count &gt; 9) x -= 4+6;
-
-if (count &gt; 99) {
-    countPaint.setTextSize(22f);
-    String text = String.valueOf(99) + &quot;+&quot;;
-    canvas.drawText(text, x-2, 25+5, countPaint);
-} else {
-    String text = String.valueOf(count);
-    canvas.drawText(text,x, 25+5, countPaint);
+</code></pre><ul>
+<li>第一次启动 Launcher 就能获取未读数目，在 finishBindingItems() 添加逻辑</li>
+</ul>
+<pre><code>//ADD BY Bruce Yang
+int missCall = getMissCallCount();
+int missMms = getMissMmsCount();
+if(missCall != 0) {
+    setMmsOrPhoneNum(PHONE_ICON_NAME, missCall);
 }
-return bitmap;
-</code></pre><p>}</p>
-<pre><code>
-### 3. *AndroidManifest.xml*
+if(missMms != 0) {
+    setMmsOrPhoneNum(MMS_ICON_NAME, missMms);
+}
+</code></pre><ul>
+<li>在 onDestroy() 中反注册 ContentObserver</li>
+</ul>
+<pre><code>getContentResolver().unregisterContentObserver(smsContentObserver);
+getContentResolver().unregisterContentObserver(callContentObserver);
+</code></pre><h4 id="2-Utilities-java"><a href="#2-Utilities-java" class="headerlink" title="2. Utilities.java"></a>2. <em>Utilities.java</em></h4><p>新增构造方法，用于重新绘制带数字的应用图标。</p>
+<pre><code>//add by Bruce Yang for ...
+static Bitmap createIconBitmap(Bitmap b, int count) {
+    Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888,true);
+    Log.i(&quot;Launcher-&quot;,&quot;b.isMutable() = &quot;+b.isMutable()); // 如果为 false 就会抛出 java.lang.IllegalStateException 异常， http://bbs.csdn.net/topics/370021698
+    if (count == 0) return b;
+    int textureWidth = bitmap.getWidth();
+    final Canvas canvas = sCanvas;
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
+    canvas.setBitmap(bitmap);
 
-添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 argetSdkVersion 改成 21（原来是 23）。
-</code></pre><p><uses-permission android:name="android.permission.READ_SMS"></uses-permission></p>
-<p><uses-permission android:name="android.permission.READ_CALL_LOG"><br>```</uses-permission></p>
-<h3 id="修改对比"><a href="#修改对比" class="headerlink" title="修改对比"></a>修改对比</h3><blockquote>
+    paint.setColor(Color.RED);
+    canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
+    paint.setColor(Color.WHITE);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setStrokeWidth(2);
+    canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
+
+    Paint countPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
+    countPaint.setColor(Color.WHITE);
+    countPaint.setTextSize(26f);
+    countPaint.setTypeface(Typeface.DEFAULT_BOLD);
+
+    float x = textureWidth - 24-4;
+    if (count &gt; 9) x -= 4+6;
+
+    if (count &gt; 99) {
+        countPaint.setTextSize(22f);
+        String text = String.valueOf(99) + &quot;+&quot;;
+        canvas.drawText(text, x-2, 25+5, countPaint);
+    } else {
+        String text = String.valueOf(count);
+        canvas.drawText(text,x, 25+5, countPaint);
+    }
+    return bitmap;
+}
+</code></pre><h4 id="3-AndroidManifest-xml"><a href="#3-AndroidManifest-xml" class="headerlink" title="3. AndroidManifest.xml"></a>3. <em>AndroidManifest.xml</em></h4><p>添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 argetSdkVersion 改成 21（原来是 23）。</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_CALL_LOG&quot; /&gt;
+</code></pre><h4 id="4-修改对比"><a href="#4-修改对比" class="headerlink" title="4. 修改对比"></a>4. 修改对比</h4><blockquote>
 <p>修改前：</p>
 </blockquote>
 <p><img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="450"></p>
@@ -746,6 +850,10 @@ return bitmap;
 <p>修改后：</p>
 </blockquote>
 <p><img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="450"></p>
+<blockquote>
+<p>参考文章： </p>
+</blockquote>
+<p><a href="http://blog.csdn.net/chenxiong668/article/details/12851357" target="_blank" rel="external">http://blog.csdn.net/chenxiong668/article/details/12851357</a><br><a href="http://blog.csdn.net/kerancsdn/article/details/26705767" target="_blank" rel="external">http://blog.csdn.net/kerancsdn/article/details/26705767</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
