@@ -17,9 +17,10 @@ tags: [Android]
 -------------------------
 具体代码：
 
-### 1. *Launcher.java*
+#### 1. *Launcher.java*
 
-1. 首先是定义两个 ContentObserver
+- 首先是定义两个 ContentObserver
+
 ```
 private final static int UPDATE_MMS_ICON = 826;  
 private final static int UPDATE_CALL_ICON = 1206;
@@ -59,7 +60,8 @@ public class CallContentObserver extends ContentObserver {
     }
 }
 ```
-2. 在 onCreate() 中注册 ContentObserver
+
+- 在 onCreate() 中注册 ContentObserver
 
 ```
 private SMSContentObserver smsContentObserver = null;  
@@ -71,14 +73,17 @@ callContentObserver =new CallContentObserver(this,mHandler);
 getContentResolver().registerContentObserver(Calls.CONTENT_URI,true,callContentObserver);
 getContentResolver().registerContentObserver(Uri.parse("content://mms-sms/"),true,smsContentObserver);
 ```
-3. 定义两个 ICON_NAME
+
+- 定义两个 ICON_NAME
+
 ```
 // 这两个 ICON_NAME 根据自己实际系统短信和电话页面对应包名填写
 private final static String PHONE_ICON_NAME = "com.android.dialer.DialtactsActivity";
 private final static String MMS_ICON_NAME = "com.android.messaging.ui.conversationlist.ConversationListActivity";
 ```
 
-4. mHandler 中处理
+- mHandler 中处理
+
 ```
 @Thunk
 final Handler mHandler = new Handler(new Handler.Callback() {
@@ -112,7 +117,8 @@ final Handler mHandler = new Handler(new Handler.Callback() {
 });
 ```
 
-5. 获取数据库中未读数目
+- 获取数据库中未读数目
+
 ```
  private int getMissMmsCount() {
     Log.i("Launcher-","getMissMmsCount");
@@ -165,7 +171,8 @@ private int getMissCallCount() {
 }
 ```
 
-6. 设置 ICON 未读数
+- 设置 ICON 未读数
+
 ```
 /**
     *
@@ -210,7 +217,8 @@ private void setMmsOrPhoneNum(final String flag, final int missCount) {
 }
 ```
 
-7. 第一次启动 Launcher 就能获取未读数目，在 finishBindingItems() 添加逻辑
+- 第一次启动 Launcher 就能获取未读数目，在 finishBindingItems() 添加逻辑
+
 ```
 //ADD BY Bruce Yang
 int missCall = getMissCallCount();
@@ -223,13 +231,14 @@ if(missMms != 0) {
 }
 ```
 
-8. 在 onDestroy() 中反注册 ContentObserver
+- 在 onDestroy() 中反注册 ContentObserver
+
 ```
 getContentResolver().unregisterContentObserver(smsContentObserver);
 getContentResolver().unregisterContentObserver(callContentObserver);
 ```
 
-### 2. *Utilities.java*
+#### 2. *Utilities.java*
 
 新增构造方法，用于重新绘制带数字的应用图标。
 
@@ -271,7 +280,7 @@ static Bitmap createIconBitmap(Bitmap b, int count) {
 }
 ```
 
-### 3. *AndroidManifest.xml*
+#### 3. *AndroidManifest.xml*
 
 添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 argetSdkVersion 改成 21（原来是 23）。
 ```
@@ -279,7 +288,7 @@ static Bitmap createIconBitmap(Bitmap b, int count) {
 <uses-permission android:name="android.permission.READ_CALL_LOG" />
 ```
 
-### 修改对比
+#### 4. 修改对比
 
 > 修改前：
 
@@ -288,3 +297,9 @@ static Bitmap createIconBitmap(Bitmap b, int count) {
 > 修改后：
 
 <img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="450"/>
+
+
+> 参考文章： 
+
+http://blog.csdn.net/chenxiong668/article/details/12851357
+http://blog.csdn.net/kerancsdn/article/details/26705767
