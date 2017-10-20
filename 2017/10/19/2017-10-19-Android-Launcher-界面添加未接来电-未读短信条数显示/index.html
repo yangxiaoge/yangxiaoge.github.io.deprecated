@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Thu Oct 19 2017 16:00:50 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Oct 20 2017 03:25:18 GMT+0000" />
+        <meta property="article:modified_time" content="Fri Oct 20 2017 06:33:32 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/10/19/2017-10-19-Android-Launcher-界面添加未接来电-未读短信条数显示/index.html",
     "headline": "Android Launcher 界面添加未接来电/未读短信条数显示",
     "datePublished": "Thu Oct 19 2017 16:00:50 GMT+0000",
-    "dateModified": "Fri Oct 20 2017 03:25:18 GMT+0000",
+    "dateModified": "Fri Oct 20 2017 06:33:32 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -404,7 +404,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Launcher-java"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Launcher.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Utilities-java"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. Utilities.java</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-AndroidManifest-xml"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-修改对比"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 修改对比</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Launcher-java"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Launcher.java</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Utilities-java"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. Utilities.java</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-AndroidManifest-xml"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改对比"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 修改对比</span></a></li></ol>
     </ul>
     
 
@@ -423,17 +423,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 15 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://i.loli.net/2017/10/20/59e98e8db4b58.png)">
     
             <p class="article-headline-p">
                 Android Launcher 界面添加未接来电/未读短信条数显示
@@ -590,7 +581,10 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>本文代码基于 Android 6.0（高通），原生不支持未接来电以及未读短信的图标右上角数目显示。</p>
+        <blockquote>
+<p>Thumbnail by <a href="https://octiviotti.deviantart.com/" target="_blank" rel="external">octiviotti</a></p>
+</blockquote>
+<p>本文代码基于 Android 6.0（高通），原生不支持未接来电以及未读短信的图标右上角数目显示。</p>
 <p>涉及到几个文件： </p>
 <ol>
 <li>packages/apps/Launcher3/src/com/android/launcher3/Launcher.java</li>
@@ -600,7 +594,7 @@
 <p>具体的思路：<code>Launcher</code> 中注册 <code>ContentObserver</code> 来监听短信和电话数据库，当数据发生变化时，读取读取数据库未读数目之后通过 ICON_NAME ，<code>重新绘制</code>短信，电话的图标（在原图右上角画圆和数字）。</p>
 <hr>
 <p>具体代码：</p>
-<h4 id="1-Launcher-java"><a href="#1-Launcher-java" class="headerlink" title="1. Launcher.java"></a>1. <em>Launcher.java</em></h4><ul>
+<h3 id="1-Launcher-java"><a href="#1-Launcher-java" class="headerlink" title="1. Launcher.java"></a>1. Launcher.java</h3><ul>
 <li>首先是定义两个 ContentObserver</li>
 </ul>
 <pre><code>private final static int UPDATE_MMS_ICON = 826;  
@@ -803,7 +797,7 @@ if(missMms != 0) {
 </ul>
 <pre><code>getContentResolver().unregisterContentObserver(smsContentObserver);
 getContentResolver().unregisterContentObserver(callContentObserver);
-</code></pre><h4 id="2-Utilities-java"><a href="#2-Utilities-java" class="headerlink" title="2. Utilities.java"></a>2. <em>Utilities.java</em></h4><p>新增构造方法，用于重新绘制带数字的应用图标。</p>
+</code></pre><h3 id="2-Utilities-java"><a href="#2-Utilities-java" class="headerlink" title="2. Utilities.java"></a>2. Utilities.java</h3><p>新增构造方法，用于重新绘制带数字的应用图标。</p>
 <pre><code>//add by Bruce Yang for ...
 static Bitmap createIconBitmap(Bitmap b, int count) {
     Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888,true);
@@ -839,17 +833,17 @@ static Bitmap createIconBitmap(Bitmap b, int count) {
     }
     return bitmap;
 }
-</code></pre><h4 id="3-AndroidManifest-xml"><a href="#3-AndroidManifest-xml" class="headerlink" title="3. AndroidManifest.xml"></a>3. <em>AndroidManifest.xml</em></h4><p>添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 argetSdkVersion 改成 21（原来是 23）。</p>
+</code></pre><h3 id="3-AndroidManifest-xml"><a href="#3-AndroidManifest-xml" class="headerlink" title="3. AndroidManifest.xml"></a>3. AndroidManifest.xml</h3><p>添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 targetSdkVersion 改成 21（原来是 23）。</p>
 <pre><code>&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot; /&gt;
 &lt;uses-permission android:name=&quot;android.permission.READ_CALL_LOG&quot; /&gt;
-</code></pre><h4 id="4-修改对比"><a href="#4-修改对比" class="headerlink" title="4. 修改对比"></a>4. 修改对比</h4><blockquote>
+</code></pre><h3 id="4-修改对比"><a href="#4-修改对比" class="headerlink" title="4. 修改对比"></a>4. 修改对比</h3><blockquote>
 <p>修改前：</p>
 </blockquote>
-<p><img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="450"></p>
+<p><img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="480"></p>
 <blockquote>
 <p>修改后：</p>
 </blockquote>
-<p><img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="450"></p>
+<p><img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="480"></p>
 <blockquote>
 <p>参考文章： </p>
 </blockquote>
@@ -1510,7 +1504,7 @@ It will not impact the appearance and can give developers a lot of support :)
     
         
         
-        HanabiBrowser.start('pre code',true);
+        HanabiBrowser.start('pre code',false);
     
 </script>
 
