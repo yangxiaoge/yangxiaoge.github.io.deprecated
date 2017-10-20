@@ -2,7 +2,9 @@
 title: Android Launcher 界面添加未接来电/未读短信条数显示
 date: 2017-10-19 16:00:50
 tags: [Android]
+thumbnail: https://i.loli.net/2017/10/20/59e98e8db4b58.png
 ---
+> Thumbnail by [octiviotti](https://octiviotti.deviantart.com/)
 
 本文代码基于 Android 6.0（高通），原生不支持未接来电以及未读短信的图标右上角数目显示。
 
@@ -17,7 +19,7 @@ tags: [Android]
 -------------------------
 具体代码：
 
-#### 1. *Launcher.java*
+### 1. Launcher.java
 
 - 首先是定义两个 ContentObserver
 
@@ -238,7 +240,7 @@ getContentResolver().unregisterContentObserver(smsContentObserver);
 getContentResolver().unregisterContentObserver(callContentObserver);
 ```
 
-#### 2. *Utilities.java*
+### 2. Utilities.java
 
 新增构造方法，用于重新绘制带数字的应用图标。
 
@@ -280,23 +282,23 @@ static Bitmap createIconBitmap(Bitmap b, int count) {
 }
 ```
 
-#### 3. *AndroidManifest.xml*
+### 3. AndroidManifest.xml
 
-添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 argetSdkVersion 改成 21（原来是 23）。
+添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 targetSdkVersion 改成 21（原来是 23）。
 ```
 <uses-permission android:name="android.permission.READ_SMS" />
 <uses-permission android:name="android.permission.READ_CALL_LOG" />
 ```
 
-#### 4. 修改对比
+### 4. 修改对比
 
 > 修改前：
 
-<img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="450"/>
+<img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="480"/>
 
 > 修改后：
 
-<img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="450"/>
+<img src="https://i.loli.net/2017/10/19/59e86659672b9.png" width="270" height="480"/>
 
 
 > 参考文章： 
