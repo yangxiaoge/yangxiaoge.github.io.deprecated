@@ -9,7 +9,7 @@ thumbnail: https://i.loli.net/2017/10/20/59e98e8db4b58.png
 本文代码基于 Android 6.0（高通），原生不支持未接来电以及未读短信的图标右上角数目显示。
 
 涉及到几个文件： 
-
+<!--more-->
 1. packages/apps/Launcher3/src/com/android/launcher3/Launcher.java
 2. packages/apps/Launcher3/src/com/android/launcher3/Utilities.java
 3. packages/apps/Launcher3/AndroidManifest.xml 

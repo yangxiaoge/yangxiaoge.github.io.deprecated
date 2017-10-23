@@ -6,7 +6,7 @@ thumbnail: "https://dn-mhke0kuv.qbox.me/b06cc296588f99c3852e.jpg?imageView2/1/w/
 ---
 
 在开发中我们会遇到各种各样的非常奇怪的问题，有些问题是百思不得骑姐。其实这些问题大都是因为我们不了解安卓内部运行原理，知其所以然才是我们的目的。— `前言`
-
+<!--more-->
 > 本文转自 [墨镜猫](https://juejin.im/post/586da43b1b69e60062cb8a4f)，通俗有趣的文笔
 
 <div align=center><img src="https://dn-mhke0kuv.qbox.me/b06cc296588f99c3852e.jpg?imageView2/1/w/1200/h/700/q/85/interlace/1"/></div>

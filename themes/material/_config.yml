@@ -60,7 +60,7 @@ js_effect:
 # Reading experience
 # 默认显示80字
 reading:
-    entry_excerpt: 80
+    entry_excerpt: false # 80
 
 # Thumbnail Settings
 thumbnail:
