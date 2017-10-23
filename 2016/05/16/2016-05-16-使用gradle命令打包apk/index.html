@@ -56,7 +56,7 @@
 Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
-本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。">
+本文参考了">
     <meta name="keywords" content="null,Android,Gradle,Android Studio">
 
     <!-- Import lsloader -->
@@ -279,12 +279,12 @@ Gradle版本：2.8
 Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
-本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。">
+本文参考了">
     <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="Gradle"> <meta property="og:article:tag" content="Android Studio"> 
 
     
         <meta property="article:published_time" content="Mon May 16 2016 19:04:04 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Oct 23 2017 05:36:22 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Oct 23 2017 09:54:57 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -293,7 +293,7 @@ Gradle版本：2.8
 Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
-本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。">
+本文参考了">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -315,7 +315,7 @@ Gradle版本：2.8
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/05/16/2016-05-16-使用gradle命令打包apk/index.html",
     "headline": "使用gradle命令打包apk",
     "datePublished": "Mon May 16 2016 19:04:04 GMT+0000",
-    "dateModified": "Mon Oct 23 2017 05:36:22 GMT+0000",
+    "dateModified": "Mon Oct 23 2017 09:54:57 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -338,7 +338,7 @@ Gradle版本：2.8
 Android Studio版本：2.1.1
 Gradle版本：2.8
 整个过程默认翻墙！
-本文参考了Android Studio系列教程五–Gradle命令详解与导入第三方包，gradle项目构建这两篇博客以及Gradle官网上关于Gradle使用说明。",
+本文参考了",
 }
 </script>
 
@@ -610,7 +610,8 @@ Gradle版本：2.8
 <p><strong>Android Studio版本：2.1.1</strong></p>
 <p><strong>Gradle版本：2.8</strong></p>
 <p><strong>整个过程默认<code>翻墙</code>！</strong></p>
-<p>本文参考了<a href="http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/" target="_blank" rel="external"><code>Android Studio系列教程五–Gradle命令详解与导入第三方包</code></a>，<a href="http://www.cnblogs.com/smyhvae/p/4456420.html" target="_blank" rel="external"><code>gradle项目构建</code></a>这两篇博客以及<a href="https://guides.codepath.com/android/Getting-Started-with-Gradle" target="_blank" rel="external"><code>Gradle官网</code></a>上关于Gradle使用说明。<br><a id="more"></a><br>随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。</p>
+<p>本文参考了<a id="more"></a><a href="http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/" target="_blank" rel="external"><code>Android Studio系列教程五–Gradle命令详解与导入第三方包</code></a>，<a href="http://www.cnblogs.com/smyhvae/p/4456420.html" target="_blank" rel="external"><code>gradle项目构建</code></a>这两篇博客以及<a href="https://guides.codepath.com/android/Getting-Started-with-Gradle" target="_blank" rel="external"><code>Gradle官网</code></a>上关于Gradle使用说明。</p>
+<p>随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。</p>
 <h1 id="下载Gradle与生成APK"><a href="#下载Gradle与生成APK" class="headerlink" title="下载Gradle与生成APK"></a><code>下载Gradle与生成APK</code></h1><p>在Android Studio中的<code>Terminal</code>窗口下输入：<code>gradlew -v</code> 。来查看下项目所用的<code>Gradle版本</code>。<br>如果你是第一次执行会去下载Gradle<br><img src="http://i.imgur.com/0MMYnHj.png" alt=""><br>下载成功后会出现如下信息：<br><img src="http://i.imgur.com/3yrVM2F.png" alt=""></p>
 <p>接着输入：<code>gradlew clean</code>。 执行这个命令会去下载Gradle的一些依赖<br><img src="http://i.imgur.com/Nb4nDvL.png" alt=""></p>
 <p>最后执行：<code>gradlew build</code>。 这个命令会直接<code>编译</code>并<code>生成</code>相应的<code>apk文件</code>，如果看到如下字样就代表build成功了<br><img src="http://i.imgur.com/wt3gYQC.png" alt=""></p>

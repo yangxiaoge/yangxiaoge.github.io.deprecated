@@ -52,7 +52,11 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#455A64">
     <meta name="author" content="Bruce Yang">
-    <meta name="description" itemprop="description" content="背着键盘的编程侠客!">
+    <meta name="description" itemprop="description" content="进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）
+
+source build/envsetup.sh
+lunch (我的项目中选了 79)
+make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）">
     <meta name="keywords" content="null,源码">
 
     <!-- Import lsloader -->
@@ -271,17 +275,25 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Android源码编译 | 珠珠のBlog">
     <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
-    <meta property="og:description" content="背着键盘的编程侠客!">
+    <meta property="og:description" content="进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）
+
+source build/envsetup.sh
+lunch (我的项目中选了 79)
+make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）">
     <meta property="og:article:tag" content="源码"> 
 
     
         <meta property="article:published_time" content="Thu May 04 2017 11:40:24 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Oct 23 2017 05:36:22 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Oct 23 2017 09:54:57 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Android源码编译 | 珠珠のBlog">
-    <meta name="twitter:description" content="背着键盘的编程侠客!">
+    <meta name="twitter:description" content="进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）
+
+source build/envsetup.sh
+lunch (我的项目中选了 79)
+make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -303,7 +315,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/05/04/2017-05-04-Android源码编译/index.html",
     "headline": "Android源码编译",
     "datePublished": "Thu May 04 2017 11:40:24 GMT+0000",
-    "dateModified": "Mon Oct 23 2017 05:36:22 GMT+0000",
+    "dateModified": "Mon Oct 23 2017 09:54:57 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -322,7 +334,11 @@
         }
     },
     "keywords": ",源码null",
-    "description": "背着键盘的编程侠客!",
+    "description": "进入项目根目录 （begoit@BegoitPC:~/begoit/AOSP-6.0.1_r17/）
+
+source build/envsetup.sh
+lunch (我的项目中选了 79)
+make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）",
 }
 </script>
 
@@ -576,7 +592,8 @@
 <ul>
 <li><code>source build/envsetup.sh</code></li>
 <li><code>lunch</code> (我的项目中选了 79)</li>
-<li><code>make -j8</code>（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）<blockquote>
+<li><code>make -j8</code>（第一次编译耗时 2 小时，机器性能好的可以 j32 等等）<a id="more"></a>
+<blockquote>
 <p>Android 编译命令 <a href="http://www.cnblogs.com/ifzy/p/3854560.html" target="_blank" rel="external">make -j8 -k 2&gt;&amp;1 | tee build.log</a> 解释: 其中 make 是编译命令，-j8 这里的 8 指的是线程数量，就是开启几个线程去编译这个工程，一般会是 CPU 核心数的 2 倍, 开多的话电脑会卡死。-k 2 是标准错误，&amp;1 是标准输出，2&gt;&amp;1 意思就是将标准错误输出到标准输出中。如果没有 2&gt;&amp;1，只会有标准输出，没有错误；tee 的作用同时输出到控制台和文件，make &gt; build.log  是将所有标准输出到这个文件中，并没有定义标准错误应该是定义到了标准输出，也就是说如果 make 执行出现错误，那么就不会写到 build.log 中，而是输出到屏幕上，2&gt;&amp;1 是错误和结果都重定向到 build.log 中！可以到根目录看到 build.log。</p>
 </blockquote>
 </li>

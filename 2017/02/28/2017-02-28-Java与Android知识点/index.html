@@ -54,7 +54,7 @@
     <meta name="author" content="Bruce Yang">
     <meta name="description" itemprop="description" content="持续更行中
 
-1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；">
+1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；">
     <meta name="keywords" content="null,Android,Java">
 
     <!-- Import lsloader -->
@@ -275,19 +275,19 @@
     <meta property="og:image" content="https://yangxiaoge.github.io/img/logo.ico" />
     <meta property="og:description" content="持续更行中
 
-1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；">
+1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；">
     <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Tue Feb 28 2017 09:13:42 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Oct 23 2017 05:36:22 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Oct 23 2017 09:54:57 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Java与Android知识点 | 珠珠のBlog">
     <meta name="twitter:description" content="持续更行中
 
-1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；">
+1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -309,7 +309,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/02/28/2017-02-28-Java与Android知识点/index.html",
     "headline": "Java与Android知识点",
     "datePublished": "Tue Feb 28 2017 09:13:42 GMT+0000",
-    "dateModified": "Mon Oct 23 2017 05:36:22 GMT+0000",
+    "dateModified": "Mon Oct 23 2017 09:54:57 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -330,7 +330,7 @@
     "keywords": ",Android,Javanull",
     "description": "持续更行中
 
-1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；",
+1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；",
 }
 </script>
 
@@ -600,7 +600,7 @@
     
         <center><font color="SkyBlue" size="6px"><strong>持续更行中</strong></font></center>
 
-<h2 id="1-解释内存中的栈（stack）、堆-heap-和静态存储区的用法。"><a href="#1-解释内存中的栈（stack）、堆-heap-和静态存储区的用法。" class="headerlink" title="1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。"></a>1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。</h2><p>答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；<a id="more"></a>程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。<br><code>String str = new String(“hello”);</code><br>上面的语句中 str 放在栈上，用 new 创建出来的字符串对象放在堆上，而“hello”这个字面量放在静态存储区。</p>
+<h2 id="1-解释内存中的栈（stack）、堆-heap-和静态存储区的用法。"><a href="#1-解释内存中的栈（stack）、堆-heap-和静态存储区的用法。" class="headerlink" title="1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。"></a>1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。</h2><p>答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；<a id="more"></a>而通过new关键字和构造器创建的对象放在堆空间；程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。<br><code>String str = new String(“hello”);</code><br>上面的语句中 str 放在栈上，用 new 创建出来的字符串对象放在堆上，而“hello”这个字面量放在静态存储区。</p>
 <h2 id="2-重写equals方法时-为什么也需要重写hashCode方法。"><a href="#2-重写equals方法时-为什么也需要重写hashCode方法。" class="headerlink" title="2. 重写equals方法时,为什么也需要重写hashCode方法。"></a>2. 重写equals方法时,为什么也需要重写hashCode方法。</h2><ul>
 <li><p>1、重写equals方法时需要重写hashCode方法，主要是针对Map、Set等集合类型的使用；</p>
 <ul>
