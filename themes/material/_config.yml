@@ -137,11 +137,15 @@ qrcode:
 # You can only enable one of them to avoid issues.
 # Also you need to disable highlight option in hexo's _config.yml.
 #
-#    Prettify
-#        theme: # Available value in /source/css/prettify/[theme].min.css
+#     highlight:
+#         enable: false
+#
+#     Prettify
+#         theme value:
+#         theme-name  # /vendors/prettify/themes/[theme-name].css
 prettify:
-    enable: false
-    theme: "github-v2"
+    enable: true
+    theme: "github-v2" # default value: "vibrant-ink"   # theme-name without '.css'
 
 #    Hanabi (https://github.com/egoist/hanabi)
 #        line_number: [true/false] # Show line number for code block
@@ -150,7 +154,7 @@ prettify:
 #                    - If `includeDefaultColors` is true, this will append colors to the color pool
 #                    - If `includeDefaultColors` is false, this will instead default color pool
 hanabi:
-    enable: true
+    enable: false
     line_number: false
     includeDefaultColors: true
     customColors: 
