@@ -1,6 +1,6 @@
 ---
 layout: "about"
-title: "About"
+title: "关于"
 description: "Hey, this is Bruce Yang."
 comments: true
 header-img: "img/ZTEsoft.jpg"
