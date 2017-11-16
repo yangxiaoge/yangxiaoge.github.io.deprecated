@@ -284,7 +284,7 @@ Gradle版本：2.8
 
     
         <meta property="article:published_time" content="Mon May 16 2016 19:04:04 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -315,7 +315,7 @@ Gradle版本：2.8
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/05/16/2016-05-16-使用gradle命令打包apk/index.html",
     "headline": "使用gradle命令打包apk",
     "datePublished": "Mon May 16 2016 19:04:04 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -610,7 +610,7 @@ Gradle版本：2.8
 <p><strong>Android Studio版本：2.1.1</strong></p>
 <p><strong>Gradle版本：2.8</strong></p>
 <p><strong>整个过程默认<code>翻墙</code>！</strong></p>
-<p>本文参考了<a id="more"></a><a href="http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/" target="_blank" rel="external"><code>Android Studio系列教程五–Gradle命令详解与导入第三方包</code></a>，<a href="http://www.cnblogs.com/smyhvae/p/4456420.html" target="_blank" rel="external"><code>gradle项目构建</code></a>这两篇博客以及<a href="https://guides.codepath.com/android/Getting-Started-with-Gradle" target="_blank" rel="external"><code>Gradle官网</code></a>上关于Gradle使用说明。</p>
+<p>本文参考了<a id="more"></a><a href="http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/" target="_blank" rel="noopener"><code>Android Studio系列教程五–Gradle命令详解与导入第三方包</code></a>，<a href="http://www.cnblogs.com/smyhvae/p/4456420.html" target="_blank" rel="noopener"><code>gradle项目构建</code></a>这两篇博客以及<a href="https://guides.codepath.com/android/Getting-Started-with-Gradle" target="_blank" rel="noopener"><code>Gradle官网</code></a>上关于Gradle使用说明。</p>
 <p>随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。</p>
 <h1 id="下载Gradle与生成APK"><a href="#下载Gradle与生成APK" class="headerlink" title="下载Gradle与生成APK"></a><code>下载Gradle与生成APK</code></h1><p>在Android Studio中的<code>Terminal</code>窗口下输入：<code>gradlew -v</code> 。来查看下项目所用的<code>Gradle版本</code>。<br>如果你是第一次执行会去下载Gradle<br><img src="http://i.imgur.com/0MMYnHj.png" alt=""><br>下载成功后会出现如下信息：<br><img src="http://i.imgur.com/3yrVM2F.png" alt=""></p>
 <p>接着输入：<code>gradlew clean</code>。 执行这个命令会去下载Gradle的一些依赖<br><img src="http://i.imgur.com/Nb4nDvL.png" alt=""></p>
@@ -633,7 +633,7 @@ Gradle版本：2.8
 <p>点击<code>Android Studio</code>中<code>右上角</code>的这个路径提示</p>
 <p><img src="http://i.imgur.com/LsjDyua.png" alt=""></p>
 <p><em><code>大功告成！！</code></em> <code>带签名的正式版以及测试版</code>都在这个文件夹里了。</p>
-<h1 id="Gradle常用命令"><a href="#Gradle常用命令" class="headerlink" title="Gradle常用命令"></a>Gradle常用命令</h1><p>更详细的请<a href="https://www.google.com/" target="_blank" rel="external">Google</a>下</p>
+<h1 id="Gradle常用命令"><a href="#Gradle常用命令" class="headerlink" title="Gradle常用命令"></a>Gradle常用命令</h1><p>更详细的请<a href="https://www.google.com/" target="_blank" rel="noopener">Google</a>下</p>
 <p><code>gradlew</code>代表 <code>gradle wrapper</code>，意思是<code>gradle的一层包装</code>，大家可以理解为在这个项目本地就封装了gradle，即gradle wrapper。下面列举了几个常见的命令：</p>
 <p><code>gradlew -v</code>：版本号</p>
 <p><code>gradlew clean</code>：把之前打包所产生的所有文件全部清除(注意：和第一次下载Gradle时候的命令相同，但作用不同)</p>
@@ -946,7 +946,7 @@ Gradle版本：2.8
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

@@ -282,7 +282,7 @@ forked from xdtianyu/SourceAnalysis
 
     
         <meta property="article:published_time" content="Thu Jul 06 2017 10:00:05 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -312,7 +312,7 @@ forked from xdtianyu/SourceAnalysis
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/07/06/2017-07-06-Binder源码分析/index.html",
     "headline": "Binder源码分析",
     "datePublished": "Thu Jul 06 2017 10:00:05 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -603,9 +603,9 @@ forked from xdtianyu/SourceAnalysis
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <blockquote>
-<p>forked from <a href="https://github.com/xdtianyu/SourceAnalysis" target="_blank" rel="external">xdtianyu/SourceAnalysis</a></p>
+<p>forked from <a href="https://github.com/xdtianyu/SourceAnalysis" target="_blank" rel="noopener">xdtianyu/SourceAnalysis</a></p>
 </blockquote>
-<p>本文是基于 <a href="https://github.com/xdtianyu/android-6.0.0_r1" target="_blank" rel="external">Android 6.0.0</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow" target="_blank" rel="external">kernel 3.4</a> 源码 及 Android SDK 23 展开的。<br><a id="more"></a><br><strong>目录</strong></p>
+<p>本文是基于 <a href="https://github.com/xdtianyu/android-6.0.0_r1" target="_blank" rel="noopener">Android 6.0.0</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow" target="_blank" rel="noopener">kernel 3.4</a> 源码 及 Android SDK 23 展开的。<br><a id="more"></a><br><strong>目录</strong></p>
 <ul>
 <li><a href="#1-简介">1. 简介</a></li>
 <li><a href="#2-binder-与-aidl">2. Binder 与 AIDL</a><ul>
@@ -647,8 +647,8 @@ forked from xdtianyu/SourceAnalysis
 <li><p>Stub 包含对 IBinder 对象操作的封装，需要远程服务实现具体功能。</p>
 </li>
 </ul>
-<p>接下来再看具体实现， 完整源代码见 <a href="https://github.com/xdtianyu/AidlExample" target="_blank" rel="external">AidlExample</a>。在这个工程中，我们新建了两个应用， <code>app</code> 是客户端代码， <code>remoteservice</code> 则是服务端代码。</p>
-<h3 id="2-1-AIDL-客户端"><a href="#2-1-AIDL-客户端" class="headerlink" title="2.1 AIDL 客户端"></a>2.1 AIDL 客户端</h3><p>在 Android Studio 项目上右键， <code>New</code> -&gt; <code>AIDL</code> -&gt; <code>AIDL File</code> 输入文件名后可以快速创建一个 AIDL 的代码结构。例如我们新建一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/aidl/org/xdty/remoteservice/IRemoteService.aidl" target="_blank" rel="external">IRemoteService.aidl</a> 文件</p>
+<p>接下来再看具体实现， 完整源代码见 <a href="https://github.com/xdtianyu/AidlExample" target="_blank" rel="noopener">AidlExample</a>。在这个工程中，我们新建了两个应用， <code>app</code> 是客户端代码， <code>remoteservice</code> 则是服务端代码。</p>
+<h3 id="2-1-AIDL-客户端"><a href="#2-1-AIDL-客户端" class="headerlink" title="2.1 AIDL 客户端"></a>2.1 AIDL 客户端</h3><p>在 Android Studio 项目上右键， <code>New</code> -&gt; <code>AIDL</code> -&gt; <code>AIDL File</code> 输入文件名后可以快速创建一个 AIDL 的代码结构。例如我们新建一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/aidl/org/xdty/remoteservice/IRemoteService.aidl" target="_blank" rel="noopener">IRemoteService.aidl</a> 文件</p>
 <pre><code class="java">// IRemoteService.aidl
 package com.android.aidltest;
 
@@ -659,8 +659,8 @@ interface IRemoteService {
 }
 </code></pre>
 <p>从生成的示例代码可以看出，AIDL 的语法类似 Java， <code>basicTypes()</code> 方法传递的参数只是基本类型。</p>
-<p>如果要传递自定义类型如 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/User.java#L6" target="_blank" rel="external">User</a>，则需要实现 <a href="http://developer.android.com/reference/android/os/Parcelable.html" target="_blank" rel="external">Parcelable</a> 接口。<code>Parcelable</code> 是一个与 Java <code>Serializable</code> 类似的序列化接口。 </p>
-<p>这样类 <code>User</code> 的实例就可以储存到 <a href="http://developer.android.com/reference/android/os/Parcel.html" target="_blank" rel="external">Parcel</a> 中，而 <code>Parcel</code> 则是一个可以通过 <code>IBinder</code> 发送数据或对象引用的容器。</p>
+<p>如果要传递自定义类型如 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/User.java#L6" target="_blank" rel="noopener">User</a>，则需要实现 <a href="http://developer.android.com/reference/android/os/Parcelable.html" target="_blank" rel="noopener">Parcelable</a> 接口。<code>Parcelable</code> 是一个与 Java <code>Serializable</code> 类似的序列化接口。 </p>
+<p>这样类 <code>User</code> 的实例就可以储存到 <a href="http://developer.android.com/reference/android/os/Parcel.html" target="_blank" rel="noopener">Parcel</a> 中，而 <code>Parcel</code> 则是一个可以通过 <code>IBinder</code> 发送数据或对象引用的容器。</p>
 <pre><code class="java">// User.java
 public class User implements Parcelable {
 
@@ -694,7 +694,7 @@ public class User implements Parcelable {
     }
 }
 </code></pre>
-<p>再向 <code>IRemoteService.aidl</code> 中添加一个 <code>addUser()</code> 方法，同时新建一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/aidl/org/xdty/remoteservice/User.aidl" target="_blank" rel="external">User.aidl</a> 文件。</p>
+<p>再向 <code>IRemoteService.aidl</code> 中添加一个 <code>addUser()</code> 方法，同时新建一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/aidl/org/xdty/remoteservice/User.aidl" target="_blank" rel="noopener">User.aidl</a> 文件。</p>
 <pre><code class="java">// IRemoteService.aidl
 package com.android.aidltest;
 
@@ -713,8 +713,8 @@ interface IRemoteService {
 package com.android.aidltest;
 parcelable User;
 </code></pre>
-<p>运行编译后，会在 <code>generated</code> 文件夹中生成一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="external">IRemoteService.java</a> 接口文件。这个接口中有两个内部类 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="external">Stub</a> 和 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="external">Stub.Proxy</a>。注意客户端生成的<code>IRemoteService.java</code> 文件和在后文服务端生成的文件内容是相同的。</p>
-<p>客户端会从 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L34" target="_blank" rel="external">Stub.asInterface()</a> 得到 <code>IRemoteService (Stub.Proxy)</code> 的实例，这个实例就是一个通过 Binder 传递回来的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L93" target="_blank" rel="external">远程对象</a> 的包装。而服务端则需要实现 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L15" target="_blank" rel="external">IRemoteService.addUser()</a> 方法。</p>
+<p>运行编译后，会在 <code>generated</code> 文件夹中生成一个 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="noopener">IRemoteService.java</a> 接口文件。这个接口中有两个内部类 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="noopener">Stub</a> 和 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="noopener">Stub.Proxy</a>。注意客户端生成的<code>IRemoteService.java</code> 文件和在后文服务端生成的文件内容是相同的。</p>
+<p>客户端会从 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L34" target="_blank" rel="noopener">Stub.asInterface()</a> 得到 <code>IRemoteService (Stub.Proxy)</code> 的实例，这个实例就是一个通过 Binder 传递回来的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L93" target="_blank" rel="noopener">远程对象</a> 的包装。而服务端则需要实现 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L15" target="_blank" rel="noopener">IRemoteService.addUser()</a> 方法。</p>
 <pre><code class="java">// IRemoteService.java
 public static org.xdty.remoteservice.IRemoteService asInterface(android.os.IBinder obj) {
     if ((obj == null)) {
@@ -727,9 +727,9 @@ public static org.xdty.remoteservice.IRemoteService asInterface(android.os.IBind
     return new org.xdty.remoteservice.IRemoteService.Stub.Proxy(obj);
 }
 </code></pre>
-<h3 id="2-2-AIDL-服务端"><a href="#2-2-AIDL-服务端" class="headerlink" title="2.2 AIDL 服务端"></a>2.2 AIDL 服务端</h3><p>为了演示进程间通信，我们新建一个模块（应用） <a href="https://github.com/xdtianyu/AidlExample/tree/master/remoteservice" target="_blank" rel="external">RemoteService</a> 来实现功能，并在客户端绑定服务。</p>
-<p>按客户端的结构新建 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/aidl/org/xdty/remoteservice/IRemoteService.aidl" target="_blank" rel="external">IRemoteService.aidl</a> <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/aidl/org/xdty/remoteservice/User.aidl" target="_blank" rel="external">User.aidl</a> <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/User.java" target="_blank" rel="external">User.java</a> 文件，并拷贝内容，注意如果需要请修改包名。</p>
-<p>新建服务 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L29" target="_blank" rel="external">RemoteService</a> ，覆盖(Override) <code>onBind()</code> 方法并返回 <code>IRemoteService.Stub</code> 实例 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L11" target="_blank" rel="external">mBinder</a>：</p>
+<h3 id="2-2-AIDL-服务端"><a href="#2-2-AIDL-服务端" class="headerlink" title="2.2 AIDL 服务端"></a>2.2 AIDL 服务端</h3><p>为了演示进程间通信，我们新建一个模块（应用） <a href="https://github.com/xdtianyu/AidlExample/tree/master/remoteservice" target="_blank" rel="noopener">RemoteService</a> 来实现功能，并在客户端绑定服务。</p>
+<p>按客户端的结构新建 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/aidl/org/xdty/remoteservice/IRemoteService.aidl" target="_blank" rel="noopener">IRemoteService.aidl</a> <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/aidl/org/xdty/remoteservice/User.aidl" target="_blank" rel="noopener">User.aidl</a> <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/User.java" target="_blank" rel="noopener">User.java</a> 文件，并拷贝内容，注意如果需要请修改包名。</p>
+<p>新建服务 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L29" target="_blank" rel="noopener">RemoteService</a> ，覆盖(Override) <code>onBind()</code> 方法并返回 <code>IRemoteService.Stub</code> 实例 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L11" target="_blank" rel="noopener">mBinder</a>：</p>
 <pre><code class="java">// RemoteService.java
 public class RemoteService extends Service {
     private static final String TAG = RemoteService.class.getSimpleName();
@@ -752,7 +752,7 @@ public class RemoteService extends Service {
     }
 }
 </code></pre>
-<p>这样服务端就实现了 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L15" target="_blank" rel="external">addUser()</a> 方法，当客户端通过远程对象调用 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L135" target="_blank" rel="external">IRemoteService.Stub.Proxy.addUser()</a> 时，远程对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="external">mRemote</a> 就会通过 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="external">transact()</a> 发送命令给服务端，服务端收到命令后在 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L76" target="_blank" rel="external">Stub.onTransact()</a> 中读取数据并执行 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L84" target="_blank" rel="external">addUser()</a> 方法。更多细节我们将在 <a href="#3-binder-%E6%A1%86%E6%9E%B6%E5%8F%8A-native-%E5%B1%82">3. Binder 框架及 Native 层</a> 小节讲述。</p>
+<p>这样服务端就实现了 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L15" target="_blank" rel="noopener">addUser()</a> 方法，当客户端通过远程对象调用 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L135" target="_blank" rel="noopener">IRemoteService.Stub.Proxy.addUser()</a> 时，远程对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="noopener">mRemote</a> 就会通过 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="noopener">transact()</a> 发送命令给服务端，服务端收到命令后在 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L76" target="_blank" rel="noopener">Stub.onTransact()</a> 中读取数据并执行 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L84" target="_blank" rel="noopener">addUser()</a> 方法。更多细节我们将在 <a href="#3-binder-%E6%A1%86%E6%9E%B6%E5%8F%8A-native-%E5%B1%82">3. Binder 框架及 Native 层</a> 小节讲述。</p>
 <pre><code class="java">// IRemoteService.java
 @Override
 public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply,
@@ -775,7 +775,7 @@ public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel re
     return super.onTransact(code, data, reply, flags);
 }
 </code></pre>
-<h3 id="2-3-远程服务的获取与使用"><a href="#2-3-远程服务的获取与使用" class="headerlink" title="2.3 远程服务的获取与使用"></a>2.3 远程服务的获取与使用</h3><p>客户端要使用远程服务，需要绑定服务 (<a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L45" target="_blank" rel="external">bindService</a>) 并建立服务连接 (<a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L19" target="_blank" rel="external">ServiceConnection</a>)。</p>
+<h3 id="2-3-远程服务的获取与使用"><a href="#2-3-远程服务的获取与使用" class="headerlink" title="2.3 远程服务的获取与使用"></a>2.3 远程服务的获取与使用</h3><p>客户端要使用远程服务，需要绑定服务 (<a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L45" target="_blank" rel="noopener">bindService</a>) 并建立服务连接 (<a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L19" target="_blank" rel="noopener">ServiceConnection</a>)。</p>
 <pre><code class="java">// MainActivity.java
 public class MainActivity extends AppCompatActivity {
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -842,8 +842,8 @@ private static class Proxy implements org.xdty.remoteservice.IRemoteService {
     }
 }
 </code></pre>
-<p>可以看到客户端调用 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L25" target="_blank" rel="external">remoteService.addUser(new User(1, “neo”))</a> 方法实际上是通过 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="external">IBinder service</a> 实例的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="external">transact()</a> 方法，发送了与服务端约定好的命令 <code>Stub.TRANSACTION_addUser</code>，并将参数按格式打包进 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L137" target="_blank" rel="external">Parcel</a> 对象。</p>
-<p>服务端则在 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L51" target="_blank" rel="external">onTransact()</a> 方法中收到命令后会对命令和参数重新解析：</p>
+<p>可以看到客户端调用 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L25" target="_blank" rel="noopener">remoteService.addUser(new User(1, “neo”))</a> 方法实际上是通过 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="noopener">IBinder service</a> 实例的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="noopener">transact()</a> 方法，发送了与服务端约定好的命令 <code>Stub.TRANSACTION_addUser</code>，并将参数按格式打包进 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L137" target="_blank" rel="noopener">Parcel</a> 对象。</p>
+<p>服务端则在 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L51" target="_blank" rel="noopener">onTransact()</a> 方法中收到命令后会对命令和参数重新解析：</p>
 <pre><code class="java">// IRemoteService.java
 public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply,
         int flags) throws android.os.RemoteException {
@@ -865,8 +865,8 @@ public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel re
     return super.onTransact(code, data, reply, flags);
 }
 </code></pre>
-<p>可以看到在 <code>onTransact()</code> 中，最终 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L84" target="_blank" rel="external">this.addUser(_arg0)</a> 调用了上文提到的服务端的实现 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L19" target="_blank" rel="external">IRemoteService.Stub.addUser()</a> 。</p>
-<p>远程 Binder 对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L42" target="_blank" rel="external">mRemote</a> 是由客户端绑定服务时 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L23" target="_blank" rel="external">onServiceConnected()</a> 返回的。继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1283" target="_blank" rel="external">bindService()</a></p>
+<p>可以看到在 <code>onTransact()</code> 中，最终 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L84" target="_blank" rel="noopener">this.addUser(_arg0)</a> 调用了上文提到的服务端的实现 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L19" target="_blank" rel="noopener">IRemoteService.Stub.addUser()</a> 。</p>
+<p>远程 Binder 对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L42" target="_blank" rel="noopener">mRemote</a> 是由客户端绑定服务时 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/src/main/java/org/xdty/aidlexample/MainActivity.java#L23" target="_blank" rel="noopener">onServiceConnected()</a> 返回的。继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1283" target="_blank" rel="noopener">bindService()</a></p>
 <pre><code class="java">// ContextImpl.java
 @Override
 public boolean bindService(Intent service, ServiceConnection conn,
@@ -875,7 +875,7 @@ public boolean bindService(Intent service, ServiceConnection conn,
     return bindServiceCommon(service, conn, flags, Process.myUserHandle());
 }
 </code></pre>
-<p>可以看到最后是通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1317#L1320" target="_blank" rel="external">ActivityManagerNative.getDefault().bindService()</a> 来绑定服务</p>
+<p>可以看到最后是通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1317#L1320" target="_blank" rel="noopener">ActivityManagerNative.getDefault().bindService()</a> 来绑定服务</p>
 <pre><code class="java">// bindServiceCommon()
 int res = ActivityManagerNative.getDefault().bindService(
     mMainThread.getApplicationThread(), getActivityToken(), service,
@@ -893,20 +893,20 @@ public int bindService(IApplicationThread caller, IBinder token,
     ...
 }
 </code></pre>
-<p>追踪到 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ActivityManagerNative.java#L3740" target="_blank" rel="external">ActivityManagerNative.getDefault().bindService()</a> ，可以发现 <code>ActivityManager</code> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ActivityManagerNative.java#L3750" target="_blank" rel="external">IServiceConnection</a>也是一个 <code>AIDL</code> 实现。通过它的 <code>ActivityManagerProxy.bindService()</code> 将绑定请求发送给本地层。</p>
-<p>再从 <code>onServiceConnected()</code> 回调追踪， <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/LoadedApk.java#L1223" target="_blank" rel="external">onServiceConnected()</a> 是由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/LoadedApk.java#L1175" target="_blank" rel="external">LoadedApk.ServiceDispatcher.doConnected()</a> 回调的。</p>
-<p><em>关于更多的 <code>bindService()</code> 远程服务创建及 <code>ServiceConnection</code> 回调， 请参考 <a href="http://blog.csdn.net/luoshengyang/article/details/6745181" target="_blank" rel="external">Android应用程序绑定服务（bindService）的过程源代码分析</a></em></p>
-<p><em>利用进程间通信，我们可以实现简单的应用插件功能。关于 AIDL 在实际项目中的应用，可以参考 <a href="https://github.com/xdtianyu/CallerInfo/tree/master/plugin/src/main" target="_blank" rel="external">CallerInfo Plugin</a> 的实现 </em></p>
+<p>追踪到 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ActivityManagerNative.java#L3740" target="_blank" rel="noopener">ActivityManagerNative.getDefault().bindService()</a> ，可以发现 <code>ActivityManager</code> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ActivityManagerNative.java#L3750" target="_blank" rel="noopener">IServiceConnection</a>也是一个 <code>AIDL</code> 实现。通过它的 <code>ActivityManagerProxy.bindService()</code> 将绑定请求发送给本地层。</p>
+<p>再从 <code>onServiceConnected()</code> 回调追踪， <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/LoadedApk.java#L1223" target="_blank" rel="noopener">onServiceConnected()</a> 是由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/LoadedApk.java#L1175" target="_blank" rel="noopener">LoadedApk.ServiceDispatcher.doConnected()</a> 回调的。</p>
+<p><em>关于更多的 <code>bindService()</code> 远程服务创建及 <code>ServiceConnection</code> 回调， 请参考 <a href="http://blog.csdn.net/luoshengyang/article/details/6745181" target="_blank" rel="noopener">Android应用程序绑定服务（bindService）的过程源代码分析</a></em></p>
+<p><em>利用进程间通信，我们可以实现简单的应用插件功能。关于 AIDL 在实际项目中的应用，可以参考 <a href="https://github.com/xdtianyu/CallerInfo/tree/master/plugin/src/main" target="_blank" rel="noopener">CallerInfo Plugin</a> 的实现 </em></p>
 <p>从上面分析可以看出， AIDL 的本质是对 Binder 的又一次抽象和封装，实际的进程间通信仍是由 Binder 完成的。</p>
 <h2 id="3-Binder-框架及-Native-层"><a href="#3-Binder-框架及-Native-层" class="headerlink" title="3. Binder 框架及 Native 层"></a>3. Binder 框架及 Native 层</h2><p>Binder机制使本地对象可以像操作当前对象一样调用远程对象，可以使不同的进程间互相通信。Binder 使用 Client/Server 架构，客户端通过服务端代理，经过 Binder 驱动与服务端交互。</p>
 <p><img src="https://raw.githubusercontent.com/xdtianyu/SourceAnalysis/master/art/Binder.png" alt="Binder框架图片"></p>
 <p>Binder 机制实现进程间通信的奥秘在于 kernel 中的 Binder 驱动，将在 <a href="#4-binder-%E9%A9%B1%E5%8A%A8">4. Binder 驱动</a> 小节详细讲述。</p>
 <p><img src="https://raw.githubusercontent.com/xdtianyu/SourceAnalysis/master/art/binder_native.png" alt="Binder本地框架图片"></p>
-<p>JNI 的代码位于 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/base/core/jni" target="_blank" rel="external">frameworks/base/core/jni</a> 目录下，主要是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp" target="_blank" rel="external">android_util_Binder.cpp</a> 文件和头文件 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.h" target="_blank" rel="external">android_util_Binder.h</a></p>
+<p>JNI 的代码位于 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/base/core/jni" target="_blank" rel="noopener">frameworks/base/core/jni</a> 目录下，主要是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp" target="_blank" rel="noopener">android_util_Binder.cpp</a> 文件和头文件 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.h" target="_blank" rel="noopener">android_util_Binder.h</a></p>
 <p>Binder JNI 代码是 Binder Java 层操作到 Binder Native 层的接口封装，最后会被编译进 <code>libandroid_runtime.so</code> 系统库。</p>
-<p>Binder 本地层的代码在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/native/libs/binder" target="_blank" rel="external">frameworks/native/libs/binder</a> 目录下， 此目录在 Android 系统编译后会生成 <code>libbinder.so</code> 文件，供 JNI 调用。<code>libbinder</code> 封装了所有对 binder 驱动的操作，是上层应用与驱动交互的桥梁。头文件则在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/native/include/binder" target="_blank" rel="external">frameworks/native/include/binder</a> 目录下。</p>
-<h3 id="3-1-Binder-Native-的入口"><a href="#3-1-Binder-Native-的入口" class="headerlink" title="3.1 Binder Native 的入口"></a>3.1 Binder Native 的入口</h3><p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IInterface.cpp#L33" target="_blank" rel="external">IInterface.cpp</a> 是 Binder 本地层入口，与 java 层的 <code>android.os.IInterface</code> 对应，提供 <code>asBinder()</code> 的实现，返回 <code>IBinder</code> 对象。</p>
-<p>在头文件中有两个类 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IInterface.h#L50" target="_blank" rel="external">BnInterface (Binder Native Interface)</a> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IInterface.h#L63" target="_blank" rel="external">BpInterface (Binder Proxy Interface)</a>, 对应于 java 层的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="external">Stub</a> 和 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="external">Proxy</a></p>
+<p>Binder 本地层的代码在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/native/libs/binder" target="_blank" rel="noopener">frameworks/native/libs/binder</a> 目录下， 此目录在 Android 系统编译后会生成 <code>libbinder.so</code> 文件，供 JNI 调用。<code>libbinder</code> 封装了所有对 binder 驱动的操作，是上层应用与驱动交互的桥梁。头文件则在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/native/include/binder" target="_blank" rel="noopener">frameworks/native/include/binder</a> 目录下。</p>
+<h3 id="3-1-Binder-Native-的入口"><a href="#3-1-Binder-Native-的入口" class="headerlink" title="3.1 Binder Native 的入口"></a>3.1 Binder Native 的入口</h3><p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IInterface.cpp#L33" target="_blank" rel="noopener">IInterface.cpp</a> 是 Binder 本地层入口，与 java 层的 <code>android.os.IInterface</code> 对应，提供 <code>asBinder()</code> 的实现，返回 <code>IBinder</code> 对象。</p>
+<p>在头文件中有两个类 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IInterface.h#L50" target="_blank" rel="noopener">BnInterface (Binder Native Interface)</a> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IInterface.h#L63" target="_blank" rel="noopener">BpInterface (Binder Proxy Interface)</a>, 对应于 java 层的 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="noopener">Stub</a> 和 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L92" target="_blank" rel="noopener">Proxy</a></p>
 <pre><code class="c++">sp&lt;IBinder&gt; IInterface::asBinder(const IInterface* iface)
 {
     if (iface == NULL) return NULL;
@@ -938,10 +938,10 @@ protected:
 </code></pre>
 <p>其中 <code>BnInterface</code> 是实现Stub功能的模板，扩展BBinder的onTransact()方法实现Binder命令的解析和执行。<code>BpInterface</code> 是实现Proxy功能的模板，BpRefBase里有个mRemote对象指向一个BpBinder对象。</p>
 <h3 id="3-2-Binder-本地层的整个函数-方法调用过程"><a href="#3-2-Binder-本地层的整个函数-方法调用过程" class="headerlink" title="3.2 Binder 本地层的整个函数/方法调用过程"></a>3.2 Binder 本地层的整个函数/方法调用过程</h3><p><img src="https://raw.githubusercontent.com/xdtianyu/SourceAnalysis/master/art/binder_native_stack.png" alt="Binder本地函数调用图"></p>
-<p>1. Java 层 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="external">IRemoteService.Stub.Proxy</a> 调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L501" target="_blank" rel="external">android.os.IBinder (实现在 android.os.Binder.BinderProxy)</a> 的 <code>transact()</code> 发送 <code>Stub.TRANSACTION_addUser</code> 命令。</p>
-<p>2. 由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L507" target="_blank" rel="external">BinderProxy.transact()</a> 进入 native 层。</p>
-<p>3. 由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1246" target="_blank" rel="external">jni</a> 转到 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1246" target="_blank" rel="external">android_os_BinderProxy_transact()</a> 函数。</p>
-<p>4. 调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1124" target="_blank" rel="external">IBinder-&gt;transact</a> 函数。</p>
+<p>1. Java 层 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L147" target="_blank" rel="noopener">IRemoteService.Stub.Proxy</a> 调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L501" target="_blank" rel="noopener">android.os.IBinder (实现在 android.os.Binder.BinderProxy)</a> 的 <code>transact()</code> 发送 <code>Stub.TRANSACTION_addUser</code> 命令。</p>
+<p>2. 由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L507" target="_blank" rel="noopener">BinderProxy.transact()</a> 进入 native 层。</p>
+<p>3. 由 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1246" target="_blank" rel="noopener">jni</a> 转到 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1246" target="_blank" rel="noopener">android_os_BinderProxy_transact()</a> 函数。</p>
+<p>4. 调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L1124" target="_blank" rel="noopener">IBinder-&gt;transact</a> 函数。</p>
 <pre><code class="c++">static jboolean android_os_BinderProxy_transact(JNIEnv* env, jobject obj,
         jint code, jobject dataObj, jobject replyObj, jint flags) // throws RemoteException
 {
@@ -950,7 +950,7 @@ protected:
     status_t err = target-&gt;transact(code, *data, reply, flags);
 }
 </code></pre>
-<p>而 <code>gBinderProxyOffsets.mObject</code> 则是在 java 层调用 <code>IBinder.getContextObject()</code> 时在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L580" target="_blank" rel="external">javaObjectForIBinder</a> 函数中设置的</p>
+<p>而 <code>gBinderProxyOffsets.mObject</code> 则是在 java 层调用 <code>IBinder.getContextObject()</code> 时在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L580" target="_blank" rel="noopener">javaObjectForIBinder</a> 函数中设置的</p>
 <pre><code class="c++">static jobject android_os_BinderInternal_getContextObject(JNIEnv* env, jobject clazz)
 {
     sp&lt;IBinder&gt; b = ProcessState::self()-&gt;getContextObject(NULL);
@@ -967,7 +967,7 @@ jobject javaObjectForIBinder(JNIEnv* env, const sp&lt;IBinder&gt;&amp; val)
     ...
 }
 </code></pre>
-<p>经过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L85" target="_blank" rel="external">ProcessState::getContextObject()</a> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L220" target="_blank" rel="external">ProcessState::getStrongProxyForHandle()</a></p>
+<p>经过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L85" target="_blank" rel="noopener">ProcessState::getContextObject()</a> 和 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L220" target="_blank" rel="noopener">ProcessState::getStrongProxyForHandle()</a></p>
 <pre><code class="c++">sp&lt;IBinder&gt; ProcessState::getContextObject(const sp&lt;IBinder&gt;&amp; /*caller*/)
 {
     return getStrongProxyForHandle(0);
@@ -983,8 +983,8 @@ sp&lt;IBinder&gt; ProcessState::getStrongProxyForHandle(int32_t handle)
     return result;
 }
 </code></pre>
-<p>可见 <a href="">android_os_BinderProxy_transact()</a> 函数实际上调用的是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L159" target="_blank" rel="external">BpBinder::transact()</a> 函数。</p>
-<p>5. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L164" target="_blank" rel="external">BpBinder::transact()</a> 则又调用了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L548" target="_blank" rel="external">IPCThreadState::self()-&gt;transact()</a> 函数。</p>
+<p>可见 <a href="">android_os_BinderProxy_transact()</a> 函数实际上调用的是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L159" target="_blank" rel="noopener">BpBinder::transact()</a> 函数。</p>
+<p>5. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L164" target="_blank" rel="noopener">BpBinder::transact()</a> 则又调用了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L548" target="_blank" rel="noopener">IPCThreadState::self()-&gt;transact()</a> 函数。</p>
 <pre><code class="c++">status_t IPCThreadState::transact(int32_t handle,
                                   uint32_t code, const Parcel&amp; data,
                                   Parcel* reply, uint32_t flags)
@@ -1029,8 +1029,8 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     return NO_ERROR;
 }
 </code></pre>
-<p>由函数内容可以看出， 数据再一次通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L904" target="_blank" rel="external">writeTransactionData()</a> 传递给 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L934" target="_blank" rel="external">mOut</a> 进行写入操作。 <code>mOut</code> 是一个 Parcel 对象， 声明在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IPCThreadState.h#L123" target="_blank" rel="external">IPCThreadState.h</a> 文件中。之后则调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L583" target="_blank" rel="external">waitForResponse()</a> 函数。</p>
-<p>6. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L712" target="_blank" rel="external">IPCThreadState::waitForResponse()</a> 在一个 <code>while</code> 循环里不断的调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="external">talkWithDriver()</a> 并检查是否有数据返回。</p>
+<p>由函数内容可以看出， 数据再一次通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L904" target="_blank" rel="noopener">writeTransactionData()</a> 传递给 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L934" target="_blank" rel="noopener">mOut</a> 进行写入操作。 <code>mOut</code> 是一个 Parcel 对象， 声明在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/include/binder/IPCThreadState.h#L123" target="_blank" rel="noopener">IPCThreadState.h</a> 文件中。之后则调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L583" target="_blank" rel="noopener">waitForResponse()</a> 函数。</p>
+<p>6. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L712" target="_blank" rel="noopener">IPCThreadState::waitForResponse()</a> 在一个 <code>while</code> 循环里不断的调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="noopener">talkWithDriver()</a> 并检查是否有数据返回。</p>
 <pre><code class="c++">status_t IPCThreadState::waitForResponse(Parcel *reply, status_t *acquireResult)
 {
     uint32_t cmd;
@@ -1090,7 +1090,7 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     ...
 }
 </code></pre>
-<p>7. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="external">IPCThreadState::talkWithDriver()</a> 函数是真正与 binder 驱动交互的实现。<a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="external">ioctl(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)</a> 就是使用系统调用函数 <code>ioctl</code> 向 binder 设备文件 <code>/dev/binder</code> 发送 <code>BINDER_WRITE_READ</code> 命令。</p>
+<p>7. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="noopener">IPCThreadState::talkWithDriver()</a> 函数是真正与 binder 驱动交互的实现。<a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="noopener">ioctl(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)</a> 就是使用系统调用函数 <code>ioctl</code> 向 binder 设备文件 <code>/dev/binder</code> 发送 <code>BINDER_WRITE_READ</code> 命令。</p>
 <pre><code class="c++">status_t IPCThreadState::talkWithDriver(bool doReceive)
 {
     if (mProcess-&gt;mDriverFD &lt;= 0) {
@@ -1159,9 +1159,9 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     return err;
 }
 </code></pre>
-<p>经过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L718" target="_blank" rel="external">IPCThreadState::talkWithDriver()</a> ,就将数据发送给了 Binder 驱动。</p>
-<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L723" target="_blank" rel="external">IPCThreadState::waitForResponse()</a> ，可以从 第6步 发现 <code>IPCThreadState</code> 不断的循环读取 Binder 驱动返回，获取到返回命令后执行了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L787" target="_blank" rel="external">executeCommand(cmd)</a> 函数。</p>
-<p>8. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L947" target="_blank" rel="external">IPCThreadState::executeCommand()</a> 处理 Binder 驱动返回命令</p>
+<p>经过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L718" target="_blank" rel="noopener">IPCThreadState::talkWithDriver()</a> ,就将数据发送给了 Binder 驱动。</p>
+<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L723" target="_blank" rel="noopener">IPCThreadState::waitForResponse()</a> ，可以从 第6步 发现 <code>IPCThreadState</code> 不断的循环读取 Binder 驱动返回，获取到返回命令后执行了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L787" target="_blank" rel="noopener">executeCommand(cmd)</a> 函数。</p>
+<p>8. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L947" target="_blank" rel="noopener">IPCThreadState::executeCommand()</a> 处理 Binder 驱动返回命令</p>
 <pre><code class="c++">status_t IPCThreadState::executeCommand(int32_t cmd)
 {
     BBinder* obj;
@@ -1199,7 +1199,7 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     ...
 }
 </code></pre>
-<p>9. 可以看出其调用了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L1085#L1091" target="_blank" rel="external">BBinder::transact()</a> 函数，将数据返回给上层。</p>
+<p>9. 可以看出其调用了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L1085#L1091" target="_blank" rel="noopener">BBinder::transact()</a> 函数，将数据返回给上层。</p>
 <pre><code class="c++">status_t BBinder::transact(
     uint32_t code, const Parcel&amp; data, Parcel* reply, uint32_t flags)
 {
@@ -1222,7 +1222,7 @@ status_t IPCThreadState::writeTransactionData(int32_t cmd, uint32_t binderFlags,
     return err;
 }
 </code></pre>
-<p>10. 而这里的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L1085#L1091" target="_blank" rel="external">b-&gt;transact(tr.code, buffer, &amp;reply, tr.flags)</a> 中的 <code>b (BBinder)</code> 是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L217" target="_blank" rel="external">JavaBBinder</a> 的实例，所以会调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L247" target="_blank" rel="external">JavaBBinder::onTransact()</a> 函数</p>
+<p>10. 而这里的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L1085#L1091" target="_blank" rel="noopener">b-&gt;transact(tr.code, buffer, &amp;reply, tr.flags)</a> 中的 <code>b (BBinder)</code> 是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L217" target="_blank" rel="noopener">JavaBBinder</a> 的实例，所以会调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L247" target="_blank" rel="noopener">JavaBBinder::onTransact()</a> 函数</p>
 <pre><code class="c++">// frameworks/base/core/jni/android_util_Binder.cpp
 virtual status_t onTransact(
         uint32_t code, const Parcel&amp; data, Parcel* reply, uint32_t flags = 0)
@@ -1240,8 +1240,8 @@ static int int_register_android_os_Binder(JNIEnv* env)
     ...
 }
 </code></pre>
-<p>11. 可见 JNI 通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L260" target="_blank" rel="external">gBinderOffsets.mExecTransact</a> 最后执行了 <code>android.os.Binder</code> 的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L865" target="_blank" rel="external">execTransact()</a> 方法。</p>
-<p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L442" target="_blank" rel="external">execTransact()</a> 方法是 jni 回调的入口。</p>
+<p>11. 可见 JNI 通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L260" target="_blank" rel="noopener">gBinderOffsets.mExecTransact</a> 最后执行了 <code>android.os.Binder</code> 的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/jni/android_util_Binder.cpp#L865" target="_blank" rel="noopener">execTransact()</a> 方法。</p>
+<p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/Binder.java#L442" target="_blank" rel="noopener">execTransact()</a> 方法是 jni 回调的入口。</p>
 <pre><code class="java">// Entry point from android_util_Binder.cpp&#39;s onTransact
     private boolean execTransact(int code, long dataObj, long replyObj,
             int flags) {
@@ -1254,7 +1254,7 @@ static int int_register_android_os_Binder(JNIEnv* env)
         ...
     }
 </code></pre>
-<p>12. 而我们则在服务端 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="external">IRemoteService.Stub</a> 重载了 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L51" target="_blank" rel="external">onTransact()</a> 方法，所以数据最后会回到我们的服务端并执行服务端实现的 <code>addUser()</code> 方法。</p>
+<p>12. 而我们则在服务端 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L19" target="_blank" rel="noopener">IRemoteService.Stub</a> 重载了 <a href="https://github.com/xdtianyu/AidlExample/blob/master/app/build/generated/source/aidl/debug/org/xdty/remoteservice/IRemoteService.java#L51" target="_blank" rel="noopener">onTransact()</a> 方法，所以数据最后会回到我们的服务端并执行服务端实现的 <code>addUser()</code> 方法。</p>
 <pre><code class="java">public static abstract class Stub extends android.os.Binder
         implements org.xdty.remoteservice.IRemoteService {
     ...
@@ -1289,7 +1289,7 @@ static int int_register_android_os_Binder(JNIEnv* env)
 </code></pre>
 <p>上述过程就是所有的 Native 层客户端到服务端的调用过程，总结下来就是 客户端进程发送 <code>BC_TRANSACTION</code> 到 Binder 驱动，服务端进程监听返回的 <code>BR_TRANSACTION</code> 命令并处理。如果是服务端向客户端返回数据，类似的是服务端发送 <code>BC_REPLY</code> 命令， 客户端监听 <code>BR_REPLY</code> 命令。</p>
 <h3 id="3-3-Binder-设备文件的打开和读写"><a href="#3-3-Binder-设备文件的打开和读写" class="headerlink" title="3.3 Binder 设备文件的打开和读写"></a>3.3 Binder 设备文件的打开和读写</h3><p><strong>1. 设备的打开</strong></p>
-<p>在上一小节中我们看到 JNI 过程中调用了 <code>ProcessState::getContextObject()</code> 函数， 在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L340" target="_blank" rel="external">ProcessState</a> 初始化时会打开 binder 设备</p>
+<p>在上一小节中我们看到 JNI 过程中调用了 <code>ProcessState::getContextObject()</code> 函数， 在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L340" target="_blank" rel="noopener">ProcessState</a> 初始化时会打开 binder 设备</p>
 <pre><code class="c++">// ProcessState.cpp
 ProcessState::ProcessState()
     : mDriverFD(open_driver())
@@ -1298,7 +1298,7 @@ ProcessState::ProcessState()
     ...
 }
 </code></pre>
-<p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L311#L337" target="_blank" rel="external">open_driver()</a> 函数内容如下</p>
+<p><a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L311#L337" target="_blank" rel="noopener">open_driver()</a> 函数内容如下</p>
 <pre><code class="c++">// ProcessState.cpp
 static int open_driver()
 {
@@ -1333,9 +1333,9 @@ static int open_driver()
 }
 </code></pre>
 <p><strong>2. 设备的读写</strong></p>
-<p>打开设备文件后，文件描述符被保存在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L340" target="_blank" rel="external">mDriverFD</a>， 通过系统调用 <code>ioctl</code> 函数操作 <code>mDriverFD</code> 就可以实现和 binder 驱动的交互。</p>
-<p>对 Binder 设备文件的所有读写及关闭操作则都在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L805" target="_blank" rel="external">IPCThreadState</a> 中，如上一小节提及到的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="external">IPCThreadState::talkWithDriver</a> 函数</p>
-<p><code>talkWithDriver()</code> 函数封装了 <code>BINDER_WRITE_READ</code> 命令，会从 binder 驱动读取或写入封装在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="external">binder_write_read</a> 结构体中的本地或远程对象。</p>
+<p>打开设备文件后，文件描述符被保存在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/ProcessState.cpp#L340" target="_blank" rel="noopener">mDriverFD</a>， 通过系统调用 <code>ioctl</code> 函数操作 <code>mDriverFD</code> 就可以实现和 binder 驱动的交互。</p>
+<p>对 Binder 设备文件的所有读写及关闭操作则都在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L805" target="_blank" rel="noopener">IPCThreadState</a> 中，如上一小节提及到的 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L803" target="_blank" rel="noopener">IPCThreadState::talkWithDriver</a> 函数</p>
+<p><code>talkWithDriver()</code> 函数封装了 <code>BINDER_WRITE_READ</code> 命令，会从 binder 驱动读取或写入封装在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="noopener">binder_write_read</a> 结构体中的本地或远程对象。</p>
 <pre><code class="c++">// IPCThreadState.cpp
 status_t IPCThreadState::talkWithDriver(bool doReceive)
 {   
@@ -1363,11 +1363,11 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
 }
 </code></pre>
 <p>可以看出，本地层是对应用与 binder 驱动交互的直接封装与实现，最终的数据传输仍是由驱动来完成的。本地层对底层驱动进行了完整的封装，上层应用只关心 transact() 和 onTransact() 回调，察觉不到 binder 驱动的存在，减轻了上层应用进程间通信开发的复杂度。</p>
-<h2 id="4-Binder-驱动"><a href="#4-Binder-驱动" class="headerlink" title="4. Binder 驱动"></a>4. Binder 驱动</h2><p>关于 binder 驱动建议参考另一篇文章 <a href="http://blog.csdn.net/yangwen123/article/details/9316987" target="_blank" rel="external">深入分析Android Binder 驱动</a> <a href="[Android Binder](https://web.archive.org/web/20101016004342/http://www.gmier.com/node/11">原文</a>，本小节仍需要完善。</p>
+<h2 id="4-Binder-驱动"><a href="#4-Binder-驱动" class="headerlink" title="4. Binder 驱动"></a>4. Binder 驱动</h2><p>关于 binder 驱动建议参考另一篇文章 <a href="http://blog.csdn.net/yangwen123/article/details/9316987" target="_blank" rel="noopener">深入分析Android Binder 驱动</a> <a href="[Android Binder](https://web.archive.org/web/20101016004342/http://www.gmier.com/node/11">原文</a>，本小节仍需要完善。</p>
 <p>Binder 驱动是 Binder 的最终实现， ServiceManager 和 Client/Service 进程间通信最终都是由 Binder 驱动投递的。</p>
 <p><img src="https://raw.githubusercontent.com/xdtianyu/SourceAnalysis/master/art/binder_reference.png" alt="Binder reference"></p>
-<p>Binder 驱动的代码位于 kernel 代码的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/tree/master/drivers/staging/android" target="_blank" rel="external">drivers/staging/android</a> 目录下。主文件是 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h" target="_blank" rel="external">binder.h</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c" target="_blank" rel="external">binder.c</a></p>
-<p>进程间传输的数据被称为 Binder 对象，它是一个 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L49" target="_blank" rel="external">flat_binder_object</a>，结构如下</p>
+<p>Binder 驱动的代码位于 kernel 代码的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/tree/master/drivers/staging/android" target="_blank" rel="noopener">drivers/staging/android</a> 目录下。主文件是 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h" target="_blank" rel="noopener">binder.h</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c" target="_blank" rel="noopener">binder.c</a></p>
+<p>进程间传输的数据被称为 Binder 对象，它是一个 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L49" target="_blank" rel="noopener">flat_binder_object</a>，结构如下</p>
 <pre><code class="c">struct flat_binder_object {
     /* 8 bytes for large_flat_header. */
     unsigned long       type;
@@ -1383,7 +1383,7 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     void            *cookie;
 };
 </code></pre>
-<p>其中 类型 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L29" target="_blank" rel="external">type</a> 描述了 Binder 对象的类型，包含 <code>BINDER</code>(本地对象)、<code>HANDLE</code>(远程对象)、 <code>FD</code> 三大类(五种)</p>
+<p>其中 类型 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L29" target="_blank" rel="noopener">type</a> 描述了 Binder 对象的类型，包含 <code>BINDER</code>(本地对象)、<code>HANDLE</code>(远程对象)、 <code>FD</code> 三大类(五种)</p>
 <pre><code class="c">enum {
     BINDER_TYPE_BINDER  = B_PACK_CHARS(&#39;s&#39;, &#39;b&#39;, &#39;*&#39;, B_TYPE_LARGE),
     BINDER_TYPE_WEAK_BINDER = B_PACK_CHARS(&#39;w&#39;, &#39;b&#39;, &#39;*&#39;, B_TYPE_LARGE),
@@ -1392,7 +1392,7 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     BINDER_TYPE_FD      = B_PACK_CHARS(&#39;f&#39;, &#39;d&#39;, &#39;*&#39;, B_TYPE_LARGE),
 };
 </code></pre>
-<p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L52" target="_blank" rel="external">flags</a> 则表述了<a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L110" target="_blank" rel="external">传输方式</a>，如异步、无返回等</p>
+<p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L52" target="_blank" rel="noopener">flags</a> 则表述了<a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L110" target="_blank" rel="noopener">传输方式</a>，如异步、无返回等</p>
 <pre><code class="c">enum transaction_flags {
     TF_ONE_WAY  = 0x01, /* this is a one-way call: async, no return */
     TF_ROOT_OBJECT  = 0x04, /* contents are the component&#39;s root object */
@@ -1400,10 +1400,10 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     TF_ACCEPT_FDS   = 0x10, /* allow replies with file descriptors */
 };
 </code></pre>
-<p>而 <code>flat_binder_object</code> 中的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L55" target="_blank" rel="external">union 联合体</a> 就是要传输的数据，当类型为 <code>BINDER</code> 时， 数据就是一个本地对象 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L56" target="_blank" rel="external">*binder</a>，而类型为 <code>HANDLE</code> 时，数据则是一个远程对象 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L57" target="_blank" rel="external">handle</a>。</p>
-<p>当 <code>flat_binder_object</code> 在进程间传递时， Binder 驱动会修改它的类型和数据，交换的代码参考 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1671" target="_blank" rel="external">binder_transaction</a> 的实现。</p>
-<p>该如何理解本地 <code>BINDER</code> 对象和远程 <code>HANDLE</code> 对象呢？其实它们都代表同一个对象，不过是从不同的角度来看。举例来说，假如进程 <code>RemoteService</code> 有个对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L11" target="_blank" rel="external">mBinder</a>，对于 <code>RemoteService</code> 来说，<code>mBinder</code> 就是一个本地的 <code>BINDER</code> 对象；如果进程 <code>app</code> 通过 Binder 驱动访问 <code>RemoteService</code> 的 <code>mBinder</code> 对象，对于 <code>app</code> 来说， <code>mBinder</code> 就是一个 <code>HANDLE</code>。因此，从根本上来说 <code>handle</code> 和 <code>binder</code> 都指向 <code>RemoteService</code> 的 <code>mBinder</code>。本地对象还可以带有额外的数据，保存在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L61" target="_blank" rel="external">cookie</a> 中。</p>
-<p>Binder 驱动直接操作的最外层数据结构是 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L117" target="_blank" rel="external">binder_transaction_data</a>， Binder 对象 <code>flat_binder_object</code> 被封装在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L142" target="_blank" rel="external">binder_transaction_data</a> 结构体中。</p>
+<p>而 <code>flat_binder_object</code> 中的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L55" target="_blank" rel="noopener">union 联合体</a> 就是要传输的数据，当类型为 <code>BINDER</code> 时， 数据就是一个本地对象 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L56" target="_blank" rel="noopener">*binder</a>，而类型为 <code>HANDLE</code> 时，数据则是一个远程对象 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L57" target="_blank" rel="noopener">handle</a>。</p>
+<p>当 <code>flat_binder_object</code> 在进程间传递时， Binder 驱动会修改它的类型和数据，交换的代码参考 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1671" target="_blank" rel="noopener">binder_transaction</a> 的实现。</p>
+<p>该如何理解本地 <code>BINDER</code> 对象和远程 <code>HANDLE</code> 对象呢？其实它们都代表同一个对象，不过是从不同的角度来看。举例来说，假如进程 <code>RemoteService</code> 有个对象 <a href="https://github.com/xdtianyu/AidlExample/blob/master/remoteservice/src/main/java/org/xdty/remoteservice/RemoteService.java#L11" target="_blank" rel="noopener">mBinder</a>，对于 <code>RemoteService</code> 来说，<code>mBinder</code> 就是一个本地的 <code>BINDER</code> 对象；如果进程 <code>app</code> 通过 Binder 驱动访问 <code>RemoteService</code> 的 <code>mBinder</code> 对象，对于 <code>app</code> 来说， <code>mBinder</code> 就是一个 <code>HANDLE</code>。因此，从根本上来说 <code>handle</code> 和 <code>binder</code> 都指向 <code>RemoteService</code> 的 <code>mBinder</code>。本地对象还可以带有额外的数据，保存在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L61" target="_blank" rel="noopener">cookie</a> 中。</p>
+<p>Binder 驱动直接操作的最外层数据结构是 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L117" target="_blank" rel="noopener">binder_transaction_data</a>， Binder 对象 <code>flat_binder_object</code> 被封装在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L142" target="_blank" rel="noopener">binder_transaction_data</a> 结构体中。</p>
 <p><code>binder_transaction_data</code> 数据结构才是真正传输的数据，其定义如下</p>
 <pre><code class="c">struct binder_transaction_data {
     /* The first two are only used for bcTRANSACTION and brTRANSACTION,
@@ -1438,8 +1438,8 @@ status_t IPCThreadState::talkWithDriver(bool doReceive)
     } data;
 };
 </code></pre>
-<p><code>flat_binder_object</code> 就被封装在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L142" target="_blank" rel="external">*buffer</a>中，其中的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L126" target="_blank" rel="external">unsigned int   code;</a> 则是传输命令，描述了 Binder 对象执行的操作。</p>
-<h3 id="4-1-binder-设备的创建"><a href="#4-1-binder-设备的创建" class="headerlink" title="4.1 binder 设备的创建"></a>4.1 binder 设备的创建</h3><p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3747" target="_blank" rel="external">device_initcall()</a> 函数是内核加载驱动的入口函数，我们先来看这个函数的调用过程。</p>
+<p><code>flat_binder_object</code> 就被封装在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L142" target="_blank" rel="noopener">*buffer</a>中，其中的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L126" target="_blank" rel="noopener">unsigned int   code;</a> 则是传输命令，描述了 Binder 对象执行的操作。</p>
+<h3 id="4-1-binder-设备的创建"><a href="#4-1-binder-设备的创建" class="headerlink" title="4.1 binder 设备的创建"></a>4.1 binder 设备的创建</h3><p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3747" target="_blank" rel="noopener">device_initcall()</a> 函数是内核加载驱动的入口函数，我们先来看这个函数的调用过程。</p>
 <pre><code class="c">static struct miscdevice binder_miscdev = {
     .minor = MISC_DYNAMIC_MINOR,
     // 设备文件 /dev/binder
@@ -1469,7 +1469,7 @@ static int __init binder_init(void)
 
 device_initcall(binder_init);
 </code></pre>
-<p>可以看出 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3704" target="_blank" rel="external">binder_init()</a> 使用 <code>misc_register()</code> 函数创建了 binder 设备。从 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3716" target="_blank" rel="external">misc_register(&amp;binder_miscdev);</a> 及 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3695" target="_blank" rel="external">.name = “binder”</a> 可以看出， binder 向 kernel 注册了一个 <code>/dev/binder</code> 的字符设备，而文件操作都在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3683" target="_blank" rel="external">binder_fops</a> 结构体中定义。</p>
+<p>可以看出 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3704" target="_blank" rel="noopener">binder_init()</a> 使用 <code>misc_register()</code> 函数创建了 binder 设备。从 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3716" target="_blank" rel="noopener">misc_register(&amp;binder_miscdev);</a> 及 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3695" target="_blank" rel="noopener">.name = “binder”</a> 可以看出， binder 向 kernel 注册了一个 <code>/dev/binder</code> 的字符设备，而文件操作都在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3683" target="_blank" rel="noopener">binder_fops</a> 结构体中定义。</p>
 <pre><code class="c">static const struct file_operations binder_fops = {
     .owner = THIS_MODULE,
     .poll = binder_poll,
@@ -1481,8 +1481,8 @@ device_initcall(binder_init);
 };
 </code></pre>
 <p>从上面 <code>binder_fops</code> 结构体可以看出，主要的操作是 <code>binder_ioctl()</code> <code>binder_mmap()</code> <code>binder_open()</code> 等函数实现的。</p>
-<h3 id="4-2-binder-协议和数据结构"><a href="#4-2-binder-协议和数据结构" class="headerlink" title="4.2 binder 协议和数据结构"></a>4.2 binder 协议和数据结构</h3><p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h" target="_blank" rel="external">binder.h</a> 文件中定义了 binder 协议和重要的数据结构。</p>
-<p>首先在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L29" target="_blank" rel="external">enum</a> 中定义了 binder 处理的类型，引用或是句柄</p>
+<h3 id="4-2-binder-协议和数据结构"><a href="#4-2-binder-协议和数据结构" class="headerlink" title="4.2 binder 协议和数据结构"></a>4.2 binder 协议和数据结构</h3><p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h" target="_blank" rel="noopener">binder.h</a> 文件中定义了 binder 协议和重要的数据结构。</p>
+<p>首先在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L29" target="_blank" rel="noopener">enum</a> 中定义了 binder 处理的类型，引用或是句柄</p>
 <pre><code class="c">enum {
     BINDER_TYPE_BINDER  = B_PACK_CHARS(&#39;s&#39;, &#39;b&#39;, &#39;*&#39;, B_TYPE_LARGE),
     BINDER_TYPE_WEAK_BINDER = B_PACK_CHARS(&#39;w&#39;, &#39;b&#39;, &#39;*&#39;, B_TYPE_LARGE),
@@ -1500,10 +1500,10 @@ device_initcall(binder_init);
 #define BINDER_THREAD_EXIT      _IOW(&#39;b&#39;, 8, int)
 #define BINDER_VERSION          _IOWR(&#39;b&#39;, 9, struct binder_version)
 </code></pre>
-<p>在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L166" target="_blank" rel="external">BinderDriverReturnProtocol</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L254" target="_blank" rel="external">BinderDriverCommandProtocol</a> 中 则分别定义了 客户端调用 和 服务端 返回的命令。</p>
-<h3 id="4-3-binder-驱动文件操作"><a href="#4-3-binder-驱动文件操作" class="headerlink" title="4.3 binder 驱动文件操作"></a>4.3 binder 驱动文件操作</h3><p>上文已经提到，所有的操作定义在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3683" target="_blank" rel="external">binder_fops</a> 结构体中，下面讲述这些操作。</p>
+<p>在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L166" target="_blank" rel="noopener">BinderDriverReturnProtocol</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L254" target="_blank" rel="noopener">BinderDriverCommandProtocol</a> 中 则分别定义了 客户端调用 和 服务端 返回的命令。</p>
+<h3 id="4-3-binder-驱动文件操作"><a href="#4-3-binder-驱动文件操作" class="headerlink" title="4.3 binder 驱动文件操作"></a>4.3 binder 驱动文件操作</h3><p>上文已经提到，所有的操作定义在 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3683" target="_blank" rel="noopener">binder_fops</a> 结构体中，下面讲述这些操作。</p>
 <p><strong>设备的打开 - binder_open() 函数</strong></p>
-<p>用户空间在打开 <code>/dev/binder</code> 设备时，驱动会出发 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3004" target="_blank" rel="external">binder_open()</a> 函数的响应。</p>
+<p>用户空间在打开 <code>/dev/binder</code> 设备时，驱动会出发 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3004" target="_blank" rel="noopener">binder_open()</a> 函数的响应。</p>
 <pre><code class="c">static int binder_open(struct inode *nodp, struct file *filp)
 {
     struct binder_proc *proc;
@@ -1539,7 +1539,7 @@ device_initcall(binder_init);
 }
 </code></pre>
 <p><strong>驱动文件释放 - binder_release() 函数</strong></p>
-<p>在用户空间关闭驱动设备文件时，会调用 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3068" target="_blank" rel="external">binder_release()</a> 函数，清理 binder_proc 对象，释放占用的内存。</p>
+<p>在用户空间关闭驱动设备文件时，会调用 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L3068" target="_blank" rel="noopener">binder_release()</a> 函数，清理 binder_proc 对象，释放占用的内存。</p>
 <pre><code class="c">static int binder_release(struct inode *nodp, struct file *filp)
 {
     struct binder_proc *proc = filp-&gt;private_data;
@@ -1563,7 +1563,7 @@ binder_defer_work(struct binder_proc *proc, enum binder_deferred_state defer)
 }
 </code></pre>
 <p><strong>内存映射 - binder_mmap() 函数</strong></p>
-<p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2905" target="_blank" rel="external">binder_mmap()</a> 函数把设备内存映射到用户进程地址空间中，这样就可以像操作用户内存那样操作设备内存。</p>
+<p><a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2905" target="_blank" rel="noopener">binder_mmap()</a> 函数把设备内存映射到用户进程地址空间中，这样就可以像操作用户内存那样操作设备内存。</p>
 <pre><code class="c">static int binder_mmap(struct file *filp, struct vm_area_struct *vma)
 {
     int ret;
@@ -1641,8 +1641,8 @@ binder_defer_work(struct binder_proc *proc, enum binder_deferred_state defer)
 }
 </code></pre>
 <p><strong>驱动命令接口 - binder_ioctl() 函数</strong></p>
-<p>用户态程序调用 <code>ioctl</code> 系统函数向 <code>/dev/binder</code> 设备发送数据时，会触发 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2734" target="_blank" rel="external">binder_ioctl()</a> 函数响应。</p>
-<p>上文数据结构中已经提到了 <code>binder_ioctl</code> 可以处理的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L87" target="_blank" rel="external">命令</a></p>
+<p>用户态程序调用 <code>ioctl</code> 系统函数向 <code>/dev/binder</code> 设备发送数据时，会触发 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2734" target="_blank" rel="noopener">binder_ioctl()</a> 函数响应。</p>
+<p>上文数据结构中已经提到了 <code>binder_ioctl</code> 可以处理的 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L87" target="_blank" rel="noopener">命令</a></p>
 <pre><code class="c">// 核心命令，数据的读写
 #define BINDER_WRITE_READ       _IOWR(&#39;b&#39;, 1, struct binder_write_read)
 // 设置最大线程数
@@ -1813,8 +1813,8 @@ binder_defer_work(struct binder_proc *proc, enum binder_deferred_state defer)
 }
 </code></pre>
 <p><strong>BINDER_WRITE_READ 处理过程</strong></p>
-<p>在 binder 本地层中，我们看到在 <code>IPCThreadState::talkWithDriver()</code> 函数中， binder 本地层通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="external">ioctl()(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)</a> 命令的形式，与 binder 驱动交互。</p>
-<p>可以看出 <code>ioctl()</code> 的第三个参数是一个 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L69" target="_blank" rel="external">binder_write_read</a> 结构体</p>
+<p>在 binder 本地层中，我们看到在 <code>IPCThreadState::talkWithDriver()</code> 函数中， binder 本地层通过 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L856" target="_blank" rel="noopener">ioctl()(mProcess-&gt;mDriverFD, BINDER_WRITE_READ, &amp;bwr)</a> 命令的形式，与 binder 驱动交互。</p>
+<p>可以看出 <code>ioctl()</code> 的第三个参数是一个 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.h#L69" target="_blank" rel="noopener">binder_write_read</a> 结构体</p>
 <p>binder.h 头文件中定义了两个数据类型, 一个是 <code>binder_write_read</code></p>
 <pre><code class="c">struct binder_write_read {
     signed long write_size; /* bytes to write */
@@ -1826,7 +1826,7 @@ binder_defer_work(struct binder_proc *proc, enum binder_deferred_state defer)
 };
 </code></pre>
 <p>其中 <code>write_size</code> 和 <code>read_size</code> 表示需要被读写的字节数， <code>write_consumed</code> 和 <code>read_consumed</code> 表示已经被 binder 驱动读写的字节数， <code>write_buffer</code> 和 <code>read_buffer</code> 则是指向被读写数据的指针。</p>
-<p>具体的读写操作被 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1852" target="_blank" rel="external">binder_thread_write</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2266" target="_blank" rel="external">binder_thread_read</a> 实现。</p>
+<p>具体的读写操作被 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1852" target="_blank" rel="noopener">binder_thread_write</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2266" target="_blank" rel="noopener">binder_thread_read</a> 实现。</p>
 <p><strong>数据写入 - binder_thread_write() 函数</strong></p>
 <p>将用户空间数据写入到 binder 驱动，从驱动角度来看是读取的操作。</p>
 <pre><code class="c">int binder_thread_write(struct binder_proc *proc, struct binder_thread *thread,
@@ -2184,7 +2184,7 @@ binder_defer_work(struct binder_proc *proc, enum binder_deferred_state defer)
 }
 </code></pre>
 <p><strong>binder_transaction() 函数</strong></p>
-<p>在上文处理 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2041" target="_blank" rel="external">BC_TRANSACTION</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2042" target="_blank" rel="external">BC_REPLY</a> 时，调用了 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1417" target="_blank" rel="external">binder_transaction()</a> 函数。我们继续追踪</p>
+<p>在上文处理 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2041" target="_blank" rel="noopener">BC_TRANSACTION</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L2042" target="_blank" rel="noopener">BC_REPLY</a> 时，调用了 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow/blob/master/drivers/staging/android/binder.c#L1417" target="_blank" rel="noopener">binder_transaction()</a> 函数。我们继续追踪</p>
 <pre><code class="c">static void binder_transaction(struct binder_proc *proc,
                    struct binder_thread *thread,
                    struct binder_transaction_data *tr, int reply)
@@ -2643,18 +2643,18 @@ retry:
 }
 </code></pre>
 <p>从上述代码可以看出 binder 驱动的具体实现，以及是如何发送和接收数据的。</p>
-<h2 id="5-Binder-与系统服务"><a href="#5-Binder-与系统服务" class="headerlink" title="5. Binder 与系统服务"></a>5. Binder 与系统服务</h2><h3 id="5-1-Context-getSystemService"><a href="#5-1-Context-getSystemService" class="headerlink" title="5.1 Context.getSystemService()"></a>5.1 Context.getSystemService()</h3><p>Android 系统在启动后会在后台运行很多系统服务提供给应用使用，这些 <a href="http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.Class&lt;T" target="_blank" rel="external">服务</a>) 主要有 <code>WindowManager, LayoutInflater, ActivityManager, PowerManager, AlarmManager, NotificationManager, KeyguardManager, LocationManager, SearchManager, Vibrator, ConnectivityManager, WifiManager, AudioManager, MediaRouter, TelephonyManager, SubscriptionManager, InputMethodManager, UiModeManager, DownloadManager, BatteryManager, JobScheduler, NetworkStatsManager</code></p>
-<p>我们可以通过 <code>Context.getSystemService(String name)</code> 来获取 <a href="http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String" target="_blank" rel="external">服务</a>)。</p>
+<h2 id="5-Binder-与系统服务"><a href="#5-Binder-与系统服务" class="headerlink" title="5. Binder 与系统服务"></a>5. Binder 与系统服务</h2><h3 id="5-1-Context-getSystemService"><a href="#5-1-Context-getSystemService" class="headerlink" title="5.1 Context.getSystemService()"></a>5.1 Context.getSystemService()</h3><p>Android 系统在启动后会在后台运行很多系统服务提供给应用使用，这些 <a href="http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.Class&lt;T" target="_blank" rel="noopener">服务</a>) 主要有 <code>WindowManager, LayoutInflater, ActivityManager, PowerManager, AlarmManager, NotificationManager, KeyguardManager, LocationManager, SearchManager, Vibrator, ConnectivityManager, WifiManager, AudioManager, MediaRouter, TelephonyManager, SubscriptionManager, InputMethodManager, UiModeManager, DownloadManager, BatteryManager, JobScheduler, NetworkStatsManager</code></p>
+<p>我们可以通过 <code>Context.getSystemService(String name)</code> 来获取 <a href="http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String" target="_blank" rel="noopener">服务</a>)。</p>
 <p>例如 可以通过如下方法从 xml 中插入新的视图</p>
 <pre><code>LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 inflater.inflate(R.layout.view, root, true);
-</code></pre><h3 id="5-2-Context-getSystemService-源码分析"><a href="#5-2-Context-getSystemService-源码分析" class="headerlink" title="5.2 Context.getSystemService() 源码分析"></a>5.2 Context.getSystemService() 源码分析</h3><p>追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1364" target="_blank" rel="external">ContextImpl</a> <code>getSystemService()</code> 源代码</p>
+</code></pre><h3 id="5-2-Context-getSystemService-源码分析"><a href="#5-2-Context-getSystemService-源码分析" class="headerlink" title="5.2 Context.getSystemService() 源码分析"></a>5.2 Context.getSystemService() 源码分析</h3><p>追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/ContextImpl.java#L1364" target="_blank" rel="noopener">ContextImpl</a> <code>getSystemService()</code> 源代码</p>
 <pre><code class="java">    @Override
     public Object getSystemService(String name) {
         return SystemServiceRegistry.getSystemService(this, name);
     }
 </code></pre>
-<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L719" target="_blank" rel="external">SystemServiceRegistry</a> 源代码</p>
+<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L719" target="_blank" rel="noopener">SystemServiceRegistry</a> 源代码</p>
 <pre><code class="java">    /**
      * Gets a system service from a given context.
      */
@@ -2663,7 +2663,7 @@ inflater.inflate(R.layout.view, root, true);
         return fetcher != null ? fetcher.getService(ctx) : null;
     }
 </code></pre>
-<p>追踪 <code>SYSTEM_SERVICE_FETCHERS</code> 可以发现在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L318" target="_blank" rel="external">SystemServiceRegistry</a> 静态区中注册了几乎所有的系统服务</p>
+<p>追踪 <code>SYSTEM_SERVICE_FETCHERS</code> 可以发现在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L318" target="_blank" rel="noopener">SystemServiceRegistry</a> 静态区中注册了几乎所有的系统服务</p>
 <pre><code class="java">    registerService(Context.LAYOUT_INFLATER_SERVICE, LayoutInflater.class,
             new CachedServiceFetcher&lt;LayoutInflater&gt;() {
         @Override
@@ -2679,8 +2679,8 @@ inflater.inflate(R.layout.view, root, true);
             return new LocationManager(ctx, ILocationManager.Stub.asInterface(b));
         }});
 </code></pre>
-<p>上面代码片断中，<a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L322" target="_blank" rel="external">PhoneLayoutInflater</a> 最终回到了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/view/LayoutInflater.java#L204" target="_blank" rel="external">LayoutInflater</a>。而 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/location/java/android/location/LocationManager.java#L315" target="_blank" rel="external">LocationManager</a> 则是对 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/location/java/android/location/ILocationManager.aidl#L39" target="_blank" rel="external">ILocationManager</a> 的封装。可以发现，在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/base/location/java/android/location" target="_blank" rel="external">frameworks/base/location/java/android/location</a> 包下含有大量的 AIDL 文件。</p>
-<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManager.java#L49" target="_blank" rel="external">ServiceManager.getService(Context.LOCATION_SERVICE)</a> </p>
+<p>上面代码片断中，<a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/app/SystemServiceRegistry.java#L322" target="_blank" rel="noopener">PhoneLayoutInflater</a> 最终回到了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/view/LayoutInflater.java#L204" target="_blank" rel="noopener">LayoutInflater</a>。而 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/location/java/android/location/LocationManager.java#L315" target="_blank" rel="noopener">LocationManager</a> 则是对 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/location/java/android/location/ILocationManager.aidl#L39" target="_blank" rel="noopener">ILocationManager</a> 的封装。可以发现，在 <a href="https://github.com/xdtianyu/android-6.0.0_r1/tree/master/frameworks/base/location/java/android/location" target="_blank" rel="noopener">frameworks/base/location/java/android/location</a> 包下含有大量的 AIDL 文件。</p>
+<p>继续追踪 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManager.java#L49" target="_blank" rel="noopener">ServiceManager.getService(Context.LOCATION_SERVICE)</a> </p>
 <pre><code class="java">    private static IServiceManager getIServiceManager() {
         if (sServiceManager != null) {
             return sServiceManager;
@@ -2711,8 +2711,8 @@ inflater.inflate(R.layout.view, root, true);
         return null;
     }
 </code></pre>
-<p>从上面代码片断可以看出，<code>ServiceManager</code> 会从 <code>sCache</code> 缓存或 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManagerNative.java#L33" target="_blank" rel="external">IServiceManager</a> 中查找服务并返回一个 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/IBinder.java#L85" target="_blank" rel="external">IBinder</a> 对象。这个 <code>IBinder</code> 就是一个远程对象，可以通过它与其他进程交互。 </p>
-<p>继续深入 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManager.java#L55" target="_blank" rel="external">getIServiceManager().getService(name)</a> , 进入 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManagerNative.java#L33" target="_blank" rel="external">ServiceManagerNative</a> </p>
+<p>从上面代码片断可以看出，<code>ServiceManager</code> 会从 <code>sCache</code> 缓存或 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManagerNative.java#L33" target="_blank" rel="noopener">IServiceManager</a> 中查找服务并返回一个 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/IBinder.java#L85" target="_blank" rel="noopener">IBinder</a> 对象。这个 <code>IBinder</code> 就是一个远程对象，可以通过它与其他进程交互。 </p>
+<p>继续深入 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManager.java#L55" target="_blank" rel="noopener">getIServiceManager().getService(name)</a> , 进入 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/ServiceManagerNative.java#L33" target="_blank" rel="noopener">ServiceManagerNative</a> </p>
 <pre><code class="java">    /**
      * Cast a Binder object into a service manager interface, generating
      * a proxy if needed.
@@ -2755,25 +2755,25 @@ inflater.inflate(R.layout.view, root, true);
         private IBinder mRemote;
     }
 </code></pre>
-<p>从上边代码片断可以看到，<code>ServiceManager.getIServiceManager()</code> 返回的是一个 <code>ServiceManagerProxy</code>, 而 <code>ServiceManager.getService()</code> 则是在 <code>ServiceManagerProxy</code> 中通过 <code>ServiceManager</code> 的远程 <code>Binder</code> 对象 <code>mRemote</code>，操作 <code>Parcel</code> 数据，调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/IBinder.java#L223" target="_blank" rel="external">IBinder.transact(int code, Parcel data, Parcel reply, int flags)</a> 方法来发送请求，并通过 <code>reply.readStrongBinder()</code> 返回了要查找的服务的远程对象。</p>
+<p>从上边代码片断可以看到，<code>ServiceManager.getIServiceManager()</code> 返回的是一个 <code>ServiceManagerProxy</code>, 而 <code>ServiceManager.getService()</code> 则是在 <code>ServiceManagerProxy</code> 中通过 <code>ServiceManager</code> 的远程 <code>Binder</code> 对象 <code>mRemote</code>，操作 <code>Parcel</code> 数据，调用 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/base/core/java/android/os/IBinder.java#L223" target="_blank" rel="noopener">IBinder.transact(int code, Parcel data, Parcel reply, int flags)</a> 方法来发送请求，并通过 <code>reply.readStrongBinder()</code> 返回了要查找的服务的远程对象。</p>
 <p>可以看到，系统服务的获取方式也是通过 AIDL 的方式实现的。</p>
 <h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h2><p>1. Binder 的实现涉及到 kernel 驱动，本地层，JNI 和应用层，贯穿了整个 Ａndroid 系统。系统服务获取、Activity/Service 启动、Intent的传递等都离不开 binder,要掌握 binder 的原理需要深入到系统的每一层代码。</p>
 <p>2. 上层的 <code>android.os.Binder</code> 只是对 binder 的又一次抽象封装，我们在应用中一般也不会直接使用。</p>
 <p>3. AIDL 本质上是一个用于封装 Binder 操作的工具，最终的进程间通信由 Binder 的 <code>transact</code> 和 <code>onTransact</code> 完成。我们在应用中实现 AIDL 接口，可以快速实现进程间通信。</p>
-<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><a href="http://wangkuiwu.github.io/2014/09/01/Binder-Introduce/" target="_blank" rel="external">Android Binder机制</a></p>
-<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">Android进程间通信（IPC）机制Binder</a></p>
-<p><a href="https://www.nds.rub.de/media/attachments/files/2012/03/binder.pdf" target="_blank" rel="external">Android Binder</a></p>
-<p><a href="http://rts.lab.asu.edu/web_438/project_final/CSE_598_Android_Architecture_Binder.pdf" target="_blank" rel="external">Android Architecture Binder</a></p>
-<p><a href="http://liuxiangtian.github.io/2016/01/07/AIDL%E4%B8%8EBinder%E6%A1%86%E6%9E%B6%E6%B5%85%E8%B0%88/" target="_blank" rel="external">AIDL与Binder框架浅谈</a></p>
-<p><a href="https://github.com/hehonghui/android-tech-frontier/blob/master/issue-22/Binder%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90.md" target="_blank" rel="external">Binder框架解析</a></p>
-<p><a href="http://events.linuxfoundation.org/images/stories/slides/abs2013_gargentas.pdf" target="_blank" rel="external">Deep Dive into Android IPC/Binder Framework at Android Builders Summit 2013</a></p>
-<p><a href="https://www.youtube.com/watch?v=NWhyADzgoiI" target="_blank" rel="external">Android Builders Summit 2013 - Deep Dive into Android IPC/Binder Framework (video)</a></p>
-<p><a href="http://blog.csdn.net/u010961631/article/details/20479507" target="_blank" rel="external">Binder源码分析之驱动层（原）</a></p>
-<p><a href="http://blog.csdn.net/yangwen123/article/details/9316987" target="_blank" rel="external">深入分析Android Binder 驱动</a></p>
-<p><a href="http://blog.csdn.net/qq429205464/article/details/7822442" target="_blank" rel="external">构造IOCTL命令的学习心得—–_IO, _IOR, _IOW, _IOWR 幻数的理解</a></p>
-<p><a href="http://blog.csdn.net/21cnbao/article/details/8087354" target="_blank" rel="external">Service与Android系统设计（7）— Binder驱动</a></p>
-<p><a href="https://web.archive.org/web/20101016004342/http://www.gmier.com/node/11" target="_blank" rel="external">Android Binder</a></p>
-<p><a href="http://www.cnblogs.com/zhangxinyan/p/3487889.html" target="_blank" rel="external">Binder机制，从Java到C （7. Native Service）</a></p>
+<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><a href="http://wangkuiwu.github.io/2014/09/01/Binder-Introduce/" target="_blank" rel="noopener">Android Binder机制</a></p>
+<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="noopener">Android进程间通信（IPC）机制Binder</a></p>
+<p><a href="https://www.nds.rub.de/media/attachments/files/2012/03/binder.pdf" target="_blank" rel="noopener">Android Binder</a></p>
+<p><a href="http://rts.lab.asu.edu/web_438/project_final/CSE_598_Android_Architecture_Binder.pdf" target="_blank" rel="noopener">Android Architecture Binder</a></p>
+<p><a href="http://liuxiangtian.github.io/2016/01/07/AIDL%E4%B8%8EBinder%E6%A1%86%E6%9E%B6%E6%B5%85%E8%B0%88/" target="_blank" rel="noopener">AIDL与Binder框架浅谈</a></p>
+<p><a href="https://github.com/hehonghui/android-tech-frontier/blob/master/issue-22/Binder%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90.md" target="_blank" rel="noopener">Binder框架解析</a></p>
+<p><a href="http://events.linuxfoundation.org/images/stories/slides/abs2013_gargentas.pdf" target="_blank" rel="noopener">Deep Dive into Android IPC/Binder Framework at Android Builders Summit 2013</a></p>
+<p><a href="https://www.youtube.com/watch?v=NWhyADzgoiI" target="_blank" rel="noopener">Android Builders Summit 2013 - Deep Dive into Android IPC/Binder Framework (video)</a></p>
+<p><a href="http://blog.csdn.net/u010961631/article/details/20479507" target="_blank" rel="noopener">Binder源码分析之驱动层（原）</a></p>
+<p><a href="http://blog.csdn.net/yangwen123/article/details/9316987" target="_blank" rel="noopener">深入分析Android Binder 驱动</a></p>
+<p><a href="http://blog.csdn.net/qq429205464/article/details/7822442" target="_blank" rel="noopener">构造IOCTL命令的学习心得—–_IO, _IOR, _IOW, _IOWR 幻数的理解</a></p>
+<p><a href="http://blog.csdn.net/21cnbao/article/details/8087354" target="_blank" rel="noopener">Service与Android系统设计（7）— Binder驱动</a></p>
+<p><a href="https://web.archive.org/web/20101016004342/http://www.gmier.com/node/11" target="_blank" rel="noopener">Android Binder</a></p>
+<p><a href="http://www.cnblogs.com/zhangxinyan/p/3487889.html" target="_blank" rel="noopener">Binder机制，从Java到C （7. Native Service）</a></p>
 <hr>
 <p><strong>待补充的内容</strong></p>
 <p>1. 客户端 bindService() 流程及源码分析</p>
@@ -3082,7 +3082,7 @@ inflater.inflate(R.layout.view, root, true);
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

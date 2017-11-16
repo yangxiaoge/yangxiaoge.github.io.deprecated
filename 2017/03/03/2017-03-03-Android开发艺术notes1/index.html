@@ -280,7 +280,7 @@
 
     
         <meta property="article:published_time" content="Fri Mar 03 2017 13:14:14 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -309,7 +309,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/03/03/2017-03-03-Android开发艺术notes1/index.html",
     "headline": "《Android开发艺术探索》读书笔记 (1)",
     "datePublished": "Fri Mar 03 2017 13:14:14 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -591,14 +591,14 @@
     
         <center><font color="SkyBlue" size="6px"><strong>重拾课本, 温故Android开发艺术探索!</strong></font></center>
 
-<p>本文是Android开发艺术读书笔记系列第一篇。内容结合书本/网络，自己概括而来。<br><a href="https://github.com/singwhatiwanna/android-art-res" target="_blank" rel="external">书中源码地址 Github</a><br><a id="more"></a></p>
+<p>本文是Android开发艺术读书笔记系列第一篇。内容结合书本/网络，自己概括而来。<br><a href="https://github.com/singwhatiwanna/android-art-res" target="_blank" rel="noopener">书中源码地址 Github</a><br><a id="more"></a></p>
 <h2 id="第1章-Activity的生命周期和启动模式"><a href="#第1章-Activity的生命周期和启动模式" class="headerlink" title="第1章 Activity的生命周期和启动模式"></a>第1章 Activity的生命周期和启动模式</h2><h3 id="1-1-Activity生命周期全面分析"><a href="#1-1-Activity生命周期全面分析" class="headerlink" title="1.1 Activity生命周期全面分析"></a>1.1 Activity生命周期全面分析</h3><h4 id="1-1-1-典型情况下生命周期分析"><a href="#1-1-1-典型情况下生命周期分析" class="headerlink" title="1.1.1 典型情况下生命周期分析"></a>1.1.1 典型情况下生命周期分析</h4><ul>
 <li>通常, <code>Activity</code>从<code>invisible</code>(即onStop)到<code>visible</code>(即onStart)时, <code>onRestart</code>方法就会被调用。</li>
 <li>点击home键或者打开新<code>Activity</code>时, <code>onPause -&gt; onStop</code>, 如果按Home键回来回掉是: <code>onRestart -&gt;  onStart　-&gt;　onResume</code> ; 如果新<code>Activity</code>主题是透明的时, 只有<code>onPause</code>, 所以当用户返回<code>原来的Activity</code>时, 回掉过程是: <code>onRestart -&gt; onStart -&gt; onResume</code> (看<a href="/img/Activity金字塔型的生命周期图.png">Activity生命周期图</a>就知道了)。<!-- more --></li>
 <li>分析生命周期图, 可知<code>onStart</code>和<code>onStop</code>对应(可见到不可见性), <code>onPause</code>和<code>onResume</code>对应(是否位于前台)。</li>
 </ul>
 <h4 id="1-1-2-异常生命周期分析"><a href="#1-1-2-异常生命周期分析" class="headerlink" title="1.1.2 异常生命周期分析"></a>1.1.2 异常生命周期分析</h4><ul>
-<li>如果应用长时间处于<code>stopped</code>状态并且此时系统<code>内存极为紧张</code>的时候，系统就会回收Activity，此时系统在<code>回收之前</code>会回调<code>onSaveInstanceState</code>方法来保存应用的数据Bundle。当该Activity重新创建的时候，保存的Bundle数据就会传递到<code>onRestoreSaveInstanceState</code>方法和<code>onCreate</code>方法中，这就是onCreate方法中Bundle savedInstanceState参数的来源（onRestoreInstanceState的bundle参数也会传递到onCreate方法中，你也可以选择在onCreate方法中做数据还原）。详情可以参考<a href="https://hujiaweibujidao.github.io/blog/2015/11/28/android-heroes-reading-notes-4/" target="_blank" rel="external">Android群英传_第八章 Activity和Activity调用栈分析</a></li>
+<li>如果应用长时间处于<code>stopped</code>状态并且此时系统<code>内存极为紧张</code>的时候，系统就会回收Activity，此时系统在<code>回收之前</code>会回调<code>onSaveInstanceState</code>方法来保存应用的数据Bundle。当该Activity重新创建的时候，保存的Bundle数据就会传递到<code>onRestoreSaveInstanceState</code>方法和<code>onCreate</code>方法中，这就是onCreate方法中Bundle savedInstanceState参数的来源（onRestoreInstanceState的bundle参数也会传递到onCreate方法中，你也可以选择在onCreate方法中做数据还原）。详情可以参考<a href="https://hujiaweibujidao.github.io/blog/2015/11/28/android-heroes-reading-notes-4/" target="_blank" rel="noopener">Android群英传_第八章 Activity和Activity调用栈分析</a></li>
 <li>配置android:configChanges=”xxx”属性, 防止<code>Activity</code>随着<code>orientation</code>,<code>local</code>,<code>keyboardHidden</code>发生变化时重新创建。</li>
 </ul>
 <h3 id="1-2-Activity的启动模式"><a href="#1-2-Activity的启动模式" class="headerlink" title="1.2 Activity的启动模式"></a>1.2 Activity的启动模式</h3><p>应用内的Activity是被任务栈Task来管理的，一个Task中的Activity可以来自不同的应用，同一个应用的Activity也可能不在同一个Task中。默认情况下，任务栈依据栈的后进先出原则管理Activity，但是Activity可以设置一些“特权”打破默认的规则，主要是通过在AndroidManifest文件中的属性<code>android:launchMode</code>或者通过<code>Intent的flag</code>来设置。</p>
@@ -913,7 +913,7 @@
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

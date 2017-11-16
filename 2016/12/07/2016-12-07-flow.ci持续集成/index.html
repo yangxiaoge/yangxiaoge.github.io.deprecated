@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Wed Dec 07 2016 14:19:05 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/12/07/2016-12-07-flow.ci持续集成/index.html",
     "headline": "Flow.ci持续集成",
     "datePublished": "Wed Dec 07 2016 14:19:05 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -590,9 +590,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>好久没有写博客了o(╯□╰)o , 终于忙完Android项目了。接下来<code>给自己定个长期目标</code>， 每个月至少写一篇博文，可以是感想闲聊篇也可是技术篇， 哈哈看心情啦。<br><a id="more"></a><br><strong>言归正传</strong><br>其实获得<a href="http://dashboard.flow.ci/" target="_blank" rel="external">FlowCi</a>测试资格已经好几个月了， 一直没有去使用它， <a href="http://dashboard.flow.ci/" target="_blank" rel="external">FlowCi</a>功能非常强大。 之前我用的是<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="external">daocloud</a>持续集成博客, 不过今天发现持续集成失败了， 发现是<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="external">daocloud</a>升级了， 集成的配置文件需要修改， 我就乘此机会转投<a href="http://dashboard.flow.ci/" target="_blank" rel="external">FlowCi</a>的怀抱中了 O(∩_∩)O哈哈~<br>那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？</p>
+        <p>好久没有写博客了o(╯□╰)o , 终于忙完Android项目了。接下来<code>给自己定个长期目标</code>， 每个月至少写一篇博文，可以是感想闲聊篇也可是技术篇， 哈哈看心情啦。<br><a id="more"></a><br><strong>言归正传</strong><br>其实获得<a href="http://dashboard.flow.ci/" target="_blank" rel="noopener">FlowCi</a>测试资格已经好几个月了， 一直没有去使用它， <a href="http://dashboard.flow.ci/" target="_blank" rel="noopener">FlowCi</a>功能非常强大。 之前我用的是<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="noopener">daocloud</a>持续集成博客, 不过今天发现持续集成失败了， 发现是<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="noopener">daocloud</a>升级了， 集成的配置文件需要修改， 我就乘此机会转投<a href="http://dashboard.flow.ci/" target="_blank" rel="noopener">FlowCi</a>的怀抱中了 O(∩_∩)O哈哈~<br>那么 怎么使用 FlowCi 为 Hexo博客持续集成呢？</p>
 <blockquote>
-<p>PS: (2016-12-8 09:31:50 add) 强迫症的我还是把<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="external">daocloud</a>持续集成搞好了(^o^)/~, 不过我还是用FlowCi吧, 尝试新工具哈哈~~<br><em>啪啪打脸~~</em> flowci hook push不及时, 有时候coding源码修改了,但是都不push消息给flowci,所以博客有时候并没有自动集成o(╯□╰)o</p>
+<p>PS: (2016-12-8 09:31:50 add) 强迫症的我还是把<a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="noopener">daocloud</a>持续集成搞好了(^o^)/~, 不过我还是用FlowCi吧, 尝试新工具哈哈~~<br><em>啪啪打脸~~</em> flowci hook push不及时, 有时候coding源码修改了,但是都不push消息给flowci,所以博客有时候并没有自动集成o(╯□╰)o</p>
 </blockquote>
 <h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fai7qzz2unj216v0edgmw.jpg" alt="create project"></p>
 <h2 id="选择代码仓库"><a href="#选择代码仓库" class="headerlink" title="选择代码仓库"></a>选择代码仓库</h2><p> 这里取决于hexo博客源文件存放在哪里了 github, coding等…<br><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1fai7ue4f1vj217c0ei0tv.jpg" alt="select the code repository"></p>
@@ -617,7 +617,7 @@ flow_cmd &quot;hexo g&quot; --echo
 flow_cmd &quot;hexo d&quot; --echo
 </code></pre><p><img src="http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1fai8ir2iphj217j0kv77e.jpg" alt="custom script"></p>
 <h1 id="添加FlowCi的-RSA公匙到github以及coding-授予读写权限"><a href="#添加FlowCi的-RSA公匙到github以及coding-授予读写权限" class="headerlink" title="添加FlowCi的 RSA公匙到github以及coding(授予读写权限)"></a>添加FlowCi的 RSA公匙到github以及coding(授予读写权限)</h1><p><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fajdovw24yj21640e4wh4.jpg" alt="RSA公匙配置"></p>
-<h1 id="快去提交代码吧"><a href="#快去提交代码吧" class="headerlink" title="快去提交代码吧"></a>快去提交代码吧</h1><p>我是单独在coding建了一个新的仓库存放博客源文件,<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge-CI" target="_blank" rel="external">yangxiaoge-CI</a><br>之后只要往<code>yangxiaoge-CI</code>仓库中提交或者增删改查时, <code>FlowCi</code>会自动集成并发布到<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge" target="_blank" rel="external">yangxiaoge</a>编译后的博客地址中!<br><strong>binggo!!!</strong>坐等集成好,登录网站查看变动吧！是不是很爽😏 , 跨PC更新博客也更方便啦~~~</p>
+<h1 id="快去提交代码吧"><a href="#快去提交代码吧" class="headerlink" title="快去提交代码吧"></a>快去提交代码吧</h1><p>我是单独在coding建了一个新的仓库存放博客源文件,<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge-CI" target="_blank" rel="noopener">yangxiaoge-CI</a><br>之后只要往<code>yangxiaoge-CI</code>仓库中提交或者增删改查时, <code>FlowCi</code>会自动集成并发布到<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge" target="_blank" rel="noopener">yangxiaoge</a>编译后的博客地址中!<br><strong>binggo!!!</strong>坐等集成好,登录网站查看变动吧！是不是很爽😏 , 跨PC更新博客也更方便啦~~~</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -919,7 +919,7 @@ flow_cmd &quot;hexo d&quot; --echo
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

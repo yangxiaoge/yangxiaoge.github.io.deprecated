@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Fri Jan 08 2016 10:50:55 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/01/08/2016-01-08-Android-常用方法摘记/index.html",
     "headline": "Android常用方法摘记以及收集",
     "datePublished": "Fri Jan 08 2016 10:50:55 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -684,8 +684,8 @@ public class SystemShareUtils {
     }
 }
 </code></pre><!-- more -->
-<h3 id="Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47"><a href="#Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47" class="headerlink" title="Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)"></a>Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)</h3><p>摘自:<a href="https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/" target="_blank" rel="external">习惯沉默的Blog
-</a><br>现在微信不能直接跳转到微信扫一扫:详见 <a href="http://blog.csdn.net/l_lhc/article/details/51636130" target="_blank" rel="external">Android调用微信扫一扫_CSDN</a></p>
+<h3 id="Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47"><a href="#Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47" class="headerlink" title="Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)"></a>Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)</h3><p>摘自:<a href="https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/" target="_blank" rel="noopener">习惯沉默的Blog
+</a><br>现在微信不能直接跳转到微信扫一扫:详见 <a href="http://blog.csdn.net/l_lhc/article/details/51636130" target="_blank" rel="noopener">Android调用微信扫一扫_CSDN</a></p>
 <h3 id="Gson构造JsonArray-2016-8-23-16-11-25"><a href="#Gson构造JsonArray-2016-8-23-16-11-25" class="headerlink" title="Gson构造JsonArray(2016-8-23 16:11:25)"></a>Gson构造JsonArray(2016-8-23 16:11:25)</h3><p>最近项目中请求参数传参用到了 JsonArray对象<br>构造方法如下:</p>
 <pre><code>    Object[] object = new Object[]{&quot;111&quot;, &quot;222&quot;, &quot;24G&quot;};
     JsonArray jsonArr = new JsonArray();
@@ -696,15 +696,15 @@ public class SystemShareUtils {
     }
     Toast.makeText(this, &quot;jsonArr:  &quot; + jsonArr.toString(), Toast.LENGTH_SHORT).show();
     System.out.println(&quot;jsonArr:  &quot; + jsonArr.toString());
-</code></pre><h3 id="访问或者下载单个github文件-2016-9-20-18-43-37"><a href="#访问或者下载单个github文件-2016-9-20-18-43-37" class="headerlink" title="访问或者下载单个github文件(2016-9-20 18:43:37)"></a>访问或者下载单个github文件(2016-9-20 18:43:37)</h3><p><strong>用途:</strong>可以用来存一些配置文件,图片等.<br>url固定格式: <a href="https://raw.githubusercontent.com/username/repository/branch/filename" target="_blank" rel="external">https://raw.githubusercontent.com/username/repository/branch/filename</a><br>例如: <a href="https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md" target="_blank" rel="external">https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md</a></p>
+</code></pre><h3 id="访问或者下载单个github文件-2016-9-20-18-43-37"><a href="#访问或者下载单个github文件-2016-9-20-18-43-37" class="headerlink" title="访问或者下载单个github文件(2016-9-20 18:43:37)"></a>访问或者下载单个github文件(2016-9-20 18:43:37)</h3><p><strong>用途:</strong>可以用来存一些配置文件,图片等.<br>url固定格式: <a href="https://raw.githubusercontent.com/username/repository/branch/filename" target="_blank" rel="noopener">https://raw.githubusercontent.com/username/repository/branch/filename</a><br>例如: <a href="https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md</a></p>
 <blockquote>
-<p>参考stackoverflow:<a href="http://stackoverflow.com/questions/4604663/download-single-files-from-github" target="_blank" rel="external">Download single files from GitHub</a></p>
+<p>参考stackoverflow:<a href="http://stackoverflow.com/questions/4604663/download-single-files-from-github" target="_blank" rel="noopener">Download single files from GitHub</a></p>
 </blockquote>
-<h3 id="LICEcap录制Gif工具-2016-8-2-18-57-50"><a href="#LICEcap录制Gif工具-2016-8-2-18-57-50" class="headerlink" title="LICEcap录制Gif工具(2016-8-2 18:57:50)"></a>LICEcap录制Gif工具(2016-8-2 18:57:50)</h3><p><a href="http://www.cockos.com/licecap/" target="_blank" rel="external">官网地址</a></p>
+<h3 id="LICEcap录制Gif工具-2016-8-2-18-57-50"><a href="#LICEcap录制Gif工具-2016-8-2-18-57-50" class="headerlink" title="LICEcap录制Gif工具(2016-8-2 18:57:50)"></a>LICEcap录制Gif工具(2016-8-2 18:57:50)</h3><p><a href="http://www.cockos.com/licecap/" target="_blank" rel="noopener">官网地址</a></p>
 <p><img src="http://www.cockos.com/licecap/licecap_rules.gif" alt="录制的gif图"></p>
-<h3 id="读取Assets-下面-cityId查询天气-中的是另一种读取方法-目录下文件-2016-06-12"><a href="#读取Assets-下面-cityId查询天气-中的是另一种读取方法-目录下文件-2016-06-12" class="headerlink" title="读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(2016-06-12)"></a>读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(<code>2016-06-12</code>)</h3><p><em><a href="http://www.jianshu.com/p/b87fee2f7a23" target="_blank" rel="external">例如:</a></em></p>
+<h3 id="读取Assets-下面-cityId查询天气-中的是另一种读取方法-目录下文件-2016-06-12"><a href="#读取Assets-下面-cityId查询天气-中的是另一种读取方法-目录下文件-2016-06-12" class="headerlink" title="读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(2016-06-12)"></a>读取Assets( 下面 cityId查询天气 中的是另一种读取方法)目录下文件(<code>2016-06-12</code>)</h3><p><em><a href="http://www.jianshu.com/p/b87fee2f7a23" target="_blank" rel="noopener">例如:</a></em></p>
 <blockquote>
-<p>简书:<a href="http://www.jianshu.com/p/b87fee2f7a23" target="_blank" rel="external">http://www.jianshu.com/p/b87fee2f7a23</a></p>
+<p>简书:<a href="http://www.jianshu.com/p/b87fee2f7a23" target="_blank" rel="noopener">http://www.jianshu.com/p/b87fee2f7a23</a></p>
 </blockquote>
 <pre><code>InputStreamReader isr = new InputStreamReader(this.getClass()
                     .getClassLoader()
@@ -803,7 +803,7 @@ BufferedReader bfr = new BufferedReader(isr);
         }
 }
 </code></pre><h3 id="RadioButton-点击事件-2016-06-08"><a href="#RadioButton-点击事件-2016-06-08" class="headerlink" title="RadioButton 点击事件 (2016-06-08)"></a>RadioButton 点击事件 (<code>2016-06-08</code>)</h3><blockquote>
-<p>借助<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external"><code>ButterKnife</code></a>快速实现</p>
+<p>借助<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="noopener"><code>ButterKnife</code></a>快速实现</p>
 </blockquote>
 <pre><code>@OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
 void onTagChecked(RadioButton searchRb, boolean checked) {
@@ -813,9 +813,9 @@ void onTagChecked(RadioButton searchRb, boolean checked) {
 }
 </code></pre><h3 id="夜神-模拟器连接-2016-6-22-13-44-46"><a href="#夜神-模拟器连接-2016-6-22-13-44-46" class="headerlink" title="夜神 模拟器连接(2016-6-22 13:44:46)"></a>夜神 模拟器连接(<code>2016-6-22 13:44:46</code>)</h3><p><code>流畅度杠杆的!</code></p>
 <pre><code>adb connect 127.0.0.1:62001
-</code></pre><p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="external">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/(10.45.16.34就是本机地址" target="_blank" rel="external">http://10.45.16.34:8888/(10.45.16.34就是本机地址</a>, 所有模拟器都是这么访问)</p>
+</code></pre><p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="noopener">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/(10.45.16.34就是本机地址" target="_blank" rel="noopener">http://10.45.16.34:8888/(10.45.16.34就是本机地址</a>, 所有模拟器都是这么访问)</p>
 <h3 id="海马玩-模拟器连接-2016-06-14"><a href="#海马玩-模拟器连接-2016-06-14" class="headerlink" title="海马玩 模拟器连接(2016-06-14)"></a>海马玩 模拟器连接(<code>2016-06-14</code>)</h3><blockquote>
-<p><a href="http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091" target="_blank" rel="external">http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091</a></p>
+<p><a href="http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091" target="_blank" rel="noopener">http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091</a></p>
 <pre><code>adb connect 127.0.0.1:26944
 </code></pre><p><code>抓包设置</code>: 代理服务器主机名: 10.0.3.2 (genymotion也是这个), 夜神的是电脑ip</p>
 </blockquote>
@@ -885,9 +885,9 @@ void onTagChecked(RadioButton searchRb, boolean checked) {
 
     List&lt;OfferItemGroup&gt; offerDepGroupsList = new Gson().fromJson(array.toString(), new TypeToken&lt;List&lt;OfferItemGroup&gt;&gt;() {
         }.getType());
-</code></pre><h3 id="圆形进度条-2016-7-1-13-20-24"><a href="#圆形进度条-2016-7-1-13-20-24" class="headerlink" title="圆形进度条(2016-7-1 13:20:24)"></a><a href="https://github.com/DmitryMalkovich/circular-with-floating-action-button" target="_blank" rel="external">圆形进度条</a>(<code>2016-7-1 13:20:24</code>)</h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg" alt="Float Button 圆形进度条效果"></p>
-<p><code>week</code>开源啦!! <a href="https://github.com/alibaba/weex" target="_blank" rel="external">alibaba-week入口</a></p>
-<h3 id="保存图片到本地文件-2016-7-11-12-35-51"><a href="#保存图片到本地文件-2016-7-11-12-35-51" class="headerlink" title="保存图片到本地文件(2016-7-11 12:35:51)"></a>保存图片到本地文件(2016-7-11 12:35:51)</h3><p>参考: <a href="https://github.com/yangxiaoge/MumuXi/blob/master/app/src/main/java/com/yang/bruce/mumuxi/util/ImgSaveUtil.java" target="_blank" rel="external">Mumuxi代码</a></p>
+</code></pre><h3 id="圆形进度条-2016-7-1-13-20-24"><a href="#圆形进度条-2016-7-1-13-20-24" class="headerlink" title="圆形进度条(2016-7-1 13:20:24)"></a><a href="https://github.com/DmitryMalkovich/circular-with-floating-action-button" target="_blank" rel="noopener">圆形进度条</a>(<code>2016-7-1 13:20:24</code>)</h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg" alt="Float Button 圆形进度条效果"></p>
+<p><code>week</code>开源啦!! <a href="https://github.com/alibaba/weex" target="_blank" rel="noopener">alibaba-week入口</a></p>
+<h3 id="保存图片到本地文件-2016-7-11-12-35-51"><a href="#保存图片到本地文件-2016-7-11-12-35-51" class="headerlink" title="保存图片到本地文件(2016-7-11 12:35:51)"></a>保存图片到本地文件(2016-7-11 12:35:51)</h3><p>参考: <a href="https://github.com/yangxiaoge/MumuXi/blob/master/app/src/main/java/com/yang/bruce/mumuxi/util/ImgSaveUtil.java" target="_blank" rel="noopener">Mumuxi代码</a></p>
 <pre><code>/**
  * Created by allen on 2016/6/19.
  *
@@ -946,7 +946,7 @@ public class ImgSaveUtil {
         &lt;item name=&quot;android:background&quot;&gt;?attr/editTextBackground&lt;/item&gt;
     &lt;/style&gt;
 </code></pre><h3 id="touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06"><a href="#touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06" class="headerlink" title="touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)"></a>touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)</h3><blockquote>
-<p>具体可以看 开源中国源码: <a href="http://git.oschina.net/oschina/android-app/blob/v2.6.3/app/src/main/java/net/oschina/app/ui/MainActivity.java?dir=0&amp;filepath=app%2Fsrc%2Fmain%2Fjava%2Fnet%2Foschina%2Fapp%2Fui%2FMainActivity.java&amp;oid=b7ab17b172b074e42015b3f5d806473216aec919&amp;sha=0e04398d8fd738c25abf7a0a61f988d15cbf2a08" target="_blank" rel="external">MainActivity</a>中</p>
+<p>具体可以看 开源中国源码: <a href="http://git.oschina.net/oschina/android-app/blob/v2.6.3/app/src/main/java/net/oschina/app/ui/MainActivity.java?dir=0&amp;filepath=app%2Fsrc%2Fmain%2Fjava%2Fnet%2Foschina%2Fapp%2Fui%2FMainActivity.java&amp;oid=b7ab17b172b074e42015b3f5d806473216aec919&amp;sha=0e04398d8fd738c25abf7a0a61f988d15cbf2a08" target="_blank" rel="noopener">MainActivity</a>中</p>
 </blockquote>
 <pre><code> @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -1021,11 +1021,11 @@ public class ImgSaveUtil {
 
     // =======================DIALOG_CONTROL_INTERFACE END==========================
 </code></pre><h3 id="远程调试App或者WiFi调试-2016-7-19-19-34-09"><a href="#远程调试App或者WiFi调试-2016-7-19-19-34-09" class="headerlink" title="远程调试App或者WiFi调试(2016-7-19 19:34:09)"></a>远程调试App或者WiFi调试(2016-7-19 19:34:09)</h3><blockquote>
-<p><a href="http://www.jianshu.com/p/e9c243b5060b" target="_blank" rel="external">http://www.jianshu.com/p/e9c243b5060b</a></p>
+<p><a href="http://www.jianshu.com/p/e9c243b5060b" target="_blank" rel="noopener">http://www.jianshu.com/p/e9c243b5060b</a></p>
 </blockquote>
 <p><img src="http://upload-images.jianshu.io/upload_images/721315-6978db5b6f2c1c75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="效果图"></p>
 <h3 id="ScrollView初始化数据时不置顶-2016-7-20-16-36-01"><a href="#ScrollView初始化数据时不置顶-2016-7-20-16-36-01" class="headerlink" title="ScrollView初始化数据时不置顶(2016-7-20 16:36:01)"></a>ScrollView初始化数据时不置顶(2016-7-20 16:36:01)</h3><blockquote>
-<p>ScrollView布局设置一个属性即可!如果不设置,那么默认显示位置在ListView(等等..)底部<br>具体可以参考: <a href="http://blog.csdn.net/ronaldong99/article/details/50736423" target="_blank" rel="external">ScrollView嵌套ListView不置顶显示</a></p>
+<p>ScrollView布局设置一个属性即可!如果不设置,那么默认显示位置在ListView(等等..)底部<br>具体可以参考: <a href="http://blog.csdn.net/ronaldong99/article/details/50736423" target="_blank" rel="noopener">ScrollView嵌套ListView不置顶显示</a></p>
 <pre><code>mScrollView.smoothScrollTo(0, 0);
 </code></pre></blockquote>
 <h3 id="使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32"><a href="#使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32" class="headerlink" title="使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)"></a>使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)</h3><pre><code> //----------------发送广播 , intent传值--------------//
@@ -1396,7 +1396,7 @@ public void onCreate(Bundle savedInstanceState) {
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

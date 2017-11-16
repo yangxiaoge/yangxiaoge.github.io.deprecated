@@ -296,7 +296,7 @@ colorPrimaryDark
 
     
         <meta property="article:published_time" content="Sun May 03 2015 09:43:30 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -333,7 +333,7 @@ colorPrimaryDark
     "mainEntityOfPage": "https://yangxiaoge.github.io/2015/05/03/2015-05-03-Android沉浸式状态栏-md/index.html",
     "headline": "Android沉浸式状态栏",
     "datePublished": "Sun May 03 2015 09:43:30 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -631,7 +631,7 @@ colorPrimaryDark
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <blockquote>
-<p><code>GitHub</code>Demo<a href="https://github.com/yangxiaoge/ImmersiveStatusBar" target="_blank" rel="external"> 源码</a></p>
+<p><code>GitHub</code>Demo<a href="https://github.com/yangxiaoge/ImmersiveStatusBar" target="_blank" rel="noopener"> 源码</a></p>
 </blockquote>
 <h2 id="1-首先看下状态栏与导航栏结构图"><a href="#1-首先看下状态栏与导航栏结构图" class="headerlink" title="1. 首先看下状态栏与导航栏结构图"></a>1. 首先看下<code>状态栏</code>与<code>导航栏</code>结构图</h2><blockquote>
 <p>主要设置以下两个颜色一致</p>
@@ -641,7 +641,7 @@ colorPrimaryDark
 </ol>
 </blockquote>
 <p><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3hyhtv36cj20j60b5q39.jpg" alt="状态栏结构.jpg"><br><a id="more"></a></p>
-<h2 id="2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><a href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖" class="headerlink" title="2. 引用库  SystemBarTint, 并在module / build.gradle里添加以下依赖:"></a>2. 引用库  <a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external">SystemBarTint</a>, 并在<code>module / build.gradle</code>里添加以下依赖:</h2><blockquote>
+<h2 id="2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><a href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖" class="headerlink" title="2. 引用库  SystemBarTint, 并在module / build.gradle里添加以下依赖:"></a>2. 引用库  <a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a>, 并在<code>module / build.gradle</code>里添加以下依赖:</h2><blockquote>
 <p>compile ‘com.readystatesoftware.systembartint:systembartint:1.0.3’<br><img src="http://ww1.sinaimg.cn/mw690/c05ae6b6jw1f3llhi475qj20jr04u75n.jpg" alt=""></p>
 </blockquote>
 <h2 id="3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果"><a href="#3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果" class="headerlink" title="3. 写一个公共的BaseActivity, 只要继承BaseActivity即可实现沉浸式效果"></a>3. 写一个公共的<code>BaseActivity</code>, 只要继承<code>BaseActivity</code>即可实现沉浸式效果</h2><pre><code>package androidautolayout.yjn.com.statusbar;
@@ -996,7 +996,7 @@ public class BaseActivity extends AppCompatActivity {
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>

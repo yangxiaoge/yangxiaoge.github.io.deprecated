@@ -286,7 +286,7 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
 
     
         <meta property="article:published_time" content="Thu May 05 2016 19:23:35 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 14 2017 09:27:42 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Nov 16 2017 01:22:09 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -318,7 +318,7 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/05/05/2016-05-05-Android中使用Gson解析稍复杂的JSON数据/index.html",
     "headline": "Android中使用Gson解析稍复杂的JSON数据",
     "datePublished": "Thu May 05 2016 19:23:35 GMT+0000",
-    "dateModified": "Tue Nov 14 2017 09:27:42 GMT+0000",
+    "dateModified": "Thu Nov 16 2017 01:22:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -612,9 +612,9 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
     
         <p><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f3lr401paxj20sg0c677k.jpg" alt=""></p>
 <blockquote>
-<p>摘抄自 <a href="http://www.jianshu.com/p/3b8ef7162e69" target="_blank" rel="external">http://www.jianshu.com/p/3b8ef7162e69</a></p>
+<p>摘抄自 <a href="http://www.jianshu.com/p/3b8ef7162e69" target="_blank" rel="noopener">http://www.jianshu.com/p/3b8ef7162e69</a></p>
 </blockquote>
-<h1 id="一、Json简介"><a href="#一、Json简介" class="headerlink" title="一、Json简介"></a>一、Json简介</h1><p>JSON官网(中文版)：<a href="http://www.json.org/json-zh.html" target="_blank" rel="external">http://www.json.org/json-zh.html</a></p>
+<h1 id="一、Json简介"><a href="#一、Json简介" class="headerlink" title="一、Json简介"></a>一、Json简介</h1><p>JSON官网(中文版)：<a href="http://www.json.org/json-zh.html" target="_blank" rel="noopener">http://www.json.org/json-zh.html</a></p>
 <p><strong>JSON(JavaScript Object Notation)</strong>是一种轻量级(轻量级？简单、易操作、快捷)的数据交换格式。<a id="more"></a>主要目的就是给出一套通用的数据格式，大家按照这种格式定义自己的数据，方便数据的交换。特点是(相对来说) <strong>易于人阅读和编写，易于机器解析和生成</strong> 。</p>
 <p><strong>Rules</strong>：</p>
 <blockquote>
@@ -632,7 +632,7 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
 <p>2.数组是值（value）的有序集合。一个数组以“[”（左中括号）开始，“]”（右中括号）结束。值之间使用“,”（逗号）分隔。</p>
 </blockquote>
 <p> <img src="http://ww4.sinaimg.cn/mw690/c05ae6b6jw1f3llhba2xug20gm07qgli.gif" alt="“值的类型”可以是哪些数据类型"></p>
-<p><em>以上是最基本的json知识，想深入了解的，请移步<a href="http://www.json.org/json-zh.html" target="_blank" rel="external">官网</a>。</em></p>
+<p><em>以上是最基本的json知识，想深入了解的，请移步<a href="http://www.json.org/json-zh.html" target="_blank" rel="noopener">官网</a>。</em></p>
 <p>下面举个栗子给大家尝尝：</p>
 <pre><code>{
     &quot;type&quot;: &quot;forecast1d&quot;,
@@ -655,16 +655,16 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
         }
     ]
 }
-</code></pre><p><strong>栗子好难看，上截图(截图太小看不清…戳这里<a href="http://ww3.sinaimg.cn/mw1024/c05ae6b6jw1f3xesqananj20vp0em75s.jpg" target="_blank" rel="external">看大图</a>)：</strong></p>
+</code></pre><p><strong>栗子好难看，上截图(截图太小看不清…戳这里<a href="http://ww3.sinaimg.cn/mw1024/c05ae6b6jw1f3xesqananj20vp0em75s.jpg" target="_blank" rel="noopener">看大图</a>)：</strong></p>
 <p> <img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6jw1f3xesqananj20vp0em75s.jpg" alt="一个简单的JSON串"></p>
-<p><strong>NOTE</strong>：左侧为JSON字符串，右侧为解析结构，方便查看。<br><strong>福利</strong>：截图是我在一个在线<a href="http://jsoneditoronline.org/index.html" target="_blank" rel="external">JSON Editor</a>上截的，体验一下–&gt;JSON Editor，很好用推荐给大家。</p>
+<p><strong>NOTE</strong>：左侧为JSON字符串，右侧为解析结构，方便查看。<br><strong>福利</strong>：截图是我在一个在线<a href="http://jsoneditoronline.org/index.html" target="_blank" rel="noopener">JSON Editor</a>上截的，体验一下–&gt;JSON Editor，很好用推荐给大家。</p>
 <h1 id="二、使用Gson在Android中解析Json"><a href="#二、使用Gson在Android中解析Json" class="headerlink" title="二、使用Gson在Android中解析Json"></a>二、使用Gson在Android中解析Json</h1><p>认清了JSON，就要解析它。</p>
 <p><strong>你可以使用的JSON库</strong>：</p>
 <blockquote>
 <p><strong>JSONObject</strong>(源自Android官方)、<br><strong>Gson</strong>(源自Google)、<br><strong>Jackson</strong>(第三方开源库)、<br><strong>FastJSON</strong>(第三方开源库)、<br>等。。。</p>
 </blockquote>
-<p>本篇文章使用Gson解析JSON，Gson地址：<a href="http://code.google.com/p/google-gson/" target="_blank" rel="external">http://code.google.com/p/google-gson/</a></p>
-<p><img src="http://ww4.sinaimg.cn/mw690/c05ae6b6jw1f3llhcc3saj20bw024glq.jpg" alt="google-gson "><br>无法下载？百度云分享一下<a href="http://pan.baidu.com/s/1kTur5xd" target="_blank" rel="external">http://pan.baidu.com/s/1kTur5xd</a>,提取密码:5oae</p>
+<p>本篇文章使用Gson解析JSON，Gson地址：<a href="http://code.google.com/p/google-gson/" target="_blank" rel="noopener">http://code.google.com/p/google-gson/</a></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/c05ae6b6jw1f3llhcc3saj20bw024glq.jpg" alt="google-gson "><br>无法下载？百度云分享一下<a href="http://pan.baidu.com/s/1kTur5xd" target="_blank" rel="noopener">http://pan.baidu.com/s/1kTur5xd</a>,提取密码:5oae</p>
 <p>根据JSON串的结构定义一个类(这里我们把这个类叫Result)，我们直接把得到的JSON串解析成这个类。class Result定义如下：</p>
 <pre><code>import java.util.List;
 
@@ -1003,7 +1003,7 @@ public class Result {
         <li>
             <a href="/about" title="关于">
                 
-                    <i class="material-icons sidebar-material-icons">face</i>
+                    <i class="material-icons sidebar-material-icons">person</i>
                 
                 关于
             </a>
