@@ -248,7 +248,7 @@ sidebar:
             divider: false  
         关于:
             link: "/about"
-            icon: person  # face
+            icon: person
             divider: true
     article_num: # 文章总数
         use: true
