@@ -114,6 +114,8 @@ date: 2016-09-14 11:39:56
 ![](https://github.com/ZhongXiaoHong/superFileView/blob/master/record.gif?raw=true)
 63. [高仿斗鱼 TV 项目](https://github.com/TeamCodeForGit/DouYu)
 <img src="https://github.com/mykj/DouYu/raw/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/7540E9A56688E00078BBD79554B000E1.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/35692D640637F2A6D2FCF09F9E8B4C48.jpg" width="450" height="270"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/5FC86F4A3DAE79B29DF275C69B7B75A7.jpg" width="450" height="270"/>
+64. [CircleMenu 圆形菜单](https://github.com/Ramotion/circle-menu-android) - 2017-11-17 16:48:46
+<img src="https://github.com/Ramotion/circle-menu-android/raw/master/preview.gif" width="400" height="330"/>
 
 
 
