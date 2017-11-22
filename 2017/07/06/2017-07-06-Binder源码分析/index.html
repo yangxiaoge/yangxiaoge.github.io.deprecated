@@ -55,7 +55,11 @@
     <meta name="description" itemprop="description" content="
 forked from xdtianyu/SourceAnalysis
 
-本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。">
+本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。
+先上一张图，直白的了解 Binder 通信过程。(摘自超详细 Android 面试的准备与经历分享 | 百度 (offer))
+
+
+">
     <meta name="keywords" content="null,Binder">
 
     <!-- Import lsloader -->
@@ -277,12 +281,16 @@ forked from xdtianyu/SourceAnalysis
     <meta property="og:description" content="
 forked from xdtianyu/SourceAnalysis
 
-本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。">
+本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。
+先上一张图，直白的了解 Binder 通信过程。(摘自超详细 Android 面试的准备与经历分享 | 百度 (offer))
+
+
+">
     <meta property="og:article:tag" content="Binder"> 
 
     
         <meta property="article:published_time" content="Thu Jul 06 2017 10:00:05 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Nov 21 2017 07:11:18 GMT+0000" />
+        <meta property="article:modified_time" content="Wed Nov 22 2017 14:55:51 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -290,7 +298,11 @@ forked from xdtianyu/SourceAnalysis
     <meta name="twitter:description" content="
 forked from xdtianyu/SourceAnalysis
 
-本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。">
+本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。
+先上一张图，直白的了解 Binder 通信过程。(摘自超详细 Android 面试的准备与经历分享 | 百度 (offer))
+
+
+">
     <meta name="twitter:image" content="https://yangxiaoge.github.io/img/logo.ico">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://yangxiaoge.github.io" />
@@ -312,7 +324,7 @@ forked from xdtianyu/SourceAnalysis
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/07/06/2017-07-06-Binder源码分析/index.html",
     "headline": "Binder源码分析",
     "datePublished": "Thu Jul 06 2017 10:00:05 GMT+0000",
-    "dateModified": "Tue Nov 21 2017 07:11:18 GMT+0000",
+    "dateModified": "Wed Nov 22 2017 14:55:51 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -334,7 +346,11 @@ forked from xdtianyu/SourceAnalysis
     "description": "
 forked from xdtianyu/SourceAnalysis
 
-本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。",
+本文是基于 Android 6.0.0 和 kernel 3.4 源码 及 Android SDK 23 展开的。
+先上一张图，直白的了解 Binder 通信过程。(摘自超详细 Android 面试的准备与经历分享 | 百度 (offer))
+
+
+",
 }
 </script>
 
@@ -605,7 +621,13 @@ forked from xdtianyu/SourceAnalysis
         <blockquote>
 <p>forked from <a href="https://github.com/xdtianyu/SourceAnalysis" target="_blank" rel="noopener">xdtianyu/SourceAnalysis</a></p>
 </blockquote>
-<p>本文是基于 <a href="https://github.com/xdtianyu/android-6.0.0_r1" target="_blank" rel="noopener">Android 6.0.0</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow" target="_blank" rel="noopener">kernel 3.4</a> 源码 及 Android SDK 23 展开的。<br><a id="more"></a><br><strong>目录</strong></p>
+<p>本文是基于 <a href="https://github.com/xdtianyu/android-6.0.0_r1" target="_blank" rel="noopener">Android 6.0.0</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow" target="_blank" rel="noopener">kernel 3.4</a> 源码 及 Android SDK 23 展开的。</p>
+<p>先上一张图，直白的了解 Binder 通信过程。(摘自<a href="http://mp.weixin.qq.com/s/YVvV3-RUjbqYo-DYY3E6nA" target="_blank" rel="noopener">超详细 Android 面试的准备与经历分享 | 百度 (offer)</a>)</p>
+<blockquote>
+<p><img src="/assets/学习资料/面试小札/Binder通信过程.png" alt=""></p>
+</blockquote>
+<a id="more"></a>
+<p><strong>目录</strong></p>
 <ul>
 <li><a href="#1-简介">1. 简介</a></li>
 <li><a href="#2-binder-与-aidl">2. Binder 与 AIDL</a><ul>
