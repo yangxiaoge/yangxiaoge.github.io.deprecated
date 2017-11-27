@@ -11,8 +11,8 @@ thumbnail: /img/link_cover.png
 ## 每日必看
 | 链接        |     简介     |
 | :----------- | :-----------|
-|[鸿洋](http://blog.csdn.net/lmj623565791?viewmode=contents)| 国内 Android 开发大牛 |
-|[郭霖](http://weixin.sogou.com/weixin?type=1&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=&w=01015002&oq=&ri=2&sourceid=sugg&sut=893&sst0=1477555640580&lkt=1%2C1477555640477%2C1477555640477)| 国内 Android 开发大牛，鸿洋搅基 |
+|[鸿洋](http://weixin.sogou.com/weixin?type=1&s_from=input&query=hongyangAndroid&ie=utf8&_sug_=n&_sug_type_=)| 国内 Android 开发大牛 |
+|[郭霖](http://weixin.sogou.com/weixin?type=1&s_from=input&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=)| 国内 Android 开发大牛，鸿洋搅基 |
 |[Gank](http://gank.io/) | 干货集中营 |
 
 ## 温故而知新
