@@ -38,6 +38,7 @@ thumbnail: /img/music.jpg
 |[Android 三种姿势带你玩转 360 度全景图功能](http://www.jianshu.com/p/adfab8201660) |   VR，[鸿洋](http://mp.weixin.qq.com/s/XxzM3YIR-V2BD2M833qlhQ)公众号推荐 |
 |[轻松入门 Android 直播相关技术 从 0 搭建直播系统](http://blog.csdn.net/lmj623565791/article/details/77937483)| 鸿洋大牛的直播入门教程，我已经试过，并记录了截图 |
 |[深度学习工程师-网易云](http://mooc.study.163.com/smartSpec/detail/1001319001.htm) | 吴恩达给你的人工智能第一课 |
+|[Android 手机直播](http://www.jianshu.com/p/7ebbcc0c5df7)| Android 手机直播相关知识 |
 
 ## 教学类
 | 链接        |     简介     |
