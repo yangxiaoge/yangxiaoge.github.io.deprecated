@@ -2,7 +2,7 @@
 title: Links
 date: 2017-03-09 15:03:51
 description: "常用链接"
-thumbnail: /img/music.jpg
+thumbnail: /img/link_cover.png
 ---
 [<div align=center><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201503/19/212638snhia4axi14x5rt5.jpg"/></div>](/project_collection)
 <div align=center>开源项目收集 👆👆👆</div>
