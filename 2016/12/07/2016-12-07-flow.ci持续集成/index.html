@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Wed Dec 07 2016 14:19:05 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Dec 05 2017 02:43:36 GMT+0000" />
+        <meta property="article:modified_time" content="Fri Dec 08 2017 07:27:57 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/12/07/2016-12-07-flow.ci持续集成/index.html",
     "headline": "Flow.ci持续集成",
     "datePublished": "Wed Dec 07 2016 14:19:05 GMT+0000",
-    "dateModified": "Tue Dec 05 2017 02:43:36 GMT+0000",
+    "dateModified": "Fri Dec 08 2017 07:27:57 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -404,7 +404,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择代码仓库"><span class="post-toc-number">2.</span> <span class="post-toc-text">选择代码仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建新的工作流"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建新的工作流</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#触发器-什么时候自动集成"><span class="post-toc-number">4.</span> <span class="post-toc-text">触发器(什么时候自动集成)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义脚本"><span class="post-toc-number">5.</span> <span class="post-toc-text">自定义脚本</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加FlowCi的-RSA公匙到github以及coding-授予读写权限"><span class="post-toc-number"></span> <span class="post-toc-text">添加FlowCi的 RSA公匙到github以及coding(授予读写权限)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快去提交代码吧"><span class="post-toc-number"></span> <span class="post-toc-text">快去提交代码吧</span></a>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建项目"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x521B;&#x5EFA;&#x9879;&#x76EE;" class="headerlink" title="&#x521B;&#x5EFA;&#x9879;&#x76EE;"></a>&#x521B;&#x5EFA;&#x9879;&#x76EE;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#选择代码仓库"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#&#x9009;&#x62E9;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;" class="headerlink" title="&#x9009;&#x62E9;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;"></a>&#x9009;&#x62E9;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建新的工作流"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;" class="headerlink" title="&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;"></a>&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#触发器-什么时候自动集成"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#&#x89E6;&#x53D1;&#x5668;-&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x96C6;&#x6210;" class="headerlink" title="&#x89E6;&#x53D1;&#x5668;(&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x96C6;&#x6210;)"></a>&#x89E6;&#x53D1;&#x5668;(&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x96C6;&#x6210;)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义脚本"><span class="post-toc-number">5.</span> <span class="post-toc-text"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x811A;&#x672C;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x811A;&#x672C;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x811A;&#x672C;</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#添加FlowCi的-RSA公匙到github以及coding-授予读写权限"><span class="post-toc-number"></span> <span class="post-toc-text"><a href="#&#x6DFB;&#x52A0;FlowCi&#x7684;-RSA&#x516C;&#x5319;&#x5230;github&#x4EE5;&#x53CA;coding-&#x6388;&#x4E88;&#x8BFB;&#x5199;&#x6743;&#x9650;" class="headerlink" title="&#x6DFB;&#x52A0;FlowCi&#x7684; RSA&#x516C;&#x5319;&#x5230;github&#x4EE5;&#x53CA;coding(&#x6388;&#x4E88;&#x8BFB;&#x5199;&#x6743;&#x9650;)"></a>&#x6DFB;&#x52A0;FlowCi&#x7684; RSA&#x516C;&#x5319;&#x5230;github&#x4EE5;&#x53CA;coding(&#x6388;&#x4E88;&#x8BFB;&#x5199;&#x6743;&#x9650;)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快去提交代码吧"><span class="post-toc-number"></span> <span class="post-toc-text"><a href="#&#x5FEB;&#x53BB;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x5427;" class="headerlink" title="&#x5FEB;&#x53BB;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x5427;"></a>&#x5FEB;&#x53BB;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x5427;</span></a>
     </ul>
     
 

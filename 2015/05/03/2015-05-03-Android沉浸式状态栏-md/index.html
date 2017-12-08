@@ -296,7 +296,7 @@ colorPrimaryDark
 
     
         <meta property="article:published_time" content="Sun May 03 2015 09:43:30 GMT+0000" />
-        <meta property="article:modified_time" content="Tue Dec 05 2017 02:43:36 GMT+0000" />
+        <meta property="article:modified_time" content="Fri Dec 08 2017 07:27:57 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -333,7 +333,7 @@ colorPrimaryDark
     "mainEntityOfPage": "https://yangxiaoge.github.io/2015/05/03/2015-05-03-Android沉浸式状态栏-md/index.html",
     "headline": "Android沉浸式状态栏",
     "datePublished": "Sun May 03 2015 09:43:30 GMT+0000",
-    "dateModified": "Tue Dec 05 2017 02:43:36 GMT+0000",
+    "dateModified": "Fri Dec 08 2017 07:27:57 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -444,7 +444,7 @@ colorPrimaryDark
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-首先看下状态栏与导航栏结构图"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 首先看下状态栏与导航栏结构图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 引用库  SystemBarTint, 并在module / build.gradle里添加以下依赖:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 写一个公共的BaseActivity, 只要继承BaseActivity即可实现沉浸式效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-注册清单设置-AndroidManifest-xml"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.注册清单设置 AndroidManifest.xml</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-首先看下状态栏与导航栏结构图"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#1-&#x9996;&#x5148;&#x770B;&#x4E0B;&#x72B6;&#x6001;&#x680F;&#x4E0E;&#x5BFC;&#x822A;&#x680F;&#x7ED3;&#x6784;&#x56FE;" class="headerlink" title="1. &#x9996;&#x5148;&#x770B;&#x4E0B;&#x72B6;&#x6001;&#x680F;&#x4E0E;&#x5BFC;&#x822A;&#x680F;&#x7ED3;&#x6784;&#x56FE;"></a>1. &#x9996;&#x5148;&#x770B;&#x4E0B;<code>&#x72B6;&#x6001;&#x680F;</code>&#x4E0E;<code>&#x5BFC;&#x822A;&#x680F;</code>&#x7ED3;&#x6784;&#x56FE;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text"><a href="#2-&#x5F15;&#x7528;&#x5E93;-SystemBarTint-&#x5E76;&#x5728;module-build-gradle&#x91CC;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;" class="headerlink" title="2. &#x5F15;&#x7528;&#x5E93;  SystemBarTint, &#x5E76;&#x5728;module / build.gradle&#x91CC;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;:"></a>2. &#x5F15;&#x7528;&#x5E93;  <a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a>, &#x5E76;&#x5728;<code>module / build.gradle</code>&#x91CC;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4F9D;&#x8D56;:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果"><span class="post-toc-number">3.</span> <span class="post-toc-text"><a href="#3-&#x5199;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x7684;BaseActivity-&#x53EA;&#x8981;&#x7EE7;&#x627F;BaseActivity&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x6C89;&#x6D78;&#x5F0F;&#x6548;&#x679C;" class="headerlink" title="3. &#x5199;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x7684;BaseActivity, &#x53EA;&#x8981;&#x7EE7;&#x627F;BaseActivity&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x6C89;&#x6D78;&#x5F0F;&#x6548;&#x679C;"></a>3. &#x5199;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x7684;<code>BaseActivity</code>, &#x53EA;&#x8981;&#x7EE7;&#x627F;<code>BaseActivity</code>&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x6C89;&#x6D78;&#x5F0F;&#x6548;&#x679C;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-注册清单设置-AndroidManifest-xml"><span class="post-toc-number">4.</span> <span class="post-toc-text"><a href="#4-&#x6CE8;&#x518C;&#x6E05;&#x5355;&#x8BBE;&#x7F6E;-AndroidManifest-xml" class="headerlink" title="4.&#x6CE8;&#x518C;&#x6E05;&#x5355;&#x8BBE;&#x7F6E; AndroidManifest.xml"></a>4.&#x6CE8;&#x518C;&#x6E05;&#x5355;&#x8BBE;&#x7F6E; <code>AndroidManifest.xml</code></span></a></li></ol>
     </ul>
     
 
