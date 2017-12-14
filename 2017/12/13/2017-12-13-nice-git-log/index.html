@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Wed Dec 13 2017 10:11:01 GMT+0000" />
-        <meta property="article:modified_time" content="Wed Dec 13 2017 03:53:09 GMT+0000" />
+        <meta property="article:modified_time" content="Thu Dec 14 2017 02:46:22 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/12/13/2017-12-13-nice-git-log/index.html",
     "headline": "Nice git log",
     "datePublished": "Wed Dec 13 2017 10:11:01 GMT+0000",
-    "dateModified": "Wed Dec 13 2017 03:53:09 GMT+0000",
+    "dateModified": "Thu Dec 14 2017 02:46:22 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -414,17 +414,8 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 15 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://i.loli.net/2017/12/14/5a31e32602b21.png)">
     
             <p class="article-headline-p">
                 Nice git log
@@ -584,13 +575,13 @@
         <p>Git 是一个强大的版本管理器，自从用上 git 后，腰不酸腿不疼了。</p>
 <p>开发中查看提交记录是家常便饭了，<code>git log</code> 命令是查看全部提交日志，<code>git log -2</code>  查看最近 2 次的提交日志，<code>git log -p</code>  查看历史纪录以来哪几行被修改，<code>git log --stat --summary</code> 查看每个版本变动的档案和行数。</p>
 <p>Git 默认的 git log 是这样子的，emmmmmm….. 丑</p>
-<div align="center"><img src="https://i.loli.net/2017/12/13/5a308e3640cab.png"></div>
+<div align="center"><img src="https://i.loli.net/2017/12/14/5a31e2fcca990.png"></div>
 
 
 <p>于是乎 Google 了一个 git 配置，打开终端，输入以下命令。</p>
 <pre><code>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
 </code></pre><p>以后在终端输入 git lg，就能看到下面漂亮的 git log 了。</p>
-<div align="center"><img src="https://i.loli.net/2017/12/13/5a30975fccd6e.png"></div>
+<div align="center"><img src="https://i.loli.net/2017/12/14/5a31e32602b21.png"></div>
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
                     <p><strong>
