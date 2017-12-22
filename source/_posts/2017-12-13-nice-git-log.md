@@ -1,7 +1,7 @@
 ---
 title: Nice git log
 date: 2017-12-13 10:11:01
-tags: git
+tags: Git
 thumbnail: https://i.loli.net/2017/12/14/5a31e32602b21.png
 ---
 Git 是一个强大的版本管理器，自从用上 git 后，腰不酸腿不疼了。
