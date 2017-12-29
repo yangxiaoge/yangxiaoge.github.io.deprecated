@@ -1,6 +1,7 @@
 ---
 title: 使用gradle命令打包apk
 date: 2016-05-16 19:04:04
+updated: 2017-12-28 09:06:55
 tags: [Gradle,Android,Android Studio]
 categories: Android
 catalog:    true #显示目录
@@ -20,7 +21,7 @@ catalog:    true #显示目录
 
 随着学习的深入，对Gradle的了解也多了些，今天我们就来聊聊如何用Gradle打测试包和正式包（debug与release）。Gradle官网上对Windows平台的Gradle也有描述。感觉学东西还是得多去官网上看看，毕竟上面都讲的非常详细。
 
-# `下载Gradle与生成APK`
+# 下载Gradle与生成APK
 
 在Android Studio中的`Terminal`窗口下输入：`gradlew -v` 。来查看下项目所用的`Gradle版本`。
 如果你是第一次执行会去下载Gradle 
