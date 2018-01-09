@@ -2,6 +2,7 @@
 layout:  post
 title:   Java与Android知识点
 date: 2017-02-28 09:13:42
+updated: 2018-1-9 17:23:18
 author:     "Bruce Yang"
 catalog:    true
 header-img: "vallehermoso_spain_from_google_earth.jpg"
@@ -9,6 +10,10 @@ tags: [Java, Android]
 categories: 知识点
 ---
 <center><font color=SkyBlue size="6px">**持续更行中**</font></center>
+
+## Fragment 中弹出 PopWindow 要使背景被透明（无效的问题）
+问题：单独在 pop 里面设置属性的话只会半透明掉 activity 的，因为 getactivity 的 getwindow 方法获取到的是 activity 的窗体，而不是 Fragment 的
+实现：在 Fragment 的布局中设置半透明属性，而且是该布局最下面添加一个控件（eg:textview），将该控件设置半透明背景，然后pop显示和消失就让该控件显示和消失
 
 ## 1. 解释内存中的栈（stack）、堆(heap)和静态存储区的用法。
 答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；<!--more-->而通过new关键字和构造器创建的对象放在堆空间；程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。
