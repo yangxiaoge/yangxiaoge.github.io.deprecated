@@ -284,7 +284,7 @@ make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等�
 
     
         <meta property="article:published_time" content="Thu May 04 2017 11:40:24 GMT+0000" />
-        <meta property="article:modified_time" content="Mon Jan 22 2018 01:30:27 GMT+0000" />
+        <meta property="article:modified_time" content="Mon Jan 22 2018 08:18:15 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -315,7 +315,7 @@ make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等�
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/05/04/2017-05-04-Android源码编译/index.html",
     "headline": "Android源码编译",
     "datePublished": "Thu May 04 2017 11:40:24 GMT+0000",
-    "dateModified": "Mon Jan 22 2018 01:30:27 GMT+0000",
+    "dateModified": "Mon Jan 22 2018 08:18:15 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -629,7 +629,7 @@ make -j8（第一次编译耗时 2 小时，机器性能好的可以 j32 等等�
 <p><code>Attention</code>： /home/begoit/temp/KONKAS6/alps/packages/apps/Provision/src/com/android/provision/DefaultActivity.java (注释 onCreate 中的部分代码，略去登录注册等功能)</p>
 <p><strong>打 Patch 包</strong>（将 A 项目的提交打 Patch 导入到 B 项目中） <code>2017-9-18 18:14:57</code> add</p>
 <ol>
-<li><code>git format-patch -1</code>（-1 指最近一次 Git 提交） - A 项目根目录，生成 Patch 包</li>
+<li><code>git format-patch -1 （git format-patch -n e795fefabc 根据 某一 commit 打 patch）</code>（-1 指最近一次 Git 提交） - A 项目根目录，生成 Patch 包</li>
 <li>将生成的 <code>0001-.patch</code> 拷贝到 B 项目根目录下</li>
 <li><code>git am 0001-.patch</code> - B 项目根目录打入 Patch 包</li>
 </ol>
