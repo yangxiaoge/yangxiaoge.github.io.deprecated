@@ -371,7 +371,13 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！exploded-aar 不显示问题gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip
+            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
+&lt;sourcePath&gt;
+        &lt;root type=&quot;composite&quot;&gt;
+            &lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&gt;
+        &lt;/root&gt;
+&lt;/sourcePath&gt;
+exploded-aar 不显示问题gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip
 ubuntu 生成 key1， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;
 2， cd .ssh/
 3， cat id_rsa.pub
