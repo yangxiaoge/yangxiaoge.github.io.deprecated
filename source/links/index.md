@@ -1,5 +1,5 @@
 ---
-title: Links
+title: 学习圈
 date: 2017-03-09 15:03:51
 description: "常用链接"
 thumbnail: /img/link_cover.png
@@ -13,6 +13,7 @@ thumbnail: /img/link_cover.png
 | :----------- | :-----------|
 |[鸿洋](http://weixin.sogou.com/weixin?type=1&s_from=input&query=hongyangAndroid&ie=utf8&_sug_=n&_sug_type_=)| 国内 Android 开发大牛 |
 |[郭霖](http://weixin.sogou.com/weixin?type=1&s_from=input&query=guolin_blog&ie=utf8&_sug_=n&_sug_type_=)| 国内 Android 开发大牛，鸿洋搅基 |
+|[wanandroid](http://wanandroid.com/)| 玩Android - 鸿洋 |
 |[Gank](http://gank.io/) | 干货集中营 |
 
 ## 温故而知新

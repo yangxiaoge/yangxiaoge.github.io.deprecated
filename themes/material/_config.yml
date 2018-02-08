@@ -226,7 +226,7 @@ sidebar:
             link: '/timeline.html'
             icon: timeline
             divider: false  
-        常用链接:
+        学习圈:
             link: "/links"
             icon: collections
             divider: false
