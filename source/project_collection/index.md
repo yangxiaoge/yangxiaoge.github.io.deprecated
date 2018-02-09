@@ -87,6 +87,9 @@ date: 2016-09-14 11:39:56
 ![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_day_01.png)![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_night_02.jpg)![](https://github.com/maning0303/GankMM/raw/master/screenshots/gank_12.png)
 52. [Android 录音功能直接拿去用](https://github.com/developerHaoz/SoundRecorderUtils) - code小生
 ![](https://camo.githubusercontent.com/7b1bcd5810b58cdb67bcebd2ba15e0be2c957c28/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031372f382f31322f3262623461356666333233663130333934323538663532376363363237393133)
+52. [SoundRecorder](https://github.com/dkim0419/SoundRecorder) - code小生的代码跟这个雷同
+![](https://camo.githubusercontent.com/0ac8e9f2ca2ce2ee4d3b151d74f9167820529505/687474703a2f2f692e696d6775722e636f6d2f345735666a30496c2e706e67)
+![](https://camo.githubusercontent.com/f80c6c88e16a1f42494b04a6c610a4d3b1122041/687474703a2f2f692e696d6775722e636f6d2f483653634f32316c2e706e67)
 53. [Android 实现 dialog 的 3D 翻转](https://mp.weixin.qq.com/s/LEOB83WC5Jn_LT-dWVPSqw)
 ![](http://upload-images.jianshu.io/upload_images/3161635-11f4134590e19e86?imageMogr2/auto-orient/strip)
 54. [360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)
