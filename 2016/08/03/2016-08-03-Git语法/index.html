@@ -296,7 +296,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 03 2016 16:13:45 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Feb 09 2018 08:25:20 GMT+0000" />
+        <meta property="article:modified_time" content="Tue Feb 27 2018 02:08:58 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -333,7 +333,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html",
     "headline": "Git语法",
     "datePublished": "Wed Aug 03 2016 16:13:45 GMT+0000",
-    "dateModified": "Fri Feb 09 2018 08:25:20 GMT+0000",
+    "dateModified": "Tue Feb 27 2018 02:08:58 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -706,7 +706,9 @@
 </ul>
 <h6 id="1-6-git-checkout检出到工作区"><a href="#1-6-git-checkout检出到工作区" class="headerlink" title="1.6 git checkout检出到工作区"></a>1.6 git checkout检出到工作区</h6><p><img src="http://ww2.sinaimg.cn/mw690/7dde05d2gw1f4nwpmikdzj20e5080dgv.jpg" alt="git checkout"></p>
 <p>检出命令（git checkout）是Git最常用的命令之一，同样也很危险，因为这条命令会重写工作区。<br>用法一： <code>git checkout [-q] [&lt;commit&gt;] [--] &lt;paths&gt;...</code><br>用法二： <code>git checkout [&lt;branch&gt;]</code><br>用法三： <code>git checkout [-m] [[-b|--orphan] &lt;new_branch&gt;] [&lt;start_point&gt;]</code>  </p>
-<p>上面列出的第一种用法和第二种用法的区别在于，第一种用法在命令中包含路径<code>&lt;paths&gt;</code>。为了避免路径和引用（或者提交ID）同名而冲突，可以在<code>&lt;paths&gt;</code>前用两个连续的短线（减号）作为分隔。<br>&gt;</p>
+<p>上面列出的第一种用法和第二种用法的区别在于，第一种用法在命令中包含路径<code>&lt;paths&gt;</code>。为了避免路径和引用（或者提交ID）同名而冲突，可以在<code>&lt;paths&gt;</code>前用两个连续的短线（减号）作为分隔。  </p>
+<blockquote>
+</blockquote>
 <ul>
 <li>第一种用法的<code>&lt;commit&gt;</code>是可选项，如果省略则相当于从暂存区（index）进行检出。这和上一章的重置命令大不相同：重置的默认值是HEAD，而检出的默认值是暂存区。因此<strong>重置一般用于重置暂存区</strong>（除非使用–hard参数，否则不重置工作区），而<strong>检出命令主要是覆盖工作区</strong>（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。  </li>
 <li>第一种用法（包含了路径<code>&lt;paths&gt;</code>的用法）不会改变HEAD头指针，主要是用于指定版本的文件覆盖工作区中对应的文件。如果省略<code>&lt;commit&gt;</code>，会拿暂存区的文件覆盖工作区的文件，否则用指定提交中的文件覆盖暂存区和工作区中对应的文件。  </li>

@@ -276,7 +276,7 @@
 
     
         <meta property="article:published_time" content="Mon Oct 10 2016 13:29:20 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Feb 09 2018 08:25:20 GMT+0000" />
+        <meta property="article:modified_time" content="Tue Feb 27 2018 02:08:58 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -303,7 +303,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/10/10/2016-10-10-Android内存泄漏总结/index.html",
     "headline": "Android内存泄漏总结",
     "datePublished": "Mon Oct 10 2016 13:29:20 GMT+0000",
-    "dateModified": "Fri Feb 09 2018 08:25:20 GMT+0000",
+    "dateModified": "Tue Feb 27 2018 02:08:58 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -705,7 +705,7 @@ public void setA(A a){
 this.a=a;
 }
 //getter...
-}
+} 
 </code></pre><p>显然B采用singleton模式，它持有一个A对象的引用，而这个A类的对象将不能被回收。想象下如果A是个比较复杂的对象或者集合类型会发生什么情况</p>
 <h2 id="Android中常见的内存泄漏汇总"><a href="#Android中常见的内存泄漏汇总" class="headerlink" title="Android中常见的内存泄漏汇总"></a>Android中常见的内存泄漏汇总</h2><hr>
 <h3 id="集合类泄漏"><a href="#集合类泄漏" class="headerlink" title="集合类泄漏"></a>集合类泄漏</h3><p>集合类如果仅仅有添加元素的方法，而没有相应的删除机制，导致内存被占用。如果这个集合类是全局性的变量 (比如类中的静态属性，全局性的 map 等即有静态引用或 final 一直指向它)，那么没有相应的删除机制，很可能导致集合所占用的内存只增不减。比如上面的典型例子就是其中一种情况，当然实际上我们在项目中肯定不会写这么 2B 的代码，但稍不注意还是很容易出现这种情况，比如我们都喜欢通过 HashMap 做一些缓存之类的事，这种情况就要多留一些心眼。</p>

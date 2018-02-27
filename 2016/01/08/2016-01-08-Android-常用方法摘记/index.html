@@ -296,7 +296,7 @@ ubuntu 生成 key1， ssh-keygen -t rsa -C &amp;quot;yangjianan@begoit.com&amp;q
 
     
         <meta property="article:published_time" content="Fri Jan 08 2016 10:50:55 GMT+0000" />
-        <meta property="article:modified_time" content="Fri Feb 09 2018 08:25:20 GMT+0000" />
+        <meta property="article:modified_time" content="Tue Feb 27 2018 02:08:58 GMT+0000" />
     
 
     <!-- The Twitter Card protocol -->
@@ -333,7 +333,7 @@ ubuntu 生成 key1， ssh-keygen -t rsa -C &amp;quot;yangjianan@begoit.com&amp;q
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/01/08/2016-01-08-Android-常用方法摘记/index.html",
     "headline": "Android常用方法摘记以及收集",
     "datePublished": "Fri Jan 08 2016 10:50:55 GMT+0000",
-    "dateModified": "Fri Feb 09 2018 08:25:20 GMT+0000",
+    "dateModified": "Tue Feb 27 2018 02:08:58 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -863,7 +863,7 @@ void onTagChecked(RadioButton searchRb, boolean checked) {
 }
 </code></pre><h3 id="夜神-模拟器连接-2016-6-22-13-44-46"><a href="#夜神-模拟器连接-2016-6-22-13-44-46" class="headerlink" title="夜神 模拟器连接(2016-6-22 13:44:46)"></a>夜神 模拟器连接(<code>2016-6-22 13:44:46</code>)</h3><p><code>流畅度杠杆的!</code></p>
 <pre><code>adb connect 127.0.0.1:62001
-</code></pre><p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="noopener">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/(10.45.16.34就是本机地址" target="_blank" rel="noopener">http://10.45.16.34:8888/(10.45.16.34就是本机地址</a>, 所有模拟器都是这么访问)</p>
+</code></pre><p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="noopener">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/" target="_blank" rel="noopener">http://10.45.16.34:8888/</a>(10.45.16.34就是本机地址, 所有模拟器都是这么访问)</p>
 <h3 id="海马玩-模拟器连接-2016-06-14"><a href="#海马玩-模拟器连接-2016-06-14" class="headerlink" title="海马玩 模拟器连接(2016-06-14)"></a>海马玩 模拟器连接(<code>2016-06-14</code>)</h3><blockquote>
 <p><a href="http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091" target="_blank" rel="noopener">http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091</a></p>
 <pre><code>adb connect 127.0.0.1:26944
@@ -1107,6 +1107,8 @@ public void onCreate(Bundle savedInstanceState) {
         getActivity().registerReceiver(mReceiver, filter);
     }
 //-------------------接收广播 end------------------------//
+
+
 </code></pre><h3 id="EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58"><a href="#EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58" class="headerlink" title="EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)"></a>EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)</h3><pre><code>    etUsertel.addTextChangedListener(new TextChange());
     etPassword.addTextChangedListener(new TextChange());
 
