@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "/img/logo.ico"
-    high_res_favicon: "/img/logo.ico"
-    apple_touch_icon: "/img/logo.ico"
+    favicon: "/img/favicon.ico"
+    high_res_favicon: "/img/favicon.ico"
+    apple_touch_icon: "/img/favicon.ico"
     keywords:
     site_verification:
         google:
@@ -27,8 +27,7 @@ url:
 # Style Settings
 # ---------------------------------------------------------------
 
-# Schemes： Paradox（默认），Isolation（至简样式），Nexus（开发中）
-#scheme: Nexus
+# Schemes
 scheme: Paradox
 #scheme: Isolation
 
@@ -43,29 +42,20 @@ uiux:
     nprogress_color: "#212121"
     nprogress_buffer: "350"
 
-    # 以下是原版博客主题色
-    #theme_color: "#0097A7"
-    #theme_sub_color: "#00838F"
-    #hyperlink_color: "#00838F"
-    #button_color: "#757575"
-    #android_chrome_color: "#0097A7"
-    #nprogress_color: "#29d"
-    #nprogress_buffer: "800"
 
 # JS Effect Switches
 js_effect:
-    fade: false
-    smoothscroll: true
+    fade: true
+    smoothscroll: false
 
 # Reading experience
-# 默认显示80字
 reading:
-    entry_excerpt: false # 80
+    entry_excerpt: 80
 
 # Thumbnail Settings
 thumbnail:
     purecolor:
-    random_amount: 15
+    random_amount: 19
 
 # Background Settings
 # bing available parameter:
@@ -74,7 +64,7 @@ thumbnail:
 #        type available value: A (animal), C (culture), N (nature), S (space), T (travel)
 background:
     purecolor: "#F5F5F5"
-    # bgimg: "/img/bg.jpg"
+    #bgimg: "/img/bg.png"
     bing:
         enable: false
         parameter:
@@ -85,12 +75,11 @@ img:
     avatar: "/img/avatar.png"
     daily_pic: "/img/daily_pic.png"
     sidebar_header: "/img/sidebar_header.png"
-    footerico: "/img/footer/footer_ico-"
     random_thumbnail: "/img/random/material-"
     footer_image:
-        AppVeyor:
-            link: 'https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io'
-            src: 'https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true'
+        #upyun_logo:
+            #link: "https://www.upyun.com/"
+            #src: "/img/upyun_logo.svg"
 
 # Custom Fonts
 #    family: the font-family which will be used in the theme
@@ -100,12 +89,10 @@ img:
 #        - If you have setup your custom font-family, don't forget to add style tag with @font-face or link.tag with font css
 #          to /source/data/head.yml as custom code, to load custom font files.
 fonts:
-    family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif
-    #family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
-    use: catnet
-    #use: google
+    family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
+    use: google
     custom_font_host:
-    
+
 # Card Elevation Level
 card_elevation: 2
 
@@ -129,23 +116,15 @@ qrcode:
    enable: true
    use: plugin
 
-# qrcode: true
-#     use: plugin
-
-
 # Code highlight
 # You can only enable one of them to avoid issues.
 # Also you need to disable highlight option in hexo's _config.yml.
 #
-#     highlight:
-#         enable: false
-#
-#     Prettify
-#         theme value:
-#         theme-name  # /vendors/prettify/themes/[theme-name].css
+#    Prettify
+#        theme: # Available value in /source/css/prettify/[theme].min.css
 prettify:
     enable: false
-    theme: "github-v2" # default value: "github-v2"   # theme-name without '.css'
+    theme: "github-v2"
 
 #    Hanabi (https://github.com/egoist/hanabi)
 #        line_number: [true/false] # Show line number for code block
@@ -154,8 +133,8 @@ prettify:
 #                    - If `includeDefaultColors` is true, this will append colors to the color pool
 #                    - If `includeDefaultColors` is false, this will instead default color pool
 hanabi:
-    enable: true
-    line_number: false
+    enable: false
+    line_number: true
     includeDefaultColors: true
     customColors: 
 
@@ -164,7 +143,7 @@ hanabi:
 #   For example, you can setup a CC license as:
 #       'This blog is under a <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 Unported License</a>'
 # You can also use Front-Matter `license` to override this setting.
-license: " 本文采用 <a rel='nofollow noopener' href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh' target='_blank'>CC BY-NC-SA 4.0 Unported</a> 协议进行许可，阅读 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh' target='_blank'> 相关说明 </a>"
+license: 
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -196,10 +175,10 @@ sns:
 sns_share:
     twitter: true
     facebook: true
-    googleplus: false
+    googleplus: true
     weibo: true
     linkedin: false
-    qq: true
+    qq: false
     telegram: true
 
 # Sidebar Customize
@@ -207,7 +186,6 @@ sidebar:
     dropdown:
         Email Me:
             link: "mailto:yang.jianan0926@gmail.com"
-            # link: "/about"
             icon: email
     homepage:
         use: true
@@ -260,8 +238,6 @@ sidebar:
         feedback: false
         material: false
 
-# Support Pin posts on the top of the list
-topPost: false
 
 # ---------------------------------------------------------------
 # Integrated Services
@@ -269,9 +245,9 @@ topPost: false
 
 # Comment Systems
 # Available value of "use":
-#     disqus | disqus_click | changyan | livere | gitment | valine
-# If you want to use gitment,you should get the client_id and client_secret form https://github.com/settings/applications/new
-# If you want to use valine,you should get the app_id and app_key form https://leancloud.cn ,more setting please see https://github.com/xCss/Valine
+#     disqus | disqus_click | changyan | livere | gitment | gitalk | valine
+# If you want to use gitment or gitalk,you should get the client_id and client_secret form https://github.com/settings/applications/new
+# If you want to use valine,you should get the app_id and app_key form https://leancloud.cn ,more setting please see https://valine.js.org
 comment:
     use: disqus_click
     shortname: yangxiaoge # duoshuo or disqus shortname
@@ -283,8 +259,19 @@ comment:
     gitment_owner:  # git repo's owner
     gitment_client_id:  # github app client id 
     gitment_client_secret :  # github app client secret 
-    valine_leancloud_appId: # leancloud application app id
-    valine_leancloud_appKey: # leancloud application app key
+    valine_leancloud_appId:  # leancloud application app id
+    valine_leancloud_appKey:  # leancloud application app key
+    valine_notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+    valine_verify: false # valine verify code (true/false)
+    valine_pageSize: 10 # comment list page size
+    valine_avatar: identicon # gravatar style https://valine.js.org/#/avatar
+    valine_lang: zh-cn # i18n
+    valine_placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+    valine_guest_info: nick,mail,link #valine comment header info
+    gitalk_repo: # git repo of the hexo
+    gitalk_owner: # git repo's owner
+    gitalk_client_id: # github app client id 
+    gitalk_client_secret: # github app client secret
 
 # Search Systems
 # Available value:
