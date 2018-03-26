@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Tue Sep 05 2017 14:16:37 GMT+0000">
-        <meta property="article:modified_time" content="Fri Mar 23 2018 04:28:25 GMT+0000">
+        <meta property="article:modified_time" content="Mon Mar 26 2018 06:58:53 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/09/05/2017-09-05-我眼中的-Android-Framework/index.html",
     "headline": "我眼中的 Android Framework",
     "datePublished": "Tue Sep 05 2017 14:16:37 GMT+0000",
-    "dateModified": "Fri Mar 23 2018 04:28:25 GMT+0000",
+    "dateModified": "Mon Mar 26 2018 06:58:53 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -563,11 +563,11 @@
 <li>安卓程序中都有哪些线程？</li>
 </ol>
 <p>客户端小伙伴至少包含三个线程小弟，Activity 启动后会创建一个 ViewRoot.W 对象，同时 ActivityThread 会创建一个 ApplicationThread 对象，这两个对象继承消息总管 Binder，每个 Binder 对应一个线程，负责接收 Linux Binder 驱动发送的 IPC 调用。还有一个是 UI 线程呗。</p>
-<ol>
+<ol start="2">
 <li>UI 线程是什么？</li>
 </ol>
 <p>一直在倾听用户的心声，所有的处理用户消息，以及绘制页面的工作都在该线程中完成。</p>
-<ol>
+<ol start="3">
 <li>自定义的线程和 UI 线程有什么区别？</li>
 </ol>
 <p>UI 线程是从 ActivityThread 运行的，在该类的 main() 方法中已经使用了 Looper.prepareMainLooper() 为该线程添加了 Looper 对象，已经为该线程创建了消息队列，是自带秘书光环的。因此，我们才可以在 Activity 中去定义 Handler 对象，因为创建 Handler 对象时其线程必须已经创建了消息队列，装卸工得配运输带要不然没法干活。而普通的 Thread 则没有默认创建消息队列，所以不能直接在 Thread 中直接定义 Handler，这个就是我们不懂程序运行原理导致的困惑。</p>
