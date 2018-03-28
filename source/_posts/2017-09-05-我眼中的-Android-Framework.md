@@ -2,14 +2,14 @@
 title: 我眼中的 Android Framework
 date: 2017-09-05 14:16:37
 tags: [Android,Framework]
-thumbnail: "https://dn-mhke0kuv.qbox.me/b06cc296588f99c3852e.jpg?imageView2/1/w/1200/h/700/q/85/interlace/1"
+thumbnail: https://github.com/yangxiaoge/PersonResources/blob/bfd168d0f60a7fa8b11ad50cdc53694c77d90bd9/Android/Android%20Framework.jpg?raw=true
 ---
 
 在开发中我们会遇到各种各样的非常奇怪的问题，有些问题是百思不得骑姐。其实这些问题大都是因为我们不了解安卓内部运行原理，知其所以然才是我们的目的。— `前言`
 <!--more-->
 > 本文转自 [墨镜猫](https://juejin.im/post/586da43b1b69e60062cb8a4f)，通俗有趣的文笔
 
-<div align=center><img src="https://dn-mhke0kuv.qbox.me/b06cc296588f99c3852e.jpg?imageView2/1/w/1200/h/700/q/85/interlace/1"/></div>
+<div align=center><img src="https://github.com/yangxiaoge/PersonResources/blob/bfd168d0f60a7fa8b11ad50cdc53694c77d90bd9/Android/Android%20Framework.jpg?raw=true"/></div>
 
 任何控制类程序都有一个入口，安卓应用程序肯定也是有滴。
 Android framework 包含三个小伙伴：服务端、客户端、linux 驱动。
