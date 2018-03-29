@@ -6,7 +6,7 @@ Zz's Blog:
 littlefisher:
     link: https://littlefisher.coding.me/
     avatar: https://littlefisher.coding.me/img/avatar.jpg
-    descr: "逐梦者，折腾Angular中"
+    descr: "逐梦者 | 折腾Angular中"
 drakeet:
     link: https://drakeet.me
     avatar: http://drakeet.me/avatar.png
@@ -31,3 +31,7 @@ Jingbin:
     link: https://youlookwhat.github.io/
     avatar: https://jingbin.me/images/avatar.jpg
     descr: "CloudReader 云阅"
+Xu:
+    link: https://xudeveloper.github.io/
+    avatar: https://xudeveloper.github.io/images/avatar.png
+    descr: "EventBus | Butterknife | View 动画 解析"
