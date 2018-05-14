@@ -467,7 +467,101 @@ JSON(JavaScript Object Notation)是一种轻量级(轻量级？简单、易操�
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
+            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)使用方法：
+1，布局中直接集成
+2，signView.reset(); 可以重置view
+3，通过其他方法可以将view转成Bitmap
+
+/**
+ * Created by yangjianan on 2018/5/10.
+ * mail: yang.jianan0926@gmail.com
+ * 手写签名文件
+ */
+public class SignView extends View {
+
+    private Paint mPaint;
+    private Path mPath;
+
+    public SignView(Context context) {
+        super(context);
+    }
+
+    public SignView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+
+    private void initPaint() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.STROKE);
+
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (MotionEventCompat.getActionMasked(event)) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        invalidate();
+        return true;
+    }
+
+    public void reset() {
+        mPath.reset();
+        invalidate();
+    }
+}
+
+
+    /**
+     * 把一个view转化成bitmap对象
+     */
+    private Bitmap loadBitmapFromView(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        c.drawColor(Color.WHITE);
+        /** 如果不设置canvas画布为白色，则生成透明 */
+        v.layout(0, 0, w, h);
+        v.draw(c);
+        return bmp;
+    }
+
+    private void saveImage(Bitmap bmp) {
+        String fileName = &quot;0001.jpg&quot;;
+        File file = new File(getExternalCacheDir(), fileName);
+    if (!file.exists()) {
+            appDir.mkdir();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(&quot;rxjava&quot;,&quot;IOException e = &quot; + e.getMessage());
+        }
+    }
+
+Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
 &lt;sourcePath&gt;
         &lt;root type=&quot;composite&quot;&gt;
             &lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&gt;
