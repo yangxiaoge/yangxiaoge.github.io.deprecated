@@ -72,6 +72,7 @@ thumbnail: /img/link_cover.png
 |[µTorrent](http://www.utorrent.com/intl/zh/) | BT 下载软件，如 µTorrent、qBittorrent、Transmission 和 Vuze等 |
 |[Windows 绝赞应用](https://amazing-apps.gitbooks.io/windows-apps-that-amaze-us/content/zh-CN/china-apps.html)| Windows 绝赞应用 |
 |[Mac 绝赞应用](https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md#%E7%9B%AE%E5%BD%95)| Mac 绝赞应用 |
+|[API-主流应用](https://github.com/jokermonn/-Api) | 可供学习调用api |
 	
 --------------------------------
 ## 轻松一刻
