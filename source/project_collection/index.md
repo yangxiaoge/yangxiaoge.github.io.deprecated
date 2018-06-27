@@ -128,6 +128,8 @@ date: 2016-09-14 11:39:56
 <src="https://github.com/yxs666/cniao5-shop/raw/master/screenshot/9.detail_shared.png" width="270" height="450"/>
 68. [Android 下 WIFI 隔空 apk 安装](https://github.com/yangxiaoge/WifiTransfer-master)
 <src="https://github.com/yangxiaoge/WifiTransfer-master/raw/master/screenshot/002.jpg" width="450" height="270"/>
+69. [仿微博、酷安点击加号揭露动画弹出菜单 + 背景模糊效果](https://github.com/DuShuYuan/PlusMenu)
+<src="https://github.com/DuShuYuan/PlusMenu/raw/master/screenshot/20180625_173334.gif" width="450" height="270"/>
 
 
 
