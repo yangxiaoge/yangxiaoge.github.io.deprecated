@@ -2,22 +2,6 @@
 title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
-1. [如何掌握 Android - 21 个应用程序](https://techbeacon.com/how-master-android-what-developers-can-learn-21-apps)
-1. [AndroidTVLauncher 猫桌面](https://github.com/JackyAndroid/AndroidTVLauncher/blob/master/README-CN.md) - [中国首位 00 后 CEO 公然抄袭、复制我的开源作品](https://juejin.im/post/59ad758a518825243d1f28cb), 原作者的项目都很棒！坚决抵制这种炒作抄袭行为！
-1. [Android最新源码汇总](http://androidblog.cn/index.php/Source)
-1. [Arsenal](http://android-arsenal.com/)
-1. [Trinea](https://github.com/Trinea/android-open-project)
-1. [wanandroid_鸿洋维护](http://wanandroid.com/)
-1. [极客导航](http://www.jikedaohang.com/)
-1. [osplus](http://osplus.cc/android)
-	- QQ上拉弹出键盘 [AndroidKeyboardListener](https://github.com/zzzlw/AndroidKeyboardListener)
-	- 各种下拉效果[SpringView](https://github.com/liaoinstan/SpringView)(美图,QQ网页下拉等等)
-	- 等等...
-<!--more-->
-2. 印象笔记(目前不对外公布)
-3. 收集中(鸿洋,郭霖微信博客都可以关注下)...
-4. 滴滴滴~~~来不及解释了! 快上车!
-5. [不错的博客和工具网站](http://blog.csdn.net/vivian8725118/article/details/50492448)
 6. [仿QQ6.0侧滑效果](https://github.com/jiangqqlmj/DragHelper4QQ)
 7. [Android动态生成验证码](https://github.com/Freshman111/VerificationCodeView)VerificationCode View
 8. [Android开发人员不得不收集的代码(持续更新中)](https://github.com/Blankj/AndroidUtilCode)
@@ -42,7 +26,7 @@ date: 2016-09-14 11:39:56
 27. [Material Design Bottom](https://github.com/roughike/BottomBar)
 28. [知乎 Android 客户端启动页动画效果实现](https://github.com/ryanhoo/Zhihu-Parallax-Animation)
 29. [仿flyme悬浮球](https://github.com/HalfStackDeveloper/FloatBall)
-![](/img/floatball.gif)
+<img src="/img/floatball.gif" width="300" height="400"/>
 30. [wuchangfeng/one 后台用python抓数据存储在LeanCloud ](https://github.com/wuchangfeng/one) - [对应的后端](https://github.com/wuchangfeng/vino-crawlers)
 31. [合理的进程保活](https://github.com/D-clock/AndroidDaemonService)
 32. [打不死的小强,永不crash的Android](https://github.com/android-notes/Cockroach)
@@ -75,10 +59,6 @@ date: 2016-09-14 11:39:56
 <img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_zhihu.png" width="270" height="450"/><img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_dracula.png" width="270" height="450"/><img src="https://raw.githubusercontent.com/zhihu/Matisse/master/image/screenshot_preview.png" width="270" height="450"/>
 47. [TelegramGallery](https://github.com/TangXiaoLv/TelegramGallery) - 抽取 Telegram 相册功能
 ![](https://github.com/TangXiaoLv/TelegramGallery/raw/master/png/1.gif)
-48. [仿全民TV](https://github.com/a371166028/likequanmintv)
-![](https://camo.githubusercontent.com/aafb4558f73227e6f896edb55d2f9431932b3ac6/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303934383231393736)![](https://camo.githubusercontent.com/d6aee7389ceecc64132eda7f31cfc97a18c1a0ce/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f3230313631323031303935303130393739)
-49. [高仿全民直播（全民TV）](https://github.com/jenly1314/KingTV)
-![](https://user-images.githubusercontent.com/12471093/28506574-e8541924-705e-11e7-8af3-6842b72a8ff3.gif)
 50. [ 高仿iOS 滚轮实现 省市区 城市选择三级联动](https://github.com/crazyandcoder/citypicker)
 ![](https://camo.githubusercontent.com/1cfc3b399e45dea852e8b20d11b46c5f1a2d1d88/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f32303136313230393231313432363833363f77617465726d61726b2f322f746578742f6148523063446f764c324a736232637559334e6b626935755a58517662476c716156393459773d3d2f666f6e742f3561364c354c32542f666f6e7473697a652f3430302f66696c6c2f49304a42516b46434d413d3d2f646973736f6c76652f37302f677261766974792f536f75746845617374)
 51. [史上最简单侧滑菜单](https://github.com/mcxtzhang/SwipeDelMenuLayout)
@@ -115,17 +95,13 @@ date: 2016-09-14 11:39:56
 <img src="https://camo.githubusercontent.com/4a7ce1095fc0eabd38d69d4e1a0b6d287f4f7120/68747470733a2f2f692e696d6775722e636f6d2f6d77376d7944382e6a7067" width="270" height="450"/><img src="https://camo.githubusercontent.com/e6a62bf750ea6541d3dd5c1a0d4f1085d2cecddf/68747470733a2f2f692e696d6775722e636f6d2f426554457258672e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/fbd61e39ccc6dad070e0d17251607b7a9ab576d7/68747470733a2f2f692e696d6775722e636f6d2f52433739754d552e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/a5981ce5cdb0f791850e2ac847ff1f450acb321f/68747470733a2f2f692e696d6775722e636f6d2f55324164564d432e706e67" width="270" height="450"/><img src="https://camo.githubusercontent.com/38bb75635ec21330dd13357a674fbab623a0790c/68747470733a2f2f692e696d6775722e636f6d2f544661435263332e706e67" width="270" height="450"/>
 62. [Android上展示word、excel、pdf、ppt~](https://github.com/ZhongXiaoHong/superFileView) - 基于腾讯浏览服务，支持多种文件格式，例如 doc、excel、ppt、excel、pdf 等格式
 ![](https://github.com/ZhongXiaoHong/superFileView/blob/master/record.gif?raw=true)
-63. [高仿斗鱼 TV 项目](https://github.com/TeamCodeForGit/DouYu)
-<img src="https://github.com/mykj/DouYu/raw/master/upload_image/678D6ACFDFAA01AC6333EC682F1A1D57.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/DACCBB63F4390F462D498615DCAA4BC7.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/7540E9A56688E00078BBD79554B000E1.png" width="270" height="450"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/35692D640637F2A6D2FCF09F9E8B4C48.jpg" width="450" height="270"/><img src="https://github.com/mykj/DouYu/raw/master/upload_image/5FC86F4A3DAE79B29DF275C69B7B75A7.jpg" width="450" height="270"/>
 64. [CircleMenu 圆形菜单](https://github.com/Ramotion/circle-menu-android) - 2017-11-17 16:48:46
 <img src="https://github.com/Ramotion/circle-menu-android/raw/master/preview.gif" width="400" height="330"/>
-65. [开源商城](https://github.com/Shuyun123/LKShop) - 2017-11-28 09:32:16 后台挂了，自己可以弄个假数据
-<src="https://github.com/Shuyun123/LKShop/blob/master/introduce/introduce1.png" width="270" height="450"/><src="https://github.com/Shuyun123/LKShop/raw/master/introduce/introduce6.png" width="270" height="450"/>
 66. [图片搜索 APP](https://github.com/wenhuaijun/SearchPictureTool) - 2017-11-28 09:41:17
-<src="https://camo.githubusercontent.com/8f2905aa49d3b46c2b5a6e239bc5287b2238a3b1/687474703a2f2f696d672e77646a696d672e636f6d2f6d6d732f73637265656e73686f742f662f35652f63303736333133343833336162336264623439376639653133343630313565665f3332305f3533342e6a706567" width="270" height="450"/>
+<img src="https://camo.githubusercontent.com/8f2905aa49d3b46c2b5a6e239bc5287b2238a3b1/687474703a2f2f696d672e77646a696d672e636f6d2f6d6d732f73637265656e73686f742f662f35652f63303736333133343833336162336264623439376639653133343630313565665f3332305f3533342e6a706567" width="270" height="450"/>
 67. [菜鸟商城源码](https://github.com/yxs666/cniao5-shop) - 2017-11-28 09:44:31
-<src="https://github.com/yxs666/cniao5-shop/raw/master/screenshot/1.home.png" width="270" height="450"/>
+<img src="https://github.com/yxs666/cniao5-shop/raw/master/screenshot/1.home.png" width="270" height="450"/>
 68. [Android 下 WIFI 隔空 apk 安装](https://github.com/yangxiaoge/WifiTransfer-master)
-<src="https://github.com/yangxiaoge/WifiTransfer-master/raw/master/screenshot/002.jpg" width="450" height="270"/>
+<img src="https://github.com/yangxiaoge/WifiTransfer-master/raw/master/screenshot/002.jpg" width="270" height="450"/>
 69. [仿微博、酷安点击加号揭露动画弹出菜单 + 背景模糊效果](https://github.com/DuShuYuan/PlusMenu)
-<src="https://github.com/DuShuYuan/PlusMenu/raw/master/screenshot/20180625_173334.gif" width="450" height="270"/>
+<img src="https://github.com/DuShuYuan/PlusMenu/raw/master/screenshot/20180625_173334.gif" width="270" height="450"/>
