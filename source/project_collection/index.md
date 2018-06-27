@@ -125,18 +125,7 @@ date: 2016-09-14 11:39:56
 <src="https://camo.githubusercontent.com/8f2905aa49d3b46c2b5a6e239bc5287b2238a3b1/687474703a2f2f696d672e77646a696d672e636f6d2f6d6d732f73637265656e73686f742f662f35652f63303736333133343833336162336264623439376639653133343630313565665f3332305f3533342e6a706567" width="270" height="450"/>
 67. [菜鸟商城源码](https://github.com/yxs666/cniao5-shop) - 2017-11-28 09:44:31
 <src="https://github.com/yxs666/cniao5-shop/raw/master/screenshot/1.home.png" width="270" height="450"/>
-<src="https://github.com/yxs666/cniao5-shop/raw/master/screenshot/9.detail_shared.png" width="270" height="450"/>
 68. [Android 下 WIFI 隔空 apk 安装](https://github.com/yangxiaoge/WifiTransfer-master)
 <src="https://github.com/yangxiaoge/WifiTransfer-master/raw/master/screenshot/002.jpg" width="450" height="270"/>
 69. [仿微博、酷安点击加号揭露动画弹出菜单 + 背景模糊效果](https://github.com/DuShuYuan/PlusMenu)
 <src="https://github.com/DuShuYuan/PlusMenu/raw/master/screenshot/20180625_173334.gif" width="450" height="270"/>
-
-
-
-
-
-
-
-
-
-
