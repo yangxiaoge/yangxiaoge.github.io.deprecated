@@ -45,7 +45,7 @@
     
     <title>
         
-            Git语法 | 
+            如何接入 VirtualAPK 插件框架 | 
         
         珠珠のBlog
     </title>
@@ -55,18 +55,8 @@
     <link rel="icon" href="/img/favicon.ico">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="
-本文摘自我的小伙伴KevinJin
-
-开源中国的 Pro Git（中文版）
-1、Git基础1.1 分布式版本管理系统常用操作:
-
-克隆远程仓库git clone &amp;lt;/path/to/repository&amp;gt;
-
-查看工作区状态git status
-
-">
-    <meta name="keywords" content="null,Git">
+    <meta name="description" itemprop="description" content="背着键盘的编程侠客!">
+    <meta name="keywords" content="null,Android,插件化">
     <meta name="theme-color" content="#455A64">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -227,7 +217,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="珠珠のBlog">
-    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/">
+    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/">
     <meta name="msapplication-navbutton-color" content="#455A64">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
@@ -246,25 +236,15 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/">
+    <meta property="og:url" content="https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Git语法 | 珠珠のBlog">
+    <meta property="og:title" content="如何接入 VirtualAPK 插件框架 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
-    <meta property="og:description" content="
-本文摘自我的小伙伴KevinJin
-
-开源中国的 Pro Git（中文版）
-1、Git基础1.1 分布式版本管理系统常用操作:
-
-克隆远程仓库git clone &amp;lt;/path/to/repository&amp;gt;
-
-查看工作区状态git status
-
-">
-    <meta property="og:article:tag" content="Git"> 
+    <meta property="og:description" content="背着键盘的编程侠客!">
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="插件化"> 
 
     
-        <meta property="article:published_time" content="Wed Aug 03 2016 16:13:45 GMT+0000">
+        <meta property="article:published_time" content="Tue Jul 25 2017 17:05:06 GMT+0000">
         <meta property="article:modified_time" content="Wed Jul 25 2018 09:10:17 GMT+0000">
     
 
@@ -273,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html" />
+        <link rel="canonical" href="https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -285,9 +265,9 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html",
-    "headline": "Git语法",
-    "datePublished": "Wed Aug 03 2016 16:13:45 GMT+0000",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html",
+    "headline": "如何接入 VirtualAPK 插件框架",
+    "datePublished": "Tue Jul 25 2017 17:05:06 GMT+0000",
     "dateModified": "Wed Jul 25 2018 09:10:17 GMT+0000",
     "author": {
         "@type": "Person",
@@ -306,18 +286,8 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",Gitnull",
-    "description": "
-本文摘自我的小伙伴KevinJin
-
-开源中国的 Pro Git（中文版）
-1、Git基础1.1 分布式版本管理系统常用操作:
-
-克隆远程仓库git clone &amp;lt;/path/to/repository&amp;gt;
-
-查看工作区状态git status
-
-",
+    "keywords": ",Android,插件化null",
+    "description": "背着键盘的编程侠客!",
 }
 </script>
 
@@ -399,7 +369,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1、Git基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、Git基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-1-分布式版本管理系统"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 分布式版本管理系统</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-2-Git初始化，创建一个新的本地仓库"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 Git初始化，创建一个新的本地仓库</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-3-Git暂存区"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 Git暂存区</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-4-git-diff"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.4 git diff</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-5-git-reset重置暂存区"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">1.5 git reset重置暂存区</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-6-git-checkout检出到工作区"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">1.6 git checkout检出到工作区</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-7-文件忽略"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">1.7 文件忽略</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-8-分支管理"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">1.8 分支管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、远程版本库"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、远程版本库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3、最佳实践"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、最佳实践</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4、其他特性"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、其他特性</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-环境配置，很重要，官方有规定-gradle-使用哪个之类的，我用的不同，我就基于我的来写"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 环境配置，很重要，官方有规定 gradle 使用哪个之类的，我用的不同，我就基于我的来写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-代码添加并验证"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 代码添加并验证</span></a></li></ol>
     </ul>
     
 
@@ -418,20 +388,11 @@
                 
     <!-- Paradox Post Header -->
     
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://github.com/didi/VirtualAPK/raw/master/imgs/va.png)">
     
             <p class="article-headline-p">
-                Git语法
+                如何接入 VirtualAPK 插件框架
             </p>
         </div>
 
@@ -450,7 +411,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Bruce Yang</strong>
-        <span>8月 03, 2016</span>
+        <span>7月 25, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -472,7 +433,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC4ElEQVR42u3bwZKbMBAEUP//TyfXHALp1uANiMdpy8UKnnyYmh758+uV1wcbGxsbGxsbGxv7luxPfP1loT8+P7r/6J6jTw5f+vRZyTtjY2Nj781uH5n8b74RydcweWdsbGzs97DbInR+52Q78u0uVsPGxsbGLkvOWvOQFC1sbGxs7An7/M4opg8iqrYdwsbGxsauA5qgULUhVPLE/5alYWNjY9+enTcG9/n7R+fb2NjY2Ddmt1c7EjgvfvlT5hc2Njb2ruzJkZ32FdtCdV662pALGxsbe1f22hbkQdJknTzSSp6OjY2NvSs7KUjtWDcZ5V4wuD19Sj0VwcbGxn44O190XqIm7UoyBqgHvdjY2NibspMitxYqrYX+Xzyyg42Njf1w9oS61ki0x+jbn0gdirCxsbFfwG7HqGtb027Q4lHLvIBhY2NjP5zdRv9Jk3DVcfw8oooaKmxsbOyt2WuD3u+FTXP8F+fb2NjY2Ddj50FSHgm1W7kWNrVDaGxsbOw3sNcajHaF8zUno4J/bD02Njb2puxkickYeG3MMNlubGxs7Heyz19oLXiajAomodLiVAQbGxv7sezFgKZkr42B5w0PNjY29hvYa0tHg9V4MJyHTUljU7ci2NjY2Fuw8y3IW5RJAJRsU90+YWNjY2/NXguV8lFBW5DyIlp8JdjY2Nhbs9vYKAFPMIsDgHYqgo2Njb0d+xvxfXvEp42K8oYKGxsb+53sthlYG9C2Y4nLBr3Y2NjY27GvCobyxiYPhiaHO7GxsbH3ZrdXXt4mgVFRlvJ2BRsbG3tT9mIxKI9UJu3KfOMumG9jY2NjP5bdhvv5xk3Cpnnzg42Njf02dlJaJkVoLbpqx8/Y2NjY2Fex27YhaSryozzY2NjY2O1xmXZYO2k/FgcY2NjY2C9g56HS/ODOVdvxo1kaNjY29o3ZbXCzFtznBz3zUUTxVWFjY2Nvyn7PhY2NjY2NjY2NjX2b6zfcYujjms8FLgAAAABJRU5ErkJggg==">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADkklEQVR42u3aS27CQBAFQO5/6WQbCWHem54BKyqvUCBjd3nR6s/jx/XneiDAgQMHDhw4cODAgePGHI/4ev6v63Oef9me+erb63vVseDAgQMHjgMcb1LRi9/kwed/mZ/fxoIDBw4cOM5xrCXLJOFdP9z1vSafEzIcOHDgwHEHjrY8SxJ2W1jiwIEDB47/xLHWHMwLwvYuOHDgwIHjnhztyOc61eXJdVLmzRudOHDgwIHjBMeukukOnz+634EDBw4cOJ442qsdO+Xpc5KMRxHhwIEDB46tHO2yQj40yv9SJMVN5+DAgQMHjs9w5MVSvo6QD5byZYg81Kh9iQMHDhw4jnG0SwzXY6H5ckM+1mpXLnDgwIEDx2mOduB0fcKktMvXFPKFuTfn4MCBAweOrRxtcdWuqa21GtvTRgMwHDhw4MCxlaNtseVrapMSMb9XUtotbg7iwIEDB44Bx1p7Ll8+mAdWD5Nw4MCBA8dXOSaFVjvymdylTcY/wYUDBw4cOM5x7B0p5YsR18l7DrGtOYgDBw4cOLbOWUbJrBxcJaOvPJ2/eRk4cODAgWMrx6RISx4rb961LyBPrvV+Bw4cOHDgGHC0ZVLb+EuSX57a2+ITBw4cOHB8nmNXky4PdZKk83WKnA8HDhw4cOzlaEMaDXiCUEeBrb0AHDhw4MCxlSN53DwBtyOfnHhtJS5qPuLAgQMHjq0cSUGVNwev097a0tvafYuXgQMHDhw4jnHkywdt8EminY+sWggcOHDgwHGOI2+x5csQecBtMdYuW9RjJxw4cODAsYljMs5pk+vasGry8l6+Khw4cODAcYCjTXttAdYmzrU0v5iMceDAgQPHMY6Waddv8hWHNuDoxeDAgQMHjgMcbcmUP1a7MJF/u1ZMLvZKceDAgQPHEkfbaJuckHDnZ05Ow4EDBw4c5ziKsidelVsbXM1HXMWACgcOHDhwHOZIHiVv4c0XIyal2obmIA4cOHDgKDnaKx8y5cXbnGNUNOLAgQMHjq0ckxS1Rpm3+fKFifxzsd+BAwcOHDgGHHkYSRl2ArEdiW3b78CBAwcOHOPdsDyxrRVmyXBrvpCXPz8OHDhw4LgDR5tW11L1LvS6OYgDBw4cOL7K0QacF2ZroeajKRw4cODAcZojHxfljb+8SJuwTpqVOHDgwIHjBEfbaGuX25IybEPK3JVoceDAgQPHgMOFAwcOHDhw4MCBAweOm12/mhtncDOnZMIAAAAASUVORK5CYII=">
     
 </ul>
 
@@ -486,7 +447,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Git/">Git</a>
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/插件化/">插件化</a>
     </ul>
     
 
@@ -501,7 +462,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/08/03/2016-08-03-Git语法/" class="leancloud-views_num" data-flag-title="Git语法">
+                <span id="/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/" class="leancloud-views_num" data-flag-title="如何接入 VirtualAPK 插件框架">
      &nbsp;浏览量
 </span>
 
@@ -513,7 +474,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git语法&url=https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何接入 VirtualAPK 插件框架&url=https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -522,7 +483,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git语法&url=https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=如何接入 VirtualAPK 插件框架&url=https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -531,7 +492,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -540,7 +501,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -555,7 +516,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html&text=Git语法" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html&text=如何接入 VirtualAPK 插件框架" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -571,139 +532,41 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <blockquote>
-<p>本文摘自我的小伙伴<a href="http://littlefisher.coding.me/2016/06/08/git%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95/" target="_blank" rel="noopener">KevinJin</a></p>
-</blockquote>
-<p>开源中国的 <a href="http://git.oschina.net/progit/index.html" target="_blank" rel="noopener">Pro Git（中文版）</a></p>
-<h5 id="1、Git基础"><a href="#1、Git基础" class="headerlink" title="1、Git基础"></a>1、Git基础</h5><h6 id="1-1-分布式版本管理系统"><a href="#1-1-分布式版本管理系统" class="headerlink" title="1.1 分布式版本管理系统"></a>1.1 分布式版本管理系统</h6><p><strong>常用操作:</strong></p>
-<ul>
-<li><p>克隆远程仓库<br><code>git clone &lt;/path/to/repository&gt;</code></p>
-</li>
-<li><p>查看工作区状态<br><code>git status</code></p>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>添加更改到暂存区<br><code>git add &lt;filename&gt;</code>&nbsp;&nbsp;添加某个文件<br><code>git add .</code>&nbsp;&nbsp;添加当前目录及子目录所有文件<br><code>git add -A</code>    &nbsp;&nbsp;添加所有改动</p>
-</li>
-<li><p>使用如下命令以实际提交改动<br><code>git commit -m &quot;代码提交信息&quot;</code></p>
-</li>
-<li><p>分支操作<br><code>git branch &lt;branch name&gt;</code>&nbsp;&nbsp;新建分支<br><code>git checkout &lt;branch name&gt;</code>&nbsp;&nbsp;切换到某个分支<br><code>git branch -d &lt;branch name&gt;</code>&nbsp;&nbsp;删除分支</p>
-</li>
-<li><p>要合并其他分支（可以是任何远程分支或本地分支）到你的当前分支，执行：<br><code>git merge &lt;branch&gt;</code>&nbsp;&nbsp;//git merge dev<br><code>git merge origin/dev</code></p>
-</li>
-<li><p>获取远程仓库改动<br><code>git fetch &lt;remote&gt;</code>&nbsp;&nbsp;//git fetch origin</p>
-</li>
-<li><p>获取远程仓库改动，同时合并（merge）到当前分支<br><code>git pull &lt;remote&gt; &lt;branch&gt;</code>&nbsp;&nbsp;//git pull origin dev&nbsp;&nbsp;获取远程仓库origin的dev分支，合并到当前分支</p>
-</li>
-<li><p>推送当前分支到远程仓库<br><code>git push &lt;remote&gt; &lt;branch&gt;</code>&nbsp;&nbsp;//git push origin dev&nbsp;&nbsp;推送当前分支到远程仓库origin的dev分支<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4nwpid97qj20j80r6n75.jpg" alt="GIT CHEAT SHEET"></p>
-</li>
-</ul>
-<h6 id="1-2-Git初始化，创建一个新的本地仓库"><a href="#1-2-Git初始化，创建一个新的本地仓库" class="headerlink" title="1.2 Git初始化，创建一个新的本地仓库"></a>1.2 Git初始化，创建一个新的本地仓库</h6><p>安装git后，配置自己的个人信息<br><code>git config --global user.name &quot;KevinJin614&quot;</code><br><code>git config --global user.email &quot;***@qq.com&quot;</code><br>创建新文件夹，打开，然后执行<br><code>git init git add</code><br><code>git commit</code><br>以创建新的 git 仓库</p>
-<h6 id="1-3-Git暂存区"><a href="#1-3-Git暂存区" class="headerlink" title="1.3 Git暂存区"></a>1.3 Git暂存区</h6><p>你的本地仓库由 git 维护的三棵“树”组成。第一个是你的<strong>工作目录</strong>，它持有实际文件；第二个是<strong>暂存区（Index）</strong>,它像个缓存区域，临时保存你的改动；最后是 <strong>HEAD</strong>，它指向你最后一次提交的结果。<br>HEAD和分支都是引用。<br><img src="http://ww1.sinaimg.cn/mw690/7dde05d2gw1f4nwpjgxwqj20g607975m.jpg" alt="Git暂存区"><br>使用<code>git status [-s]</code> 查看工作区状态，添加-s参数以精简模式显示</p>
-<ul>
-<li><p>当执行git reset HEAD命令时，暂存区的目录树会被重写，被master分支指向的目录树所替换，但是工作区不受影响。</p>
-</li>
-<li><p>当执行<code>git rm --cached &lt;file&gt;</code>命令时，会直接从暂存区删除文件，工作区则不做出改变。 </p>
-</li>
-<li>当执行<code>git checkout</code>.或者<code>git checkout -- &lt;file&gt;</code>命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。 </li>
-<li>当执行<code>git checkout HEAD .</code>或者<code>git checkout HEAD &lt;file&gt;</code>命令时，会用HEAD指向的master分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。  </li>
-</ul>
-<h6 id="1-4-git-diff"><a href="#1-4-git-diff" class="headerlink" title="1.4 git diff"></a>1.4 git diff</h6><p><img src="http://ww3.sinaimg.cn/mw690/7dde05d2gw1f4nwpk1epjj20e50723zk.jpg" alt="Git Diff">  </p>
-<ul>
-<li>工作区和暂存区比较<br><code>git diff [--] [&lt;path&gt;…]</code>  </li>
-<li>暂存区和某次提交（如HEAD）比较<br><code>git diff --cached [&lt;commit&gt;] [--] [&lt;path&gt;…]</code></li>
-<li>工作区和某次提交（如HEAD）比较<br><code>git diff [&lt;commit&gt;] [--] [&lt;path&gt;…]</code></li>
-<li>比较任意两次commit之间的改动<br><code>git diff &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;]</code></li>
-</ul>
-<p><strong>所有的diff都可以用difftool替代</strong></p>
-<h6 id="1-5-git-reset重置暂存区"><a href="#1-5-git-reset重置暂存区" class="headerlink" title="1.5 git reset重置暂存区"></a>1.5 git reset重置暂存区</h6><p><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4nwple3j5j20gg079gmu.jpg" alt="Git Reset"><br><code>git reset</code><br><code>git reset --hard HEAD^</code></p>
-<p>重置命令（git reset）是Git最常用的命令之一，也是最危险，最容易误用的命令。来看看git reset命令的用法。<br>用法一：<code>git reset [-q] [&lt;commit&gt;] [--] &lt;paths&gt;...</code><br>用法二：<code>git reset [--soft | --mixed | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</code></p>
-<p>上面列出了两个用法，其中 <commit> 都是可选项，可以使用引用或者提交ID，如果省略 <commit> 则相当于使用了HEAD的指向作为提交ID。<br>上面列出的两种用法的区别在于，第一种用法在命令中包含路径<paths>。为了避免路径和引用（或者提交ID）同名而冲突，可以在<paths>前用两个连续的短线（减号）作为分隔。  </paths></paths></commit></commit></p>
-<ul>
-<li>第一种用法（包含了路径<paths>的用法）不会重置引用，更不会改变工作区，而是用指定提交状态（<commit>）下的文件（<paths>）替换掉暂存区中的文件。例如命令git reset HEAD <paths>相当于取消之前执行的git add <paths>命令时改变的暂存区。  </paths></paths></paths></commit></paths></li>
-<li>第二种用法（不使用路径<paths>的用法）则会重置引用。根据不同的选项，可以对暂存区或者工作区进行重置。参照下面的版本库模型图，来看一看不同的参数对第二种重置语法的影响。  </paths></li>
-<li>命令格式: <code>git reset [--soft | --mixed | --hard ] [&lt;commit&gt;]</code>  </li>
-<li>使用参数–hard，如：<code>git reset --hard &lt;commit&gt;</code><br>会执行上图中的1、2、3全部的三个动作。即：  </li>
-</ul>
+        <p>话不多说，先上我的 Demo 地址：<a href="https://github.com/yangxiaoge/VirtualAPKDemo" target="_blank" rel="noopener">https://github.com/yangxiaoge/VirtualAPKDemo</a></p>
+<p>本文转载：原文链接<a href="https://blog.csdn.net/lovelixue/article/details/81141213" target="_blank" rel="noopener">https://blog.csdn.net/lovelixue/article/details/81141213</a></p>
+<p>最近都在搞插件框架，为项目搭建用，之前集成了下阿里的 atlas，现在送上一篇滴滴的 virtualapk，就个人而言，滴滴的集成过程比阿里简单些，有兴趣的可以看看我 atlas 的：<a href="https://blog.csdn.net/lovelixue/article/details/81141213" target="_blank" rel="noopener">https://blog.csdn.net/lovelixue/article/details/81141213</a></p>
+<p><em>废话不多说，上过程</em></p>
+<h3 id="1-环境配置，很重要，官方有规定-gradle-使用哪个之类的，我用的不同，我就基于我的来写"><a href="#1-环境配置，很重要，官方有规定-gradle-使用哪个之类的，我用的不同，我就基于我的来写" class="headerlink" title="1. 环境配置，很重要，官方有规定 gradle 使用哪个之类的，我用的不同，我就基于我的来写"></a>1. 环境配置，很重要，官方有规定 gradle 使用哪个之类的，我用的不同，我就基于我的来写</h3><p>1.1 新建一个工程，根目录的 build.gradle 里面</p>
+<p>classpath ‘com.android.tools.build:gradle:3.0.0’</p>
+<p>classpath ‘com.didi.virtualapk:gradle:0.9.8.4’</p>
+<p>根目录 就配置这两个</p>
+<p>1.2 在 app（宿主）目录下的 build.gradle 文件下添加</p>
+<p>apply plugin: ‘com.didi.virtualapk.host’<br>在 dependencies 里面添加</p>
+<p>implementation ‘com.didi.virtualapk:core:0.9.6’<br>1.3 重点来了，通过 file，new module 的形式新建一个 module，然后我命名为 plugindemo，然后在 nodule.gradle 里面添加</p>
+<p>implementation ‘com.didi.virtualapk:core:0.9.6’<br>接着在末端添加</p>
+<p>apply plugin: ‘com.didi.virtualapk.plugin’<br>virtualApk {<br>    // 插件资源表中的packageId，需要确保不同插件有不同的packageId.<br>    packageId = 0x6f             // The package id of Resources.<br>    // 宿主工程application模块的路径，插件的构建需要依赖这个路径<br>    targetHost=’../app’ // The path of application module in host project.<br>    //默认为true，如果插件有引用宿主的类，那么这个选项可以使得插件和宿主保持混淆一致<br>    applyHostMapping = true      // [Optional] Default value is true.<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725103642552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>基本 环境就到此为止了，接下来代码部分</p>
+<h3 id="2-代码添加并验证"><a href="#2-代码添加并验证" class="headerlink" title="2. 代码添加并验证"></a>2. 代码添加并验证</h3><p>在 app 的 mainactivity 里面添加两个按钮，一个是跳转到 module 去的，一个是加载插件的</p>
+<p>public void loadPlugin() {<br>    PluginManager pluginManager = PluginManager.getInstance(this);<br>    //此处是当查看插件apk是否存在,如果存在就去加载(比如修改线上的bug,把插件apk下载到sdcard的根目录下取名为plugin-release.apk)<br>    File apk = new File(Environment.getExternalStorageDirectory(), “plugin-release.apk”);<br>    if (apk.exists()) {<br>        try {<br>            pluginManager.loadPlugin(apk);<br>            Toast.makeText(this, “插件加载成功”, Toast.LENGTH_SHORT).show();<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>            Toast.makeText(this, “插件加载异常！”, Toast.LENGTH_SHORT).show();<br>        }<br>    }<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725104101299?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>这个时候跳转是不行的，接下来就需要加载插件了 ，首先需要生成插件 apk</p>
+<p>官方文档是通过命令</p>
+<p>gradle clean assemblePlugin来构建插件</p>
+<p>如果不想这样，也可以通过直接 gradle 的来，具体如下<br><img src="https://img-blog.csdn.net/20180725104350857?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>这样 就生成插件 apk 了，同时官方文档介绍了下这个，就是只能生成 release 版本的，插件包位于 build 目录下<br><img src="https://img-blog.csdn.net/20180725104530319?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>到这里 就可以结束验证了，点击加载插件，然后再点击跳转，你会发现可以跳转了，如果如果有帮助可以帮我点个赞或者 githup 上面 star 一下，谢谢，如果有问题，可以下面评论回复，一起学习探讨。下面贴上注意点</p>
 <ol>
-<li>替换引用的指向。引用指向新的提交ID。  </li>
-<li>替换暂存区。替换后，暂存区的内容和引用指向的目录树一致。  </li>
-<li>替换工作区。替换后，工作区的内容变得和暂存区一致，也和HEAD所指向的目录树内容相同。  </li>
+<li><p>集成环境一定要配置好</p>
+</li>
+<li><p>生成的插件包和加载的时候名字一定要一样</p>
+</li>
+<li><p>注意 SD 卡的权限</p>
+</li>
 </ol>
-<ul>
-<li>使用参数–soft，如:<code>git reset --soft &lt;commit&gt;</code><br>会执行上图中的操作1。即只更改引用的指向，不改变暂存区和工作区。  </li>
-<li>使用参数–mixed或者不使用参数（缺省即为–mixed），如:<code>git reset &lt;commit&gt;</code><br>会执行上图中的操作1和操作2。即更改引用的指向以及重置暂存区，但是不改变工作区。下面通过一些示例，看一下重置命令的不同用法。  </li>
-<li>命令：<code>git reset</code><br>仅用HEAD指向的目录树重置暂存区，工作区不会受到影响，相当于将之前用git add命令更新到暂存区的内容撤出暂存区。引用也未改变，因为引用重置到HEAD相当于没有重置。</li>
-<li>命令：<code>git reset HEAD</code><br>同上。  </li>
-<li>命令：<code>git reset -- filename</code><br>仅将文件filename撤出暂存区，暂存区中其他文件不改变。相当于对命令git add filename的反向操作。 </li>
-<li>命令：<code>git reset HEAD filename</code><br>同上。  </li>
-<li><p>命令：<code>git reset --soft HEAD^</code><br>工作区和暂存区不改变，但是引用向前回退一次。当对最新提交的提交说明或者提交的更改不满意时，撤销最新的提交以便重新提交。<br>在之前曾经介绍过一个修补提交命令<code>git commit --amend</code>，用于对最新的提交进行重新提交以修补错误的提交说明或者错误的提交文件。修补提交命令实际上相当于执行了下面两条命令。（注：文件.git/COMMIT_EDITMSG保存了上次的提交日志）<br><code>$ git reset --soft HEAD^</code><br><code>$ git commit -e -F .git/COMMIT_EDITMSG</code>  </p>
-</li>
-<li><p>命令：<code>git reset HEAD^</code><br>工作区不改变，但是暂存区会回退到上一次提交之前，引用也会回退一次。  </p>
-</li>
-<li>命令：<code>git reset --mixed HEAD^</code><br>同上。  </li>
-<li>命令：<code>git reset --hard HEAD^</code><br>彻底撤销最近的提交。引用回退到前一次，而且工作区和暂存区都会回退到上一次提交的状态。自上一次以来的提交全部丢失。  </li>
-</ul>
-<h6 id="1-6-git-checkout检出到工作区"><a href="#1-6-git-checkout检出到工作区" class="headerlink" title="1.6 git checkout检出到工作区"></a>1.6 git checkout检出到工作区</h6><p><img src="http://ww2.sinaimg.cn/mw690/7dde05d2gw1f4nwpmikdzj20e5080dgv.jpg" alt="git checkout"></p>
-<p>检出命令（git checkout）是Git最常用的命令之一，同样也很危险，因为这条命令会重写工作区。<br>用法一： <code>git checkout [-q] [&lt;commit&gt;] [--] &lt;paths&gt;...</code><br>用法二： <code>git checkout [&lt;branch&gt;]</code><br>用法三： <code>git checkout [-m] [[-b|--orphan] &lt;new_branch&gt;] [&lt;start_point&gt;]</code>  </p>
-<p>上面列出的第一种用法和第二种用法的区别在于，第一种用法在命令中包含路径<code>&lt;paths&gt;</code>。为了避免路径和引用（或者提交ID）同名而冲突，可以在<code>&lt;paths&gt;</code>前用两个连续的短线（减号）作为分隔。  </p>
-<blockquote>
-</blockquote>
-<ul>
-<li>第一种用法的<code>&lt;commit&gt;</code>是可选项，如果省略则相当于从暂存区（index）进行检出。这和上一章的重置命令大不相同：重置的默认值是HEAD，而检出的默认值是暂存区。因此<strong>重置一般用于重置暂存区</strong>（除非使用–hard参数，否则不重置工作区），而<strong>检出命令主要是覆盖工作区</strong>（如果<code>&lt;commit&gt;</code>不省略，也会替换暂存区中相应的文件）。  </li>
-<li>第一种用法（包含了路径<code>&lt;paths&gt;</code>的用法）不会改变HEAD头指针，主要是用于指定版本的文件覆盖工作区中对应的文件。如果省略<code>&lt;commit&gt;</code>，会拿暂存区的文件覆盖工作区的文件，否则用指定提交中的文件覆盖暂存区和工作区中对应的文件。  </li>
-<li>第二种用法（不使用路径<code>&lt;paths&gt;</code>的用法）则会改变HEAD头指针。之所以后面的参数写作<code>&lt;branch&gt;</code>，是因为只有HEAD切换到一个分支才可以对提交进行跟踪，否则仍然会进入“分离头指针”的状态。在“分离头指针”状态下的提交不能被引用关联到而可能会丢失。所以用法二最主要的作用就是切换到分支。如果省略<code>&lt;branch&gt;</code>则相当于对工作区进行状态检查。 </li>
-<li>第三种用法主要是创建和切换到新的分支（<code>&lt;new_branch&gt;</code>），新的分支从<code>&lt;start_point&gt;</code>指定的提交开始创建。新分支和我们熟悉的master分支没有什么实质的不同，都是在refs/heads命名空间下的引用。关于分支和<code>git checkout</code>命令的这个用法会在后面的章节做具体的介绍。 </li>
-</ul>
-<h6 id="1-7-文件忽略"><a href="#1-7-文件忽略" class="headerlink" title="1.7 文件忽略"></a>1.7 文件忽略</h6><p><code>.gitignore</code> </p>
-<p>文件<code>.gitignore</code>的作用范围是其所处的目录及其子目录<br>忽略只对未跟踪文件有效，对于已加入版本库的文件无效  </p>
-<p>Git的忽略文件的语法规则：   </p>
-<ul>
-<li>忽略文件中的空行或者以井号（#）开始的行被忽略。  </li>
-<li>可以使用通配符，参见Linux手册：glob(7)。例如：星号（*）代表任意多字符，问号（?）代表一个字符，方括号（[abc]）代表可选字符范围等。  </li>
-<li>如果名称的最前面是一个路径分隔符（/），表明要忽略的文件在此目录下，而非子目录的文件。  </li>
-<li>如果名称的最后面是一个路径分隔符（/），表明要忽略的是整个目录，同名文件不忽略，否则同名的文件和目录都忽略。  </li>
-<li>通过在名称的最前面添加一个感叹号（!），代表不忽略。</li>
-</ul>
-<p>下面的文件忽略示例，包含了上述要点：<br># 这是注释行 —— 被忽略<br>*.a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 忽略所有以.a 为扩展名的文件。<br>!lib.a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 但是 lib.a 文件或者目录不要忽略，即使前面设置了对 <em>.a 的忽略。<br>/TODO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 只忽略根目录下的 TODO 文件，子目录的 TODO 文件不忽略。<br>build&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 忽略所有 build/ 目录下的文件。<br>doc/</em>.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 忽略文件如 doc/notes.txt，但是文件如 doc/server/arch.txt 不被忽略。  </p>
-<h6 id="1-8-分支管理"><a href="#1-8-分支管理" class="headerlink" title="1.8 分支管理"></a>1.8 分支管理</h6><p><code>git branch</code> 查看分支<br><code>git branch -r</code> 查看远程分支<br><code>git branch &lt;branch name&gt;</code>创建分支  </p>
-<p>创建一个叫做“feature_x”的分支，并切换过去：<br><code>git checkout -b feature_x</code><br>切换回主分支：<br><code>git checkout master</code><br>再把新建的分支删掉：<br><code>git branch -d feature_x</code></p>
-<h5 id="2、远程版本库"><a href="#2、远程版本库" class="headerlink" title="2、远程版本库"></a>2、远程版本库</h5><ul>
-<li>克隆远程仓库<br><code>git clone &lt;url&gt;</code>  <ul>
-<li>添加远程仓库<br><code>git remote add &lt;name&gt; &lt;url&gt;</code>   </li>
-<li>删除远程仓库<br><code>git remote remove &lt;name&gt;</code><br><code>git fetch [remote]</code><br><code>git pull [remote [refspec]]</code>= <code>git fetch</code> +  <code>git merge</code><br><code>git push [remote] [branch]</code>   </li>
-<li>快进式推送 <code>git push</code></li>
-<li>强制非快进式推送 <code>git push -f</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>Tracking</strong>  </p>
-<ul>
-<li>从远程分支创建新分支，会直接添加对应的tracking<br><code>git checkout -b test origin/master</code>  </li>
-<li>手动为分支添加tracking<br><code>git branch --set-upstream master origin/next</code>  </li>
-</ul>
-<p><strong>git merge</strong>   </p>
-<p><code>git merge &lt;branch&gt;[--no-ff ]</code>  </p>
-<ul>
-<li>Fast forward &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git允许执行快进式合并，添加–no-ff参数强制不使用快</li>
-</ul>
-<h5 id="3、最佳实践"><a href="#3、最佳实践" class="headerlink" title="3、最佳实践"></a>3、最佳实践</h5><ul>
-<li>保持Working directory clean  </li>
-<li>长期分支<br>由于 Git 使用简单的三方合并，所以就算在较长一段时间内，反复多次把某个分支合并到另一分支，也不是什么难事。也就是说，你可以同时拥有多个开放的分 支，每个分支用于完成特定的任务，随着开发的推进，你可以随时把某个特性分支的成果并到其他分支中。<br>许多使用 Git 的开发者都喜欢用这种方式来开展工作，比如仅在 master 分支中保留完全稳定的代码，即已经发布或即将发布的代码。与此同时，他们还有一个名 为 develop 或 next 的平行分支，专门用于后续的开发，或仅用于稳定性测试 — 当然并不是说一定要绝对稳定，不过一旦进入某种稳定状态，便可以把它合并到 master 里。这样，在确保这些已完成的特性分支（短期分支）能够通过所有测试，并且不会引入更多错误之后，就可以并到主干分支中，等待下一次的发布。<br>本质上我们刚才谈论的，是随着提交对象不断右移的指针。稳定分支的指针总是在提交历史中落后一大截，而前沿分支总是比较靠前。<br><img src="http://ww2.sinaimg.cn/mw690/7dde05d2gw1f4o337i90bj20d402j3yf.jpg" alt=""></li>
-<li><p>特性分支<br>特性分支从develop分支分出，最终必须合并回develop。<br>特性分支（也叫主题分支）用于开发新特性。每个新特性开一个新分支，最终会合并回develop（当特性开发完毕的时候），或者放弃（如果最终决定不开发这 个特性）。<br>特性分支只存在于开发者的仓库中。<br>在任何规模的项目中都可以使用特性（Topic）分支。一个特性分支是指一个短期的，用来实现单一特性或与其相关工作的分支。可能你在以前的版本控制系统 里从未做过类似这样的事情，因为通常创建与合并分支消耗太大。然而在 Git 中，一天之内建立、使用、合并再删除多个分支是常见的事。<br>我们可以创建特性分支，在提交了若干更新后，把它们合并到主干分支，然后删除。该技术允许你迅速且完全的进行语境切换 — 因为你的工作分散在不同的分 支里，每个分支里的改变都和它的目标特性相关，浏览代码之类的事情因而变得更简单了。你可以把作出的改变保持在特性分支中几分钟，几天甚至几个月，等 它们成熟以后再合并，而不用在乎它们建立的顺序或者进度。<br>现在我们来看一个实际的例子。请看图，由下往上，起先我们在 master 工作到 C1，然后开始一个新分支 iss91 尝试修复 91 号缺陷，提交到 C6 的时候，又冒 出一个解决该问题的新办法，于是从之前 C4 的地方又分出一个分支 iss91v2，干到 C8 的时候，又回到主干 master 中提交了 C9 和 C10，再回到 iss91v2 继续 工作，提交 C11，接着，又冒出个不太确定的想法，从 master 的最新提交 C10 处开了个新的分支 dumbidea 做些试验。<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o335f4fcj20bp0c8wen.jpg" alt=""><br>现在，假定两件事情：我们最终决定使用第二个解决方案，即 iss91v2 中的办法；另外，我们把 dumbidea 分支拿给同事们看了以后，发现它竟然是个天才之 作。所以接下来，我们准备抛弃原来的 iss91 分支（实际上会丢弃 C5 和 C6），直接在主干中并入另外两个分支。最终的提交历史将变成这样：<br><img src="http://ww1.sinaimg.cn/mw690/7dde05d2gw1f4o3360pojj209f0dzglq.jpg" alt=""><br>请务必牢记这些分支全部都是本地分支，这一点很重要。当你在使用分支及合并的时候，一切都是在你自己的Git仓库中进行的—完全不涉及与服务器的交互。</p>
-</li>
-<li><p>提交做小  </p>
-</li>
-<li>git保存用户名、密码<br>1.在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o336oe3gj20as0603yn.jpg" alt=""><br>2.在“开始&gt;运行”中打开%Home%，新建一个名为“_netrc”的文件。<br>3.用记事本打开_netrc文件，输入Git服务器名、用户名、密码，并保存。示例如下<br><code>machine github.com</code><br><code>login 用户名</code><br><code>password 密码</code></li>
-<li>配置git mergetool和git difftool<br><strong>通过git config命令</strong><br>配置difftool:<br><code>git config --global diff.tool bc</code><br><code>git config --global difftool.bc.cmd &quot;\&quot;c:/program files/beyond compare 3/bcomp.exe\&quot; \&quot;\$LOCAL\&quot; \&quot;\$REMOTE\&quot;&quot;</code><br><code>git config --global difftool.prompt false</code><br>配置mergetool:<br><code>git config --global merge.tool bc</code><br><code>git config --global mergetool.bc.cmd &quot;\&quot;c:/program files/beyond compare 3/bcomp.exe\&quot; \&quot;\$LOCAL\&quot; \&quot;\$REMOTE\&quot; \&quot;\$BASE\&quot; \&quot;\$MERGED\&quot;&quot;</code><br><code>git config --global mergetool.bc.trustExitCode true</code><br>不生成备份文件<br><code>git config --global mergetool.keepBackup false</code><br><strong>直接修改%USERPROFILE%.gitconfig文件，完整文件如下：</strong><br><code>[user]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>name = 用户名</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>email = 邮箱</code><br><code>[diff]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>tool = bc</code><br><code>[difftool &quot;bc&quot;]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>cmd = \&quot;C:/bc4/BCompare.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;</code><br><code>[difftool]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>prompt = false</code><br><code>[merge]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>tool = bc</code><br><code>[mergetool &quot;bc&quot;]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>cmd = \&quot;C:/bc4/BCompare.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>trustExitCode = true</code><br><code>[mergetool]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>keepBackup = false</code>  </li>
-</ul>
-<h5 id="4、其他特性"><a href="#4、其他特性" class="headerlink" title="4、其他特性"></a>4、其他特性</h5><ul>
-<li>git rebase  </li>
-<li>git stash  </li>
-<li>detached head 分离的头指针  </li>
-<li>git reflog  </li>
-</ul>
+<p>贴上相关参考文档和我的 githup 代码</p>
+<p><a href="https://github.com/didi/VirtualAPK" target="_blank" rel="noopener">https://github.com/didi/VirtualAPK</a></p>
+<p><a href="https://github.com/didi/VirtualAPK/wiki/VirtualAPK-%E6%9E%84%E5%BB%BA%E5%99%A8-API-%E6%A6%82%E8%A7%88" target="_blank" rel="noopener">https://github.com/didi/VirtualAPK/wiki/VirtualAPK-%E6%9E%84%E5%BB%BA%E5%99%A8-API-%E6%A6%82%E8%A7%88</a></p>
+<p>githup：<a href="https://github.com/sdgSnow/VirtualAPK" target="_blank" rel="noopener">https://github.com/sdgSnow/VirtualAPK</a></p>
+<p>希望对大家有帮助。</p>
 
         
     
@@ -758,8 +621,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2017/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -808,7 +671,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/08/17/2016-08-17-bughd让bug无处遁形/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/08/29/2017-08-29-如何选择开源许可证？/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -822,7 +685,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2016/08/02/2016-08-02-实现多行多列的RadioButton/" id="post_nav-older" class="next-content">
+        <a href="/2017/07/06/2017-07-06-Binder源码分析/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
