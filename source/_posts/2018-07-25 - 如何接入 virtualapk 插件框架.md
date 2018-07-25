@@ -3,9 +3,12 @@ title: 如何接入 VirtualAPK 插件框架
 date: 2018-07-25 17:05:06
 tags: [Android,插件化]
 categories: Android
-thumbnail: https://github.com/didi/VirtualAPK/raw/master/imgs/va.png
+thumbnail: http://img.my.csdn.net/uploads/201612/24/1482563064_6640.png
 catalog:    true #显示目录
 ---
+![](https://github.com/didi/VirtualAPK/raw/master/imgs/va.png)
+
+封面图片来源: https://blog.csdn.net/byeweiyang/article/details/80127643
 
 话不多说，先上我的 Demo 地址：https://github.com/yangxiaoge/VirtualAPKDemo
 
@@ -102,6 +105,6 @@ https://github.com/didi/VirtualAPK
 
 https://github.com/didi/VirtualAPK/wiki/VirtualAPK-%E6%9E%84%E5%BB%BA%E5%99%A8-API-%E6%A6%82%E8%A7%88
 
-githup：https://github.com/sdgSnow/VirtualAPK
+github：https://github.com/sdgSnow/VirtualAPK
 
 希望对大家有帮助。
