@@ -1,6 +1,6 @@
 ---
 title: 如何接入 VirtualAPK 插件框架
-date: 2017-07-25 17:05:06
+date: 2018-07-25 17:05:06
 tags: [Android,插件化]
 categories: Android
 thumbnail: https://github.com/didi/VirtualAPK/raw/master/imgs/va.png
