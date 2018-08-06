@@ -105,3 +105,6 @@ date: 2016-09-14 11:39:56
 <img src="https://github.com/yangxiaoge/WifiTransfer-master/raw/master/screenshot/002.jpg" width="270" height="450"/>
 69. [仿微博、酷安点击加号揭露动画弹出菜单 + 背景模糊效果](https://github.com/DuShuYuan/PlusMenu)
 <img src="https://github.com/DuShuYuan/PlusMenu/raw/master/screenshot/20180625_173334.gif" width="270" height="450"/>
+70. [OneDrawable - 仅使用一张资源图片为 View 设置具有按下效果的背景](https://github.com/maoruibin/OneDrawable) 
+<img src="https://camo.githubusercontent.com/f22ad937bb1b62dd89144538e90c592a4ccbf6c1/687474703a2f2f3778723967782e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f73746174656261636b67726f756e6476322e676966" width="270" height="450"/>
+
