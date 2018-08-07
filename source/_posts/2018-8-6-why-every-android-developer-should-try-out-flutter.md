@@ -7,6 +7,7 @@ tags: Flutter
 > * 原文地址：[Why every Android Developer should try out Flutter](https://proandroiddev.com/why-every-android-developer-should-try-out-flutter-319ae710e97f)
 > * 原文作者：[Aaron Oertel](https://proandroiddev.com/@aaronoe?source=post_header_lockup)
 > * 译文出自：[掘金翻译计划](https://github.com/xitu/gold-miner)
+> * 掘金链接：https://juejin.im/post/5b5e70ffe51d4518e311b63d
 > * 本文永久链接：[https://github.com/xitu/gold-miner/blob/master/TODO1/why-every-android-developer-should-try-out-flutter.md](https://github.com/xitu/gold-miner/blob/master/TODO1/why-every-android-developer-should-try-out-flutter.md)
 > * 译者：[ALVINYEH](https://github.com/ALVINYEH)
 > * 校对者：[DateBro](https://github.com/DateBro)
