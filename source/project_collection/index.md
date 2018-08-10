@@ -2,7 +2,8 @@
 title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
-6. [仿QQ6.0侧滑效果](https://github.com/jiangqqlmj/DragHelper4QQ)
+
+1. [仿QQ6.0侧滑效果](https://github.com/jiangqqlmj/DragHelper4QQ)
 7. [Android动态生成验证码](https://github.com/Freshman111/VerificationCodeView)VerificationCode View
 8. [Android开发人员不得不收集的代码(持续更新中)](https://github.com/Blankj/AndroidUtilCode)
 9. [清晰灵活简单易用的应用更新库](https://github.com/czy1121/update)
@@ -109,3 +110,5 @@ date: 2016-09-14 11:39:56
 <img src="https://camo.githubusercontent.com/f22ad937bb1b62dd89144538e90c592a4ccbf6c1/687474703a2f2f3778723967782e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f73746174656261636b67726f756e6476322e676966" width="270" height="450"/>
 71. [自定义标题栏，支持沉浸式标题栏，颜色渐变](https://github.com/wuhenzhizao/android-titlebar) 
 <img src="https://github.com/wuhenzhizao/android-titlebar/raw/master/screenshots/titlebar_home.png" width="270" height="450"/><img src="https://github.com/wuhenzhizao/android-titlebar/raw/master/screenshots/20171201_182534.gif" width="270" height="450"/>
+72. [CoordinatorTabLayout 自定义组合控件](https://github.com/hugeterry/CoordinatorTabLayout/blob/master/README_CN.md)
+<img src="https://github.com/hugeterry/CoordinatorTabLayout/raw/master/showUI/show1.gif" width="270" height="450"/>
