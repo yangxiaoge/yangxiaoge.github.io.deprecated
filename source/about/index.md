@@ -8,6 +8,7 @@ header-img: "img/ZTEsoft.jpg"
 thumbnail: "/img/ZTEsoft.jpg"
 notag: true # 关于页面不需要显示tag
 ---
+<img src="https://api.gushi.ci/all.svg" style="max-width:100%;">
 
 >作为一个开发者需要时刻保持嗅觉、持续提升!
 
