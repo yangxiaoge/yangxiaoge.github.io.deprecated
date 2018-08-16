@@ -45,7 +45,7 @@
     
     <title>
         
-            java byte[] 序列化 与 C# byte[] 序列化差异性 | 
+            java 字节数组 序列化 | 
         
         珠珠のBlog
     </title>
@@ -238,14 +238,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="java byte[] 序列化 与 C# byte[] 序列化差异性 | 珠珠のBlog">
+    <meta property="og:title" content="java 字节数组 序列化 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
     <meta property="og:description" content="背着键盘的编程侠客!">
     <meta property="og:article:tag" content="byte，C#"> 
 
     
         <meta property="article:published_time" content="Thu Aug 16 2018 19:40:05 GMT+0000">
-        <meta property="article:modified_time" content="Thu Aug 16 2018 12:31:40 GMT+0000">
+        <meta property="article:modified_time" content="Thu Aug 16 2018 12:37:23 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,9 +266,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html",
-    "headline": "java byte[] 序列化 与 C# byte[] 序列化差异性",
+    "headline": "java 字节数组 序列化",
     "datePublished": "Thu Aug 16 2018 19:40:05 GMT+0000",
-    "dateModified": "Thu Aug 16 2018 12:31:40 GMT+0000",
+    "dateModified": "Thu Aug 16 2018 12:37:23 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -392,7 +392,7 @@
         
     
             <p class="article-headline-p">
-                java byte[] 序列化 与 C# byte[] 序列化差异性
+                java 字节数组 序列化
             </p>
         </div>
 
@@ -462,7 +462,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/" class="leancloud-views_num" data-flag-title="java byte[] 序列化 与 C# byte[] 序列化差异性">
+                <span id="/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/" class="leancloud-views_num" data-flag-title="java 字节数组 序列化">
      &nbsp;浏览量
 </span>
 
@@ -474,7 +474,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=java byte[] 序列化 与 C# byte[] 序列化差异性&url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=java 字节数组 序列化&url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -483,7 +483,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=java byte[] 序列化 与 C# byte[] 序列化差异性&url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=java 字节数组 序列化&url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -516,7 +516,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&text=java byte[] 序列化 与 C# byte[] 序列化差异性" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://yangxiaoge.github.io/2018/08/16/2018-8-16-java byte[] 序列化 与 C# byte[] 序列化差异性/index.html&text=java 字节数组 序列化" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -534,7 +534,9 @@
     
         <p>原文链接： <a href="https://blog.csdn.net/nn991926/article/details/81747136" target="_blank" rel="noopener">https://blog.csdn.net/nn991926/article/details/81747136</a></p>
 <p>最近项目遇到一个大坑（接口文档竟然说要传 byte[]，其实应该传 string，还好我要要了一个 C# 代码，差点被坑！！！），需要上传一个 byte[] 数组给后台。 java byte[] 序列化之后还是 byte[], 然而 C# 则变成了 Base64（NO_WRAP）字符串；</p>
-<p>因此： java 这边需要手动将 byte[] 转成  Base64字符串:<code>Base64.encodeToString(bytes, Base64.NO_WRAP);</code><br>java 我用的是 <code>Gson</code> 序列化， 客户的 .NET 代码用的是 <code>JsonConvert.SerializeObject(obj)</code>。</p>
+<p>因此： java 这边需要手动将 byte[] 转成  Base64字符串:</p>
+<pre><code>Base64.encodeToString(bytes, Base64.NO_WRAP);
+</code></pre><p>java 我用的是 <code>Gson</code> 序列化， 客户的 .NET 代码用的是 <code>JsonConvert.SerializeObject(obj)</code>。</p>
 <p><img src="https://img-blog.csdn.net/20180816185942460?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25uOTkxOTI2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
 <p><img src="https://img-blog.csdn.net/20180816190114298?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25uOTkxOTI2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
 
