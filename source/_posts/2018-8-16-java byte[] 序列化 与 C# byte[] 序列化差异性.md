@@ -1,6 +1,6 @@
 ---
 title: java byte[] 序列化 与 C# byte[] 序列化差异性
-date: 2018-08-14 14:43:05
+date: 2018-08-16 19:40:05
 tags: [byte，C#]
 ---
 
