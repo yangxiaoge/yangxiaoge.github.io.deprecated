@@ -178,12 +178,12 @@ sns:
 # SNS Share Switch
 sns_share:
     twitter: true
-    facebook: true
-    googleplus: true
+    #facebook: true
+    #googleplus: true
     weibo: true
-    linkedin: false
-    qq: false
-    telegram: true
+    #linkedin: false
+    qq: true
+    #telegram: true
 
 # Sidebar Customize
 sidebar:
