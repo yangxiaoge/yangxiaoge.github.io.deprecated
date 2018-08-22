@@ -45,7 +45,7 @@
     
     <title>
         
-            Android shape | 
+            Android 常用设计模式 | 
         
         珠珠のBlog
     </title>
@@ -55,10 +55,8 @@
     <link rel="icon" href="/img/favicon.ico">
 
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="使用shape可以自定义形状，可以定义下面四种类型的形状，通过android:shape 属性指定：
-
-rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、弧形等">
-    <meta name="keywords" content="null,Android">
+    <meta name="description" itemprop="description" content="背着键盘的编程侠客!">
+    <meta name="keywords" content="null">
     <meta name="theme-color" content="#455A64">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -219,7 +217,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="珠珠のBlog">
-    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/">
+    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/">
     <meta name="msapplication-navbutton-color" content="#455A64">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
@@ -238,17 +236,15 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/">
+    <meta property="og:url" content="https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Android shape | 珠珠のBlog">
+    <meta property="og:title" content="Android 常用设计模式 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
-    <meta property="og:description" content="使用shape可以自定义形状，可以定义下面四种类型的形状，通过android:shape 属性指定：
-
-rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、弧形等">
-    <meta property="og:article:tag" content="Android"> 
+    <meta property="og:description" content="背着键盘的编程侠客!">
+    
 
     
-        <meta property="article:published_time" content="Mon Jun 20 2016 11:25:51 GMT+0000">
+        <meta property="article:published_time" content="Wed Aug 22 2018 15:37:34 GMT+0000">
         <meta property="article:modified_time" content="Wed Aug 22 2018 07:59:03 GMT+0000">
     
 
@@ -257,7 +253,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html" />
+        <link rel="canonical" href="https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -269,9 +265,9 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html",
-    "headline": "Android shape",
-    "datePublished": "Mon Jun 20 2016 11:25:51 GMT+0000",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/index.html",
+    "headline": "Android 常用设计模式",
+    "datePublished": "Wed Aug 22 2018 15:37:34 GMT+0000",
     "dateModified": "Wed Aug 22 2018 07:59:03 GMT+0000",
     "author": {
         "@type": "Person",
@@ -290,10 +286,8 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",Androidnull",
-    "description": "使用shape可以自定义形状，可以定义下面四种类型的形状，通过android:shape 属性指定：
-
-rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、弧形等",
+    "keywords": "null",
+    "description": "背着键盘的编程侠客!",
 }
 </script>
 
@@ -369,6 +363,15 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-常用设计模式（一、单例模式）："><span class="post-toc-number">1.</span> <span class="post-toc-text">Android 常用设计模式（一、单例模式）：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-常用设计模式（二、建造者模式）"><span class="post-toc-number">2.</span> <span class="post-toc-text">Android 常用设计模式（二、建造者模式）:</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -398,7 +401,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
         
     
             <p class="article-headline-p">
-                Android shape
+                Android 常用设计模式
             </p>
         </div>
 
@@ -417,7 +420,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     <!-- Author Name & Date -->
     <div>
         <strong>Bruce Yang</strong>
-        <span>6月 20, 2016</span>
+        <span>8月 22, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -439,22 +442,13 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3klEQVR42u3aQW4cMQwEwP3/p5MHOCt3U+tgLNWcjAHsYemQDkm9/lz5vLCxsbGxsbGxsbEfyX7Fz9ffWv+Fd19Zv/n68z8As5qxsbGxj2Z/80//kv2ulPUxtaQP1IyNjY19Afvdx5LgWReaHFB+lG3N2NjY2Nht/OR/OW8wdmrGxsbGxm4DLG8S8sP9BbmNjY2N/QB2Xmg7mk+ajZ2m5cdnadjY2NiPZ+eM5/z8X/fb2NjY2A9mt0/++dlKOI+3unJsbGzsQ9ktYz1aWrcKyfv268UhYmNjYx/KbgNjVlYbjXkrUoyosLGxsa9h57z24GZrg+TiTlIDNjY29qns9mrODNCG0LqG2aFgY2Njn83O24k6NuIVQttstNdAsbGxsW9jt6OfvAlpQzGJxuGiFxsbG/sIdrvuzS9lzi7utG+GrQg2Njb2cex8uN+C2/f74CLAsLGxsQ9i50HVrlrb9XB+GSiJXmxsbOzb2Pk4aXYoefvRVhgtMLCxsbEPZc9WsC0vb05my+aoHcLGxsa+ht2GVjtCmo3462UANjY29sXsdsCUB1gSk/mKor70g42NjX0oux3u5wXNFsl5IH1gloaNjY19BDsfJOXj/v2BVEKqYxUbGxv7UPbOhZvZOmFnwZyPrrCxsbHvYechlEdUe1lzp558wISNjY19JzuPltkyYH+YVVSLjY2NfTR7NtZZ42fD/fURtEtlbGxs7NvY9X/uR2/2g/Nji15sbGzsQ9l5m9GGXLs22L8Yio2NjX0DexYVyQHVATNaCecHio2NjX0q+wPBEEdgS9r5Sr3oxcbGxv7l7J1PzpqZdhUxu4KJjY2NfRs7v9TYXsFJjnJ/kDQMMGxsbOwr2e3yNVnu5peBPtyKYGNjY1/PXv9WMpxKathZYGBjY2Pfw96JonZg9Nmx1I/P0rCxsbEfz24HN0kgzZbHs8CLWh1sbGzsQ9n3PNjY2NjY2NjY2NiPef4CFxdyFJLPPeUAAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADfUlEQVR42u3aS27jMBAFwNz/0jPbAYwo73WTGS2KK8OwKKq0aPfn64/1z/pCgAMHDhw4cODAgQPHizm+4pVf9fmb76763POHoy9O9e1VOHDgwIHjAkdyiPab532e4dodVs+CAwcOHDiucTyHzOdgtjlicp7nb2bPggMHDhw43sOxCYT7ENsGbxw4cODA8X6O58Nt0sK2/Ld5Fhw4cODAcZtjVtRrH2kWvJPf/4daKQ4cOHDg+IYjHwJ4/+dfne/AgQMHDhwfHO1q06d2n1kwXj0RDhw4cOA4ypEHqqRIN2s1tffdnx8HDhw4cNzj2JfY8lJdTvwcmPOXEd0XBw4cOHBc48jD6rAMF3yTN7eSQBvdCwcOHDhwHOXIt8uHDDYDc2cDdhSGceDAgQPHUY42WcoLgglcy9SG8wMDDThw4MCBY8HRDsbNfn8qXcybWzhw4MCB4/c52pG1PElrmfIWVMtaDDTgwIEDB441R94Wmg0TtOF59njt0B4OHDhw4LjHsWky7QcUZiE2P9sPe+LAgQMHjqMceRGtPdB+taDDnXHgwIEDx1GO9sFmowMbxM1Yw4HiIA4cOHDgWHBsaNqS4jNcW6ZsU0EcOHDgwHGP49SN21Ld7Nq8TZUHXRw4cODAcY+jTb3yAYV92nYqnOPAgQMHjtscszBWJEiHRtzyomQ9QoEDBw4cOI5yzNpFm895aJ8lZnXZEQcOHDhwHOVo07NNYrYfccuhn0M1Dhw4cOC4zbEPb+0wRJKq5X8IZk0vHDhw4MBxgyMv8M2KgPuBtjbk52fGgQMHDhw3OGY3zleSdOUom+IgDhw4cOD4HY4kHWqLg/n+m/Rv1ujCgQMHDhxv4MiTrlmobmk2r7OY78CBAwcOHAuOTVKXj74lbaTNXdqXhwMHDhw4bnMkadKeIC8jtulcO8qAAwcOHDhuc2zGFNryYv4yTq2L/ztw4MCBA8ditaMD+wZVWy5sz4kDBw4cOM5y7APVhia/NsFtRxlw4MCBA8c9jja4Pu9waniuHZhrm1U4cODAgeM2R9LCSfjyYNwG8vYvQvQ6ceDAgQPH6znODs+1QTofZcCBAwcOHG/jSA49HF8rd5gFbxw4cODAcZujTZ/a4NeO3G2GFYoAjwMHDhw4LnDsC22bYl/SXtoA1SkcDhw4cOBYcFg4cODAgQMHDhw4cOB42foLY5fEPZWaVoYAAAAASUVORK5CYII=">
     
 </ul>
 
     
 
     <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Android/">Android</a>
-    </ul>
     
 
     <!-- Share -->
@@ -468,7 +462,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/06/20/2016-06-20-Android-shape/" class="leancloud-views_num" data-flag-title="Android shape">
+                <span id="/2018/08/22/2018-8-22-Android常用设计模式/" class="leancloud-views_num" data-flag-title="Android 常用设计模式">
      &nbsp;浏览量
 </span>
 
@@ -480,7 +474,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android shape&url=https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android 常用设计模式&url=https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -489,7 +483,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android shape&url=https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android 常用设计模式&url=https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -507,7 +501,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Android shape&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Android 常用设计模式&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -526,56 +520,21 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>使用<code>shape</code>可以<code>自定义形状</code>，可以定义下面<code>四种类型</code>的形状，通过<code>android:shape</code> <code>属性</code>指定：</p>
-<ol>
-<li><code>rectangle</code>: <code>矩形</code>，<code>默认的形状</code>，可以画出直角矩形、圆角矩形、弧形等<a id="more"></a></li>
-<li><code>oval</code>: <code>椭圆形</code>，用得比较多的是画正圆</li>
-<li><code>line</code>: <code>线形</code>，可以画实线和虚线</li>
-<li><code>ring</code>: <code>环形</code>，可以画环形进度条</li>
+        <p>设计模式专栏： <a href="https://blog.csdn.net/lovelixue/article/category/7959476" target="_blank" rel="noopener">https://blog.csdn.net/lovelixue/article/category/7959476</a></p>
+<p>代码 Github ：<a href="https://github.com/sdgSnow/DesignPattern" target="_blank" rel="noopener">https://github.com/sdgSnow/DesignPattern</a></p>
+<h3 id="Android-常用设计模式（一、单例模式）："><a href="#Android-常用设计模式（一、单例模式）：" class="headerlink" title="Android 常用设计模式（一、单例模式）："></a><a href="https://blog.csdn.net/lovelixue/article/details/81940996" target="_blank" rel="noopener">Android 常用设计模式（一、单例模式）</a>：</h3><ol>
+<li>饿汉式</li>
+<li>懒汉式</li>
+<li>双重锁模式</li>
 </ol>
-<p><code>gradient</code>代表渐变，可以按照如下的使用：</p>
-<pre><code>&lt;gradient
-       android:angle=&quot;0&quot;
-       android:centerColor=&quot;#ff0f00&quot;
-       android:endColor=&quot;#ff00ff&quot;
-       android:startColor=&quot;#00ff00&quot; /&gt;
+<h3 id="Android-常用设计模式（二、建造者模式）"><a href="#Android-常用设计模式（二、建造者模式）" class="headerlink" title="Android 常用设计模式（二、建造者模式）:"></a><a href="https://blog.csdn.net/lovelixue/article/details/81944629" target="_blank" rel="noopener">Android 常用设计模式（二、建造者模式）</a>:</h3><pre><code>//通过builder创建一个Person对象
+Person person = new Person.PersonBuilder(&quot;小羊羊&quot;)
+        .setAge(18)
+        .setSex(&quot;男&quot;)
+        .setIdentity(&quot;码农&quot;)
+        .build();
+</code></pre><p>未完待续。。。</p>
 
-</code></pre><p><code>solid</code>代表实心，可以按照如下的使用：</p>
-<pre><code>&lt;solid android:color=&quot;#F0FFFF&quot; /&gt;
-</code></pre><p><code>solid</code>代表描边，可以按照如下的使用：</p>
-<pre><code>&lt;stroke
-       android:width=&quot;10dp&quot;
-       android:color=&quot;#00FFFF&quot;
-       android:dashGap=&quot;5dp&quot;
-       android:dashWidth=&quot;5dp&quot; /&gt;
-</code></pre><p><code>corners</code>代表圆角，可以按照如下的使用：</p>
-<pre><code>&lt;corners android:radius=&quot;5dp&quot; /&gt;
-</code></pre><p>看下完整的shape(drawable/…xml)文件:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:shape=&quot;rectangle&quot;  四种类型 &gt;
-
-    &lt;!-- 渐变 --&gt;
-    &lt;gradient
-        android:angle=&quot;0&quot;
-        android:centerColor=&quot;#ff0f00&quot;
-        android:endColor=&quot;#ff00ff&quot;
-        android:startColor=&quot;#00ff00&quot; /&gt;
-
-    &lt;!-- 实心 --&gt;
-    &lt;solid android:color=&quot;#F0FFFF&quot; /&gt;
-
-    &lt;!-- 描边 --&gt;
-    &lt;stroke
-        android:width=&quot;10dp&quot;
-        android:color=&quot;#00FFFF&quot;
-        android:dashGap=&quot;5dp&quot;
-        android:dashWidth=&quot;5dp&quot; /&gt;
-
-    &lt;!-- 圆角 --&gt;
-    &lt;corners android:radius=&quot;100dp&quot; /&gt;
-&lt;/shape&gt;
-</code></pre>
         
     
 
@@ -629,8 +588,8 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2018/08/22/2018-8-22-Android常用设计模式/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -679,21 +638,13 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/06/21/2016-06-21-Android-ORMLite-框架用法/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/06/03/2016-06-03-Athena项目启动/" id="post_nav-older" class="next-content">
+        <a href="/2018/08/16/2018-8-16-java字节数组与C井字节数组序列化差异性/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
