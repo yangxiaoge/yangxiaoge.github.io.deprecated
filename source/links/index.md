@@ -54,6 +54,7 @@ thumbnail: /img/link_cover.png
 |[给 Android 开发者的 RxJava 详解](http://gank.io/post/560e15be2dca930e00da1083#toc_1) | [`扔物线`](https://github.com/rengwuxian) |
 |[知乎 x RxJava Meetup](https://github.com/zhihu/zhihu-rxjava-meetup) | 三位讲师的 slides 已上传。照片和视频，待整理好以后会继续分享到这里。 |
 |[讲给Android程序员看的前端和后台教程](http://mp.weixin.qq.com/s/WtxNKhdCz4jrCI0wOjSLYA)| 谷哥的小弟撰写 |
+|[Android-Animation-Set](https://github.com/OCNYang/Android-Animation-Set)| Android 动画详尽教程 |
 
 ## 工具集
 | 链接        |     简介     |
