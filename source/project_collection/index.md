@@ -114,3 +114,5 @@ date: 2016-09-14 11:39:56
 <img src="https://github.com/hugeterry/CoordinatorTabLayout/raw/master/showUI/show1.gif" width="270" height="450"/>
 73. [卷尺控件](https://github.com/zjun615/RulerView) 
 <img src="https://github.com/zjun615/RuleView/raw/master/img/all.gif" width="270" height="450"/>
+74. [SwitchButton](https://github.com/kyleduo/SwitchButton)
+<img src="https://github.com/kyleduo/SwitchButton/raw/master/images/demo_preview.png" width="270" height="450"/>
