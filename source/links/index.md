@@ -41,6 +41,7 @@ thumbnail: /img/link_cover.png
 |[深度学习工程师-网易云](http://mooc.study.163.com/smartSpec/detail/1001319001.htm) | 吴恩达给你的人工智能第一课 |
 |[Android 手机直播](http://www.jianshu.com/p/7ebbcc0c5df7)| Android 手机直播相关知识 |
 |[区块链入门教程](http://www.ruanyifeng.com/blog/2017/12/blockchain-tutorial.html)，[bitcoin:计算Block Hash](https://www.jianshu.com/p/4187a7352769)| 区域链学习 |
+|[100-Days-Of-ML-Code 中文版](https://github.com/MLEveryday/100-Days-Of-ML-Code)| 机器学习 100 天 |
 
 ## 教学类
 | 链接        |     简介     |
