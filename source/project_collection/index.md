@@ -116,3 +116,5 @@ date: 2016-09-14 11:39:56
 <img src="https://github.com/zjun615/RuleView/raw/master/img/all.gif" width="270" height="450"/>
 74. [SwitchButton](https://github.com/kyleduo/SwitchButton)
 <img src="https://github.com/kyleduo/SwitchButton/raw/master/images/demo_preview.png" width="270" height="450"/>
+75. [PopupLayout](https://github.com/CodingEnding/PopupLayout)
+<img src="https://github.com/CodingEnding/PopupLayout/raw/master/ScreenShot/popupLayout_demo.gif" width="270" height="450"/>
