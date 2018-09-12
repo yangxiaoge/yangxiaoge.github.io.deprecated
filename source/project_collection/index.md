@@ -118,3 +118,5 @@ date: 2016-09-14 11:39:56
 <img src="https://github.com/kyleduo/SwitchButton/raw/master/images/demo_preview.png" width="270" height="450"/>
 75. [PopupLayout](https://github.com/CodingEnding/PopupLayout)
 <img src="https://github.com/CodingEnding/PopupLayout/raw/master/ScreenShot/popupLayout_demo.gif" width="270" height="450"/>
+76. [仿微信的 Item 点击菜单](https://github.com/JavaNoober/FloatMenu)
+<img src="https://raw.githubusercontent.com/JavaNoober/FloatMenu/master/floatmenu.gif" width="270" height="450"/>
