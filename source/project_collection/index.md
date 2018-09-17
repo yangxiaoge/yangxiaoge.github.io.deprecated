@@ -11,7 +11,6 @@ date: 2016-09-14 11:39:56
 11. [calligraphy(高效加载字体库)](https://github.com/chrisjenx/Calligraphy) mpt项目使用中
 12. [material-dialogs](https://github.com/afollestad/material-dialogs)
 13. [QuickDevLib](https://github.com/burgessjp/QuickDevLib)
-14. [TakePhoto](https://github.com/crazycodeboy/TakePhoto)
 15. [StatusBarUtil状态栏工具类](https://github.com/laobie/StatusBarUtil)
 16. [微笑下拉刷新](https://github.com/songixan/SmileRefresh)
 17. [各种布局下拉刷新效果](https://github.com/liaoinstan/SpringView)
@@ -122,3 +121,5 @@ date: 2016-09-14 11:39:56
 <img src="https://raw.githubusercontent.com/JavaNoober/FloatMenu/master/floatmenu.gif" width="270" height="450"/>
 77. [NineGridImageView（九宫格图片控件）](https://github.com/laobie/NineGridImageView)
 <img src="https://camo.githubusercontent.com/7bdbee64e72b8bbf324ba72febed94760ffd79e3/687474703a2f2f61632d71796776783163632e636c6f7564646e2e636f6d2f656535393036633834366164333334362e706e67" width="270" height="450"/><img src="https://lc-qygvx1cc.cn-n1.lcfile.com/cc9ffd32722ead80.png" width="270" height="450"/>
+78. [类似美团 百度糯米 饿了么等 APP 选择城市功能](https://github.com/zaaach/CityPicker) - CityPicker
+<img src="https://github.com/zaaach/CityPicker/raw/master/art/screen.gif" width="270" height="450"/>
