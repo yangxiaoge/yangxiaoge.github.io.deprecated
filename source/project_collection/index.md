@@ -2,6 +2,7 @@
 title: 开源项目收集
 date: 2016-09-14 11:39:56
 ---
+> 2018-9-17 14:25:24 新增， [Android 开源项目及库 - TimLiu-Android](https://github.com/Tim9Liu9/TimLiu-Android) - 该项目收集的比较齐全，推荐！
 
 1. [仿QQ6.0侧滑效果](https://github.com/jiangqqlmj/DragHelper4QQ)
 7. [Android动态生成验证码](https://github.com/Freshman111/VerificationCodeView)VerificationCode View
