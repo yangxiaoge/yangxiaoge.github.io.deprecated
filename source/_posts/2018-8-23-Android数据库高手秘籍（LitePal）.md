@@ -29,6 +29,8 @@ Android 数据库高手秘籍： https://blog.csdn.net/column/details/android-da
 
 ### [Android 数据库高手秘籍 (九)——赶快使用 LitePal 2.0 版本吧](http://blog.csdn.net/guolin_blog/article/details/80586028)
 
+### [LitePal 学习笔记 - 忽略字段，多数据库](https://www.jianshu.com/p/bc68e763c7a2)
+
 
 
 
