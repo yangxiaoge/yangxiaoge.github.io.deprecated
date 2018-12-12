@@ -33,6 +33,7 @@ thumbnail: /img/link_cover.png
 ## 紧跟时代
 | 链接        |     简介     |
 | :----------- | :-----------|
+|[Flutter](https://github.com/solido/awesome-flutter)| Solido/awesome-flutter 集合 |
 |[AndroidChromium](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) | 谷歌浏览器安卓版源码项目，世界级的安卓架构 |
 |[Android Google ARCore 尝鲜记录](https://mp.weixin.qq.com/s/BwjyJwUJKZSSaaKbzRiT8Q) |  AR 尝鲜 - D_clock 爱吃葱花 |
 |[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)| VR |
@@ -40,8 +41,6 @@ thumbnail: /img/link_cover.png
 |[轻松入门 Android 直播相关技术 从 0 搭建直播系统](http://blog.csdn.net/lmj623565791/article/details/77937483)| 鸿洋大牛的直播入门教程，我已经试过，并记录了截图 |
 |[深度学习工程师-网易云](http://mooc.study.163.com/smartSpec/detail/1001319001.htm) | 吴恩达给你的人工智能第一课 |
 |[Android 手机直播](http://www.jianshu.com/p/7ebbcc0c5df7)| Android 手机直播相关知识 |
-|[区块链入门教程](http://www.ruanyifeng.com/blog/2017/12/blockchain-tutorial.html)，[bitcoin:计算Block Hash](https://www.jianshu.com/p/4187a7352769)| 区域链学习 |
-|[100-Days-Of-ML-Code 中文版](https://github.com/MLEveryday/100-Days-Of-ML-Code)| 机器学习 100 天 |
 
 ## 教学类
 | 链接        |     简介     |
