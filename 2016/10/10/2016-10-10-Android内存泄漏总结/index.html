@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Mon Oct 10 2016 13:29:20 GMT+0000">
-        <meta property="article:modified_time" content="Wed Dec 12 2018 11:49:11 GMT+0000">
+        <meta property="article:modified_time" content="Tue Feb 19 2019 03:28:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/10/10/2016-10-10-Android内存泄漏总结/index.html",
     "headline": "Android内存泄漏总结",
     "datePublished": "Mon Oct 10 2016 13:29:20 GMT+0000",
-    "dateModified": "Wed Dec 12 2018 11:49:11 GMT+0000",
+    "dateModified": "Tue Feb 19 2019 03:28:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -561,12 +561,12 @@ Sample mSample3 = new Sample();
 <h2 id="Java是如何管理内存"><a href="#Java是如何管理内存" class="headerlink" title="Java是如何管理内存"></a>Java是如何管理内存</h2><p>Java的内存管理就是对象的分配和释放问题。在 Java 中，程序员需要通过关键字 new 为每个对象申请内存空间 (基本类型除外)，所有的对象都在堆 (Heap)中分配空间。另外，对象的释放是由 GC 决定和执行的。在 Java 中，内存的分配是由程序完成的，而内存的释放是由 GC 完成的，这种收支两条线的方法确实简化了程序员的工作。但同时，它也加重了JVM的工作。这也是 Java 程序运行速度较慢的原因之一。因为，GC 为了能够正确释放对象，GC 必须监控每一个对象的运行状态，包括对象的申请、引用、被引用、赋值等，GC 都需要进行监控。</p>
 <p>监视对象状态是为了更加准确地、及时地释放对象，而释放对象的根本原则就是该对象不再被引用。</p>
 <p>为了更好理解 GC 的工作原理，我们可以将对象考虑为有向图的顶点，将引用关系考虑为图的有向边，有向边从引用者指向被引对象。另外，每个线程对象可以作为一个图的起始顶点，例如大多程序从 main 进程开始执行，那么该图就是以 main 进程顶点开始的一棵根树。在这个有向图中，根顶点可达的对象都是有效对象，GC将不回收这些对象。如果某个对象 (连通子图)与这个根顶点不可达(注意，该图为有向图)，那么我们认为这个(这些)对象不再被引用，可以被 GC 回收。<br>以下，我们举一个例子说明如何用有向图表示内存管理。对于程序的每一个时刻，我们都有一个有向图表示JVM的内存分配情况。以下右图，就是左边程序运行到第6行的示意图。</p>
-<p><img src="http://www.ibm.com/developerworks/cn/java/l-JavaMemoryLeak/1.gif" alt=""></p>
+<p><img src="http://www.ibm.com/developerworks/cn/java/l-JavaMemoryLeak/1.gif" alt></p>
 <p>Java使用有向图的方式进行内存管理，可以消除引用循环的问题，例如有三个对象，相互引用，只要它们和根进程不可达的，那么GC也是可以回收它们的。这种方式的优点是管理内存的精度很高，但是效率较低。另外一种常用的内存管理技术是使用计数器，例如COM模型采用计数器方式管理构件，它与有向图相比，精度行低(很难处理循环引用的问题)，但执行效率很高。</p>
 <h2 id="什么是Java中的内存泄露"><a href="#什么是Java中的内存泄露" class="headerlink" title="什么是Java中的内存泄露"></a>什么是Java中的内存泄露</h2><p>在Java中，内存泄漏就是存在一些被分配的对象，这些对象有下面两个特点，首先，这些对象是可达的，即在有向图中，存在通路可以与其相连；其次，这些对象是无用的，即程序以后不会再使用这些对象。如果对象满足这两个条件，这些对象就可以判定为Java中的内存泄漏，这些对象不会被GC所回收，然而它却占用内存。</p>
 <p>在C++中，内存泄漏的范围更大一些。有些对象被分配了内存空间，然后却不可达，由于C++中没有GC，这些内存将永远收不回来。在Java中，这些不可达的对象都由GC负责回收，因此程序员不需要考虑这部分的内存泄露。</p>
 <p>通过分析，我们得知，对于C++，程序员需要自己管理边和顶点，而对于Java程序员只需要管理边就可以了(不需要管理顶点的释放)。通过这种方式，Java提高了编程的效率。</p>
-<p><img src="http://www.ibm.com/developerworks/cn/java/l-JavaMemoryLeak/2.gif" alt=""></p>
+<p><img src="http://www.ibm.com/developerworks/cn/java/l-JavaMemoryLeak/2.gif" alt></p>
 <p>因此，通过以上分析，我们知道在Java中也有内存泄漏，但范围比C++要小一些。因为Java从语言上保证，任何对象都是可达的，所有的不可达对象都由GC管理。</p>
 <p>对于程序员来说，GC基本是透明的，不可见的。虽然，我们只有几个函数可以访问GC，例如运行GC的函数System.gc()，但是根据Java语言规范定义， 该函数不保证JVM的垃圾收集器一定会执行。因为，不同的JVM实现者可能使用不同的算法管理GC。通常，GC的线程的优先级别较低。JVM调用GC的策略也有很多种，有的是内存使用到达一定程度时，GC才开始工作，也有定时执行的，有的是平缓执行GC，有的是中断式执行GC。但通常来说，我们不需要关心这些。除非在一些特定的场合，GC的执行影响应用程序的性能，例如对于基于Web的实时系统，如网络游戏等，用户不希望GC突然中断应用程序执行而进行垃圾回收，那么我们需要调整GC的参数，让GC能够通过平缓的方式释放内存，例如将垃圾回收分解为一系列的小步骤执行，Sun提供的HotSpot JVM就支持这一特性。</p>
 <p>同样给出一个 Java 内存泄漏的典型例子，</p>
@@ -741,7 +741,7 @@ return instance;
        ...
     }
 </code></pre><p>ref1和ref2的区别是，ref2使用了匿名内部类。我们来看看运行时这两个引用的内存：</p>
-<p><img src="http://img2.tbcdn.cn/L1/461/1/fb05ff6d2e68f309b94dd84352c81acfe0ae839e?spm=5176.100239.blogcont.10.CtU1c4" alt=""></p>
+<p><img src="http://img2.tbcdn.cn/L1/461/1/fb05ff6d2e68f309b94dd84352c81acfe0ae839e?spm=5176.100239.blogcont.10.CtU1c4" alt></p>
 <p>可以看到，ref1没什么特别的。</p>
 <p>但ref2这个匿名类的实现对象里面多了一个引用：</p>
 <p>this$0这个引用指向MainActivity.this，也就是说当前的MainActivity实例会被ref2持有，如果将这个引用再传入一个异步线程，此线程和此Acitivity生命周期不一致的时候，就造成了Activity的泄露。</p>
@@ -820,14 +820,14 @@ return instance;
 </code></pre><p>综述，即推荐使用静态内部类 + WeakReference 这种方式。每次使用前注意判空。</p>
 <p>前面提到了 WeakReference，所以这里就简单的说一下 Java 对象的几种引用类型。</p>
 <p>Java对引用的分类有 Strong reference, SoftReference, WeakReference, PhatomReference 四种。</p>
-<p><img src="https://gw.alicdn.com/tps/TB1U6TNLVXXXXchXFXXXXXXXXXX-644-546.jpg" alt=""></p>
+<p><img src="https://gw.alicdn.com/tps/TB1U6TNLVXXXXchXFXXXXXXXXXX-644-546.jpg" alt></p>
 <p>在Android应用的开发中，为了防止内存溢出，在处理一些占用内存大而且声明周期较长的对象时候，可以尽量应用软引用和弱引用技术。</p>
 <p>软/弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收器回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。利用这个队列可以得知被回收的软/弱引用的对象列表，从而为缓冲器清除已失效的软/弱引用。</p>
 <p>假设我们的应用会用到大量的默认图片，比如应用中有默认的头像，默认游戏图标等等，这些图片很多地方会用到。如果每次都去读取图片，由于读取文件需要硬件操作，速度较慢，会导致性能较低。所以我们考虑将图片缓存起来，需要的时候直接从内存中读取。但是，由于图片占用内存空间比较大，缓存很多图片需要很多的内存，就可能比较容易发生OutOfMemory异常。这时，我们可以考虑使用软/弱引用技术来避免这个问题发生。以下就是高速缓冲器的雏形：</p>
 <p>首先定义一个HashMap，保存软引用对象。</p>
 <pre><code>private Map &lt;String, SoftReference&lt;Bitmap&gt;&gt; imageCache = new HashMap &lt;String, SoftReference&lt;Bitmap&gt;&gt; ();
 </code></pre><p>再来定义一个方法，保存Bitmap的软引用到HashMap。</p>
-<p><img src="https://gw.alicdn.com/tps/TB1oW_FLVXXXXXuaXXXXXXXXXXX-679-717.jpg" alt=""></p>
+<p><img src="https://gw.alicdn.com/tps/TB1oW_FLVXXXXXuaXXXXXXXXXXX-679-717.jpg" alt></p>
 <p>使用软引用以后，在OutOfMemory异常发生之前，这些缓存的图片资源的内存空间可以被释放掉的，从而避免内存达到上限，避免Crash发生。</p>
 <p>如果只是想避免OutOfMemory异常的发生，则可以使用软引用。如果对于应用的性能更在意，想尽快回收一些占用内存比较大的对象，则可以使用弱引用。</p>
 <p>另外可以根据对象是否经常使用来判断选择软引用还是弱引用。如果该对象可能会经常使用的，就尽量用软引用。如果该对象不被使用的可能性更大些，就可以用弱引用。</p>

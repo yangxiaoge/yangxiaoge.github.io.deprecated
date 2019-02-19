@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Wed Jul 25 2018 17:05:06 GMT+0000">
-        <meta property="article:modified_time" content="Wed Dec 12 2018 11:49:11 GMT+0000">
+        <meta property="article:modified_time" content="Tue Feb 19 2019 03:28:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2018/07/25/2018-07-25 - 如何接入 virtualapk 插件框架/index.html",
     "headline": "如何接入 VirtualAPK 插件框架",
     "datePublished": "Wed Jul 25 2018 17:05:06 GMT+0000",
-    "dateModified": "Wed Dec 12 2018 11:49:11 GMT+0000",
+    "dateModified": "Tue Feb 19 2019 03:28:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -519,7 +519,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><img src="https://github.com/didi/VirtualAPK/raw/master/imgs/va.png" alt=""></p>
+        <p><img src="https://github.com/didi/VirtualAPK/raw/master/imgs/va.png" alt></p>
 <p>封面图片来源: <a href="https://blog.csdn.net/byeweiyang/article/details/80127643" target="_blank" rel="noopener">https://blog.csdn.net/byeweiyang/article/details/80127643</a></p>
 <p>话不多说，先上我的 Demo 地址：<a href="https://github.com/yangxiaoge/VirtualAPKDemo" target="_blank" rel="noopener">https://github.com/yangxiaoge/VirtualAPKDemo</a></p>
 <p>本文转载：原文链接<a href="https://blog.csdn.net/lovelixue/article/details/81141213" target="_blank" rel="noopener">https://blog.csdn.net/lovelixue/article/details/81141213</a></p>
@@ -533,15 +533,15 @@
 <p>apply plugin: ‘com.didi.virtualapk.host’<br>在 dependencies 里面添加</p>
 <p>implementation ‘com.didi.virtualapk:core:0.9.6’<br>1.3 重点来了，通过 file，new module 的形式新建一个 module，然后我命名为 plugindemo，然后在 nodule.gradle 里面添加</p>
 <p>implementation ‘com.didi.virtualapk:core:0.9.6’<br>接着在末端添加</p>
-<p>apply plugin: ‘com.didi.virtualapk.plugin’<br>virtualApk {<br>    // 插件资源表中的packageId，需要确保不同插件有不同的packageId.<br>    packageId = 0x6f             // The package id of Resources.<br>    // 宿主工程application模块的路径，插件的构建需要依赖这个路径<br>    targetHost=’../app’ // The path of application module in host project.<br>    //默认为true，如果插件有引用宿主的类，那么这个选项可以使得插件和宿主保持混淆一致<br>    applyHostMapping = true      // [Optional] Default value is true.<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725103642552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>apply plugin: ‘com.didi.virtualapk.plugin’<br>virtualApk {<br>    // 插件资源表中的packageId，需要确保不同插件有不同的packageId.<br>    packageId = 0x6f             // The package id of Resources.<br>    // 宿主工程application模块的路径，插件的构建需要依赖这个路径<br>    targetHost=’../app’ // The path of application module in host project.<br>    //默认为true，如果插件有引用宿主的类，那么这个选项可以使得插件和宿主保持混淆一致<br>    applyHostMapping = true      // [Optional] Default value is true.<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725103642552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
 <p>基本 环境就到此为止了，接下来代码部分</p>
 <h3 id="2-代码添加并验证"><a href="#2-代码添加并验证" class="headerlink" title="2. 代码添加并验证"></a>2. 代码添加并验证</h3><p>在 app 的 mainactivity 里面添加两个按钮，一个是跳转到 module 去的，一个是加载插件的</p>
-<p>public void loadPlugin() {<br>    PluginManager pluginManager = PluginManager.getInstance(this);<br>    //此处是当查看插件apk是否存在,如果存在就去加载(比如修改线上的bug,把插件apk下载到sdcard的根目录下取名为plugin-release.apk)<br>    File apk = new File(Environment.getExternalStorageDirectory(), “plugin-release.apk”);<br>    if (apk.exists()) {<br>        try {<br>            pluginManager.loadPlugin(apk);<br>            Toast.makeText(this, “插件加载成功”, Toast.LENGTH_SHORT).show();<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>            Toast.makeText(this, “插件加载异常！”, Toast.LENGTH_SHORT).show();<br>        }<br>    }<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725104101299?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>public void loadPlugin() {<br>    PluginManager pluginManager = PluginManager.getInstance(this);<br>    //此处是当查看插件apk是否存在,如果存在就去加载(比如修改线上的bug,把插件apk下载到sdcard的根目录下取名为plugin-release.apk)<br>    File apk = new File(Environment.getExternalStorageDirectory(), “plugin-release.apk”);<br>    if (apk.exists()) {<br>        try {<br>            pluginManager.loadPlugin(apk);<br>            Toast.makeText(this, “插件加载成功”, Toast.LENGTH_SHORT).show();<br>        } catch (Exception e) {<br>            e.printStackTrace();<br>            Toast.makeText(this, “插件加载异常！”, Toast.LENGTH_SHORT).show();<br>        }<br>    }<br>}<br>截图<br><img src="https://img-blog.csdn.net/20180725104101299?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
 <p>这个时候跳转是不行的，接下来就需要加载插件了 ，首先需要生成插件 apk</p>
 <p>官方文档是通过命令</p>
 <p>gradle clean assemblePlugin来构建插件</p>
-<p>如果不想这样，也可以通过直接 gradle 的来，具体如下<br><img src="https://img-blog.csdn.net/20180725104350857?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
-<p>这样 就生成插件 apk 了，同时官方文档介绍了下这个，就是只能生成 release 版本的，插件包位于 build 目录下<br><img src="https://img-blog.csdn.net/20180725104530319?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p>如果不想这样，也可以通过直接 gradle 的来，具体如下<br><img src="https://img-blog.csdn.net/20180725104350857?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>这样 就生成插件 apk 了，同时官方文档介绍了下这个，就是只能生成 release 版本的，插件包位于 build 目录下<br><img src="https://img-blog.csdn.net/20180725104530319?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmVsaXh1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
 <p>到这里 就可以结束验证了，点击加载插件，然后再点击跳转，你会发现可以跳转了，如果如果有帮助可以帮我点个赞或者 githup 上面 star 一下，谢谢，如果有问题，可以下面评论回复，一起学习探讨。下面贴上注意点</p>
 <ol>
 <li><p>集成环境一定要配置好</p>

@@ -265,7 +265,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 03 2016 16:13:45 GMT+0000">
-        <meta property="article:modified_time" content="Wed Dec 12 2018 11:49:11 GMT+0000">
+        <meta property="article:modified_time" content="Tue Feb 19 2019 03:28:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -288,7 +288,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/08/03/2016-08-03-Git语法/index.html",
     "headline": "Git语法",
     "datePublished": "Wed Aug 03 2016 16:13:45 GMT+0000",
-    "dateModified": "Wed Dec 12 2018 11:49:11 GMT+0000",
+    "dateModified": "Tue Feb 19 2019 03:28:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -677,12 +677,12 @@
 </ul>
 <h5 id="3、最佳实践"><a href="#3、最佳实践" class="headerlink" title="3、最佳实践"></a>3、最佳实践</h5><ul>
 <li>保持Working directory clean  </li>
-<li>长期分支<br>由于 Git 使用简单的三方合并，所以就算在较长一段时间内，反复多次把某个分支合并到另一分支，也不是什么难事。也就是说，你可以同时拥有多个开放的分 支，每个分支用于完成特定的任务，随着开发的推进，你可以随时把某个特性分支的成果并到其他分支中。<br>许多使用 Git 的开发者都喜欢用这种方式来开展工作，比如仅在 master 分支中保留完全稳定的代码，即已经发布或即将发布的代码。与此同时，他们还有一个名 为 develop 或 next 的平行分支，专门用于后续的开发，或仅用于稳定性测试 — 当然并不是说一定要绝对稳定，不过一旦进入某种稳定状态，便可以把它合并到 master 里。这样，在确保这些已完成的特性分支（短期分支）能够通过所有测试，并且不会引入更多错误之后，就可以并到主干分支中，等待下一次的发布。<br>本质上我们刚才谈论的，是随着提交对象不断右移的指针。稳定分支的指针总是在提交历史中落后一大截，而前沿分支总是比较靠前。<br><img src="http://ww2.sinaimg.cn/mw690/7dde05d2gw1f4o337i90bj20d402j3yf.jpg" alt=""></li>
-<li><p>特性分支<br>特性分支从develop分支分出，最终必须合并回develop。<br>特性分支（也叫主题分支）用于开发新特性。每个新特性开一个新分支，最终会合并回develop（当特性开发完毕的时候），或者放弃（如果最终决定不开发这 个特性）。<br>特性分支只存在于开发者的仓库中。<br>在任何规模的项目中都可以使用特性（Topic）分支。一个特性分支是指一个短期的，用来实现单一特性或与其相关工作的分支。可能你在以前的版本控制系统 里从未做过类似这样的事情，因为通常创建与合并分支消耗太大。然而在 Git 中，一天之内建立、使用、合并再删除多个分支是常见的事。<br>我们可以创建特性分支，在提交了若干更新后，把它们合并到主干分支，然后删除。该技术允许你迅速且完全的进行语境切换 — 因为你的工作分散在不同的分 支里，每个分支里的改变都和它的目标特性相关，浏览代码之类的事情因而变得更简单了。你可以把作出的改变保持在特性分支中几分钟，几天甚至几个月，等 它们成熟以后再合并，而不用在乎它们建立的顺序或者进度。<br>现在我们来看一个实际的例子。请看图，由下往上，起先我们在 master 工作到 C1，然后开始一个新分支 iss91 尝试修复 91 号缺陷，提交到 C6 的时候，又冒 出一个解决该问题的新办法，于是从之前 C4 的地方又分出一个分支 iss91v2，干到 C8 的时候，又回到主干 master 中提交了 C9 和 C10，再回到 iss91v2 继续 工作，提交 C11，接着，又冒出个不太确定的想法，从 master 的最新提交 C10 处开了个新的分支 dumbidea 做些试验。<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o335f4fcj20bp0c8wen.jpg" alt=""><br>现在，假定两件事情：我们最终决定使用第二个解决方案，即 iss91v2 中的办法；另外，我们把 dumbidea 分支拿给同事们看了以后，发现它竟然是个天才之 作。所以接下来，我们准备抛弃原来的 iss91 分支（实际上会丢弃 C5 和 C6），直接在主干中并入另外两个分支。最终的提交历史将变成这样：<br><img src="http://ww1.sinaimg.cn/mw690/7dde05d2gw1f4o3360pojj209f0dzglq.jpg" alt=""><br>请务必牢记这些分支全部都是本地分支，这一点很重要。当你在使用分支及合并的时候，一切都是在你自己的Git仓库中进行的—完全不涉及与服务器的交互。</p>
+<li>长期分支<br>由于 Git 使用简单的三方合并，所以就算在较长一段时间内，反复多次把某个分支合并到另一分支，也不是什么难事。也就是说，你可以同时拥有多个开放的分 支，每个分支用于完成特定的任务，随着开发的推进，你可以随时把某个特性分支的成果并到其他分支中。<br>许多使用 Git 的开发者都喜欢用这种方式来开展工作，比如仅在 master 分支中保留完全稳定的代码，即已经发布或即将发布的代码。与此同时，他们还有一个名 为 develop 或 next 的平行分支，专门用于后续的开发，或仅用于稳定性测试 — 当然并不是说一定要绝对稳定，不过一旦进入某种稳定状态，便可以把它合并到 master 里。这样，在确保这些已完成的特性分支（短期分支）能够通过所有测试，并且不会引入更多错误之后，就可以并到主干分支中，等待下一次的发布。<br>本质上我们刚才谈论的，是随着提交对象不断右移的指针。稳定分支的指针总是在提交历史中落后一大截，而前沿分支总是比较靠前。<br><img src="http://ww2.sinaimg.cn/mw690/7dde05d2gw1f4o337i90bj20d402j3yf.jpg" alt></li>
+<li><p>特性分支<br>特性分支从develop分支分出，最终必须合并回develop。<br>特性分支（也叫主题分支）用于开发新特性。每个新特性开一个新分支，最终会合并回develop（当特性开发完毕的时候），或者放弃（如果最终决定不开发这 个特性）。<br>特性分支只存在于开发者的仓库中。<br>在任何规模的项目中都可以使用特性（Topic）分支。一个特性分支是指一个短期的，用来实现单一特性或与其相关工作的分支。可能你在以前的版本控制系统 里从未做过类似这样的事情，因为通常创建与合并分支消耗太大。然而在 Git 中，一天之内建立、使用、合并再删除多个分支是常见的事。<br>我们可以创建特性分支，在提交了若干更新后，把它们合并到主干分支，然后删除。该技术允许你迅速且完全的进行语境切换 — 因为你的工作分散在不同的分 支里，每个分支里的改变都和它的目标特性相关，浏览代码之类的事情因而变得更简单了。你可以把作出的改变保持在特性分支中几分钟，几天甚至几个月，等 它们成熟以后再合并，而不用在乎它们建立的顺序或者进度。<br>现在我们来看一个实际的例子。请看图，由下往上，起先我们在 master 工作到 C1，然后开始一个新分支 iss91 尝试修复 91 号缺陷，提交到 C6 的时候，又冒 出一个解决该问题的新办法，于是从之前 C4 的地方又分出一个分支 iss91v2，干到 C8 的时候，又回到主干 master 中提交了 C9 和 C10，再回到 iss91v2 继续 工作，提交 C11，接着，又冒出个不太确定的想法，从 master 的最新提交 C10 处开了个新的分支 dumbidea 做些试验。<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o335f4fcj20bp0c8wen.jpg" alt><br>现在，假定两件事情：我们最终决定使用第二个解决方案，即 iss91v2 中的办法；另外，我们把 dumbidea 分支拿给同事们看了以后，发现它竟然是个天才之 作。所以接下来，我们准备抛弃原来的 iss91 分支（实际上会丢弃 C5 和 C6），直接在主干中并入另外两个分支。最终的提交历史将变成这样：<br><img src="http://ww1.sinaimg.cn/mw690/7dde05d2gw1f4o3360pojj209f0dzglq.jpg" alt><br>请务必牢记这些分支全部都是本地分支，这一点很重要。当你在使用分支及合并的时候，一切都是在你自己的Git仓库中进行的—完全不涉及与服务器的交互。</p>
 </li>
 <li><p>提交做小  </p>
 </li>
-<li>git保存用户名、密码<br>1.在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o336oe3gj20as0603yn.jpg" alt=""><br>2.在“开始&gt;运行”中打开%Home%，新建一个名为“_netrc”的文件。<br>3.用记事本打开_netrc文件，输入Git服务器名、用户名、密码，并保存。示例如下<br><code>machine github.com</code><br><code>login 用户名</code><br><code>password 密码</code></li>
+<li>git保存用户名、密码<br>1.在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://ww4.sinaimg.cn/mw690/7dde05d2gw1f4o336oe3gj20as0603yn.jpg" alt><br>2.在“开始&gt;运行”中打开%Home%，新建一个名为“_netrc”的文件。<br>3.用记事本打开_netrc文件，输入Git服务器名、用户名、密码，并保存。示例如下<br><code>machine github.com</code><br><code>login 用户名</code><br><code>password 密码</code></li>
 <li>配置git mergetool和git difftool<br><strong>通过git config命令</strong><br>配置difftool:<br><code>git config --global diff.tool bc</code><br><code>git config --global difftool.bc.cmd &quot;\&quot;c:/program files/beyond compare 3/bcomp.exe\&quot; \&quot;\$LOCAL\&quot; \&quot;\$REMOTE\&quot;&quot;</code><br><code>git config --global difftool.prompt false</code><br>配置mergetool:<br><code>git config --global merge.tool bc</code><br><code>git config --global mergetool.bc.cmd &quot;\&quot;c:/program files/beyond compare 3/bcomp.exe\&quot; \&quot;\$LOCAL\&quot; \&quot;\$REMOTE\&quot; \&quot;\$BASE\&quot; \&quot;\$MERGED\&quot;&quot;</code><br><code>git config --global mergetool.bc.trustExitCode true</code><br>不生成备份文件<br><code>git config --global mergetool.keepBackup false</code><br><strong>直接修改%USERPROFILE%.gitconfig文件，完整文件如下：</strong><br><code>[user]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>name = 用户名</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>email = 邮箱</code><br><code>[diff]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>tool = bc</code><br><code>[difftool &quot;bc&quot;]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>cmd = \&quot;C:/bc4/BCompare.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;</code><br><code>[difftool]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>prompt = false</code><br><code>[merge]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>tool = bc</code><br><code>[mergetool &quot;bc&quot;]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>cmd = \&quot;C:/bc4/BCompare.exe\&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>trustExitCode = true</code><br><code>[mergetool]</code><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>keepBackup = false</code>  </li>
 </ul>
 <h5 id="4、其他特性"><a href="#4、其他特性" class="headerlink" title="4、其他特性"></a>4、其他特性</h5><ul>

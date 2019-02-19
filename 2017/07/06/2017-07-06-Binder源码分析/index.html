@@ -555,7 +555,7 @@ forked from xdtianyu/SourceAnalysis
 <p>本文是基于 <a href="https://github.com/xdtianyu/android-6.0.0_r1" target="_blank" rel="noopener">Android 6.0.0</a> 和 <a href="https://github.com/xdtianyu/android-msm-hammerhead-3.4-marshmallow" target="_blank" rel="noopener">kernel 3.4</a> 源码 及 Android SDK 23 展开的。</p>
 <p>先上一张图，直白的了解 Binder 通信过程。(摘自<a href="http://mp.weixin.qq.com/s/YVvV3-RUjbqYo-DYY3E6nA" target="_blank" rel="noopener">超详细 Android 面试的准备与经历分享 | 百度 (offer)</a>)</p>
 <blockquote>
-<p><img src="/assets/学习资料/面试小札/Binder通信过程.png" alt=""></p>
+<p><img src="/assets/学习资料/面试小札/Binder通信过程.png" alt></p>
 </blockquote>
 <a id="more"></a>
 <p><strong>目录</strong></p>
@@ -936,7 +936,7 @@ sp&lt;IBinder&gt; ProcessState::getStrongProxyForHandle(int32_t handle)
     return result;
 }
 </code></pre>
-<p>可见 <a href="">android_os_BinderProxy_transact()</a> 函数实际上调用的是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L159" target="_blank" rel="noopener">BpBinder::transact()</a> 函数。</p>
+<p>可见 <a href>android_os_BinderProxy_transact()</a> 函数实际上调用的是 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L159" target="_blank" rel="noopener">BpBinder::transact()</a> 函数。</p>
 <p>5. <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/BpBinder.cpp#L164" target="_blank" rel="noopener">BpBinder::transact()</a> 则又调用了 <a href="https://github.com/xdtianyu/android-6.0.0_r1/blob/master/frameworks/native/libs/binder/IPCThreadState.cpp#L548" target="_blank" rel="noopener">IPCThreadState::self()-&gt;transact()</a> 函数。</p>
 <pre><code class="c++">status_t IPCThreadState::transact(int32_t handle,
                                   uint32_t code, const Parcel&amp; data,
