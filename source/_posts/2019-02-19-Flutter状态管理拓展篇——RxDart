@@ -1,0 +1,16 @@
+---
+title: Flutter | 状态管理拓展篇——RxDart
+date: 2019-2-19 11:22:01
+tags: Flutter
+---
+
+> * 原文地址：https://juejin.im/post/5bcea438e51d4536c65d2232
+> * 原文作者：[Vadaski](https://juejin.im/user/5b5d45f4e51d453526175c06/posts)
+
+## RxDart
+### ReactiveX 是什么
+ReactiveX 是一个强大的库，用于通过使用**可观察序列**来编写**异步**和**基于事件**的程序。它突破了**语言**和**平台**的限制，让我们编写异步程序就像在自家花园散步那样 easy。我相信你一定会爱上它！
+
+![](https://user-gold-cdn.xitu.io/2018/10/24/166a563fd4eb5800?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+![](https://user-gold-cdn.xitu.io/2018/10/10/1665e4f1257f4e00?imageslim)
