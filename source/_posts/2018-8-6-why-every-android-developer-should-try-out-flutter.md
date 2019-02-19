@@ -2,6 +2,7 @@
 title: （译）为什么每个 Android 开发者都应该尝试 Flutter
 date: 2018-08-06 18:10:08
 tags: Flutter
+categories: Flutter
 ---
 
 > * 原文地址：[Why every Android Developer should try out Flutter](https://proandroiddev.com/why-every-android-developer-should-try-out-flutter-319ae710e97f)
