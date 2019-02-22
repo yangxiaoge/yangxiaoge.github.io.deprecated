@@ -21,7 +21,7 @@ Hey，我是 **Bruce Yang**，Android 开发者 & 独立开发者，[南京信�
 [ZTEsoft 中兴软创](http://www.ztesoft.com/cn/)  2015.04 - 2017.04
 
 从事 Android 开发，对前后端技术均有爱好。
-一些作品和开源项目，👉 戳 [Mumuxi](https://github.com/yangxiaoge/MumuXi)，[小程序-天气](https://github.com/yangxiaoge/wechat_weather)，[Demo 集合](https://github.com/yangxiaoge/Zz_Application)。
+一些作品和开源项目，👉 戳 [Mumuxi](https://github.com/yangxiaoge/MumuXi)，[微信小程序-天气](https://github.com/yangxiaoge/wechat_weather)，[Demo 集合](https://github.com/yangxiaoge/Zz_Application)，[Wanandroid_flutter](https://github.com/yangxiaoge/wanandroid_flutter)。
 
 > 兴趣爱好
 
