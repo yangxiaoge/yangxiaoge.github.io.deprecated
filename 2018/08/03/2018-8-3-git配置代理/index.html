@@ -45,7 +45,7 @@
     
     <title>
         
-            Git clone 慢怎么办 | 
+            Git clone 慢怎么办 - 配置代理 | 
         
         珠珠のBlog
     </title>
@@ -238,14 +238,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Git clone 慢怎么办 | 珠珠のBlog">
+    <meta property="og:title" content="Git clone 慢怎么办 - 配置代理 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
     <meta property="og:description" content="背着键盘的编程侠客!">
     <meta property="og:article:tag" content="Git"> 
 
     
         <meta property="article:published_time" content="Fri Aug 03 2018 17:23:35 GMT+0000">
-        <meta property="article:modified_time" content="Fri Feb 22 2019 09:30:51 GMT+0000">
+        <meta property="article:modified_time" content="Sun Feb 24 2019 03:26:48 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -266,9 +266,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html",
-    "headline": "Git clone 慢怎么办",
+    "headline": "Git clone 慢怎么办 - 配置代理",
     "datePublished": "Fri Aug 03 2018 17:23:35 GMT+0000",
-    "dateModified": "Fri Feb 22 2019 09:30:51 GMT+0000",
+    "dateModified": "Sun Feb 24 2019 03:26:48 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -392,7 +392,7 @@
         
     
             <p class="article-headline-p">
-                Git clone 慢怎么办
+                Git clone 慢怎么办 - 配置代理
             </p>
         </div>
 
@@ -462,7 +462,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2018/08/03/2018-8-3-git配置代理/" class="leancloud-views_num" data-flag-title="Git clone 慢怎么办">
+                <span id="/2018/08/03/2018-8-3-git配置代理/" class="leancloud-views_num" data-flag-title="Git clone 慢怎么办 - 配置代理">
      &nbsp;浏览量
 </span>
 
@@ -474,7 +474,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git clone 慢怎么办&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Git clone 慢怎么办 - 配置代理&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -483,7 +483,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git clone 慢怎么办&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Git clone 慢怎么办 - 配置代理&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -501,7 +501,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Git clone 慢怎么办&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Git clone 慢怎么办 - 配置代理&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2018/08/03/2018-8-3-git配置代理/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -527,12 +527,12 @@ git config --global http.proxy
 
 // 设置当前代理为 http://127.0.0.1:1080 或 socket5://127.0.0.1:1080
 git config --global http.proxy &#39;http://127.0.0.1:1080&#39;
-git config --global https.proxy &#39;http://127.0.0.1:1080&#39;
-git config --global http.proxy &#39;socks5://127.0.0.1:1080&#39;
-git config --global https.proxy &#39;socks5://127.0.0.1:1080&#39; /
+git config --global http.proxy &#39;socks5://127.0.0.1:1080&#39;/
 
 // 删除代理
-git config --global --unset https.proxy
+git config --global --unset http.proxy
+
+// 注意 `mac` 小飞机需要开启全局代理
 </code></pre><p>接下来尽情的使用 git 吧！</p>
 
         
