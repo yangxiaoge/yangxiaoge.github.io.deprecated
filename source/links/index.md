@@ -33,6 +33,7 @@ thumbnail: /img/link_cover.png
 ## 紧跟时代
 | 链接        |     简介     |
 | :----------- | :-----------|
+|[Java / Android 笔试、面试](https://github.com/hadyang/interview)| 知识整理 |
 |[Flutter](https://github.com/solido/awesome-flutter)| Solido/awesome-flutter 集合 |
 |[AndroidChromium](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) | 谷歌浏览器安卓版源码项目，世界级的安卓架构 |
 |[Android Google ARCore 尝鲜记录](https://mp.weixin.qq.com/s/BwjyJwUJKZSSaaKbzRiT8Q) |  AR 尝鲜 - D_clock 爱吃葱花 |
