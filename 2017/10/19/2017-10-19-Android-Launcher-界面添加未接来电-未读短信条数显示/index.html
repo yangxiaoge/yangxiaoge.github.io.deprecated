@@ -258,7 +258,7 @@ Thumbnail by octiviotti
 
     
         <meta property="article:published_time" content="Thu Oct 19 2017 16:00:50 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 10:43:51 GMT+0000">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 10:48:36 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -281,7 +281,7 @@ Thumbnail by octiviotti
     "mainEntityOfPage": "https://yangxiaoge.github.io/2017/10/19/2017-10-19-Android-Launcher-界面添加未接来电-未读短信条数显示/index.html",
     "headline": "Android Launcher 界面添加未接来电/未读短信条数显示",
     "datePublished": "Thu Oct 19 2017 16:00:50 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 10:43:51 GMT+0000",
+    "dateModified": "Thu Feb 28 2019 10:48:36 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -552,246 +552,39 @@ Thumbnail by octiviotti
 <h3 id="1-Launcher-java"><a href="#1-Launcher-java" class="headerlink" title="1. Launcher.java"></a>1. Launcher.java</h3><ul>
 <li>首先是定义两个 ContentObserver</li>
 </ul>
-<pre><code>private final static int UPDATE_MMS_ICON = 826;  
-private final static int UPDATE_CALL_ICON = 1206;
-
-public class SMSContentObserver extends ContentObserver {
-    private Handler mHandler;
-
-    public SMSContentObserver(Context context, Handler handler) {
-        super(handler);
-        mHandler = handler;
-    }
-
-    @Override
-    public void onChange(boolean selfChange) {
-        Log.i(&quot;Launcher-&quot;,&quot;SMSContentObserver onChange&quot;);
-        mHandler.removeMessages(UPDATE_MMS_ICON);
-        Message msg = mHandler.obtainMessage(UPDATE_MMS_ICON);
-        msg.obj = getMissMmsCount();
-        mHandler.sendMessage(msg);
-    }
-}
-
-public class CallContentObserver extends ContentObserver {
-    private Handler mHandler;
-    public CallContentObserver(Context context, Handler handler) {
-        super(handler);
-        mHandler = handler;
-    }
-
-    @Override
-    public void onChange(boolean selfChange) {
-        Log.i(&quot;Launcher-&quot;,&quot;CallContentObserver onChange&quot;);
-        mHandler.removeMessages(UPDATE_CALL_ICON);
-        Message msg = mHandler.obtainMessage(UPDATE_CALL_ICON);
-        msg.obj = getMissCallCount();
-        mHandler.sendMessage(msg);
-    }
-}
-</code></pre><ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> UPDATE_MMS_ICON = <span class="number">826</span>;  </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> UPDATE_CALL_ICON = <span class="number">1206</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SMSContentObserver</span> <span class="keyword">extends</span> <span class="title">ContentObserver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Handler mHandler;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SMSContentObserver</span><span class="params">(Context context, Handler <span class="keyword">handler</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="keyword">handler</span>);</span><br><span class="line">        mHandler = <span class="keyword">handler</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onChange</span><span class="params">(<span class="keyword">boolean</span> selfChange)</span> </span>&#123;</span><br><span class="line">        Log.i(<span class="string">"Launcher-"</span>,<span class="string">"SMSContentObserver onChange"</span>);</span><br><span class="line">        mHandler.removeMessages(UPDATE_MMS_ICON);</span><br><span class="line">        Message msg = mHandler.obtainMessage(UPDATE_MMS_ICON);</span><br><span class="line">        msg.obj = getMissMmsCount();</span><br><span class="line">        mHandler.sendMessage(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallContentObserver</span> <span class="keyword">extends</span> <span class="title">ContentObserver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Handler mHandler;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CallContentObserver</span><span class="params">(Context context, Handler <span class="keyword">handler</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="keyword">handler</span>);</span><br><span class="line">        mHandler = <span class="keyword">handler</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onChange</span><span class="params">(<span class="keyword">boolean</span> selfChange)</span> </span>&#123;</span><br><span class="line">        Log.i(<span class="string">"Launcher-"</span>,<span class="string">"CallContentObserver onChange"</span>);</span><br><span class="line">        mHandler.removeMessages(UPDATE_CALL_ICON);</span><br><span class="line">        Message msg = mHandler.obtainMessage(UPDATE_CALL_ICON);</span><br><span class="line">        msg.obj = getMissCallCount();</span><br><span class="line">        mHandler.sendMessage(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>在 onCreate() 中注册 ContentObserver</li>
 </ul>
-<pre><code>private SMSContentObserver smsContentObserver = null;  
-private CallContentObserver callContentObserver = null;  
-
-smsContentObserver = new SMSContentObserver(this,mHandler);
-callContentObserver =new CallContentObserver(this,mHandler);
-
-getContentResolver().registerContentObserver(Calls.CONTENT_URI,true,callContentObserver);
-getContentResolver().registerContentObserver(Uri.parse(&quot;content://mms-sms/&quot;),true,smsContentObserver);
-</code></pre><ul>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SMSContentObserver smsContentObserver = <span class="literal">null</span>;  </span><br><span class="line"><span class="keyword">private</span> CallContentObserver callContentObserver = <span class="literal">null</span>;  </span><br><span class="line"></span><br><span class="line">smsContentObserver = <span class="keyword">new</span> <span class="type">SMSContentObserver</span>(<span class="built_in">this</span>,mHandler);</span><br><span class="line">callContentObserver =<span class="keyword">new</span> <span class="type">CallContentObserver</span>(<span class="built_in">this</span>,mHandler);</span><br><span class="line"></span><br><span class="line">getContentResolver().registerContentObserver(Calls.CONTENT_URI,<span class="literal">true</span>,callContentObserver);</span><br><span class="line">getContentResolver().registerContentObserver(Uri.parse(<span class="string">"content://mms-sms/"</span>),<span class="literal">true</span>,smsContentObserver);</span><br></pre></td></tr></table></figure>
+<ul>
 <li>定义两个 ICON_NAME</li>
 </ul>
-<pre><code>// 这两个 ICON_NAME 根据自己实际系统短信和电话页面对应包名填写
-private final static String PHONE_ICON_NAME = &quot;com.android.dialer.DialtactsActivity&quot;;
-private final static String MMS_ICON_NAME = &quot;com.android.messaging.ui.conversationlist.ConversationListActivity&quot;;
-</code></pre><ul>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这两个 ICON_NAME 根据自己实际系统短信和电话页面对应包名填写</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> PHONE_ICON_NAME = <span class="string">"com.android.dialer.DialtactsActivity"</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">String</span> MMS_ICON_NAME = <span class="string">"com.android.messaging.ui.conversationlist.ConversationListActivity"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>mHandler 中处理</li>
 </ul>
-<pre><code>@Thunk
-final Handler mHandler = new Handler(new Handler.Callback() {
-    @Override
-    public boolean handleMessage(Message msg) {
-        Log.i(&quot;Launcher-&quot;,&quot;mHandler msg.what = &quot; + msg.what);
-        if (msg.what == ADVANCE_MSG) {
-            int i = 0;
-            for (View key : mWidgetsToAdvance.keySet()) {
-                final View v = key.findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);
-                final int delay = mAdvanceStagger * i;
-                if (v instanceof Advanceable) {
-                    mHandler.postDelayed(new Runnable() {
-                        public void run() {
-                            ((Advanceable) v).advance();
-                        }
-                    }, delay);
-                }
-                i++;
-            }
-            sendAdvanceMessage(mAdvanceInterval);
-        }
-        //ADD BY Bruce Yang FOR SHOW UNREAD MMS
-        else if (msg.what == UPDATE_MMS_ICON) {
-            setMmsOrPhoneNum(MMS_ICON_NAME, getMissMmsCount());
-        } else if (msg.what == UPDATE_CALL_ICON) {
-            setMmsOrPhoneNum(PHONE_ICON_NAME, getMissCallCount());
-        }
-        return true;
-    }
-});
-</code></pre><ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Thunk</span></span><br><span class="line"><span class="keyword">final</span> Handler mHandler = <span class="keyword">new</span> Handler(<span class="keyword">new</span> Handler.Callback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        Log.i(<span class="string">"Launcher-"</span>,<span class="string">"mHandler msg.what = "</span> + msg.what);</span><br><span class="line">        <span class="keyword">if</span> (msg.what == ADVANCE_MSG) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (View key : mWidgetsToAdvance.keySet()) &#123;</span><br><span class="line">                <span class="keyword">final</span> View v = key.findViewById(mWidgetsToAdvance.get(key).autoAdvanceViewId);</span><br><span class="line">                <span class="keyword">final</span> <span class="keyword">int</span> delay = mAdvanceStagger * i;</span><br><span class="line">                <span class="keyword">if</span> (v <span class="keyword">instanceof</span> Advanceable) &#123;</span><br><span class="line">                    mHandler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                            ((Advanceable) v).advance();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, delay);</span><br><span class="line">                &#125;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            sendAdvanceMessage(mAdvanceInterval);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//ADD BY Bruce Yang FOR SHOW UNREAD MMS</span></span><br><span class="line">        <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(msg.what == UPDATE_MMS_ICON)</span> </span>&#123;</span><br><span class="line">            setMmsOrPhoneNum(MMS_ICON_NAME, getMissMmsCount());</span><br><span class="line">        &#125; <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(msg.what == UPDATE_CALL_ICON)</span> </span>&#123;</span><br><span class="line">            setMmsOrPhoneNum(PHONE_ICON_NAME, getMissCallCount());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
 <li>获取数据库中未读数目</li>
 </ul>
-<pre><code> private int getMissMmsCount() {
-    Log.i(&quot;Launcher-&quot;,&quot;getMissMmsCount&quot;);
-    int missSmsCount = 0;
-    Cursor cursorSMS = null;
-    Cursor cursorMMS = null;
-    try {
-        cursorSMS = getContentResolver().query(
-                Uri.parse(&quot;content://sms&quot;), null, &quot;(read=0 and type=1)&quot;,
-                null, null);
-        cursorMMS = getContentResolver().query(
-                Uri.parse(&quot;content://mms&quot;), null, &quot;(read=0)&quot;, null,
-                null);
-    } catch (SQLiteException e) {
-        return missSmsCount;
-    }
-    if (cursorSMS != null) {
-        missSmsCount = cursorSMS.getCount();
-        cursorSMS.close();
-    }
-    if (cursorMMS != null) {
-            missSmsCount = missSmsCount + cursorMMS.getCount();
-        cursorMMS.close();
-    }
-
-    Log.i(&quot;Launcher-&quot;,&quot;getMissMmsCount  missSmsCount = &quot; + missSmsCount);
-    return missSmsCount;
-}
-
-private int getMissCallCount() {
-    Log.i(&quot;Launcher-&quot;,&quot;getMissCallCount&quot;);
-    int missCallCount = 0;
-    Uri missingCallUri = Calls.CONTENT_URI;
-    String where = Calls.TYPE + &quot;=&#39;&quot; + Calls.MISSED_TYPE + &quot;&#39;&quot;
-            + &quot; AND new=1&quot;;
-    Cursor cursorCall = null;
-    try {
-        cursorCall = getContentResolver().query(missingCallUri,
-                null, where, null, null);
-    } catch (SQLiteException e) {
-        return missCallCount;
-    }
-
-    if (cursorCall != null) {
-        missCallCount = cursorCall.getCount();
-        cursorCall.close();
-    }
-    Log.i(&quot;Launcher-&quot;,&quot;getMissCallCount  missCallCount = &quot; + missCallCount);
-    return missCallCount;
-}
-</code></pre><ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMissMmsCount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"getMissMmsCount"</span>);</span><br><span class="line">    <span class="keyword">int</span> missSmsCount = <span class="number">0</span>;</span><br><span class="line">    Cursor cursorSMS = <span class="literal">null</span>;</span><br><span class="line">    Cursor cursorMMS = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        cursorSMS = getContentResolver().query(</span><br><span class="line">                Uri.parse(<span class="string">"content://sms"</span>), <span class="literal">null</span>, <span class="string">"(read=0 and type=1)"</span>,</span><br><span class="line">                <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        cursorMMS = getContentResolver().query(</span><br><span class="line">                Uri.parse(<span class="string">"content://mms"</span>), <span class="literal">null</span>, <span class="string">"(read=0)"</span>, <span class="literal">null</span>,</span><br><span class="line">                <span class="literal">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLiteException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> missSmsCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cursorSMS != <span class="literal">null</span>) &#123;</span><br><span class="line">        missSmsCount = cursorSMS.getCount();</span><br><span class="line">        cursorSMS.close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cursorMMS != <span class="literal">null</span>) &#123;</span><br><span class="line">            missSmsCount = missSmsCount + cursorMMS.getCount();</span><br><span class="line">        cursorMMS.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"getMissMmsCount  missSmsCount = "</span> + missSmsCount);</span><br><span class="line">    <span class="keyword">return</span> missSmsCount;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMissCallCount</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"getMissCallCount"</span>);</span><br><span class="line">    <span class="keyword">int</span> missCallCount = <span class="number">0</span>;</span><br><span class="line">    Uri missingCallUri = Calls.CONTENT_URI;</span><br><span class="line">    String <span class="keyword">where</span> = Calls.TYPE + <span class="string">"='"</span> + Calls.MISSED_TYPE + <span class="string">"'"</span></span><br><span class="line">            + <span class="string">" AND new=1"</span>;</span><br><span class="line">    Cursor cursorCall = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        cursorCall = getContentResolver().query(missingCallUri,</span><br><span class="line">                <span class="literal">null</span>, <span class="keyword">where</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLiteException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> missCallCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (cursorCall != <span class="literal">null</span>) &#123;</span><br><span class="line">        missCallCount = cursorCall.getCount();</span><br><span class="line">        cursorCall.close();</span><br><span class="line">    &#125;</span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"getMissCallCount  missCallCount = "</span> + missCallCount);</span><br><span class="line">    <span class="keyword">return</span> missCallCount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>设置 ICON 未读数</li>
 </ul>
-<pre><code>/**
-    *
-    * @param flag 更新电话或短信 ICON
-    * @param missCount 未读数
-*/
-private void setMmsOrPhoneNum(final String flag, final int missCount) {
-    Log.i(&quot;Launcher-&quot;,&quot;flag = &quot;+flag +&quot; missCount = &quot;+missCount);
-    if(mWorkspace == null) return;
-    ArrayList&lt;CellLayout&gt; cellLayouts = mWorkspace.getWorkspaceAndHotseatCellLayouts();
-    for (final CellLayout layoutParent: cellLayouts) {
-        final ViewGroup shortcutAndWidgetContainer = layoutParent.getShortcutsAndWidgets();
-
-        mWorkspace.post(new Runnable() {
-            public void run() {
-
-                int childCount = shortcutAndWidgetContainer.getChildCount();
-                for (int j = 0; j &lt;childCount; j++) {
-                    View view = shortcutAndWidgetContainer.getChildAt(j);
-
-                    Object tag = view.getTag();
-                    if (tag instanceof ShortcutInfo) {
-                        final ShortcutInfo info = (ShortcutInfo) tag;
-                        final Intent intent = info.intent;
-
-                        if (intent != null) {
-                            final ComponentName name = intent.getComponent();
-                            if (name != null &amp;&amp; name.getClassName().equals(flag)) {
-                                BubbleTextView bv = (BubbleTextView) view;
-                                Bitmap defaultIconBitmap = Bitmap.createBitmap(info.getIcon(mIconCache));
-                                Bitmap bitmap = Utilities.createIconBitmap(defaultIconBitmap, missCount);
-                                bv.setCompoundDrawablesWithIntrinsicBounds(null,
-                                        new FastBitmapDrawable(bitmap),
-                                        null, null);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-}
-</code></pre><ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> flag 更新电话或短信 ICON</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> missCount 未读数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">setMmsOrPhoneNum</span><span class="params">(<span class="keyword">final</span> String flag, <span class="keyword">final</span> <span class="keyword">int</span> missCount)</span> </span>&#123;</span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"flag = "</span>+flag +<span class="string">" missCount = "</span>+missCount);</span><br><span class="line">    <span class="keyword">if</span>(mWorkspace == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">    ArrayList&lt;CellLayout&gt; cellLayouts = mWorkspace.getWorkspaceAndHotseatCellLayouts();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">final</span> CellLayout layoutParent: cellLayouts) &#123;</span><br><span class="line">        <span class="keyword">final</span> ViewGroup shortcutAndWidgetContainer = layoutParent.getShortcutsAndWidgets();</span><br><span class="line"></span><br><span class="line">        mWorkspace.post(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> childCount = shortcutAndWidgetContainer.getChildCount();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;childCount; j++) &#123;</span><br><span class="line">                    View view = shortcutAndWidgetContainer.getChildAt(j);</span><br><span class="line"></span><br><span class="line">                    Object tag = view.getTag();</span><br><span class="line">                    <span class="keyword">if</span> (tag <span class="keyword">instanceof</span> ShortcutInfo) &#123;</span><br><span class="line">                        <span class="keyword">final</span> ShortcutInfo info = (ShortcutInfo) tag;</span><br><span class="line">                        <span class="keyword">final</span> Intent intent = info.intent;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (intent != <span class="keyword">null</span>) &#123;</span><br><span class="line">                            <span class="keyword">final</span> ComponentName name = intent.getComponent();</span><br><span class="line">                            <span class="keyword">if</span> (name != <span class="keyword">null</span> &amp;&amp; name.getClassName().equals(flag)) &#123;</span><br><span class="line">                                BubbleTextView bv = (BubbleTextView) view;</span><br><span class="line">                                Bitmap defaultIconBitmap = Bitmap.createBitmap(info.getIcon(mIconCache));</span><br><span class="line">                                Bitmap bitmap = Utilities.createIconBitmap(defaultIconBitmap, missCount);</span><br><span class="line">                                bv.setCompoundDrawablesWithIntrinsicBounds(<span class="keyword">null</span>,</span><br><span class="line">                                        <span class="keyword">new</span> FastBitmapDrawable(bitmap),</span><br><span class="line">                                        <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>第一次启动 Launcher 就能获取未读数目，在 finishBindingItems() 添加逻辑</li>
 </ul>
-<pre><code>//ADD BY Bruce Yang
-int missCall = getMissCallCount();
-int missMms = getMissMmsCount();
-if(missCall != 0) {
-    setMmsOrPhoneNum(PHONE_ICON_NAME, missCall);
-}
-if(missMms != 0) {
-    setMmsOrPhoneNum(MMS_ICON_NAME, missMms);
-}
-</code></pre><ul>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//ADD BY Bruce Yang</span><br><span class="line">int missC<span class="literal">all</span> = getMissC<span class="literal">all</span>Count();</span><br><span class="line">int missMms = getMissMmsCount();</span><br><span class="line">if(missC<span class="literal">all</span> != <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">set</span>MmsOrPhoneNum(PHONE_ICON_NAME, missC<span class="literal">all</span>);</span><br><span class="line">&#125;</span><br><span class="line">if(missMms != <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">set</span>MmsOrPhoneNum(MMS_ICON_NAME, missMms);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>在 onDestroy() 中反注册 ContentObserver</li>
 </ul>
-<pre><code>getContentResolver().unregisterContentObserver(smsContentObserver);
-getContentResolver().unregisterContentObserver(callContentObserver);
-</code></pre><h3 id="2-Utilities-java"><a href="#2-Utilities-java" class="headerlink" title="2. Utilities.java"></a>2. Utilities.java</h3><p>新增构造方法，用于重新绘制带数字的应用图标。</p>
-<pre><code>//add by Bruce Yang for ...
-static Bitmap createIconBitmap(Bitmap b, int count) {
-    Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888,true);
-    Log.i(&quot;Launcher-&quot;,&quot;b.isMutable() = &quot;+b.isMutable()); // 如果为 false 就会抛出 java.lang.IllegalStateException 异常， http://bbs.csdn.net/topics/370021698
-    if (count == 0) return b;
-    int textureWidth = bitmap.getWidth();
-    final Canvas canvas = sCanvas;
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
-    canvas.setBitmap(bitmap);
-
-    paint.setColor(Color.RED);
-    canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
-    paint.setColor(Color.WHITE);
-    paint.setStyle(Paint.Style.STROKE);
-    paint.setStrokeWidth(2);
-    canvas.drawCircle(textureWidth - 17-6, 16+6, 16+6, paint);
-
-    Paint countPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
-    countPaint.setColor(Color.WHITE);
-    countPaint.setTextSize(26f);
-    countPaint.setTypeface(Typeface.DEFAULT_BOLD);
-
-    float x = textureWidth - 24-4;
-    if (count &gt; 9) x -= 4+6;
-
-    if (count &gt; 99) {
-        countPaint.setTextSize(22f);
-        String text = String.valueOf(99) + &quot;+&quot;;
-        canvas.drawText(text, x-2, 25+5, countPaint);
-    } else {
-        String text = String.valueOf(count);
-        canvas.drawText(text,x, 25+5, countPaint);
-    }
-    return bitmap;
-}
-</code></pre><h3 id="3-AndroidManifest-xml"><a href="#3-AndroidManifest-xml" class="headerlink" title="3. AndroidManifest.xml"></a>3. AndroidManifest.xml</h3><p>添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 targetSdkVersion 改成 21（原来是 23）。</p>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot; /&gt;
-&lt;uses-permission android:name=&quot;android.permission.READ_CALL_LOG&quot; /&gt;
-</code></pre><h3 id="4-修改对比"><a href="#4-修改对比" class="headerlink" title="4. 修改对比"></a>4. 修改对比</h3><blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">getContentResolver</span>()<span class="selector-class">.unregisterContentObserver</span>(smsContentObserver);</span><br><span class="line"><span class="selector-tag">getContentResolver</span>()<span class="selector-class">.unregisterContentObserver</span>(callContentObserver);</span><br></pre></td></tr></table></figure>
+<h3 id="2-Utilities-java"><a href="#2-Utilities-java" class="headerlink" title="2. Utilities.java"></a>2. Utilities.java</h3><p>新增构造方法，用于重新绘制带数字的应用图标。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add by Bruce Yang for ...</span></span><br><span class="line">static Bitmap createIconBitmap(Bitmap b, int count) &#123;</span><br><span class="line">    Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888,true);</span><br><span class="line">    Log.i(<span class="string">"Launcher-"</span>,<span class="string">"b.isMutable() = "</span>+b.isMutable()); <span class="comment">// 如果为 false 就会抛出 java.lang.IllegalStateException 异常， http://bbs.csdn.net/topics/370021698</span></span><br><span class="line">    if (count == <span class="number">0</span>) return b;</span><br><span class="line">    int textureWidth = bitmap.getWidth();</span><br><span class="line">    final Canvas canvas = sCanvas;</span><br><span class="line">    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);</span><br><span class="line">    canvas.setBitmap(bitmap);</span><br><span class="line"></span><br><span class="line">    paint.setColor(Color.RED);</span><br><span class="line">    canvas.drawCircle(textureWidth - <span class="number">17</span><span class="number">-6</span>, <span class="number">16</span>+<span class="number">6</span>, <span class="number">16</span>+<span class="number">6</span>, paint);</span><br><span class="line">    paint.setColor(Color.WHITE);</span><br><span class="line">    paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">    paint.setStrokeWidth(<span class="number">2</span>);</span><br><span class="line">    canvas.drawCircle(textureWidth - <span class="number">17</span><span class="number">-6</span>, <span class="number">16</span>+<span class="number">6</span>, <span class="number">16</span>+<span class="number">6</span>, paint);</span><br><span class="line"></span><br><span class="line">    Paint countPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);</span><br><span class="line">    countPaint.setColor(Color.WHITE);</span><br><span class="line">    countPaint.setTextSize(<span class="number">26</span>f);</span><br><span class="line">    countPaint.setTypeface(Typeface.DEFAULT_BOLD);</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> x = textureWidth - <span class="number">24</span><span class="number">-4</span>;</span><br><span class="line">    if (count &gt; <span class="number">9</span>) x -= <span class="number">4</span>+<span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">    if (count &gt; <span class="number">99</span>) &#123;</span><br><span class="line">        countPaint.setTextSize(<span class="number">22</span>f);</span><br><span class="line">        String text = String.valueOf(<span class="number">99</span>) + <span class="string">"+"</span>;</span><br><span class="line">        canvas.drawText(text, x<span class="number">-2</span>, <span class="number">25</span>+<span class="number">5</span>, countPaint);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        String text = String.valueOf(count);</span><br><span class="line">        canvas.drawText(text,x, <span class="number">25</span>+<span class="number">5</span>, countPaint);</span><br><span class="line">    &#125;</span><br><span class="line">    return bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-AndroidManifest-xml"><a href="#3-AndroidManifest-xml" class="headerlink" title="3. AndroidManifest.xml"></a>3. AndroidManifest.xml</h3><p>添加如下两个权限，由于 Android 6.0 以上需要动态权限申请，这里为了直接获取权限，可以将 targetSdkVersion 改成 21（原来是 23）。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"android.permission.READ_SMS"</span> /&gt;</span><br><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"android.permission.READ_CALL_LOG"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-修改对比"><a href="#4-修改对比" class="headerlink" title="4. 修改对比"></a>4. 修改对比</h3><blockquote>
 <p>修改前：</p>
 </blockquote>
 <p><img src="https://i.loli.net/2017/10/19/59e865f6b26df.png" width="270" height="480"></p>

@@ -368,14 +368,6 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#layout-false"><span class="post-toc-number">1.</span> <span class="post-toc-text">layout: false</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#comments-false"><span class="post-toc-number">2.</span> <span class="post-toc-text">comments: false</span></a></li></ol>
-    </ul>
-    
 
 
 
@@ -540,43 +532,40 @@
 <p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next</a>主题相关配置: <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">详见官方文档</a></p>
 <p><strong>主要的配置项</strong>:</p>
 <ol start="17">
-<li>直接跳转博客内静态 html 网站,<a href="https://segmentfault.com/q/1010000002564944/a-1020000002564987" target="_blank" rel="noopener">详情→</a><br>在开头加上<br><code>`</code><br>layout: false</li>
+<li>直接跳转博客内静态 html 网站,<a href="https://segmentfault.com/q/1010000002564944/a-1020000002564987" target="_blank" rel="noopener">详情→</a><br>在开头加上 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">layout:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<hr>
-<pre><code>即如下写法:
-</code></pre><h2 id="layout-false"><a href="#layout-false" class="headerlink" title="layout: false"></a>layout: false</h2><p><html><br>  <head><meta name="generator" content="Hexo 3.8.0"><br>    <meta charset="utf-8"></head></html></p>
-<pre><code>&lt;title&gt;我的演说 - @演说.io&lt;/title&gt;
-</code></pre><p>  <br>  <body><br>  …..<br>  </body><br></p>
-<pre><code>
-16. [站内搜索](http://theme-next.iissnan.com/third-party-services.html#search-system) (add 2016-9-30 14:38:13)
-
-    - 安装 `hexo-generator-search`，在站点的根目录下执行以下命令：
-</code></pre><p>$ npm install hexo-generator-search –save</p>
-<pre><code>    - 编辑 `站点配置文件`，新增以下内容到任意位置：
-</code></pre><p>search:<br>  path: search.xml<br>  field: post</p>
-<pre><code>
-15. `dashboard持续集成`
-[ci-hexo-coding](https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92)
-
-14. `hexo提交搜索引擎（百度+谷歌）`(百度,谷歌就能搜索到个人网站)
-&gt;参考: http://tengj.top/2016/03/14/hexo6seo/
-`我的访问连接:`
-http://yangxiaoge.coding.me/sitemap.xml
-http://yangxiaoge.coding.me/baidusitemap.xml
-**注意:** 需要修改`站点配置文件``_config.yml`中`url`这个属性值 (这个url决定了生成的sitemap.xlm,baidusitemap.xml中文章路径)
-
-13. `如何新增导航Menu?`
-
-    - `hexo new page &quot;link&quot;`  (创建一个link目录,并且默认生成index.md)
-    - 主题配置文件`_config.xml`中 `menu节点`下增加 `link: /link`,`menu_icons节点(FontAwesome头像)`增加 `link: chain`
-    - `\themes\next\languages`目录下语言配置文件`zh-Hans.yml`中 `menu节点`增加 `link: 链接`
-
-11. `如何关闭新建页面的评论功能？`
-</code></pre><hr>
-<p>title: “About”<br>layout: “page”</p>
-<h2 id="comments-false"><a href="#comments-false" class="headerlink" title="comments: false"></a>comments: false</h2><p><code>`</code></p>
-<ol start="12">
-<li><code>添加背景以及点击爱心效果</code>(2016-9-21 11:47:32)<br><a href="http://michaelxiang.me/2015/11/30/hexo-next-optimize/" target="_blank" rel="noopener">http://michaelxiang.me/2015/11/30/hexo-next-optimize/</a><br><em>注意:</em> 目前只有将主题下<code>_config.xml</code>配置文件中的<code>Schemes</code>设置成<code>Pisces</code> (如果设置成Mist,那么手机端的背景动画会布满屏幕,实在太难看~~~)</li>
+<p>即如下写法:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">layout:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">&lt;html&gt;</span></span><br><span class="line">  <span class="string">&lt;head&gt;</span></span><br><span class="line">    <span class="string">&lt;meta</span> <span class="string">charset="utf-8"&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&lt;title&gt;我的演说</span> <span class="bullet">-</span> <span class="string">@演说.io&lt;/title&gt;</span></span><br><span class="line">  <span class="string">&lt;/head&gt;</span></span><br><span class="line">  <span class="string">&lt;body&gt;</span></span><br><span class="line">  <span class="string">.....</span></span><br><span class="line">  <span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ol start="16">
+<li><p><a href="http://theme-next.iissnan.com/third-party-services.html#search-system" target="_blank" rel="noopener">站内搜索</a> (add 2016-9-30 14:38:13)</p>
+<ul>
+<li><p>安装 <code>hexo-generator-search</code>，在站点的根目录下执行以下命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> hexo-generator-<span class="keyword">search</span> <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 <code>站点配置文件</code>，新增以下内容到任意位置：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>dashboard持续集成</code><br><a href="https://dashboard.daocloud.io/build-flows/c8e37fcc-8c38-4a7c-b0e8-c464f2ea3c92" target="_blank" rel="noopener">ci-hexo-coding</a></p>
+</li>
+<li><p><code>hexo提交搜索引擎（百度+谷歌）</code>(百度,谷歌就能搜索到个人网站)</p>
+<blockquote>
+<p>参考: <a href="http://tengj.top/2016/03/14/hexo6seo/" target="_blank" rel="noopener">http://tengj.top/2016/03/14/hexo6seo/</a><br><code>我的访问连接:</code><br><a href="http://yangxiaoge.coding.me/sitemap.xml" target="_blank" rel="noopener">http://yangxiaoge.coding.me/sitemap.xml</a><br><a href="http://yangxiaoge.coding.me/baidusitemap.xml" target="_blank" rel="noopener">http://yangxiaoge.coding.me/baidusitemap.xml</a><br><strong>注意:</strong> 需要修改<code>站点配置文件`</code>_config.yml<code>中</code>url`这个属性值 (这个url决定了生成的sitemap.xlm,baidusitemap.xml中文章路径)</p>
+</blockquote>
+</li>
+<li><p><code>如何新增导航Menu?</code></p>
+<ul>
+<li><code>hexo new page &quot;link&quot;</code>  (创建一个link目录,并且默认生成index.md)</li>
+<li>主题配置文件<code>_config.xml</code>中 <code>menu节点</code>下增加 <code>link: /link</code>,<code>menu_icons节点(FontAwesome头像)</code>增加 <code>link: chain</code></li>
+<li><code>\themes\next\languages</code>目录下语言配置文件<code>zh-Hans.yml</code>中 <code>menu节点</code>增加 <code>link: 链接</code></li>
+</ul>
+</li>
+<li><p><code>如何关闭新建页面的评论功能？</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">"About"</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">"page"</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>添加背景以及点击爱心效果</code>(2016-9-21 11:47:32)<br><a href="http://michaelxiang.me/2015/11/30/hexo-next-optimize/" target="_blank" rel="noopener">http://michaelxiang.me/2015/11/30/hexo-next-optimize/</a><br><em>注意:</em> 目前只有将主题下<code>_config.xml</code>配置文件中的<code>Schemes</code>设置成<code>Pisces</code> (如果设置成Mist,那么手机端的背景动画会布满屏幕,实在太难看~~~)</p>
+</li>
 <li><code>打赏</code></li>
 <li><code>文章阅读数</code><br>使用的是<a href="https://leancloud.cn/data.html?appid=vwQnaBdLYT7Is3AWzRoGBABe-gzGzoHsz#/Counter" target="_blank" rel="noopener">leancloud</a>(leancloud很强大,可以作为后端云供等app调用)</li>
 <li><code>代码高亮</code>↓↓↓<br><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f52wlho0c3j20lw03h0ts.jpg" alt="code_highlight.png"></li>

@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Aug 06 2018 18:10:08 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 10:43:51 GMT+0000">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 10:48:36 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2018/08/06/2018-8-6-why-every-android-developer-should-try-out-flutter/index.html",
     "headline": "（译）为什么每个 Android 开发者都应该尝试 Flutter",
     "datePublished": "Mon Aug 06 2018 18:10:08 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 10:43:51 GMT+0000",
+    "dateModified": "Thu Feb 28 2019 10:48:36 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -550,29 +550,8 @@
 <p>我相信你已经听过一系列关于为什么 Android 开发者应该关注 Flutter 的若干论据（如果你还没有看过，请让我谦逊地建议你瞧瞧<a href="https://proandroiddev.com/why-flutter-will-change-mobile-development-for-the-best-c249f71fa63c" target="_blank" rel="noopener">这个</a>），但是我想指出一个我还没有真正解决的大问题，那就是 Flutter 可以让你对 App 开发有完全不同的看法。首先，你的应用本身将采用不同的方式构建 —— 但更重要的是，实际的 UI 开发通过将其合并到你的 Dart 代码（而不是 XML）中而被推到前台，因此使它成为了“一等公民”。一旦你的 UI 代码突然出现在一种非标记语言中，你就会意识到你突然有了构建应用的可能性。说实话，在使用 Flutter 之后，我开始讨厌在 Android 上编写 UI 代码；因为在 Android 中步骤更加繁琐，虽然你仍然可以使用数据绑定等工具构建响应式应用，但它实际上比 Flutter 中要花费更多的时间。</p>
 <p>当你考虑在 Android 中整合动画和其他动态数据时，使用 Flutter 的论点变得更加有力。整合动画可能会不太方便，有时你可能不得不拒绝设计师的要求，因为要实现他们的需求太难了。谢天谢地，Flutter 改变了这一切。如果你一直在关注 Flutter，你可能已经从 <a href="https://medium.com/fluttery" target="_blank" rel="noopener">Fluttery</a> 听说过 <strong>Flutter 挑战</strong>。这些挑战展示了构建具有大量自定义组件和精美设计（包括动画）的复杂 UI 的快速和直观性。在 Android 上实现这样的东西会变得非常困难 —— 特别是因为与 Flutter 不同，Android 的视图基于继承而非组合，这使得构建视图变得更加复杂。</p>
 <p>下面，让我们切入正题：使用 Flutter <strong>构建声明性 UI</strong>，这改变了 UI 开发的一切。现在也许你在想，<strong>Android 布局不也是以声明方式构建的吗？</strong>答案是肯定的，但事实不是。使用 XML 来定义布局让我们有了以声明方式定义布局的感觉，但如果你的视图是完全静态的，并且所有数据都是以 XML 格式设置的，那么这种感觉才真正成立。不幸的是，这种情况几乎从未发生过；一旦添加动态数据和类似列表之类的东西，你自然必须使用一些 Java / Kotlin 代码将数据绑定到视图。然后我们最终得到某种 ViewModel，它将数据设置为视图。想象一下，这就像在 Android 上调用 <code>textView.text =“Hello Medium！”</code> 一样。在 Flutter 上，这是完全不同的：你创建了一个包含某个状态的窗口组件类，然后根据该状态以声明方式定义你的布局。每当状态改变时，我们调用 <code>setState（）</code> 来重新渲染我们改变的组件树的部分。让我们看一下如何在 Flutter 中使用 API，并使用结果渲染一个 List：</p>
-<pre><code>@override
-Widget build(BuildContext context) {
-  return new FutureBuilder&lt;Repositories&gt;(
-    future: apiClient.getUserRepositoriesFuture(username),
-    builder: (BuildContext context, 
-        AsyncSnapshot&lt;Repositories&gt; snapshot) {
-      if (snapshot.hasError)
-        return new Center(child: new Text(&quot;Network error&quot;));
-      if (!snapshot.hasData)
-        return new Center(
-          child: new CircularProgressIndicator(),
-        );
-      return new ListView.builder(
-        itemCount: snapshot.data.nodes.length,
-        itemBuilder: (BuildContext context, int index) =&gt;
-            new RepoPreviewTile(
-              repository: snapshot.data.nodes[index],
-            ),
-      );
-    },
-  );
-}
-</code></pre><p>在这里，我们使用了 <code>FutureBuilder</code> 来等待网络调用（Future）的完成。一旦网络调用完成，出现结果或错误，<code>FutureBuilder</code> 组件会在内部调用 <code>setState</code> 来调用所提供的 <code>builder</code> 方法来重新渲染。正如你在这个例子中看到的，一切都是<strong>声明式的</strong>。在 Android 上做同样的事情通常需要一个被动的 XML 布局，然后需要一些其他类来手动设置状态，比如 Adapter 和视图模型。这种方法的问题在于，状态可能与屏幕上渲染的状态不同。这就是为什么我们希望拥有像 Flutter 为我们提供的那样的声明性布局。我们最终编写的代码要少得多，同时将状态绑定到要在屏幕上显示的内容。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> FutureBuilder&lt;Repositories&gt;(</span><br><span class="line">    future: apiClient.getUserRepositoriesFuture(username),</span><br><span class="line">    builder: (BuildContext context, </span><br><span class="line">        AsyncSnapshot&lt;Repositories&gt; snapshot) &#123;</span><br><span class="line">      <span class="keyword">if</span> (snapshot.hasError)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Center(child: <span class="keyword">new</span> Text(<span class="string">"Network error"</span>));</span><br><span class="line">      <span class="keyword">if</span> (!snapshot.hasData)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Center(</span><br><span class="line">          child: <span class="keyword">new</span> CircularProgressIndicator(),</span><br><span class="line">        );</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> ListView.builder(</span><br><span class="line">        itemCount: snapshot.data.nodes.length,</span><br><span class="line">        itemBuilder: <span class="function"><span class="params">(BuildContext context, int index)</span> =&gt;</span></span><br><span class="line">            <span class="keyword">new</span> RepoPreviewTile(</span><br><span class="line">              repository: snapshot.data.nodes[index],</span><br><span class="line">            ),</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，我们使用了 <code>FutureBuilder</code> 来等待网络调用（Future）的完成。一旦网络调用完成，出现结果或错误，<code>FutureBuilder</code> 组件会在内部调用 <code>setState</code> 来调用所提供的 <code>builder</code> 方法来重新渲染。正如你在这个例子中看到的，一切都是<strong>声明式的</strong>。在 Android 上做同样的事情通常需要一个被动的 XML 布局，然后需要一些其他类来手动设置状态，比如 Adapter 和视图模型。这种方法的问题在于，状态可能与屏幕上渲染的状态不同。这就是为什么我们希望拥有像 Flutter 为我们提供的那样的声明性布局。我们最终编写的代码要少得多，同时将状态绑定到要在屏幕上显示的内容。</p>
 <p>有了这些声明性布局，我们也开始对架构进行了不同的思考。突然间，<strong>reactive</strong> 这个词出现了，我们谈论了更多的是关于状态管理的内容，而不是架构。有了 Flutter，像 MVP 和 MVVM 这样的架构已经没有多大有意义了；我们不再使用它们了，而是考虑状态如何流经我们的应用。状态突然成为讨论的一个重要部分，我们将投入越来越多精力去思考构建应用的新方法上。这对我们所有人来说都是一次新的旅程，有许多事情可以解决，但最重要的是，这是我们开阔视野的机会。</p>
 <p>坦白地说，Flutter 也不只有阳光和彩虹。我目前正在与 Flutter 合作开展一个更大的项目来了解它的弱点，迄今为止我遇到的最大缺陷是缺乏基础设施。当我尝试使用 Graphql-API 时，这个问题就非常明显；虽然有库确实会这样做，但它们并没有接近 Android 与 Apollo 的关系。不过，好消息是，Flutter 迎头赶上只是时间的问题，在此期间扩展现有的库，甚至建立自己的库并不困难。请注意，你可能需要花一些时间投入在应用程序的基础设施中，而对于 Android 和 iOS 来说，情况通常并非如此 —— 毕竟，天下没有免费的午餐。</p>
 <p>最后，我最近从使用 Flutter 中得到的最大启示之一就是，体验这种构建 UI 的声明方式以及它对状态管理的影响是非常有用的。我觉得 Flutter 太棒了；不过，我告诫你不要把它当作解决你所有问题的银弹，而应该是作为一种创新的工具，它可以比在 Android 上更快地构建漂亮的自定义 UI。更重要的是，它展示了强大的声明性布局功能，并让你将应用视为渲染状态，而不是非连贯性 Activity，视图和视图模型 —— 仅此而言，我强烈建议你尝试一下 Flutter。</p>

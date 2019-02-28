@@ -254,7 +254,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 
     
         <meta property="article:published_time" content="Mon Jun 20 2016 11:25:51 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 10:43:51 GMT+0000">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 10:48:36 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -277,7 +277,7 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/06/20/2016-06-20-Android-shape/index.html",
     "headline": "Android shape",
     "datePublished": "Mon Jun 20 2016 11:25:51 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 10:43:51 GMT+0000",
+    "dateModified": "Thu Feb 28 2019 10:48:36 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -539,48 +539,12 @@ rectangle: 矩形，默认的形状，可以画出直角矩形、圆角矩形、
 <li><code>ring</code>: <code>环形</code>，可以画环形进度条</li>
 </ol>
 <p><code>gradient</code>代表渐变，可以按照如下的使用：</p>
-<pre><code>&lt;gradient
-       android:angle=&quot;0&quot;
-       android:centerColor=&quot;#ff0f00&quot;
-       android:endColor=&quot;#ff00ff&quot;
-       android:startColor=&quot;#00ff00&quot; /&gt;
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;gradient</span><br><span class="line">       android:<span class="attribute">angle</span>=<span class="string">"0"</span></span><br><span class="line">       android:<span class="attribute">centerColor</span>=<span class="string">"#ff0f00"</span></span><br><span class="line">       android:<span class="attribute">endColor</span>=<span class="string">"#ff00ff"</span></span><br><span class="line">       android:<span class="attribute">startColor</span>=<span class="string">"#00ff00"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p><code>solid</code>代表实心，可以按照如下的使用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#F0FFFF"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>solid</code>代表描边，可以按照如下的使用：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;stroke</span><br><span class="line">       android:<span class="attribute">width</span>=<span class="string">"10dp"</span></span><br><span class="line">       android:<span class="attribute">color</span>=<span class="string">"#00FFFF"</span></span><br><span class="line">       android:<span class="attribute">dashGap</span>=<span class="string">"5dp"</span></span><br><span class="line">       android:<span class="attribute">dashWidth</span>=<span class="string">"5dp"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>corners</code>代表圆角，可以按照如下的使用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"5dp"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>看下完整的shape(drawable/…xml)文件:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:shape</span>=<span class="string">"rectangle"</span>  四种类型 &gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 渐变 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">gradient</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:angle</span>=<span class="string">"0"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:centerColor</span>=<span class="string">"#ff0f00"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:endColor</span>=<span class="string">"#ff00ff"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:startColor</span>=<span class="string">"#00ff00"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 实心 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#F0FFFF"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 描边 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stroke</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:width</span>=<span class="string">"10dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:color</span>=<span class="string">"#00FFFF"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:dashGap</span>=<span class="string">"5dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:dashWidth</span>=<span class="string">"5dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 圆角 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"100dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
-</code></pre><p><code>solid</code>代表实心，可以按照如下的使用：</p>
-<pre><code>&lt;solid android:color=&quot;#F0FFFF&quot; /&gt;
-</code></pre><p><code>solid</code>代表描边，可以按照如下的使用：</p>
-<pre><code>&lt;stroke
-       android:width=&quot;10dp&quot;
-       android:color=&quot;#00FFFF&quot;
-       android:dashGap=&quot;5dp&quot;
-       android:dashWidth=&quot;5dp&quot; /&gt;
-</code></pre><p><code>corners</code>代表圆角，可以按照如下的使用：</p>
-<pre><code>&lt;corners android:radius=&quot;5dp&quot; /&gt;
-</code></pre><p>看下完整的shape(drawable/…xml)文件:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:shape=&quot;rectangle&quot;  四种类型 &gt;
-
-    &lt;!-- 渐变 --&gt;
-    &lt;gradient
-        android:angle=&quot;0&quot;
-        android:centerColor=&quot;#ff0f00&quot;
-        android:endColor=&quot;#ff00ff&quot;
-        android:startColor=&quot;#00ff00&quot; /&gt;
-
-    &lt;!-- 实心 --&gt;
-    &lt;solid android:color=&quot;#F0FFFF&quot; /&gt;
-
-    &lt;!-- 描边 --&gt;
-    &lt;stroke
-        android:width=&quot;10dp&quot;
-        android:color=&quot;#00FFFF&quot;
-        android:dashGap=&quot;5dp&quot;
-        android:dashWidth=&quot;5dp&quot; /&gt;
-
-    &lt;!-- 圆角 --&gt;
-    &lt;corners android:radius=&quot;100dp&quot; /&gt;
-&lt;/shape&gt;
-</code></pre>
         
     
 
