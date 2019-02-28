@@ -16,6 +16,12 @@ thumbnail: /img/link_cover.png
 |[wanandroid](http://wanandroid.com/)| 玩Android - 鸿洋 |
 |[Gank](http://gank.io/) | 干货集中营 |
 
+## Flutter
+| 链接        |     简介     |
+| :----------- | :-----------|
+|[Flutter](https://github.com/solido/awesome-flutter)| Solido/awesome-flutter 集合 |
+|[Flutter 的 Widget 生成器](https://juejin.im/post/5c732e8ff265da2d8e70ed36)| 拖拽生成 Flutter 布局代码 |
+
 ## 温故而知新
 | 链接        |     简介     |
 | :----------- | :-----------|
@@ -34,7 +40,6 @@ thumbnail: /img/link_cover.png
 | 链接        |     简介     |
 | :----------- | :-----------|
 |[Java / Android 笔试、面试](https://github.com/hadyang/interview)| 知识整理 |
-|[Flutter](https://github.com/solido/awesome-flutter)| Solido/awesome-flutter 集合 |
 |[AndroidChromium](https://github.com/JackyAndroid/AndroidChromium/blob/master/README-CN.md) | 谷歌浏览器安卓版源码项目，世界级的安卓架构 |
 |[Android Google ARCore 尝鲜记录](https://mp.weixin.qq.com/s/BwjyJwUJKZSSaaKbzRiT8Q) |  AR 尝鲜 - D_clock 爱吃葱花 |
 |[360° 全景图片、全景视频工程](https://github.com/sfsheng0322/DroidVR)| VR |
