@@ -955,7 +955,8 @@ It will not impact the appearance and can give developers a lot of support :)
             <script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
             <div id="time">
                 <script>
-                    var begin = moment([2015, 04, 11]);
+                    <!--2016年3月24日，我在简书发表第一篇博客：https://www.jianshu.com/p/79a476be02e5 -->
+                    var begin = moment([2016, 03, 24]);
                     var now = moment();
                     setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
                 </script>
