@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Wed Dec 07 2016 14:19:05 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 11:02:27 GMT+0000">
+        <meta property="article:modified_time" content="Tue Mar 05 2019 08:39:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/12/07/2016-12-07-flow.ci持续集成/index.html",
     "headline": "Flow.ci持续集成",
     "datePublished": "Wed Dec 07 2016 14:19:05 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 11:02:27 GMT+0000",
+    "dateModified": "Tue Mar 05 2019 08:39:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -539,8 +539,21 @@
 <p> 工作流选择, <code>Nodejs</code>(Hexo编译所需环境)，版本选择了最新的<code>v6.6.0</code>, 当然还有其他的, <code>Python</code>, <code>Android</code>, <code>Php</code>等。<br> 后面我会尝试使用<code>Android持续集成</code>，也会写相应文章。</p>
 <h2 id="触发器-什么时候自动集成"><a href="#触发器-什么时候自动集成" class="headerlink" title="触发器(什么时候自动集成)"></a>触发器(什么时候自动集成)</h2><p> 设置 触发器-push-正则匹配-master, 意思就是当 hexo博客git的master源文件改变时, 就会触发FlowCi的持续集成!</p>
 <h2 id="自定义脚本"><a href="#自定义脚本" class="headerlink" title="自定义脚本"></a>自定义脚本</h2><p>这里的 <code>.daocloud文件夹</code>(文件夹随便怎么命名)是用来存放<code>id_rsa</code>的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Hexo命令行工具</span></span><br><span class="line">flow_cmd <span class="string">"npm install hexo-cli -g"</span> --<span class="built_in">echo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备并安装私钥</span></span><br><span class="line">flow_cmd <span class="string">"cp .daocloud/id_rsa ."</span> --<span class="built_in">echo</span>  </span><br><span class="line">flow_cmd <span class="string">"chmod 600 ./id_rsa"</span> --<span class="built_in">echo</span>  </span><br><span class="line">flow_cmd <span class="string">"eval <span class="variable">$(ssh-agent)</span>"</span> --<span class="built_in">echo</span>  </span><br><span class="line">flow_cmd <span class="string">"ssh-add ./id_rsa"</span> --<span class="built_in">echo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行Hexo生成和发布</span></span><br><span class="line"></span><br><span class="line">flow_cmd <span class="string">"hexo clean"</span> --<span class="built_in">echo</span>  </span><br><span class="line">flow_cmd <span class="string">"hexo g"</span> --<span class="built_in">echo</span>  </span><br><span class="line">flow_cmd <span class="string">"hexo d"</span> --<span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1fai8ir2iphj217j0kv77e.jpg" alt="custom script"></p>
+<pre><code># 安装Hexo命令行工具
+flow_cmd &quot;npm install hexo-cli -g&quot; --echo
+
+# 准备并安装私钥
+flow_cmd &quot;cp .daocloud/id_rsa .&quot; --echo  
+flow_cmd &quot;chmod 600 ./id_rsa&quot; --echo  
+flow_cmd &quot;eval $(ssh-agent)&quot; --echo  
+flow_cmd &quot;ssh-add ./id_rsa&quot; --echo
+
+# 执行Hexo生成和发布
+
+flow_cmd &quot;hexo clean&quot; --echo  
+flow_cmd &quot;hexo g&quot; --echo  
+flow_cmd &quot;hexo d&quot; --echo
+</code></pre><p><img src="http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1fai8ir2iphj217j0kv77e.jpg" alt="custom script"></p>
 <h1 id="添加FlowCi的-RSA公匙到github以及coding-授予读写权限"><a href="#添加FlowCi的-RSA公匙到github以及coding-授予读写权限" class="headerlink" title="添加FlowCi的 RSA公匙到github以及coding(授予读写权限)"></a>添加FlowCi的 RSA公匙到github以及coding(授予读写权限)</h1><p><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1fajdovw24yj21640e4wh4.jpg" alt="RSA公匙配置"></p>
 <h1 id="快去提交代码吧"><a href="#快去提交代码吧" class="headerlink" title="快去提交代码吧"></a>快去提交代码吧</h1><p>我是单独在coding建了一个新的仓库存放博客源文件,<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge-CI" target="_blank" rel="noopener">yangxiaoge-CI</a><br>之后只要往<code>yangxiaoge-CI</code>仓库中提交或者增删改查时, <code>FlowCi</code>会自动集成并发布到<a href="https://coding.net/u/yangxiaoge/p/yangxiaoge" target="_blank" rel="noopener">yangxiaoge</a>编译后的博客地址中!<br><strong>binggo!!!</strong>坐等集成好,登录网站查看变动吧！是不是很爽😏 , 跨PC更新博客也更方便啦~~~</p>
 

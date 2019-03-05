@@ -253,7 +253,7 @@
 
     
         <meta property="article:published_time" content="Tue Jun 21 2016 14:02:55 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 11:02:27 GMT+0000">
+        <meta property="article:modified_time" content="Tue Mar 05 2019 08:39:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -276,7 +276,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/06/21/2016-06-21-Android-ORMLite-框架用法/index.html",
     "headline": "Android ORMLite 框架用法",
     "datePublished": "Tue Jun 21 2016 14:02:55 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 11:02:27 GMT+0000",
+    "dateModified": "Tue Mar 05 2019 08:39:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -549,15 +549,301 @@
 <h1 id="下载-ORMLite-Jar"><a href="#下载-ORMLite-Jar" class="headerlink" title="下载 ORMLite Jar"></a>下载 ORMLite Jar</h1><p>首先去<a href="http://ormlite.com/releases/" target="_blank" rel="noopener">ORMLite官网下载jar包</a>，对于Android为：<code>ormlite-android-4.48.jar</code> 和 <code>ormlite-core-4.48.jar</code> ；</p>
 <p>ps:访问不了的朋友，文章末尾会把jar、源码、doc与本篇博客例子一起打包提供给大家下载。</p>
 <h1 id="配置Bean类"><a href="#配置Bean类" class="headerlink" title="配置Bean类"></a>配置Bean类</h1><p>有了jar,我们直接新建一个项目为：zhy_ormlite，然后把jar拷贝到libs下。</p>
-<p>然后新建一个包：com.zhy.zhy_ormlite.bean专门用于存放项目中的Bean，首先新建一个<code>User.Java</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhy.zhy_ormlite.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.field.DatabaseField;</span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.table.DatabaseTable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DatabaseTable</span>(tableName = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@DatabaseField</span>(generatedId = <span class="keyword">true</span>)</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="meta">@DatabaseField</span>(columnName = <span class="string">"name"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@DatabaseField</span>(columnName = <span class="string">"desc"</span>)</span><br><span class="line">	<span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, String desc)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.desc = desc;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getDesc</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> desc;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDesc</span><span class="params">(String desc)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.desc = desc;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>首先在User类上添加@DatabaseTable(tableName = “tb_user”)，标明这是数据库中的一张表，标明为tb_user<br>然后分别在属性上添加@DatabaseField(columnName = “name”) ，columnName的值为该字段在数据中的列名<br>@DatabaseField(generatedId = true) ，generatedId 表示id为主键且自动生成</p>
-<h1 id="编写DAO类"><a href="#编写DAO类" class="headerlink" title="编写DAO类"></a>编写DAO类</h1><p>原生的数据库操作，需要继承SQLiteOpenHelper，<code>这里</code>我们需要<code>继承OrmLiteSqliteOpenHelper</code>，看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhy.zhy_ormlite.db;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteDatabase;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;</span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.dao.Dao;</span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.support.ConnectionSource;</span><br><span class="line"><span class="keyword">import</span> com.j256.ormlite.table.TableUtils;</span><br><span class="line"><span class="keyword">import</span> com.zhy.zhy_ormlite.bean.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DatabaseHelper</span> <span class="keyword">extends</span> <span class="title">OrmLiteSqliteOpenHelper</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TABLE_NAME = <span class="string">"sqlite-test.db"</span>;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * userDao ，每张表对于一个</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> Dao&lt;User, Integer&gt; userDao;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DatabaseHelper</span><span class="params">(Context context)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, TABLE_NAME, <span class="keyword">null</span>, <span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase database,</span></span></span><br><span class="line"><span class="function"><span class="params">			ConnectionSource connectionSource)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			TableUtils.createTable(connectionSource, User.class);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase database,</span></span></span><br><span class="line"><span class="function"><span class="params">			ConnectionSource connectionSource, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			TableUtils.dropTable(connectionSource, User.class, <span class="keyword">true</span>);</span><br><span class="line">			onCreate(database, connectionSource);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DatabaseHelper instance;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 单例获取该Helper</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> DatabaseHelper <span class="title">getHelper</span><span class="params">(Context context)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (DatabaseHelper.class)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">					instance = <span class="keyword">new</span> DatabaseHelper(context);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获得userDao</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Dao&lt;User, Integer&gt; <span class="title">getUserDao</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (userDao == <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			userDao = getDao(User.class);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> userDao;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 释放资源</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.close();</span><br><span class="line">		userDao = <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里我们需要继承OrmLiteSqliteOpenHelper，<code>其实</code>就是<code>间接继承</code>了SQLiteOpenHelper<br>然后需要实现两个方法：<br>1、onCreate(SQLiteDatabase database,ConnectionSource connectionSource)<br>创建表，我们直接使用ormlite提供的TableUtils.createTable(connectionSource, User.class);进行创建~<br>2、onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion)<br>更新表，使用ormlite提供的TableUtils.dropTable(connectionSource, User.class, true);进行删除操作~<br>删除完成后，别忘了，创建操作：onCreate(database, connectionSource);</p>
-<p>然后使用单例公布出一个创建实例的方法，getHelper用于获取我们的help实例；<br>最后我们可能会有很多表嘛，每个表一般我们都会单独写个Dao用于操作，这里为了简单我并没有抽取出来，直接写在helper中：<br>比如UserDao的获取：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 获得userDao</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> SQLException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> Dao&lt;User, Integer&gt; getUserDao() <span class="keyword">throws</span> SQLException</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (userDao == <span class="literal">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			userDao = getDao(User.<span class="keyword">class</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> userDao;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后通过获取到的Dao就可以进行User的一些常用的操作了。</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>最后是<code>测试</code>，我们直接创建了一个<code>测试类</code>进行测试<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"><span class="keyword">package</span> com.zhy.zhy_ormlite.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zhy.zhy_ormlite.bean.User;</span><br><span class="line"><span class="keyword">import</span> com.zhy.zhy_ormlite.db.DatabaseHelper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.test.AndroidTestCase;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrmLiteDbTest</span> <span class="keyword"><span class="keyword">extends</span> <span class="type">AndroidTestCase</span></span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void testAddUser()</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		User u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">		DatabaseHelper helper = DatabaseHelper.getHelper(getContext());</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy2"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy3"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy4"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy5"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy6"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			helper.getUserDao().create(u1);</span><br><span class="line">			</span><br><span class="line">			testList();</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void testDeleteUser()</span><br><span class="line">	&#123;</span><br><span class="line">		DatabaseHelper helper = DatabaseHelper.getHelper(getContext());</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			helper.getUserDao().deleteById(<span class="number">2</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void testUpdateUser()</span><br><span class="line">	&#123;</span><br><span class="line">		DatabaseHelper helper = DatabaseHelper.getHelper(getContext());</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			User u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy-android"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			u1.setId(<span class="number">3</span>);</span><br><span class="line">			helper.getUserDao().update(u1);</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> void testList()</span><br><span class="line">	&#123;</span><br><span class="line">		DatabaseHelper helper = DatabaseHelper.getHelper(getContext());</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			User u1 = <span class="keyword">new</span> <span class="type">User</span>(<span class="string">"zhy-android"</span>, <span class="string">"2B青年"</span>);</span><br><span class="line">			u1.setId(<span class="number">2</span>);</span><br><span class="line">			List&lt;User&gt; users = helper.getUserDao().queryForAll();</span><br><span class="line">			Log.e(<span class="string">"TAG"</span>, users.toString());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">```</span><br><span class="line">`简单测试`了下CURD，使用`AndroidTestCase`记得配置下环境</span><br></pre></td></tr></table></figure></p>
-<p>用起来是不是还是非常方便的，不过还是建议大家例如User的数据库操作，单独抽取出来为UserDao，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zhy.zhy_ormlite.db;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zhy.zhy_ormlite.bean.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDao</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Context context;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">UserDao</span><span class="params">(Context context)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.context = context;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(User user)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">try</span></span><br><span class="line">		&#123;</span><br><span class="line">			DatabaseHelper.getHelper(context).getUserDao().create(user);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e)</span><br><span class="line">		&#123;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//......</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注：ORMLite还提供了一些基类ORMLiteBaseActivity，ORMLiteBaseService之类的，便于数据库操作的，这里不做考虑，毕竟项目中很大可能自己也需要继承自己的BaseActvity之类的。</p>
+<p>然后新建一个包：com.zhy.zhy_ormlite.bean专门用于存放项目中的Bean，首先新建一个<code>User.Java</code></p>
+<pre><code>package com.zhy.zhy_ormlite.bean;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = &quot;tb_user&quot;)
+public class User
+{
+    @DatabaseField(generatedId = true)
+    private int id;
+    @DatabaseField(columnName = &quot;name&quot;)
+    private String name;
+    @DatabaseField(columnName = &quot;desc&quot;)
+    private String desc;
+
+    public User()
+    {
+    }
+
+    public User(String name, String desc)
+    {
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getDesc()
+    {
+        return desc;
+    }
+
+    public void setDesc(String desc)
+    {
+        this.desc = desc;
+    }
+
+}
+
+</code></pre><p>首先在User类上添加@DatabaseTable(tableName = “tb_user”)，标明这是数据库中的一张表，标明为tb_user<br>然后分别在属性上添加@DatabaseField(columnName = “name”) ，columnName的值为该字段在数据中的列名<br>@DatabaseField(generatedId = true) ，generatedId 表示id为主键且自动生成</p>
+<h1 id="编写DAO类"><a href="#编写DAO类" class="headerlink" title="编写DAO类"></a>编写DAO类</h1><p>原生的数据库操作，需要继承SQLiteOpenHelper，<code>这里</code>我们需要<code>继承OrmLiteSqliteOpenHelper</code>，看代码：</p>
+<pre><code>package com.zhy.zhy_ormlite.db;
+
+import java.sql.SQLException;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+import com.zhy.zhy_ormlite.bean.User;
+
+public class DatabaseHelper extends OrmLiteSqliteOpenHelper
+{
+
+    private static final String TABLE_NAME = &quot;sqlite-test.db&quot;;
+    /**
+     * userDao ，每张表对于一个
+     */
+    private Dao&lt;User, Integer&gt; userDao;
+
+    private DatabaseHelper(Context context)
+    {
+        super(context, TABLE_NAME, null, 2);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase database,
+            ConnectionSource connectionSource)
+    {
+        try
+        {
+            TableUtils.createTable(connectionSource, User.class);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase database,
+            ConnectionSource connectionSource, int oldVersion, int newVersion)
+    {
+        try
+        {
+            TableUtils.dropTable(connectionSource, User.class, true);
+            onCreate(database, connectionSource);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private static DatabaseHelper instance;
+
+    /**
+     * 单例获取该Helper
+     * 
+     * @param context
+     * @return
+     */
+    public static synchronized DatabaseHelper getHelper(Context context)
+    {
+        if (instance == null)
+        {
+            synchronized (DatabaseHelper.class)
+            {
+                if (instance == null)
+                    instance = new DatabaseHelper(context);
+            }
+        }
+
+        return instance;
+    }
+
+    /**
+     * 获得userDao
+     * 
+     * @return
+     * @throws SQLException
+     */
+    public Dao&lt;User, Integer&gt; getUserDao() throws SQLException
+    {
+        if (userDao == null)
+        {
+            userDao = getDao(User.class);
+        }
+        return userDao;
+    }
+
+    /**
+     * 释放资源
+     */
+    @Override
+    public void close()
+    {
+        super.close();
+        userDao = null;
+    }
+
+}
+</code></pre><p>这里我们需要继承OrmLiteSqliteOpenHelper，<code>其实</code>就是<code>间接继承</code>了SQLiteOpenHelper<br>然后需要实现两个方法：<br>1、onCreate(SQLiteDatabase database,ConnectionSource connectionSource)<br>创建表，我们直接使用ormlite提供的TableUtils.createTable(connectionSource, User.class);进行创建~<br>2、onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion)<br>更新表，使用ormlite提供的TableUtils.dropTable(connectionSource, User.class, true);进行删除操作~<br>删除完成后，别忘了，创建操作：onCreate(database, connectionSource);</p>
+<p>然后使用单例公布出一个创建实例的方法，getHelper用于获取我们的help实例；<br>最后我们可能会有很多表嘛，每个表一般我们都会单独写个Dao用于操作，这里为了简单我并没有抽取出来，直接写在helper中：<br>比如UserDao的获取：</p>
+<pre><code>/**
+     * 获得userDao
+     * 
+     * @return
+     * @throws SQLException
+     */
+    public Dao&lt;User, Integer&gt; getUserDao() throws SQLException
+    {
+        if (userDao == null)
+        {
+            userDao = getDao(User.class);
+        }
+        return userDao;
+    }
+</code></pre><p>然后通过获取到的Dao就可以进行User的一些常用的操作了。</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>最后是<code>测试</code>，我们直接创建了一个<code>测试类</code>进行测试~~~</p>
+<pre><code>package com.zhy.zhy_ormlite.test;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.zhy.zhy_ormlite.bean.User;
+import com.zhy.zhy_ormlite.db.DatabaseHelper;
+
+import android.test.AndroidTestCase;
+import android.util.Log;
+
+public class OrmLiteDbTest extends AndroidTestCase
+{
+
+    public void testAddUser()
+    {
+
+        User u1 = new User(&quot;zhy&quot;, &quot;2B青年&quot;);
+        DatabaseHelper helper = DatabaseHelper.getHelper(getContext());
+        try
+        {
+            helper.getUserDao().create(u1);
+            u1 = new User(&quot;zhy2&quot;, &quot;2B青年&quot;);
+            helper.getUserDao().create(u1);
+            u1 = new User(&quot;zhy3&quot;, &quot;2B青年&quot;);
+            helper.getUserDao().create(u1);
+            u1 = new User(&quot;zhy4&quot;, &quot;2B青年&quot;);
+            helper.getUserDao().create(u1);
+            u1 = new User(&quot;zhy5&quot;, &quot;2B青年&quot;);
+            helper.getUserDao().create(u1);
+            u1 = new User(&quot;zhy6&quot;, &quot;2B青年&quot;);
+            helper.getUserDao().create(u1);
+
+            testList();
+
+
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void testDeleteUser()
+    {
+        DatabaseHelper helper = DatabaseHelper.getHelper(getContext());
+        try
+        {
+            helper.getUserDao().deleteById(2);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void testUpdateUser()
+    {
+        DatabaseHelper helper = DatabaseHelper.getHelper(getContext());
+        try
+        {
+            User u1 = new User(&quot;zhy-android&quot;, &quot;2B青年&quot;);
+            u1.setId(3);
+            helper.getUserDao().update(u1);
+
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void testList()
+    {
+        DatabaseHelper helper = DatabaseHelper.getHelper(getContext());
+        try
+        {
+            User u1 = new User(&quot;zhy-android&quot;, &quot;2B青年&quot;);
+            u1.setId(2);
+            List&lt;User&gt; users = helper.getUserDao().queryForAll();
+            Log.e(&quot;TAG&quot;, users.toString());
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+}
+</code></pre><p><code>简单测试</code>了下CURD，使用<code>AndroidTestCase</code>记得配置下环境~~~<br>用起来是不是还是非常方便的，不过还是建议大家例如User的数据库操作，单独抽取出来为UserDao，如下：</p>
+<pre><code>package com.zhy.zhy_ormlite.db;
+
+import java.sql.SQLException;
+
+import android.content.Context;
+
+import com.zhy.zhy_ormlite.bean.User;
+
+public class UserDao
+{
+    private Context context;
+
+    public UserDao(Context context)
+    {
+        this.context = context;
+    }
+
+    public void add(User user)
+    {
+        try
+        {
+            DatabaseHelper.getHelper(context).getUserDao().create(user);
+        } catch (SQLException e)
+        {
+        }
+    }//......
+
+}
+</code></pre><p>注：ORMLite还提供了一些基类ORMLiteBaseActivity，ORMLiteBaseService之类的，便于数据库操作的，这里不做考虑，毕竟项目中很大可能自己也需要继承自己的BaseActvity之类的。</p>
 <p>上面简单介绍了如何使用ORMLite框架，<a href="http://blog.csdn.net/lmj623565791/article/details/39122981" target="_blank" rel="noopener">Android 快速开发系列 ORMLite 框架的使用</a> 将对其用法进行深入的介绍。</p>
 <p>#<a href="http://download.csdn.net/detail/lmj623565791/7878003" target="_blank" rel="noopener">源码点击下载</a></p>
 

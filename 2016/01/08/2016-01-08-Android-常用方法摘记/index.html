@@ -55,10 +55,110 @@
     <link rel="icon" href="/img/favicon.ico">
 
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293使用方法：1，布局中直接集成2，signView.reset(); 可以重置view3，通过其他方法可以将view转成Bitmap/** * Created by yangjianan on 2018/5/10. * mail: yang.jianan0926@gmail.com * 手写签名文件 */public class SignView extends View &amp;#123;    private Paint mPaint;    private Path mPath;    public SignView(Context context) &amp;#123;        super(context);    &amp;#125;    public SignView(Context context, @Nullable AttributeSet attrs) &amp;#123;        super(context, attrs);        initPaint();    &amp;#125;    private void initPaint() &amp;#123;        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);        mPaint.setColor(Color.RED);        mPaint.setStrokeWidth(10);        mPaint.setStyle(Paint.Style.STROKE);        mPath = new Path();    &amp;#125;    @Override    protected void onDraw(Canvas canvas) &amp;#123;        super.onDraw(canvas);        canvas.drawPath(mPath, mPaint);    &amp;#125;    @Override    public boolean onTouchEvent(MotionEvent event) &amp;#123;        switch (MotionEventCompat.getActionMasked(event)) &amp;#123;            case MotionEvent.ACTION_DOWN:                mPath.moveTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_MOVE:                mPath.lineTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_UP:                break;        &amp;#125;        invalidate();        return true;    &amp;#125;    public void reset() &amp;#123;        mPath.reset();        invalidate();    &amp;#125;&amp;#125;    /**     * 把一个view转化成bitmap对象     */    private Bitmap loadBitmapFromView(View v) &amp;#123;        int w = v.getWidth();        int h = v.getHeight();        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);        Canvas c = new Canvas(bmp);        c.drawColor(Color.WHITE);        /** 如果不设置canvas画布为白色，则生成透明 */        v.layout(0, 0, w, h);        v.draw(c);        return bmp;    &amp;#125;    private void saveImage(Bitmap bmp) &amp;#123;        String fileName = &quot;0001.jpg&quot;;        File file = new File(getExternalCacheDir(), fileName);	if (!file.exists()) &amp;#123;            appDir.mkdir();        &amp;#125;        try &amp;#123;            FileOutputStream fos = new FileOutputStream(file);            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);            fos.flush();            fos.close();        &amp;#125; catch (Exception e) &amp;#123;            e.printStackTrace();            Log.i(&quot;rxjava&quot;,&quot;IOException e = &quot; + e.getMessage());        &amp;#125;    &amp;#125;
-Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath12345&amp;lt;sourcePath&amp;gt;        &amp;lt;root type=&quot;composite&quot;&amp;gt;            &amp;lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&amp;gt;        &amp;lt;/root&amp;gt;&amp;lt;/sourcePath&amp;gt;
+    <meta name="description" itemprop="description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)使用方法：
+1，布局中直接集成
+2，signView.reset(); 可以重置view
+3，通过其他方法可以将view转成Bitmap
+
+/**
+ * Created by yangjianan on 2018/5/10.
+ * mail: yang.jianan0926@gmail.com
+ * 手写签名文件
+ */
+public class SignView extends View {
+
+    private Paint mPaint;
+    private Path mPath;
+
+    public SignView(Context context) {
+        super(context);
+    }
+
+    public SignView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+
+    private void initPaint() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.STROKE);
+
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (MotionEventCompat.getActionMasked(event)) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        invalidate();
+        return true;
+    }
+
+    public void reset() {
+        mPath.reset();
+        invalidate();
+    }
+}
+
+
+    /**
+     * 把一个view转化成bitmap对象
+     */
+    private Bitmap loadBitmapFromView(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        c.drawColor(Color.WHITE);
+        /** 如果不设置canvas画布为白色，则生成透明 */
+        v.layout(0, 0, w, h);
+        v.draw(c);
+        return bmp;
+    }
+
+    private void saveImage(Bitmap bmp) {
+        String fileName = &amp;quot;0001.jpg&amp;quot;;
+        File file = new File(getExternalCacheDir(), fileName);
+    if (!file.exists()) {
+            appDir.mkdir();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(&amp;quot;rxjava&amp;quot;,&amp;quot;IOException e = &amp;quot; + e.getMessage());
+        }
+    }
+
+Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
+&amp;lt;sourcePath&amp;gt;
+        &amp;lt;root type=&amp;quot;composite&amp;quot;&amp;gt;
+            &amp;lt;root type=&amp;quot;simple&amp;quot; url=&amp;quot;file://E:/sdk/sources/android-26&amp;quot; /&amp;gt;
+        &amp;lt;/root&amp;gt;
+&amp;lt;/sourcePath&amp;gt;
 exploded-aar 不显示问题gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip
-ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2， cd .ssh/3， cat id_rsa.pub
+ubuntu 生成 key1， ssh-keygen -t rsa -C &amp;quot;yangjianan@begoit.com&amp;quot;
+2， cd .ssh/
+3， cat id_rsa.pub
 将美化后的 Json 字符串展示到 TextView 上">
     <meta name="keywords" content="null,Android">
     <meta name="theme-color" content="#455A64">
@@ -244,16 +344,116 @@ ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Android常用方法摘记以及收集 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
-    <meta property="og:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293使用方法：1，布局中直接集成2，signView.reset(); 可以重置view3，通过其他方法可以将view转成Bitmap/** * Created by yangjianan on 2018/5/10. * mail: yang.jianan0926@gmail.com * 手写签名文件 */public class SignView extends View &amp;#123;    private Paint mPaint;    private Path mPath;    public SignView(Context context) &amp;#123;        super(context);    &amp;#125;    public SignView(Context context, @Nullable AttributeSet attrs) &amp;#123;        super(context, attrs);        initPaint();    &amp;#125;    private void initPaint() &amp;#123;        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);        mPaint.setColor(Color.RED);        mPaint.setStrokeWidth(10);        mPaint.setStyle(Paint.Style.STROKE);        mPath = new Path();    &amp;#125;    @Override    protected void onDraw(Canvas canvas) &amp;#123;        super.onDraw(canvas);        canvas.drawPath(mPath, mPaint);    &amp;#125;    @Override    public boolean onTouchEvent(MotionEvent event) &amp;#123;        switch (MotionEventCompat.getActionMasked(event)) &amp;#123;            case MotionEvent.ACTION_DOWN:                mPath.moveTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_MOVE:                mPath.lineTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_UP:                break;        &amp;#125;        invalidate();        return true;    &amp;#125;    public void reset() &amp;#123;        mPath.reset();        invalidate();    &amp;#125;&amp;#125;    /**     * 把一个view转化成bitmap对象     */    private Bitmap loadBitmapFromView(View v) &amp;#123;        int w = v.getWidth();        int h = v.getHeight();        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);        Canvas c = new Canvas(bmp);        c.drawColor(Color.WHITE);        /** 如果不设置canvas画布为白色，则生成透明 */        v.layout(0, 0, w, h);        v.draw(c);        return bmp;    &amp;#125;    private void saveImage(Bitmap bmp) &amp;#123;        String fileName = &quot;0001.jpg&quot;;        File file = new File(getExternalCacheDir(), fileName);	if (!file.exists()) &amp;#123;            appDir.mkdir();        &amp;#125;        try &amp;#123;            FileOutputStream fos = new FileOutputStream(file);            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);            fos.flush();            fos.close();        &amp;#125; catch (Exception e) &amp;#123;            e.printStackTrace();            Log.i(&quot;rxjava&quot;,&quot;IOException e = &quot; + e.getMessage());        &amp;#125;    &amp;#125;
-Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath12345&amp;lt;sourcePath&amp;gt;        &amp;lt;root type=&quot;composite&quot;&amp;gt;            &amp;lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&amp;gt;        &amp;lt;/root&amp;gt;&amp;lt;/sourcePath&amp;gt;
+    <meta property="og:description" content="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)使用方法：
+1，布局中直接集成
+2，signView.reset(); 可以重置view
+3，通过其他方法可以将view转成Bitmap
+
+/**
+ * Created by yangjianan on 2018/5/10.
+ * mail: yang.jianan0926@gmail.com
+ * 手写签名文件
+ */
+public class SignView extends View {
+
+    private Paint mPaint;
+    private Path mPath;
+
+    public SignView(Context context) {
+        super(context);
+    }
+
+    public SignView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+
+    private void initPaint() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.STROKE);
+
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (MotionEventCompat.getActionMasked(event)) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        invalidate();
+        return true;
+    }
+
+    public void reset() {
+        mPath.reset();
+        invalidate();
+    }
+}
+
+
+    /**
+     * 把一个view转化成bitmap对象
+     */
+    private Bitmap loadBitmapFromView(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        c.drawColor(Color.WHITE);
+        /** 如果不设置canvas画布为白色，则生成透明 */
+        v.layout(0, 0, w, h);
+        v.draw(c);
+        return bmp;
+    }
+
+    private void saveImage(Bitmap bmp) {
+        String fileName = &amp;quot;0001.jpg&amp;quot;;
+        File file = new File(getExternalCacheDir(), fileName);
+    if (!file.exists()) {
+            appDir.mkdir();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(&amp;quot;rxjava&amp;quot;,&amp;quot;IOException e = &amp;quot; + e.getMessage());
+        }
+    }
+
+Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
+&amp;lt;sourcePath&amp;gt;
+        &amp;lt;root type=&amp;quot;composite&amp;quot;&amp;gt;
+            &amp;lt;root type=&amp;quot;simple&amp;quot; url=&amp;quot;file://E:/sdk/sources/android-26&amp;quot; /&amp;gt;
+        &amp;lt;/root&amp;gt;
+&amp;lt;/sourcePath&amp;gt;
 exploded-aar 不显示问题gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip
-ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2， cd .ssh/3， cat id_rsa.pub
+ubuntu 生成 key1， ssh-keygen -t rsa -C &amp;quot;yangjianan@begoit.com&amp;quot;
+2， cd .ssh/
+3， cat id_rsa.pub
 将美化后的 Json 字符串展示到 TextView 上">
     <meta property="og:article:tag" content="Android"> 
 
     
         <meta property="article:published_time" content="Fri Jan 08 2016 10:50:55 GMT+0000">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 11:02:27 GMT+0000">
+        <meta property="article:modified_time" content="Tue Mar 05 2019 08:39:49 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -276,7 +476,7 @@ ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/01/08/2016-01-08-Android-常用方法摘记/index.html",
     "headline": "Android常用方法摘记以及收集",
     "datePublished": "Fri Jan 08 2016 10:50:55 GMT+0000",
-    "dateModified": "Thu Feb 28 2019 11:02:27 GMT+0000",
+    "dateModified": "Tue Mar 05 2019 08:39:49 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -295,10 +495,110 @@ ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2
         }
     },
     "keywords": ",Androidnull",
-    "description": "本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293使用方法：1，布局中直接集成2，signView.reset(); 可以重置view3，通过其他方法可以将view转成Bitmap/** * Created by yangjianan on 2018/5/10. * mail: yang.jianan0926@gmail.com * 手写签名文件 */public class SignView extends View &amp;#123;    private Paint mPaint;    private Path mPath;    public SignView(Context context) &amp;#123;        super(context);    &amp;#125;    public SignView(Context context, @Nullable AttributeSet attrs) &amp;#123;        super(context, attrs);        initPaint();    &amp;#125;    private void initPaint() &amp;#123;        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);        mPaint.setColor(Color.RED);        mPaint.setStrokeWidth(10);        mPaint.setStyle(Paint.Style.STROKE);        mPath = new Path();    &amp;#125;    @Override    protected void onDraw(Canvas canvas) &amp;#123;        super.onDraw(canvas);        canvas.drawPath(mPath, mPaint);    &amp;#125;    @Override    public boolean onTouchEvent(MotionEvent event) &amp;#123;        switch (MotionEventCompat.getActionMasked(event)) &amp;#123;            case MotionEvent.ACTION_DOWN:                mPath.moveTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_MOVE:                mPath.lineTo(event.getX(), event.getY());                break;            case MotionEvent.ACTION_UP:                break;        &amp;#125;        invalidate();        return true;    &amp;#125;    public void reset() &amp;#123;        mPath.reset();        invalidate();    &amp;#125;&amp;#125;    /**     * 把一个view转化成bitmap对象     */    private Bitmap loadBitmapFromView(View v) &amp;#123;        int w = v.getWidth();        int h = v.getHeight();        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);        Canvas c = new Canvas(bmp);        c.drawColor(Color.WHITE);        /** 如果不设置canvas画布为白色，则生成透明 */        v.layout(0, 0, w, h);        v.draw(c);        return bmp;    &amp;#125;    private void saveImage(Bitmap bmp) &amp;#123;        String fileName = &quot;0001.jpg&quot;;        File file = new File(getExternalCacheDir(), fileName);	if (!file.exists()) &amp;#123;            appDir.mkdir();        &amp;#125;        try &amp;#123;            FileOutputStream fos = new FileOutputStream(file);            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);            fos.flush();            fos.close();        &amp;#125; catch (Exception e) &amp;#123;            e.printStackTrace();            Log.i(&quot;rxjava&quot;,&quot;IOException e = &quot; + e.getMessage());        &amp;#125;    &amp;#125;
-Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath12345&amp;lt;sourcePath&amp;gt;        &amp;lt;root type=&quot;composite&quot;&amp;gt;            &amp;lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&amp;gt;        &amp;lt;/root&amp;gt;&amp;lt;/sourcePath&amp;gt;
+    "description": "本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)使用方法：
+1，布局中直接集成
+2，signView.reset(); 可以重置view
+3，通过其他方法可以将view转成Bitmap
+
+/**
+ * Created by yangjianan on 2018/5/10.
+ * mail: yang.jianan0926@gmail.com
+ * 手写签名文件
+ */
+public class SignView extends View {
+
+    private Paint mPaint;
+    private Path mPath;
+
+    public SignView(Context context) {
+        super(context);
+    }
+
+    public SignView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+
+    private void initPaint() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.STROKE);
+
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (MotionEventCompat.getActionMasked(event)) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        invalidate();
+        return true;
+    }
+
+    public void reset() {
+        mPath.reset();
+        invalidate();
+    }
+}
+
+
+    /**
+     * 把一个view转化成bitmap对象
+     */
+    private Bitmap loadBitmapFromView(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        c.drawColor(Color.WHITE);
+        /** 如果不设置canvas画布为白色，则生成透明 */
+        v.layout(0, 0, w, h);
+        v.draw(c);
+        return bmp;
+    }
+
+    private void saveImage(Bitmap bmp) {
+        String fileName = &amp;quot;0001.jpg&amp;quot;;
+        File file = new File(getExternalCacheDir(), fileName);
+    if (!file.exists()) {
+            appDir.mkdir();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(&amp;quot;rxjava&amp;quot;,&amp;quot;IOException e = &amp;quot; + e.getMessage());
+        }
+    }
+
+Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 sourcePath
+&amp;lt;sourcePath&amp;gt;
+        &amp;lt;root type=&amp;quot;composite&amp;quot;&amp;gt;
+            &amp;lt;root type=&amp;quot;simple&amp;quot; url=&amp;quot;file://E:/sdk/sources/android-26&amp;quot; /&amp;gt;
+        &amp;lt;/root&amp;gt;
+&amp;lt;/sourcePath&amp;gt;
 exploded-aar 不显示问题gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip
-ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2， cd .ssh/3， cat id_rsa.pub
+ubuntu 生成 key1， ssh-keygen -t rsa -C &amp;quot;yangjianan@begoit.com&amp;quot;
+2， cd .ssh/
+3， cat id_rsa.pub
 将美化后的 Json 字符串展示到 TextView 上",
 }
 </script>
@@ -540,21 +840,217 @@ ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"><a href="#本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！" class="headerlink" title="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"></a>本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！</h2><h3 id="自定义View-手写签名View"><a href="#自定义View-手写签名View" class="headerlink" title="自定义View(手写签名View)"></a>自定义View(手写签名View)</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">使用方法：</span><br><span class="line"><span class="number">1</span>，布局中直接集成</span><br><span class="line"><span class="number">2</span>，signView.reset()<span class="comment">; 可以重置view</span></span><br><span class="line"><span class="number">3</span>，通过其他方法可以将view转成<span class="keyword">Bitmap</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">/**</span></span><br><span class="line"> * Created by yangjianan on 2018/5/10.</span><br><span class="line"> * mail: yang.<span class="keyword">jianan0926@gmail.com</span></span><br><span class="line"><span class="keyword"> </span>* 手写签名文件</span><br><span class="line"> */</span><br><span class="line">public class SignView <span class="keyword">extends </span>View &#123;</span><br><span class="line"></span><br><span class="line">    private Paint mPaint<span class="comment">;</span></span><br><span class="line">    private Path mPath<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    public SignView(<span class="built_in">Context</span> <span class="built_in">context</span>) &#123;</span><br><span class="line">        super(<span class="built_in">context</span>)<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public SignView(<span class="built_in">Context</span> <span class="built_in">context</span>, @Nullable AttributeSet attrs) &#123;</span><br><span class="line">        super(<span class="built_in">context</span>, attrs)<span class="comment">;</span></span><br><span class="line">        initPaint()<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void initPaint() &#123;</span><br><span class="line">        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG)<span class="comment">;</span></span><br><span class="line">        mPaint.setColor(Color.RED)<span class="comment">;</span></span><br><span class="line">        mPaint.setStrokeWidth(<span class="number">10</span>)<span class="comment">;</span></span><br><span class="line">        mPaint.setStyle(Paint.Style.STROKE)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        mPath = new Path()<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onDraw(Canvas canvas) &#123;</span><br><span class="line">        super.onDraw(canvas)<span class="comment">;</span></span><br><span class="line">        canvas.drawPath(mPath, mPaint)<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public <span class="keyword">boolean </span>onTouchEvent(MotionEvent event) &#123;</span><br><span class="line">        <span class="keyword">switch </span>(MotionEventCompat.getActionMasked(event)) &#123;</span><br><span class="line">            case MotionEvent.ACTION_DOWN:</span><br><span class="line">                mPath.<span class="keyword">moveTo(event.getX(), </span>event.getY())<span class="comment">;</span></span><br><span class="line">                <span class="keyword">break;</span></span><br><span class="line"><span class="keyword"> </span>           case MotionEvent.ACTION_MOVE:</span><br><span class="line">                mPath.lineTo(event.getX(), event.getY())<span class="comment">;</span></span><br><span class="line">                <span class="keyword">break;</span></span><br><span class="line"><span class="keyword"> </span>           case MotionEvent.ACTION_UP:</span><br><span class="line">                <span class="keyword">break;</span></span><br><span class="line"><span class="keyword"> </span>       &#125;</span><br><span class="line">        invalidate()<span class="comment">;</span></span><br><span class="line">        return true<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void reset() &#123;</span><br><span class="line">        mPath.reset()<span class="comment">;</span></span><br><span class="line">        invalidate()<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把一个view转化成bitmap对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    private <span class="keyword">Bitmap </span>loadBitmapFromView(View v) &#123;</span><br><span class="line">        int w = v.getWidth()<span class="comment">;</span></span><br><span class="line">        int h = v.getHeight()<span class="comment">;</span></span><br><span class="line">        <span class="keyword">Bitmap </span><span class="keyword">bmp </span>= <span class="keyword">Bitmap.createBitmap(w, </span>h, <span class="keyword">Bitmap.Config.ARGB_8888);</span></span><br><span class="line"><span class="keyword"> </span>       Canvas c = new Canvas(<span class="keyword">bmp);</span></span><br><span class="line"><span class="keyword"> </span>       c.drawColor(Color.WHITE)<span class="comment">;</span></span><br><span class="line">        <span class="comment">/** 如果不设置canvas画布为白色，则生成透明 */</span></span><br><span class="line">        v.layout(<span class="number">0</span>, <span class="number">0</span>, w, h)<span class="comment">;</span></span><br><span class="line">        v.draw(c)<span class="comment">;</span></span><br><span class="line">        return <span class="keyword">bmp;</span></span><br><span class="line"><span class="keyword"> </span>   &#125;</span><br><span class="line"></span><br><span class="line">    private void saveImage(<span class="keyword">Bitmap </span><span class="keyword">bmp) </span>&#123;</span><br><span class="line">        String fileName = <span class="string">"0001.jpg"</span><span class="comment">;</span></span><br><span class="line">        File file = new File(getExternalCacheDir(), fileName)<span class="comment">;</span></span><br><span class="line">	if (!file.exists()) &#123;</span><br><span class="line">            appDir.mkdir()<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        try &#123;</span><br><span class="line">            FileOutputStream fos = new FileOutputStream(file)<span class="comment">;</span></span><br><span class="line">            <span class="keyword">bmp.compress(Bitmap.CompressFormat.JPEG, </span><span class="number">100</span>, fos)<span class="comment">;</span></span><br><span class="line">            fos.flush()<span class="comment">;</span></span><br><span class="line">            fos.<span class="keyword">close();</span></span><br><span class="line"><span class="keyword"> </span>       &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace()<span class="comment">;</span></span><br><span class="line">            Log.i(<span class="string">"rxjava"</span>,<span class="string">"IOException e = "</span> + e.getMessage())<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Android-Studio-无法关联-Api-26-源码-提示-Souces-for-android-api-26-platform-not-found"><a href="#Android-Studio-无法关联-Api-26-源码-提示-Souces-for-android-api-26-platform-not-found" class="headerlink" title="Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found"></a>Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found</h3><p>找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 <code>sourcePath</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sourcePath</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">root</span> <span class="attr">type</span>=<span class="string">"composite"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">root</span> <span class="attr">type</span>=<span class="string">"simple"</span> <span class="attr">url</span>=<span class="string">"file://E:/sdk/sources/android-26"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sourcePath</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="exploded-aar-不显示问题"><a href="#exploded-aar-不显示问题" class="headerlink" title="exploded-aar 不显示问题"></a><code>exploded-aar</code> 不显示问题</h3><p>gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，<br>建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip</p>
-<h3 id="ubuntu-生成-key"><a href="#ubuntu-生成-key" class="headerlink" title="ubuntu 生成 key"></a>ubuntu 生成 key</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>， ssh-keygen -t rsa -C <span class="string">"yangjianan@begoit.com"</span></span><br><span class="line"><span class="number">2</span>， cd .ssh/</span><br><span class="line"><span class="number">3</span>， cat id_rsa.pub</span><br></pre></td></tr></table></figure>
-<h3 id="将美化后的-Json-字符串展示到-TextView-上"><a href="#将美化后的-Json-字符串展示到-TextView-上" class="headerlink" title="将美化后的 Json 字符串展示到 TextView 上"></a>将美化后的 Json 字符串展示到 TextView 上</h3><a id="more"></a>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 美化 Json</span></span><br><span class="line"><span class="comment">     * @param jsonString json</span></span><br><span class="line"><span class="comment">     * @return prettyJson</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> printJson(<span class="keyword">String</span> jsonString) &#123;</span><br><span class="line">        <span class="keyword">String</span> prettyJson;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (jsonString.startsWith(<span class="string">"&#123;"</span>)) &#123;</span><br><span class="line">                <span class="keyword">JSONObject</span> jsonObject = <span class="keyword">new</span> <span class="keyword">JSONObject</span>(jsonString);</span><br><span class="line">                prettyJson = jsonObject.toString(<span class="number">4</span>);<span class="comment">// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (jsonString.startsWith(<span class="string">"["</span>)) &#123;</span><br><span class="line">                <span class="keyword">JSONArray</span> jsonArray = <span class="keyword">new</span> <span class="keyword">JSONArray</span>(jsonString);</span><br><span class="line">                prettyJson = jsonArray.toString(<span class="number">4</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                prettyJson = jsonString;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">            prettyJson = jsonString;</span><br><span class="line">        &#125;</span><br><span class="line">        Log.d(<span class="string">"message"</span>, <span class="string">""</span> + prettyJson);</span><br><span class="line">        <span class="keyword">return</span> prettyJson;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="获取当前页面-activity-实例-（随便什么地方都可以获取）"><a href="#获取当前页面-activity-实例-（随便什么地方都可以获取）" class="headerlink" title="获取当前页面 activity 实例 （随便什么地方都可以获取）"></a>获取当前页面 activity 实例 （随便什么地方都可以获取）</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前页面 activity 实例</span></span><br><span class="line">    public <span class="keyword">static</span> Activity getGlobleActivity() &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class activityThreadClass = Class.forName(<span class="string">"android.app.ActivityThread"</span>);</span><br><span class="line">            <span class="built_in">Object</span> activityThread = activityThreadClass.getMethod(<span class="string">"currentActivityThread"</span>).invoke(<span class="keyword">null</span>);</span><br><span class="line">            Field activitiesField = activityThreadClass.getDeclaredField(<span class="string">"mActivities"</span>);</span><br><span class="line">            activitiesField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="built_in">Map</span> activities = (<span class="built_in">Map</span>) activitiesField.<span class="keyword">get</span>(activityThread);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">Object</span> activityRecord : activities.values()) &#123;</span><br><span class="line">                Class activityRecordClass = activityRecord.getClass();</span><br><span class="line">                Field pausedField = activityRecordClass.getDeclaredField(<span class="string">"paused"</span>);</span><br><span class="line">                pausedField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                <span class="keyword">if</span> (!pausedField.getBoolean(activityRecord)) &#123;</span><br><span class="line">                    Field activityField = activityRecordClass.getDeclaredField(<span class="string">"activity"</span>);</span><br><span class="line">                    activityField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                    Activity activity = (Activity) activityField.<span class="keyword">get</span>(activityRecord);</span><br><span class="line">                    <span class="keyword">return</span> activity;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="返回键-app切换至后台"><a href="#返回键-app切换至后台" class="headerlink" title="返回键 app切换至后台"></a>返回键 app切换至后台</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK) &#123;</span><br><span class="line">           <span class="keyword">if</span> (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) &#123;</span><br><span class="line">               mBinding.drawerLayout.closeDrawer(GravityCompat.START);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="comment">// 不退出程序，进入后台</span></span><br><span class="line">               moveTaskToBack(<span class="keyword">true</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onKeyDown</span><span class="params">(keyCode, event)</span></span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="调用系统方法弹出-分享文本图片等-2016-12-06-19-16-43"><a href="#调用系统方法弹出-分享文本图片等-2016-12-06-19-16-43" class="headerlink" title="调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)"></a>调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by _SOLID</span></span><br><span class="line"><span class="comment"> * Date:2016/4/22</span></span><br><span class="line"><span class="comment"> * Time:12:45</span></span><br><span class="line"><span class="comment"> * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public class SystemShareUtils &#123;</span><br><span class="line"></span><br><span class="line">    public static void <span class="keyword">shareText(Context </span>ctx, String text) &#123;</span><br><span class="line">        Intent sendIntent = new Intent()<span class="comment">;</span></span><br><span class="line">        sendIntent.setAction(Intent.ACTION_SEND)<span class="comment">;</span></span><br><span class="line">        sendIntent.putExtra(Intent.<span class="keyword">EXTRA_TEXT, </span>text)<span class="comment">;</span></span><br><span class="line">        sendIntent.setType(<span class="string">"text/plain"</span>)<span class="comment">;</span></span><br><span class="line">        ctx.startActivity(Intent.createChooser(sendIntent, <span class="string">"分享至"</span>))<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void <span class="keyword">shareImage(Context </span>ctx, Uri uri) &#123;</span><br><span class="line">        Intent sendIntent = new Intent()<span class="comment">;</span></span><br><span class="line">        sendIntent.setAction(Intent.ACTION_SEND)<span class="comment">;</span></span><br><span class="line">        sendIntent.putExtra(Intent.<span class="keyword">EXTRA_STREAM, </span>uri)<span class="comment">;</span></span><br><span class="line">        sendIntent.setType(<span class="string">"image/jpeg"</span>)<span class="comment">;</span></span><br><span class="line">        ctx.startActivity(Intent.createChooser(sendIntent, <span class="string">"分享至"</span>))<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void <span class="keyword">shareImageList(Context </span>ctx, ArrayList&lt;Uri&gt; uris) &#123;</span><br><span class="line">        Intent sendIntent = new Intent()<span class="comment">;</span></span><br><span class="line">        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE)<span class="comment">;</span></span><br><span class="line">        sendIntent.putExtra(Intent.<span class="keyword">EXTRA_STREAM, </span>uris)<span class="comment">;</span></span><br><span class="line">        sendIntent.setType(<span class="string">"image/*"</span>)<span class="comment">;</span></span><br><span class="line">        ctx.startActivity(Intent.createChooser(sendIntent, <span class="string">"分享至"</span>))<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- more -->
+        <h2 id="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"><a href="#本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！" class="headerlink" title="本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！"></a>本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！</h2><h3 id="自定义View-手写签名View"><a href="#自定义View-手写签名View" class="headerlink" title="自定义View(手写签名View)"></a>自定义View(手写签名View)</h3><pre><code>使用方法：
+1，布局中直接集成
+2，signView.reset(); 可以重置view
+3，通过其他方法可以将view转成Bitmap
+
+/**
+ * Created by yangjianan on 2018/5/10.
+ * mail: yang.jianan0926@gmail.com
+ * 手写签名文件
+ */
+public class SignView extends View {
+
+    private Paint mPaint;
+    private Path mPath;
+
+    public SignView(Context context) {
+        super(context);
+    }
+
+    public SignView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initPaint();
+    }
+
+    private void initPaint() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(10);
+        mPaint.setStyle(Paint.Style.STROKE);
+
+        mPath = new Path();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (MotionEventCompat.getActionMasked(event)) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(event.getX(), event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        invalidate();
+        return true;
+    }
+
+    public void reset() {
+        mPath.reset();
+        invalidate();
+    }
+}
+
+
+    /**
+     * 把一个view转化成bitmap对象
+     */
+    private Bitmap loadBitmapFromView(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+        Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        c.drawColor(Color.WHITE);
+        /** 如果不设置canvas画布为白色，则生成透明 */
+        v.layout(0, 0, w, h);
+        v.draw(c);
+        return bmp;
+    }
+
+    private void saveImage(Bitmap bmp) {
+        String fileName = &quot;0001.jpg&quot;;
+        File file = new File(getExternalCacheDir(), fileName);
+    if (!file.exists()) {
+            appDir.mkdir();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i(&quot;rxjava&quot;,&quot;IOException e = &quot; + e.getMessage());
+        }
+    }
+
+</code></pre><h3 id="Android-Studio-无法关联-Api-26-源码-提示-Souces-for-android-api-26-platform-not-found"><a href="#Android-Studio-无法关联-Api-26-源码-提示-Souces-for-android-api-26-platform-not-found" class="headerlink" title="Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found"></a>Android Studio 无法关联 Api 26 源码 - 提示 Souces for android api 26 platform not found</h3><p>找到如下文件： C:\Users{USER_NAME}.AndroidStudio3.0\config\options\jdk.table.xml，修改节点 <code>sourcePath</code></p>
+<pre><code>&lt;sourcePath&gt;
+        &lt;root type=&quot;composite&quot;&gt;
+            &lt;root type=&quot;simple&quot; url=&quot;file://E:/sdk/sources/android-26&quot; /&gt;
+        &lt;/root&gt;
+&lt;/sourcePath&gt;
+</code></pre><h3 id="exploded-aar-不显示问题"><a href="#exploded-aar-不显示问题" class="headerlink" title="exploded-aar 不显示问题"></a><code>exploded-aar</code> 不显示问题</h3><p>gradle3.0 之后版本 compile aar 依赖，在 build\intermediates 下不会生成 exploded-aar 文件夹，<br>建议使用 classpath ‘com.android.tools.build:gradle:2.2.2’ 和 distributionUrl=https\://services.gradle.org/distributions/gradle-2.14.1-all.zip</p>
+<h3 id="ubuntu-生成-key"><a href="#ubuntu-生成-key" class="headerlink" title="ubuntu 生成 key"></a>ubuntu 生成 key</h3><pre><code>1， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;
+2， cd .ssh/
+3， cat id_rsa.pub
+</code></pre><h3 id="将美化后的-Json-字符串展示到-TextView-上"><a href="#将美化后的-Json-字符串展示到-TextView-上" class="headerlink" title="将美化后的 Json 字符串展示到 TextView 上"></a>将美化后的 Json 字符串展示到 TextView 上</h3><a id="more"></a>
+<pre><code>/**
+     * 美化 Json
+     * @param jsonString json
+     * @return prettyJson
+     */
+    public static String printJson(String jsonString) {
+        String prettyJson;
+        try {
+            if (jsonString.startsWith(&quot;{&quot;)) {
+                JSONObject jsonObject = new JSONObject(jsonString);
+                prettyJson = jsonObject.toString(4);// 最重要的方法，就一行，返回格式化的 json 字符串，其中的数字 4 是缩进字符数
+            } else if (jsonString.startsWith(&quot;[&quot;)) {
+                JSONArray jsonArray = new JSONArray(jsonString);
+                prettyJson = jsonArray.toString(4);
+            } else {
+                prettyJson = jsonString;
+            }
+        } catch (JSONException e) {
+            prettyJson = jsonString;
+        }
+        Log.d(&quot;message&quot;, &quot;&quot; + prettyJson);
+        return prettyJson;
+    }
+</code></pre><h3 id="获取当前页面-activity-实例-（随便什么地方都可以获取）"><a href="#获取当前页面-activity-实例-（随便什么地方都可以获取）" class="headerlink" title="获取当前页面 activity 实例 （随便什么地方都可以获取）"></a>获取当前页面 activity 实例 （随便什么地方都可以获取）</h3><pre><code>//获取当前页面 activity 实例
+    public static Activity getGlobleActivity() {
+        try {
+            Class activityThreadClass = Class.forName(&quot;android.app.ActivityThread&quot;);
+            Object activityThread = activityThreadClass.getMethod(&quot;currentActivityThread&quot;).invoke(null);
+            Field activitiesField = activityThreadClass.getDeclaredField(&quot;mActivities&quot;);
+            activitiesField.setAccessible(true);
+            Map activities = (Map) activitiesField.get(activityThread);
+            for (Object activityRecord : activities.values()) {
+                Class activityRecordClass = activityRecord.getClass();
+                Field pausedField = activityRecordClass.getDeclaredField(&quot;paused&quot;);
+                pausedField.setAccessible(true);
+                if (!pausedField.getBoolean(activityRecord)) {
+                    Field activityField = activityRecordClass.getDeclaredField(&quot;activity&quot;);
+                    activityField.setAccessible(true);
+                    Activity activity = (Activity) activityField.get(activityRecord);
+                    return activity;
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+</code></pre><h3 id="返回键-app切换至后台"><a href="#返回键-app切换至后台" class="headerlink" title="返回键 app切换至后台"></a>返回键 app切换至后台</h3><pre><code>    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mBinding.drawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                // 不退出程序，进入后台
+                moveTaskToBack(true);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+</code></pre><h3 id="调用系统方法弹出-分享文本图片等-2016-12-06-19-16-43"><a href="#调用系统方法弹出-分享文本图片等-2016-12-06-19-16-43" class="headerlink" title="调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)"></a>调用系统方法弹出, 分享文本图片等(2016-12-06 19:16:43)</h3><pre><code>/**
+ * Created by _SOLID
+ * Date:2016/4/22
+ * Time:12:45
+ * https://github.com/burgessjp/GanHuoIO/blob/master/app/src/main/java/ren/solid/ganhuoio/utils/ShakePictureUtils.java
+ */
+public class SystemShareUtils {
+
+    public static void shareText(Context ctx, String text) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.setType(&quot;text/plain&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+
+    public static void shareImage(Context ctx, Uri uri) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sendIntent.setType(&quot;image/jpeg&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+
+    public static void shareImageList(Context ctx, ArrayList&lt;Uri&gt; uris) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uris);
+        sendIntent.setType(&quot;image/*&quot;);
+        ctx.startActivity(Intent.createChooser(sendIntent, &quot;分享至&quot;));
+    }
+}
+</code></pre><!-- more -->
 <h3 id="Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47"><a href="#Android调用微信扫一扫和支付宝扫一扫-2016-9-20-19-01-47" class="headerlink" title="Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)"></a>Android调用微信扫一扫和支付宝扫一扫(2016-9-20 19:01:47)</h3><p>摘自:<a href="https://ydmmocoo.github.io/2016/06/30/Android%E8%B0%83%E7%94%A8%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E5%92%8C%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB/" target="_blank" rel="noopener">习惯沉默的Blog
 </a><br>现在微信不能直接跳转到微信扫一扫:详见 <a href="http://blog.csdn.net/l_lhc/article/details/51636130" target="_blank" rel="noopener">Android调用微信扫一扫_CSDN</a></p>
 <h3 id="Gson构造JsonArray-2016-8-23-16-11-25"><a href="#Gson构造JsonArray-2016-8-23-16-11-25" class="headerlink" title="Gson构造JsonArray(2016-8-23 16:11:25)"></a>Gson构造JsonArray(2016-8-23 16:11:25)</h3><p>最近项目中请求参数传参用到了 JsonArray对象<br>构造方法如下:</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Object</span>[] object = <span class="keyword">new</span> <span class="keyword">Object</span>[]&#123;<span class="string">"111"</span>, <span class="string">"222"</span>, <span class="string">"24G"</span>&#125;;</span><br><span class="line">JsonArray jsonArr = <span class="keyword">new</span> JsonArray();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">Object</span> anObject : object) &#123;</span><br><span class="line">    JsonObject jo = <span class="keyword">new</span> JsonObject(); <span class="comment">//构造json</span></span><br><span class="line">    jo.addProperty(<span class="string">"offerCode"</span>, (<span class="keyword">String</span>) anObject);</span><br><span class="line">    jsonArr.<span class="built_in">add</span>(jo);</span><br><span class="line">&#125;</span><br><span class="line">Toast.makeText(<span class="keyword">this</span>, <span class="string">"jsonArr:  "</span> + jsonArr.toString(), Toast.LENGTH_SHORT).show();</span><br><span class="line">System.out.<span class="built_in">println</span>(<span class="string">"jsonArr:  "</span> + jsonArr.toString());</span><br></pre></td></tr></table></figure>
-<h3 id="访问或者下载单个github文件-2016-9-20-18-43-37"><a href="#访问或者下载单个github文件-2016-9-20-18-43-37" class="headerlink" title="访问或者下载单个github文件(2016-9-20 18:43:37)"></a>访问或者下载单个github文件(2016-9-20 18:43:37)</h3><p><strong>用途:</strong>可以用来存一些配置文件,图片等.<br>url固定格式: <a href="https://raw.githubusercontent.com/username/repository/branch/filename" target="_blank" rel="noopener">https://raw.githubusercontent.com/username/repository/branch/filename</a><br>例如: <a href="https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md</a></p>
+<pre><code>    Object[] object = new Object[]{&quot;111&quot;, &quot;222&quot;, &quot;24G&quot;};
+    JsonArray jsonArr = new JsonArray();
+    for (Object anObject : object) {
+        JsonObject jo = new JsonObject(); //构造json
+        jo.addProperty(&quot;offerCode&quot;, (String) anObject);
+        jsonArr.add(jo);
+    }
+    Toast.makeText(this, &quot;jsonArr:  &quot; + jsonArr.toString(), Toast.LENGTH_SHORT).show();
+    System.out.println(&quot;jsonArr:  &quot; + jsonArr.toString());
+</code></pre><h3 id="访问或者下载单个github文件-2016-9-20-18-43-37"><a href="#访问或者下载单个github文件-2016-9-20-18-43-37" class="headerlink" title="访问或者下载单个github文件(2016-9-20 18:43:37)"></a>访问或者下载单个github文件(2016-9-20 18:43:37)</h3><p><strong>用途:</strong>可以用来存一些配置文件,图片等.<br>url固定格式: <a href="https://raw.githubusercontent.com/username/repository/branch/filename" target="_blank" rel="noopener">https://raw.githubusercontent.com/username/repository/branch/filename</a><br>例如: <a href="https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md" target="_blank" rel="noopener">https://raw.githubusercontent.com/yangxiaoge/MumuXi/master/README.md</a></p>
 <blockquote>
 <p>参考stackoverflow:<a href="http://stackoverflow.com/questions/4604663/download-single-files-from-github" target="_blank" rel="noopener">Download single files from GitHub</a></p>
 </blockquote>
@@ -564,56 +1060,397 @@ ubuntu 生成 key1231， ssh-keygen -t rsa -C &quot;yangjianan@begoit.com&quot;2
 <blockquote>
 <p>简书:<a href="http://www.jianshu.com/p/b87fee2f7a23" target="_blank" rel="noopener">http://www.jianshu.com/p/b87fee2f7a23</a></p>
 </blockquote>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader isr = <span class="keyword">new</span> <span class="type">InputStreamReader</span>(<span class="built_in">this</span>.getClass()</span><br><span class="line">					.getClassLoader()</span><br><span class="line">					.getResourceAsStream(<span class="string">"assets/"</span> + <span class="string">"student.json"</span>)</span><br><span class="line">					,<span class="string">"utf-8"</span></span><br><span class="line">					);</span><br><span class="line"><span class="comment">//从assets获取json文件</span></span><br><span class="line">BufferedReader bfr = <span class="keyword">new</span> <span class="type">BufferedReader</span>(isr);</span><br></pre></td></tr></table></figure>
-<h3 id="cityId查询天气-2016-6-20-19-00-35"><a href="#cityId查询天气-2016-6-20-19-00-35" class="headerlink" title="cityId查询天气(2016-6-20 19:00:35)"></a>cityId查询天气(<code>2016-6-20 19:00:35</code>)</h3><ol>
+<pre><code>InputStreamReader isr = new InputStreamReader(this.getClass()
+                    .getClassLoader()
+                    .getResourceAsStream(&quot;assets/&quot; + &quot;student.json&quot;)
+                    ,&quot;utf-8&quot;
+                    );
+//从assets获取json文件
+BufferedReader bfr = new BufferedReader(isr);
+</code></pre><h3 id="cityId查询天气-2016-6-20-19-00-35"><a href="#cityId查询天气-2016-6-20-19-00-35" class="headerlink" title="cityId查询天气(2016-6-20 19:00:35)"></a>cityId查询天气(<code>2016-6-20 19:00:35</code>)</h3><ol>
 <li>citycode.txt是cityid文件(数据 101190101=南京 ) </li>
 <li>下面代码是 逐行根据”=”分隔符,读写城市id跟name,可以写到文件中</li>
 </ol>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 根据城市名找到对应的id如果没有则说明在中国气象网不存在该城市</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * @param cityname</span></span><br><span class="line"><span class="comment">    * @return</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">String</span> findId(<span class="keyword">String</span> cityname) &#123;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">null</span> == cityname || <span class="string">""</span>.equals(cityname))</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           InputStreamReader inputReader = <span class="keyword">new</span> InputStreamReader(getResources().getAssets().<span class="built_in">open</span>(<span class="string">"citycode.txt"</span>));</span><br><span class="line">           <span class="keyword">BufferedReader</span> bufReader = <span class="keyword">new</span> <span class="keyword">BufferedReader</span>(inputReader);</span><br><span class="line">           <span class="keyword">String</span> <span class="built_in">line</span> = <span class="string">""</span>;</span><br><span class="line">           <span class="keyword">String</span>[] <span class="built_in">str</span> = <span class="keyword">new</span> <span class="keyword">String</span>[<span class="number">2</span>];</span><br><span class="line">           <span class="keyword">while</span> ((<span class="built_in">line</span> = bufReader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="built_in">str</span> = <span class="built_in">line</span>.<span class="built_in">split</span>(<span class="string">"="</span>);</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">str</span>.length == <span class="number">2</span> &amp;&amp; <span class="keyword">null</span> != <span class="built_in">str</span>[<span class="number">1</span>] &amp;&amp; !<span class="string">""</span>.equals(<span class="built_in">str</span>[<span class="number">1</span>]) &amp;&amp; cityname.equals(<span class="built_in">str</span>[<span class="number">1</span>])) &#123;</span><br><span class="line">                   <span class="comment">//返回对应city编号</span></span><br><span class="line">                   <span class="keyword">return</span> <span class="built_in">str</span>[<span class="number">0</span>];</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="双击两次返回键退出-2秒内退出"><a href="#双击两次返回键退出-2秒内退出" class="headerlink" title="双击两次返回键退出 (2秒内退出)"></a>双击两次返回键退出 (2秒内退出)</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">long</span> exitTime = <span class="number">0</span>; <span class="comment">// 返回键 退出时间</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  返回键 (2秒内退出)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> keyCode 返回键code</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> event keyEvent</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp; event.getAction() == KeyEvent.ACTION_DOWN) &#123;</span><br><span class="line">            <span class="comment">//两秒之内按返回键就会退出</span></span><br><span class="line">            <span class="keyword">if</span> (System.currentTimeMillis() - exitTime &gt; <span class="number">2000</span>) &#123;</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"再按一次退出"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                exitTime = System.currentTimeMillis();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                finish();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// 不要忘记 return true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onKeyDown</span><span class="params">(keyCode, event)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>下面是点击返回键 关闭DrawerLayout等等<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 系统返回键监听,事件处理</span></span><br><span class="line"><span class="comment">     * @return</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">@Override</span></span><br><span class="line">    public void onBackPressed() &#123;</span><br><span class="line">        HomeViewPagerFragment homeFragment = null<span class="comment">;</span></span><br><span class="line">        <span class="keyword">boolean </span>isDrawerOpen = false<span class="comment">;</span></span><br><span class="line">        <span class="keyword">boolean </span>isPopFragment = false<span class="comment">;</span></span><br><span class="line">        <span class="keyword">String </span>currentTabTag = mTabHost.getCurrentTabTag()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">String </span>homeName = getResources().getString(MainTab.HOME.getResName())<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">String </span><span class="keyword">bundleName </span>= getResources().getString(MainTab.<span class="keyword">BUNDLES.getResName());</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>       <span class="keyword">String </span><span class="keyword">billName </span>= getResources().getString(MainTab.<span class="keyword">BILL.getResName());</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>       <span class="meta">if</span> (currentTabTag.equals(<span class="keyword">bundleName)) </span>&#123;</span><br><span class="line">            isPopFragment = ((<span class="keyword">BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(bundleName)).popFragment();</span></span><br><span class="line"><span class="keyword"> </span>       &#125; <span class="meta">else</span> <span class="meta">if</span> (currentTabTag.equals(<span class="keyword">billName)) </span>&#123;</span><br><span class="line">            isPopFragment = ((<span class="keyword">BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(billName)).popFragment();</span></span><br><span class="line"><span class="keyword"> </span>       &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">if</span>(currentTabTag.equals(homeName))&#123;</span><br><span class="line">            homeFragment= ((HomeViewPagerFragment)getSupportFragmentManager().findFragmentByTag(homeName))<span class="comment">;</span></span><br><span class="line">            isDrawerOpen = homeFragment.isDrawerOpen()<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">if</span>(isDrawerOpen)&#123;</span><br><span class="line">            homeFragment.closeDrawer()<span class="comment">;</span></span><br><span class="line">        &#125;<span class="meta">else</span> <span class="meta">if</span>(!isPopFragment)&#123;</span><br><span class="line">            finish()<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="RadioButton-点击事件-2016-06-08"><a href="#RadioButton-点击事件-2016-06-08" class="headerlink" title="RadioButton 点击事件 (2016-06-08)"></a>RadioButton 点击事件 (<code>2016-06-08</code>)</h3><blockquote>
+<pre><code>    /**
+     * 根据城市名找到对应的id如果没有则说明在中国气象网不存在该城市
+     *
+     * @param cityname
+     * @return
+     */
+    private String findId(String cityname) {
+        if (null == cityname || &quot;&quot;.equals(cityname))
+            return null;
+        try {
+            InputStreamReader inputReader = new InputStreamReader(getResources().getAssets().open(&quot;citycode.txt&quot;));
+            BufferedReader bufReader = new BufferedReader(inputReader);
+            String line = &quot;&quot;;
+            String[] str = new String[2];
+            while ((line = bufReader.readLine()) != null) {
+                str = line.split(&quot;=&quot;);
+                if (str.length == 2 &amp;&amp; null != str[1] &amp;&amp; !&quot;&quot;.equals(str[1]) &amp;&amp; cityname.equals(str[1])) {
+                    //返回对应city编号
+                    return str[0];
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
+</code></pre><h3 id="双击两次返回键退出-2秒内退出"><a href="#双击两次返回键退出-2秒内退出" class="headerlink" title="双击两次返回键退出 (2秒内退出)"></a>双击两次返回键退出 (2秒内退出)</h3><pre><code>private long exitTime = 0; // 返回键 退出时间
+ /**
+     *  返回键 (2秒内退出)
+     * @param keyCode 返回键code
+     * @param event keyEvent
+     * @return true
+     */
+ @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp; event.getAction() == KeyEvent.ACTION_DOWN) {
+            //两秒之内按返回键就会退出
+            if (System.currentTimeMillis() - exitTime &gt; 2000) {
+                Toast.makeText(this, &quot;再按一次退出&quot;, Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true; // 不要忘记 return true
+        }
+
+        return super.onKeyDown(keyCode, event);
+}
+</code></pre><p>下面是点击返回键 关闭DrawerLayout等等</p>
+<pre><code>/**
+     * 系统返回键监听,事件处理
+     * @return
+     */
+    @Override
+    public void onBackPressed() {
+        HomeViewPagerFragment homeFragment = null;
+        boolean isDrawerOpen = false;
+        boolean isPopFragment = false;
+        String currentTabTag = mTabHost.getCurrentTabTag();
+
+        String homeName = getResources().getString(MainTab.HOME.getResName());
+
+        String bundleName = getResources().getString(MainTab.BUNDLES.getResName());
+
+        String billName = getResources().getString(MainTab.BILL.getResName());
+
+        if (currentTabTag.equals(bundleName)) {
+            isPopFragment = ((BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(bundleName)).popFragment();
+        } else if (currentTabTag.equals(billName)) {
+            isPopFragment = ((BaseContainerFragment)getSupportFragmentManager().findFragmentByTag(billName)).popFragment();
+        }
+
+        if(currentTabTag.equals(homeName)){
+            homeFragment= ((HomeViewPagerFragment)getSupportFragmentManager().findFragmentByTag(homeName));
+            isDrawerOpen = homeFragment.isDrawerOpen();
+        }
+
+        if(isDrawerOpen){
+            homeFragment.closeDrawer();
+        }else if(!isPopFragment){
+            finish();
+        }
+}
+</code></pre><h3 id="RadioButton-点击事件-2016-06-08"><a href="#RadioButton-点击事件-2016-06-08" class="headerlink" title="RadioButton 点击事件 (2016-06-08)"></a>RadioButton 点击事件 (<code>2016-06-08</code>)</h3><blockquote>
 <p>借助<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="noopener"><code>ButterKnife</code></a>快速实现</p>
 </blockquote>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@OnCheckedChanged(&#123;R<span class="selector-class">.id</span><span class="selector-class">.searchRb1</span>, R<span class="selector-class">.id</span><span class="selector-class">.searchRb2</span>, R<span class="selector-class">.id</span><span class="selector-class">.searchRb3</span>, R<span class="selector-class">.id</span><span class="selector-class">.searchRb4</span>&#125;)</span><br><span class="line">void onTagChecked(RadioButton searchRb, boolean checked) &#123;</span><br><span class="line">    <span class="keyword">if</span> (checked) &#123;</span><br><span class="line">        <span class="comment">//实现代码...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="夜神-模拟器连接-2016-6-22-13-44-46"><a href="#夜神-模拟器连接-2016-6-22-13-44-46" class="headerlink" title="夜神 模拟器连接(2016-6-22 13:44:46)"></a>夜神 模拟器连接(<code>2016-6-22 13:44:46</code>)</h3><p><code>流畅度杠杆的!</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">adb</span> <span class="selector-tag">connect</span> 127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:62001</span></span><br></pre></td></tr></table></figure></p>
-<p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="noopener">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/" target="_blank" rel="noopener">http://10.45.16.34:8888/</a>(10.45.16.34就是本机地址, 所有模拟器都是这么访问)</p>
+<pre><code>@OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
+void onTagChecked(RadioButton searchRb, boolean checked) {
+    if (checked) {
+        //实现代码...
+    }
+}
+</code></pre><h3 id="夜神-模拟器连接-2016-6-22-13-44-46"><a href="#夜神-模拟器连接-2016-6-22-13-44-46" class="headerlink" title="夜神 模拟器连接(2016-6-22 13:44:46)"></a>夜神 模拟器连接(<code>2016-6-22 13:44:46</code>)</h3><p><code>流畅度杠杆的!</code></p>
+<pre><code>adb connect 127.0.0.1:62001
+</code></pre><p><code>Fiddler抓包设置</code>: <code>具体参考</code>👉<a href="http://www.trinea.cn/android/android-network-sniffer/" target="_blank" rel="noopener">trinea分享</a><br>1)<img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f567o10j00j209r0ag0t8.jpg" alt="模拟器抓包配置"><br>2)(实验证明已经不需要这一步了,只要设置好代理服务器主机名就行了!! add 2016-8-16 16:09:01) 模拟器浏览器打开: <a href="http://10.45.16.34:8888/" target="_blank" rel="noopener">http://10.45.16.34:8888/</a>(10.45.16.34就是本机地址, 所有模拟器都是这么访问)</p>
 <h3 id="海马玩-模拟器连接-2016-06-14"><a href="#海马玩-模拟器连接-2016-06-14" class="headerlink" title="海马玩 模拟器连接(2016-06-14)"></a>海马玩 模拟器连接(<code>2016-06-14</code>)</h3><blockquote>
-<p><a href="http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091" target="_blank" rel="noopener">http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">adb</span> <span class="selector-tag">connect</span> 127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:26944</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091" target="_blank" rel="noopener">http://www.jianshu.com/p/c2e6a4e7e9c4/comments/2742091#comment-2742091</a></p>
+<pre><code>adb connect 127.0.0.1:26944
+</code></pre><p><code>抓包设置</code>: 代理服务器主机名: 10.0.3.2 (genymotion也是这个), 夜神的是电脑ip</p>
 </blockquote>
-<p><code>抓包设置</code>: 代理服务器主机名: 10.0.3.2 (genymotion也是这个), 夜神的是电脑ip</p>
 <h3 id="app启动页面-AlphaAnimation渐变-2016-06-14"><a href="#app启动页面-AlphaAnimation渐变-2016-06-14" class="headerlink" title="app启动页面(AlphaAnimation渐变) (2016-06-14)"></a>app启动页面(AlphaAnimation渐变) (<code>2016-06-14</code>)</h3><p><code>效果图:</code><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f4x1cf5056g20kb0k3nb0.gif" alt="AlphaAnimation透明到不透明"></p>
 <blockquote>
 <p>完整代码如下↓↓↓↓↓↓</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StartActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> View view = View.inflate(<span class="keyword">this</span>, R.layout.activity_start, <span class="keyword">null</span>);</span><br><span class="line">        setContentView(view);</span><br><span class="line">        <span class="comment">// 渐变展示启动屏 , 0.0-1.0 透明到不透明</span></span><br><span class="line">        AlphaAnimation aa = <span class="keyword">new</span> AlphaAnimation(<span class="number">0.1f</span>, <span class="number">1.0f</span>);</span><br><span class="line">        aa.setDuration(<span class="number">3000</span>);</span><br><span class="line">        view.startAnimation(aa);</span><br><span class="line">        aa.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 动画结束跳转登陆界面</span></span><br><span class="line">                redirectTo();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">redirectTo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, LoginActivity.class);</span><br><span class="line">        startActivity(intent);</span><br><span class="line">        finish();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="adapter中setTag-的使用"><a href="#adapter中setTag-的使用" class="headerlink" title="adapter中setTag()的使用"></a>adapter中setTag()的使用</h3><p>可以用来当前方法中传数据</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">   <span class="keyword">public</span> View getView(final int position, View convertView, ViewGroup <span class="keyword">parent</span>) &#123;</span><br><span class="line">       final ViewHolder holder;</span><br><span class="line">       <span class="keyword">if</span> (convertView == <span class="built_in">null</span>) &#123;</span><br><span class="line">           holder = <span class="literal">new</span> ViewHolder();</span><br><span class="line">           convertView = LayoutInflater.from(context).inflate(R.layout.temp, <span class="keyword">parent</span>, <span class="literal">false</span>);</span><br><span class="line">           holder.nameTv = (TextView) convertView.findViewById(R.id.name);</span><br><span class="line">           holder.<span class="keyword">group</span> = (RadioGroup) convertView.findViewById(R.id.<span class="keyword">group</span>);</span><br><span class="line">           convertView.setTag(holder);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           holder = (ViewHolder) convertView.getTag();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       HashMap&lt;<span class="built_in">String</span>, Object&gt; <span class="built_in">map</span> = getItem(position);</span><br><span class="line">       <span class="built_in">map</span>.put(<span class="string">"position"</span>, position);</span><br><span class="line">---&gt;   holder.<span class="keyword">group</span>.setTag(<span class="built_in">map</span>); <span class="comment">// 通过group视图设置setTag(map)</span></span><br><span class="line">	<span class="params">...</span></span><br><span class="line">	<span class="params">...</span></span><br><span class="line">	<span class="params">...</span></span><br><span class="line">---&gt; 	HashMap&lt;<span class="built_in">String</span>, Object&gt; radioMap = (HashMap&lt;<span class="built_in">String</span>, Object&gt;) <span class="keyword">group</span>.getTag(); <span class="comment">// getTag()</span></span><br></pre></td></tr></table></figure>
-<h3 id="Gson把JsonArray的字符串转成bean实体类"><a href="#Gson把JsonArray的字符串转成bean实体类" class="headerlink" title="Gson把JsonArray的字符串转成bean实体类"></a>Gson把JsonArray的字符串转成bean实体类</h3><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String offerItemGroupStr;</span><br><span class="line"></span><br><span class="line">JsonArray<span class="built_in"> array </span>= (JsonArray)<span class="built_in"> new </span>JsonParser().parse(offerItemGroupStr);</span><br><span class="line"></span><br><span class="line">   List&lt;OfferItemGroup&gt; offerDepGroupsList =<span class="built_in"> new </span>Gson().fromJson(array.toString(),<span class="built_in"> new </span>TypeToken&lt;List&lt;OfferItemGroup&gt;&gt;() &#123;</span><br><span class="line">       &#125;.getType());</span><br></pre></td></tr></table></figure>
-<h3 id="圆形进度条-2016-7-1-13-20-24"><a href="#圆形进度条-2016-7-1-13-20-24" class="headerlink" title="圆形进度条(2016-7-1 13:20:24)"></a><a href="https://github.com/DmitryMalkovich/circular-with-floating-action-button" target="_blank" rel="noopener">圆形进度条</a>(<code>2016-7-1 13:20:24</code>)</h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg" alt="Float Button 圆形进度条效果"></p>
+<pre><code>public class StartActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        final View view = View.inflate(this, R.layout.activity_start, null);
+        setContentView(view);
+        // 渐变展示启动屏 , 0.0-1.0 透明到不透明
+        AlphaAnimation aa = new AlphaAnimation(0.1f, 1.0f);
+        aa.setDuration(3000);
+        view.startAnimation(aa);
+        aa.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                // 动画结束跳转登陆界面
+                redirectTo();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+        });
+    }
+
+    private void redirectTo() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}
+</code></pre><h3 id="adapter中setTag-的使用"><a href="#adapter中setTag-的使用" class="headerlink" title="adapter中setTag()的使用"></a>adapter中setTag()的使用</h3><p>可以用来当前方法中传数据</p>
+<pre><code>    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = LayoutInflater.from(context).inflate(R.layout.temp, parent, false);
+            holder.nameTv = (TextView) convertView.findViewById(R.id.name);
+            holder.group = (RadioGroup) convertView.findViewById(R.id.group);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        HashMap&lt;String, Object&gt; map = getItem(position);
+        map.put(&quot;position&quot;, position);
+ ---&gt;   holder.group.setTag(map); // 通过group视图设置setTag(map)
+        ...
+        ...
+        ...
+ ---&gt;     HashMap&lt;String, Object&gt; radioMap = (HashMap&lt;String, Object&gt;) group.getTag(); // getTag()
+</code></pre><h3 id="Gson把JsonArray的字符串转成bean实体类"><a href="#Gson把JsonArray的字符串转成bean实体类" class="headerlink" title="Gson把JsonArray的字符串转成bean实体类"></a>Gson把JsonArray的字符串转成bean实体类</h3><pre><code>    String offerItemGroupStr;
+
+    JsonArray array = (JsonArray) new JsonParser().parse(offerItemGroupStr);
+
+    List&lt;OfferItemGroup&gt; offerDepGroupsList = new Gson().fromJson(array.toString(), new TypeToken&lt;List&lt;OfferItemGroup&gt;&gt;() {
+        }.getType());
+</code></pre><h3 id="圆形进度条-2016-7-1-13-20-24"><a href="#圆形进度条-2016-7-1-13-20-24" class="headerlink" title="圆形进度条(2016-7-1 13:20:24)"></a><a href="https://github.com/DmitryMalkovich/circular-with-floating-action-button" target="_blank" rel="noopener">圆形进度条</a>(<code>2016-7-1 13:20:24</code>)</h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f809mvxj8uj209x0bvq36.jpg" alt="Float Button 圆形进度条效果"></p>
 <p><code>week</code>开源啦!! <a href="https://github.com/alibaba/weex" target="_blank" rel="noopener">alibaba-week入口</a></p>
 <h3 id="保存图片到本地文件-2016-7-11-12-35-51"><a href="#保存图片到本地文件-2016-7-11-12-35-51" class="headerlink" title="保存图片到本地文件(2016-7-11 12:35:51)"></a>保存图片到本地文件(2016-7-11 12:35:51)</h3><p>参考: <a href="https://github.com/yangxiaoge/MumuXi/blob/master/app/src/main/java/com/yang/bruce/mumuxi/util/ImgSaveUtil.java" target="_blank" rel="noopener">Mumuxi代码</a></p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by allen on 2016/6/19.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  Here reference is https://github.com/gaolonglong/GankGirl/blob/master/app/src/main/java/com/app/gaolonglong/gankgirl/util/ImageUtil.java</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> class ImgSaveUtil &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Uri saveImage(Context context, <span class="keyword">String</span> url, Bitmap bitmap, ImageView imageView, <span class="keyword">String</span> tag)&#123;</span><br><span class="line">            <span class="comment">//妹纸保存路径</span></span><br><span class="line">            <span class="keyword">String</span> imgDir = Environment.getExternalStorageDirectory().getPath() + <span class="string">"/GankGirl"</span>;</span><br><span class="line">            <span class="comment">//图片名称处理</span></span><br><span class="line">            <span class="keyword">String</span>[] fileNameArr = url.substring(url.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>).split(<span class="string">"\\."</span>);</span><br><span class="line">            <span class="keyword">String</span> fileName = fileNameArr[<span class="number">0</span>] + <span class="string">".png"</span>;</span><br><span class="line">            <span class="comment">//创建文件路径</span></span><br><span class="line">            <span class="built_in">File</span> fileDir = <span class="keyword">new</span> <span class="built_in">File</span>(imgDir);</span><br><span class="line">            <span class="built_in">if</span> (!fileDir.<span class="built_in">exists</span>())&#123;</span><br><span class="line">                fileDir.<span class="built_in">mkdir</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//创建文件</span></span><br><span class="line">            <span class="built_in">File</span> imageFile = <span class="keyword">new</span> <span class="built_in">File</span>(fileDir,fileName);</span><br><span class="line">            <span class="built_in">try</span> &#123;</span><br><span class="line">                FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(imageFile);</span><br><span class="line">                <span class="keyword">boolean</span> compress = bitmap.compress(Bitmap.CompressFormat.PNG, <span class="number">100</span>, fos);</span><br><span class="line">                Snackbar.make(imageView,<span class="string">"妹纸已经躺在你的图库里啦.. ( ＞ω＜)"</span>, Snackbar.LENGTH_SHORT).show();</span><br><span class="line"></span><br><span class="line">                fos.<span class="built_in">flush</span>();</span><br><span class="line">                fos.<span class="built_in">close</span>();</span><br><span class="line">            &#125; <span class="built_in">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="built_in">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Uri uri = Uri.fromFile(imageFile);</span><br><span class="line">            <span class="comment">//发送广播，通知图库更新</span></span><br><span class="line">            context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri));</span><br><span class="line">            <span class="built_in">return</span> uri;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="样式统一设置-2016-7-12-15-06-40"><a href="#样式统一设置-2016-7-12-15-06-40" class="headerlink" title="样式统一设置 (2016-7-12 15:06:40)"></a>样式统一设置 (2016-7-12 15:06:40)</h3><blockquote>
+<pre><code>/**
+ * Created by allen on 2016/6/19.
+ *
+ *  Here reference is https://github.com/gaolonglong/GankGirl/blob/master/app/src/main/java/com/app/gaolonglong/gankgirl/util/ImageUtil.java
+ */
+public class ImgSaveUtil {
+
+        public static Uri saveImage(Context context, String url, Bitmap bitmap, ImageView imageView, String tag){
+            //妹纸保存路径
+            String imgDir = Environment.getExternalStorageDirectory().getPath() + &quot;/GankGirl&quot;;
+            //图片名称处理
+            String[] fileNameArr = url.substring(url.lastIndexOf(&quot;/&quot;) + 1).split(&quot;\\.&quot;);
+            String fileName = fileNameArr[0] + &quot;.png&quot;;
+            //创建文件路径
+            File fileDir = new File(imgDir);
+            if (!fileDir.exists()){
+                fileDir.mkdir();
+            }
+            //创建文件
+            File imageFile = new File(fileDir,fileName);
+            try {
+                FileOutputStream fos = new FileOutputStream(imageFile);
+                boolean compress = bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                Snackbar.make(imageView,&quot;妹纸已经躺在你的图库里啦.. ( ＞ω＜)&quot;, Snackbar.LENGTH_SHORT).show();
+
+                fos.flush();
+                fos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Uri uri = Uri.fromFile(imageFile);
+            //发送广播，通知图库更新
+            context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,uri));
+            return uri;
+        }
+}
+</code></pre><h3 id="样式统一设置-2016-7-12-15-06-40"><a href="#样式统一设置-2016-7-12-15-06-40" class="headerlink" title="样式统一设置 (2016-7-12 15:06:40)"></a>样式统一设置 (2016-7-12 15:06:40)</h3><blockquote>
 <p>例如:</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--全边框 输入框样式--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"edittext_style"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>wrap_content<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_marginLeft"</span>&gt;</span>@dimen/space_20<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_marginRight"</span>&gt;</span>@dimen/space_20<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_marginTop"</span>&gt;</span>@dimen/space_10<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:background"</span>&gt;</span>@drawable/input_bg<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:singleLine"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!--只有底边边框 输入框样式--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"edittext_style1"</span> <span class="attr">parent</span>=<span class="string">"edittext_style"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:background"</span>&gt;</span>?attr/editTextBackground<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06"><a href="#touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06" class="headerlink" title="touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)"></a>touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)</h3><blockquote>
+<pre><code> &lt;!--全边框 输入框样式--&gt;
+    &lt;style name=&quot;edittext_style&quot;&gt;
+        &lt;item name=&quot;android:layout_width&quot;&gt;match_parent&lt;/item&gt;
+        &lt;item name=&quot;android:layout_height&quot;&gt;wrap_content&lt;/item&gt;
+        &lt;item name=&quot;android:layout_marginLeft&quot;&gt;@dimen/space_20&lt;/item&gt;
+        &lt;item name=&quot;android:layout_marginRight&quot;&gt;@dimen/space_20&lt;/item&gt;
+        &lt;item name=&quot;android:layout_marginTop&quot;&gt;@dimen/space_10&lt;/item&gt;
+        &lt;item name=&quot;android:background&quot;&gt;@drawable/input_bg&lt;/item&gt;
+        &lt;item name=&quot;android:singleLine&quot;&gt;true&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!--只有底边边框 输入框样式--&gt;
+    &lt;style name=&quot;edittext_style1&quot; parent=&quot;edittext_style&quot;&gt;
+        &lt;item name=&quot;android:background&quot;&gt;?attr/editTextBackground&lt;/item&gt;
+    &lt;/style&gt;
+</code></pre><h3 id="touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06"><a href="#touch事件监听之tab页再次点击刷新数据-2016-7-15-14-23-06" class="headerlink" title="touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)"></a>touch事件监听之tab页再次点击刷新数据 (2016-7-15 14:23:06)</h3><blockquote>
 <p>具体可以看 开源中国源码: <a href="http://git.oschina.net/oschina/android-app/blob/v2.6.3/app/src/main/java/net/oschina/app/ui/MainActivity.java?dir=0&amp;filepath=app%2Fsrc%2Fmain%2Fjava%2Fnet%2Foschina%2Fapp%2Fui%2FMainActivity.java&amp;oid=b7ab17b172b074e42015b3f5d806473216aec919&amp;sha=0e04398d8fd738c25abf7a0a61f988d15cbf2a08" target="_blank" rel="noopener">MainActivity</a>中</p>
 </blockquote>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onTouchEvent(event);</span><br><span class="line">       <span class="keyword">boolean</span> consumed = <span class="keyword">false</span>;</span><br><span class="line">       <span class="comment">// use getTabHost().getCurrentTabView to decide if the current tab is</span></span><br><span class="line">       <span class="comment">// touched again</span></span><br><span class="line">       <span class="keyword">if</span> (event.getAction() == MotionEvent.ACTION_DOWN</span><br><span class="line">               &amp;&amp; v.equals(mTabHost.getCurrentTabView())) &#123;</span><br><span class="line">           <span class="comment">// use getTabHost().getCurrentView() to get a handle to the view</span></span><br><span class="line">           <span class="comment">// which is displayed in the tab - and to get this views context</span></span><br><span class="line">           Fragment currentFragment = getCurrentFragment();</span><br><span class="line">           <span class="keyword">if</span> (currentFragment != <span class="keyword">null</span></span><br><span class="line">                   &amp;&amp; currentFragment <span class="keyword">instanceof</span> OnTabReselectListener) &#123;</span><br><span class="line">               OnTabReselectListener listener = (OnTabReselectListener) currentFragment;</span><br><span class="line">               listener.onTabReselect();</span><br><span class="line">               consumed = <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> consumed;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="ProgressDialog使用-例如登录等待时-2016-7-15-14-55-24"><a href="#ProgressDialog使用-例如登录等待时-2016-7-15-14-55-24" class="headerlink" title="ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)"></a>ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)</h3><p><code>下面的代码可以参考 Afrimax或者MPT的[BaseActivity](https://coding.net/u/yangxiaoge/p/AfrimaxMI/git/blob/master/app/src/main/java/com/ztesoft/zsmart/datamall/app/base/BaseActivity.java)</code></p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// =======================DIALOG_CONTROL_INTERFACE START========================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// dialog 是否处于可见状态</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> _isVisible;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ProgressDialog _waitDialog;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">hideWaitDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_isVisible &amp;&amp; _waitDialog != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                _waitDialog.dismiss();</span><br><span class="line">                _waitDialog = <span class="keyword">null</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">                ex.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">ProgressDialog <span class="title">showWaitDialog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> <span class="title">showWaitDialog</span><span class="params">(R.string.loading)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">ProgressDialog <span class="title">showWaitDialog</span><span class="params">(<span class="keyword">int</span> resid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> showWaitDialog(getString(resid));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 显示耗时操作等待弹出框</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> message 提示消息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> ProgressDialog</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">ProgressDialog <span class="title">showWaitDialog</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_isVisible) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_waitDialog == <span class="keyword">null</span>) &#123;</span><br><span class="line">                _waitDialog = DialogHelp.getWaitDialog(<span class="keyword">this</span>, message);</span><br><span class="line">            &#125; <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(_waitDialog != <span class="keyword">null</span>)</span> </span>&#123;</span><br><span class="line">                _waitDialog.setMessage(message);</span><br><span class="line">            &#125;</span><br><span class="line">            _waitDialog.show();</span><br><span class="line">            <span class="keyword">return</span> _waitDialog;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// =======================DIALOG_CONTROL_INTERFACE END==========================</span></span><br></pre></td></tr></table></figure>
-<h3 id="远程调试App或者WiFi调试-2016-7-19-19-34-09"><a href="#远程调试App或者WiFi调试-2016-7-19-19-34-09" class="headerlink" title="远程调试App或者WiFi调试(2016-7-19 19:34:09)"></a>远程调试App或者WiFi调试(2016-7-19 19:34:09)</h3><blockquote>
+<pre><code> @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        super.onTouchEvent(event);
+        boolean consumed = false;
+        // use getTabHost().getCurrentTabView to decide if the current tab is
+        // touched again
+        if (event.getAction() == MotionEvent.ACTION_DOWN
+                &amp;&amp; v.equals(mTabHost.getCurrentTabView())) {
+            // use getTabHost().getCurrentView() to get a handle to the view
+            // which is displayed in the tab - and to get this views context
+            Fragment currentFragment = getCurrentFragment();
+            if (currentFragment != null
+                    &amp;&amp; currentFragment instanceof OnTabReselectListener) {
+                OnTabReselectListener listener = (OnTabReselectListener) currentFragment;
+                listener.onTabReselect();
+                consumed = true;
+            }
+        }
+        return consumed;
+    }
+</code></pre><h3 id="ProgressDialog使用-例如登录等待时-2016-7-15-14-55-24"><a href="#ProgressDialog使用-例如登录等待时-2016-7-15-14-55-24" class="headerlink" title="ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)"></a>ProgressDialog使用:例如登录等待时 (2016-7-15 14:55:24)</h3><p><code>下面的代码可以参考 Afrimax或者MPT的[BaseActivity](https://coding.net/u/yangxiaoge/p/AfrimaxMI/git/blob/master/app/src/main/java/com/ztesoft/zsmart/datamall/app/base/BaseActivity.java)</code></p>
+<pre><code>// =======================DIALOG_CONTROL_INTERFACE START========================
+
+    // dialog 是否处于可见状态
+    private boolean _isVisible;
+
+    private ProgressDialog _waitDialog;
+
+    @Override
+    public void hideWaitDialog() {
+        if (_isVisible &amp;&amp; _waitDialog != null) {
+            try {
+                _waitDialog.dismiss();
+                _waitDialog = null;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public ProgressDialog showWaitDialog() {
+        return showWaitDialog(R.string.loading);
+    }
+
+    @Override
+    public ProgressDialog showWaitDialog(int resid) {
+        return showWaitDialog(getString(resid));
+    }
+
+    /**
+     * 显示耗时操作等待弹出框
+     *
+     * @param message 提示消息
+     * @return ProgressDialog
+     */
+    @Override
+    public ProgressDialog showWaitDialog(String message) {
+        if (_isVisible) {
+            if (_waitDialog == null) {
+                _waitDialog = DialogHelp.getWaitDialog(this, message);
+            } else if (_waitDialog != null) {
+                _waitDialog.setMessage(message);
+            }
+            _waitDialog.show();
+            return _waitDialog;
+        }
+        return null;
+    }
+
+
+    // =======================DIALOG_CONTROL_INTERFACE END==========================
+</code></pre><h3 id="远程调试App或者WiFi调试-2016-7-19-19-34-09"><a href="#远程调试App或者WiFi调试-2016-7-19-19-34-09" class="headerlink" title="远程调试App或者WiFi调试(2016-7-19 19:34:09)"></a>远程调试App或者WiFi调试(2016-7-19 19:34:09)</h3><blockquote>
 <p><a href="http://www.jianshu.com/p/e9c243b5060b" target="_blank" rel="noopener">http://www.jianshu.com/p/e9c243b5060b</a></p>
 </blockquote>
 <p><img src="http://upload-images.jianshu.io/upload_images/721315-6978db5b6f2c1c75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="效果图"></p>
 <h3 id="ScrollView初始化数据时不置顶-2016-7-20-16-36-01"><a href="#ScrollView初始化数据时不置顶-2016-7-20-16-36-01" class="headerlink" title="ScrollView初始化数据时不置顶(2016-7-20 16:36:01)"></a>ScrollView初始化数据时不置顶(2016-7-20 16:36:01)</h3><blockquote>
-<p>ScrollView布局设置一个属性即可!如果不设置,那么默认显示位置在ListView(等等..)底部<br>具体可以参考: <a href="http://blog.csdn.net/ronaldong99/article/details/50736423" target="_blank" rel="noopener">ScrollView嵌套ListView不置顶显示</a><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mScrollView.smoothScrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32"><a href="#使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32" class="headerlink" title="使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)"></a>使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)</h3><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//----------------发送广播 , intent传值--------------//</span></span><br><span class="line"> <span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">sendRefreshAccountBroadcast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(Constants.REFRESH_HOME_ACCOUNT_LIST);</span><br><span class="line">        intent.putExtra(Constants.REFRESH_HOME_ACCOUNT_LIST, <span class="keyword">true</span>);</span><br><span class="line">        getBaseContext().sendBroadcast(intent);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="comment">//----------------------接收广播 start------------------//</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> BroadcastReceiver mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (intent.getBooleanExtra(Constants.REFRESH_HOME_ACCOUNT_LIST, <span class="keyword">false</span>)) &#123;</span><br><span class="line">                <span class="comment">// 刷新数据</span></span><br><span class="line">				initExpendListViewData();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="comment">// 注册广播监听</span></span><br><span class="line">        IntentFilter filter = <span class="keyword">new</span> IntentFilter(Constants.REFRESH_HOME_ACCOUNT_LIST);</span><br><span class="line">        getActivity().registerReceiver(mReceiver, filter);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//-------------------接收广播 end------------------------//</span></span><br></pre></td></tr></table></figure>
-<h3 id="EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58"><a href="#EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58" class="headerlink" title="EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)"></a>EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">etUsertel.addTextChangedListener(<span class="keyword">new</span> TextChange());</span><br><span class="line">   etPassword.addTextChangedListener(<span class="keyword">new</span> TextChange());</span><br><span class="line"></span><br><span class="line"><span class="comment">// EditText监听器</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">TextChange</span> <span class="keyword">implements</span> <span class="title">TextWatcher</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence arg0, <span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2,</span></span></span><br><span class="line"><span class="function"><span class="params">               <span class="keyword">int</span> arg3)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence cs, <span class="keyword">int</span> start, <span class="keyword">int</span> before,</span></span></span><br><span class="line"><span class="function"><span class="params">               <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">boolean</span> Sign2 = et_usertel.getText().length() &gt; <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">boolean</span> Sign3 = et_password.getText().length() &gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 设置登录按钮的颜色,以及是否可点击!</span></span><br><span class="line">           <span class="keyword">if</span> (Sign2 &amp; Sign3) &#123;</span><br><span class="line">               btnLogin.setTextColor(<span class="number">0xFFFFFFFF</span>);</span><br><span class="line">               btnLogin.setEnabled(<span class="keyword">true</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// 在layout文件中，对Button的text属性应预先设置默认值，否则刚打开程序的时候Button是无显示的</span></span><br><span class="line">           <span class="keyword">else</span> &#123;</span><br><span class="line">               btnLogin.setTextColor(<span class="number">0xFFD0EFC6</span>);</span><br><span class="line">               btnLogin.setEnabled(<span class="keyword">false</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="AS快捷键-2016-8-2-18-58-02"><a href="#AS快捷键-2016-8-2-18-58-02" class="headerlink" title="AS快捷键(2016-8-2 18:58:02)"></a>AS快捷键(2016-8-2 18:58:02)</h3><p><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6fkhxh18yj214k0pw4bs.jpg" alt="android_studio快捷键"></p>
+<p>ScrollView布局设置一个属性即可!如果不设置,那么默认显示位置在ListView(等等..)底部<br>具体可以参考: <a href="http://blog.csdn.net/ronaldong99/article/details/50736423" target="_blank" rel="noopener">ScrollView嵌套ListView不置顶显示</a></p>
+<pre><code>mScrollView.smoothScrollTo(0, 0);
+</code></pre></blockquote>
+<h3 id="使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32"><a href="#使用BroadCast发送广播-通知home页刷新数据-2016-7-29-13-05-32" class="headerlink" title="使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)"></a>使用BroadCast发送广播,通知home页刷新数据(2016-7-29 13:05:32)</h3><pre><code> //----------------发送广播 , intent传值--------------//
+ private void sendRefreshAccountBroadcast() {
+        Intent intent = new Intent(Constants.REFRESH_HOME_ACCOUNT_LIST);
+        intent.putExtra(Constants.REFRESH_HOME_ACCOUNT_LIST, true);
+        getBaseContext().sendBroadcast(intent);
+    }
+
+
+
+//----------------------接收广播 start------------------//
+ private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getBooleanExtra(Constants.REFRESH_HOME_ACCOUNT_LIST, false)) {
+                // 刷新数据
+                initExpendListViewData();
+            }
+        }
+    };
+
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // 注册广播监听
+        IntentFilter filter = new IntentFilter(Constants.REFRESH_HOME_ACCOUNT_LIST);
+        getActivity().registerReceiver(mReceiver, filter);
+    }
+//-------------------接收广播 end------------------------//
+
+
+</code></pre><h3 id="EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58"><a href="#EditText数据监听-登录模块-动态搜索模块等-2016-7-30-14-29-58" class="headerlink" title="EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)"></a>EditText数据监听!登录模块,动态搜索模块等(2016-7-30 14:29:58)</h3><pre><code>    etUsertel.addTextChangedListener(new TextChange());
+    etPassword.addTextChangedListener(new TextChange());
+
+    // EditText监听器
+    class TextChange implements TextWatcher {
+
+        @Override
+        public void afterTextChanged(Editable arg0) {
+
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                int arg3) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence cs, int start, int before,
+                int count) {
+
+            boolean Sign2 = et_usertel.getText().length() &gt; 0;
+            boolean Sign3 = et_password.getText().length() &gt; 0;
+
+            // 设置登录按钮的颜色,以及是否可点击!
+            if (Sign2 &amp; Sign3) {
+                btnLogin.setTextColor(0xFFFFFFFF);
+                btnLogin.setEnabled(true);
+            }
+            // 在layout文件中，对Button的text属性应预先设置默认值，否则刚打开程序的时候Button是无显示的
+            else {
+                btnLogin.setTextColor(0xFFD0EFC6);
+                btnLogin.setEnabled(false);
+            }
+        }
+
+    }
+</code></pre><h3 id="AS快捷键-2016-8-2-18-58-02"><a href="#AS快捷键-2016-8-2-18-58-02" class="headerlink" title="AS快捷键(2016-8-2 18:58:02)"></a>AS快捷键(2016-8-2 18:58:02)</h3><p><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f6fkhxh18yj214k0pw4bs.jpg" alt="android_studio快捷键"></p>
 
         
     
