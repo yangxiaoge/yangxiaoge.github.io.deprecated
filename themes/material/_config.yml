@@ -71,7 +71,7 @@ background:
 
 # Images Settings
 img:
-    logo: "https://i.loli.net/2017/12/15/5a333fa2e943f.jpg" # "https://ooo.0o0.ooo/2017/06/13/593fc524edf62.png" # "/img/logo.png" #logo.gif
+    logo: "https://github.com/yangxiaoge/PersonResources/blob/master/earth.png?raw=true" # "https://ooo.0o0.ooo/2017/06/13/593fc524edf62.png" # "/img/logo.png" #logo.gif
     avatar: "/img/avatar.png"
     daily_pic: "/img/daily_pic.png"
     sidebar_header: "/img/sidebar_header.png"
