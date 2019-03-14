@@ -1,6 +1,6 @@
 ---
 title: Android Studio常用的引用jar整理 && 常用插件 for 自用
-date: 2015-05-10 15:29:50
+date: 2016-05-09 15:29:50
 tags: [Android Studio,Gradle]
 categories: Android
 ---
