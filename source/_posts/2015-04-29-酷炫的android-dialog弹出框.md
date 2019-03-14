@@ -1,7 +1,7 @@
 ---
 title: 酷炫的android dialog弹出框
-date: 2015-04-29 13:52:49
-tags: [Android,Gradle]
+date: 2016-03-24 22:27:49
+tags: Android,Gradle
 categories: Android
 ---
 基于github开源框架基础上运用在自己的项目中,
