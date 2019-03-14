@@ -3,7 +3,7 @@ layout: "about"
 title: "关于"
 description: "Hey, this is Bruce Yang."
 comments: true
-date: 2015-04-11 11:03:51
+date: 2016-03-24 11:03:51
 header-img: "img/ZTEsoft.jpg"
 thumbnail: "/img/ZTEsoft.jpg"
 notag: true # 关于页面不需要显示tag
