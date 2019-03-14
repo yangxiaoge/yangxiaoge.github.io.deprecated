@@ -2186,10 +2186,11 @@ a {
 }
 #scheme-Paradox #sidebar-main {
     min-height: calc(100% - 100px);
-    margin-bottom: 55px;
+    margin-bottom: 25px;
 }
 #scheme-Paradox #footer-image {
     padding-left: 8px;
+    padding-bottom: 25px;
     position: relative;
 }
 /************/
