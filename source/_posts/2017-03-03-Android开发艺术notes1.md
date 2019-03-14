@@ -1,7 +1,7 @@
 ---
 title: 《Android开发艺术探索》读书笔记 (1)
 date: 2017-03-03 13:14:14
-tags: [Android开发艺术探索,Android]
+tags: [Android]
 categories: Android开发艺术探索
 thumbnail: /img/fir.im_1.png
 catalog:    true #显示目录
