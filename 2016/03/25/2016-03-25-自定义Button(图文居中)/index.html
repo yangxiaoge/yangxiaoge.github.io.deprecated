@@ -45,7 +45,7 @@
     
     <title>
         
-            Birt级联参数设置 | 
+            自定义Button(图文居中) | 
         
         珠珠のBlog
     </title>
@@ -55,10 +55,11 @@
     <link rel="icon" href="/img/favicon.ico">
 
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content="级联查询步骤:
-1, 创建级联参数
-2, 设置相关联的参数">
-    <meta name="keywords" content="null,Birt">
+    <meta name="description" itemprop="description" content="
+首先看下 效果
+
+核心代码:">
+    <meta name="keywords" content="null,Android,自定义View">
     <meta name="theme-color" content="#455A64">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -224,7 +225,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="珠珠のBlog">
-    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/">
+    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/">
     <meta name="msapplication-navbutton-color" content="#455A64">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
@@ -243,18 +244,19 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/">
+    <meta property="og:url" content="https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Birt级联参数设置 | 珠珠のBlog">
+    <meta property="og:title" content="自定义Button(图文居中) | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
-    <meta property="og:description" content="级联查询步骤:
-1, 创建级联参数
-2, 设置相关联的参数">
-    <meta property="og:article:tag" content="Birt"> 
+    <meta property="og:description" content="
+首先看下 效果
+
+核心代码:">
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="自定义View"> 
 
     
-        <meta property="article:published_time" content="Sat May 07 2016 22:17:45 GMT+0000">
-        <meta property="article:modified_time" content="Thu Mar 14 2019 02:18:11 GMT+0000">
+        <meta property="article:published_time" content="Fri Mar 25 2016 10:06:06 GMT+0000">
+        <meta property="article:modified_time" content="Thu Mar 14 2019 02:26:50 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +264,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/index.html">
+        <link rel="canonical" href="https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -274,10 +276,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/index.html",
-    "headline": "Birt级联参数设置",
-    "datePublished": "Sat May 07 2016 22:17:45 GMT+0000",
-    "dateModified": "Thu Mar 14 2019 02:18:11 GMT+0000",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/index.html",
+    "headline": "自定义Button(图文居中)",
+    "datePublished": "Fri Mar 25 2016 10:06:06 GMT+0000",
+    "dateModified": "Thu Mar 14 2019 02:26:50 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -295,10 +297,11 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",Birtnull",
-    "description": "级联查询步骤:
-1, 创建级联参数
-2, 设置相关联的参数",
+    "keywords": ",Android,自定义Viewnull",
+    "description": "
+首先看下 效果
+
+核心代码:",
 }
 </script>
 
@@ -374,14 +377,6 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-创建级联参数"><span class="post-toc-number">1.</span> <span class="post-toc-text">1, 创建级联参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-设置相关联的参数"><span class="post-toc-number">2.</span> <span class="post-toc-text">2, 设置相关联的参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-每一个参数都要单独设置-display-type"><span class="post-toc-number">3.</span> <span class="post-toc-text">3, 每一个参数都要单独设置 display type</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-数据集设计-详情有道云笔记"><span class="post-toc-number">4.</span> <span class="post-toc-text">4, 数据集设计  __详情有道云笔记</span></a></li></ol>
-    </ul>
-    
 
 
 
@@ -411,7 +406,7 @@
         
     
             <p class="article-headline-p">
-                Birt级联参数设置
+                自定义Button(图文居中)
             </p>
         </div>
 
@@ -430,7 +425,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Bruce Yang</strong>
-        <span>5月 07, 2016</span>
+        <span>3月 25, 2016</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -452,7 +447,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACyklEQVR42u3aS3LCMBAFQO5/abLNBuc9jamA1FpRYBu1qMpkPo/nkeuBjY2NjY2NjY2N/ZHsR7x+X//qCdfv5/e+un5tz9jY2NgnsP/40/9i69dfc42/fr89vuTIsLGxsU9gJ0Er+cooMQjwSWArAi02NjY29nV4CBKYPNW5/kZsbGxs7LsCWL7F5K48/cDGxsbGnhSV7k0q8oOY7xkbGxt7b/Zao/d/X/9bfxsbGxv7w9jz4n5bWmpD4/OmhY2Njb0rO996Uh6ajGC2pa76SmxsbOxN2XkC0Bbu21bB2phmPpqJjY2NvSs7CQ/Jp8lRJlf+sfXJM7GxsbE3Zd9V7pkfUP7MtdYyNjY29q7syaPXRnPmn75lZAcbGxv7y9mTMDNhtEM5k11hY2Nj783OS/DzY2rvWmvu3ha3sbGxsb+EPQ9CE15ylC0eGxsb+zR2XjZaa/S2n14XkvI2MDY2NvYJ7KRxex148oObNx5G4RYbGxv7YPYkPUherxWq8oPGxsbGPoFd/EM/TgnubfrmiRA2Njb2rux2W/kYTdu+bUNpPUKEjY2NvSm7LSrlKcHayveQJDbY2NjYJ7DzYce2fJ+nEHnpaq1QhY2NjX0C+67gNBn6aYtZbbEJGxsb+0x2W77PU4W15CcazZkHMGxsbOwvZK+lAfk7i0M24ydgY2Njn8lOAG2Ckbd424MufkJsbGzsrdlJ6/euMZo1dt7oHQ1fYmNjY385O2/EtqM8k7LR2tAPNjY29jnsdt07gjMp99dtA2xsbOxN2ZPAkG8oasSWIzt5oxobGxv7BHZbuLl30GeN0RbFsLGxsU9grwWt/AjyBm1bVMLGxsbGbtmLISTYdHLE7V3Y2NjY2G156H0Ng9GV2NjY2Aewk6JSXZQvj/IdhSpsbGzsE9iTocZ23Gdt7KbdCTY2NvY57HMWNjY2NjY2NjY29sesH2XpKlyPEXF5AAAAAElFTkSuQmCC">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADhklEQVR42u3aS27jMBAFwNz/0jPbAIE973WTjgYorgzHkcjSotWfrz/Wt/WFAAcOHDhw4MCBAweOB3N8xevVf728zbe/Jp/fXzn55fAsOHDgwIHjAsc/QtHbzb3fVkvzfus5enEWHDhw4MBxjePVVtpNb4JiHoxbXBw4cODA8WSOJJi1aV4SRFsaHDhw4MDxv3DkCVte+EsQ8wCPAwcOHDiewDErwOVws6Jey/3RWikOHDhw4FgPNDz/80fnO3DgwIEDxw+Ods22kqdzm2GF4Ylw4MCBA8dRjs2RZo2fzX1PXQcHDhw4cNzjmDV1kuJdu9G2mDhrdxUpHA4cOHDgOMSxCZOzltIseO9bUDhw4MCB4wbHJj3LS35nRxCSexVJIA4cOHDgOMqxaTW1Zbs8VcsHtTcvAThw4MCB4wZHPhi3D73vD7kPpcNWFg4cOHDgOMqxSYfakNyOPsyGKtrWFA4cOHDgOMvRBr9Zi6gNqJvRivZcOHDgwIHjLEdeUGu/36dqm/BcpJE4cODAgeMoRzsSnRf7ZglhmwTmoR0HDhw4cPwWRxvM8sbVrAg4G6crCpo4cODAgeMoR17Ia8cdZgeYBd02YOPAgQMHjnscbdrTJntJAlZsfRRQD08O4sCBAweOsu2UXLQFbdtIyeBCOx6HAwcOHDiew9FizQYa8lDaFhyHxUEcOHDgwLHg2IwdJOEzH0HYE7dNLBw4cODAcZsjB9qMteVFw3ZU4kBxEAcOHDhwrNtOm0SuDbGbhlP7YKL2GA4cOHDgOMqxSeQ2qd0+zLf7fPk4ceDAgQPHUY79kNymdbQ5zKyIiQMHDhw4bnNsyoJ5Ia8NtLPxhTx1xIEDBw4c9zg2R8qDXz7K1u5k9sBw4MCBA8dtjjbRmo01FK2gsow4I8OBAwcOHLc58u+T8l9bKGyTtNl4BA4cOHDg+C2OtlS3bxG9v2aLUtwRBw4cOHAc5WhXkuYV6dOomJgH1MNdOBw4cODAcajt1KZhLdOsAZa8BCQvEzhw4MCB4wZHm8JtUqycLL9yuxMcOHDgwPEZjnZkIU+o8lRwFkTbVwQcOHDgwPE0js0wQRJu85LfrDGGAwcOHDiez7FJ8GbH3j8eHDhw4MBxmyMpDt4Ys2vbRbOg/vKXOHDgwIHjAkdeYouSojXBqcG46/MdOHDgwIHjB4eFAwcOHDhw4MCBAweOh62/uNulToLoAAgAAAAASUVORK5CYII=">
     
 </ul>
 
@@ -466,7 +461,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Birt/">Birt</a>
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/自定义View/">自定义View</a>
     </li></ul>
     
 
@@ -481,7 +476,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/05/07/2015-09-06-Birt级联参数设置/" class="leancloud-views_num" data-flag-title="Birt级联参数设置">
+                <span id="/2016/03/25/2016-03-25-自定义Button(图文居中)/" class="leancloud-views_num" data-flag-title="自定义Button(图文居中)">
      &nbsp;浏览量
 </span>
 
@@ -493,7 +488,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Birt级联参数设置&url=https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=自定义Button(图文居中)&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -502,7 +497,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Birt级联参数设置&url=https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=自定义Button(图文居中)&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -520,7 +515,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Birt级联参数设置&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=自定义Button(图文居中)&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -539,13 +534,61 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><img src="http://ww3.sinaimg.cn/mw1024/c05ae6b6gw1f3lr2a94s9j20sg0c6wlh.jpg" alt><br><code>级联查询</code>步骤:</p>
-<h3 id="1-创建级联参数"><a href="#1-创建级联参数" class="headerlink" title="1, 创建级联参数"></a>1, 创建级联参数</h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbip8eij20en043js6.jpg" alt></p>
-<h3 id="2-设置相关联的参数"><a href="#2-设置相关联的参数" class="headerlink" title="2, 设置相关联的参数"></a>2, 设置相关联的参数</h3><a id="more"></a>
-<p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbeh0vpj20py0mojwv.jpg" alt><br><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3lqbjenelj20hz0mtae5.jpg" alt></p>
-<h3 id="3-每一个参数都要单独设置-display-type"><a href="#3-每一个参数都要单独设置-display-type" class="headerlink" title="3, 每一个参数都要单独设置 display type"></a>3, 每一个<code>参数</code>都要<code>单独</code>设置 <code>display type</code></h3><p><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3lqbfavgsj20gp0ma0wl.jpg" alt> </p>
-<h3 id="4-数据集设计-详情有道云笔记"><a href="#4-数据集设计-详情有道云笔记" class="headerlink" title="4, 数据集设计  __详情有道云笔记"></a>4, 数据集设计  __详情<code>有道云笔记</code></h3><p><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbg1ji5j211w0exgq6.jpg" alt><br><img src="http://ww3.sinaimg.cn/mw690/c05ae6b6gw1f3lqbgrgdkj20w90g20xc.jpg" alt><br><img src="http://ww1.sinaimg.cn/mw1024/c05ae6b6gw1f3lqj8f7qyj20yl0gdjw3.jpg" alt></p>
+        <blockquote>
+<p>首先看下 <strong>效果</strong></p>
+</blockquote>
+<p><img src="http://ww4.sinaimg.cn/mw690/c05ae6b6gw1f3dxjw0a3aj208601ft8j.jpg" alt="带图片箭头的按钮"><br><code>核心代码:</code><br><a id="more"></a></p>
+<pre><code>package com.ztesoft.zsmart.datamall.app.widget;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
+import android.widget.Button;
+
+/**
+ * Description: 自定义Button(图文居中)
+ * Author: 0027008122 [yang.jianan@zte.com.cn]
+ * Time: 2016/1/26 14:21
+ * Version: 1.0
+ */
+public class DrawableCenterButton extends Button{
+
+    public DrawableCenterButton(Context context) {
+        super(context);
+        // TODO Auto-generated constructor stub
+    }
+
+    public DrawableCenterButton(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    public DrawableCenterButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Drawable[] drawables = getCompoundDrawables();
+        if (drawables != null) {
+            Drawable drawableLeft = drawables[2];
+            if (drawableLeft != null) {
+                float textWidth = getPaint().measureText(getText().toString());
+                int drawablePadding = getCompoundDrawablePadding();
+                int drawableWidth = 0;
+                drawableWidth = drawableLeft.getIntrinsicWidth();
+                // 20 是偏移量,不加,长文本会折行
+                float bodyWidth = textWidth + 20 + drawableWidth + drawablePadding;
+                setPadding(0, 0, (int)(getWidth() - bodyWidth), 0);
+                canvas.translate((getWidth() - bodyWidth) / 2, 0);
+            }
+        }
+        super.onDraw(canvas);
+    }
+}
+
+</code></pre>
         
     
 
@@ -599,8 +642,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://yangxiaoge.github.io/2016/05/07/2015-09-06-Birt级联参数设置/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2016/03/25/2016-03-25-自定义Button(图文居中)/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -649,7 +692,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/05/09/2015-05-10-Android-studio常用的引用jar整理-for-自用/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/03/25/2016-03-25-Android沉浸式状态栏-md/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -663,7 +706,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2016/05/07/2015-09-06-Birt多选参数设置/" id="post_nav-older" class="next-content">
+        <a href="/2016/03/24/2016-03-24-酷炫的android-dialog弹出框/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

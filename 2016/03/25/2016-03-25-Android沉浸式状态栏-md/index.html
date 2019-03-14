@@ -45,7 +45,7 @@
     
     <title>
         
-            技术文档收集 | 
+            Android沉浸式状态栏 | 
         
         珠珠のBlog
     </title>
@@ -56,13 +56,17 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="
-给 Android 开发者的 RxJava 详解 by 扔物线
-印象笔记
-collecting…
-友情链接也有许多大神
-使用CheckStyle检查代码(http://gudong.name/2016/04/07/checkstyle.html)
-Android 名企面试题及涉及知识点整理">
-    <meta name="keywords" content="null,文档">
+GitHubDemo 源码
+
+1. 首先看下状态栏与导航栏结构图
+主要设置以下两个颜色一致
+
+colorPrimary 
+colorPrimaryDark 
+
+
+">
+    <meta name="keywords" content="null,Android">
     <meta name="theme-color" content="#455A64">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -228,7 +232,7 @@ Android 名企面试题及涉及知识点整理">
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="珠珠のBlog">
-    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/">
+    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/">
     <meta name="msapplication-navbutton-color" content="#455A64">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
@@ -247,22 +251,26 @@ Android 名企面试题及涉及知识点整理">
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/">
+    <meta property="og:url" content="https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="技术文档收集 | 珠珠のBlog">
+    <meta property="og:title" content="Android沉浸式状态栏 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
     <meta property="og:description" content="
-给 Android 开发者的 RxJava 详解 by 扔物线
-印象笔记
-collecting…
-友情链接也有许多大神
-使用CheckStyle检查代码(http://gudong.name/2016/04/07/checkstyle.html)
-Android 名企面试题及涉及知识点整理">
-    <meta property="og:article:tag" content="文档"> 
+GitHubDemo 源码
+
+1. 首先看下状态栏与导航栏结构图
+主要设置以下两个颜色一致
+
+colorPrimary 
+colorPrimaryDark 
+
+
+">
+    <meta property="og:article:tag" content="Android"> 
 
     
-        <meta property="article:published_time" content="Thu Mar 24 2016 12:39:08 GMT+0000">
-        <meta property="article:modified_time" content="Thu Mar 14 2019 02:18:11 GMT+0000">
+        <meta property="article:published_time" content="Fri Mar 25 2016 17:04:30 GMT+0000">
+        <meta property="article:modified_time" content="Thu Mar 14 2019 02:26:50 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -270,7 +278,7 @@ Android 名企面试题及涉及知识点整理">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/index.html">
+        <link rel="canonical" href="https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -282,10 +290,10 @@ Android 名企面试题及涉及知识点整理">
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/index.html",
-    "headline": "技术文档收集",
-    "datePublished": "Thu Mar 24 2016 12:39:08 GMT+0000",
-    "dateModified": "Thu Mar 14 2019 02:18:11 GMT+0000",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/index.html",
+    "headline": "Android沉浸式状态栏",
+    "datePublished": "Fri Mar 25 2016 17:04:30 GMT+0000",
+    "dateModified": "Thu Mar 14 2019 02:26:50 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -303,14 +311,18 @@ Android 名企面试题及涉及知识点整理">
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",文档null",
+    "keywords": ",Androidnull",
     "description": "
-给 Android 开发者的 RxJava 详解 by 扔物线
-印象笔记
-collecting…
-友情链接也有许多大神
-使用CheckStyle检查代码(http://gudong.name/2016/04/07/checkstyle.html)
-Android 名企面试题及涉及知识点整理",
+GitHubDemo 源码
+
+1. 首先看下状态栏与导航栏结构图
+主要设置以下两个颜色一致
+
+colorPrimary 
+colorPrimaryDark 
+
+
+",
 }
 </script>
 
@@ -386,6 +398,14 @@ Android 名企面试题及涉及知识点整理",
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-首先看下状态栏与导航栏结构图"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 首先看下状态栏与导航栏结构图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 引用库  SystemBarTint, 并在module / build.gradle里添加以下依赖:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 写一个公共的BaseActivity, 只要继承BaseActivity即可实现沉浸式效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-注册清单设置-AndroidManifest-xml"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.注册清单设置 AndroidManifest.xml</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -415,7 +435,7 @@ Android 名企面试题及涉及知识点整理",
         
     
             <p class="article-headline-p">
-                技术文档收集
+                Android沉浸式状态栏
             </p>
         </div>
 
@@ -434,7 +454,7 @@ Android 名企面试题及涉及知识点整理",
     <!-- Author Name & Date -->
     <div>
         <strong>Bruce Yang</strong>
-        <span>3月 24, 2016</span>
+        <span>3月 25, 2016</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -456,7 +476,7 @@ Android 名企面试题及涉及知识点整理",
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC4UlEQVR42u3aUW4iMRAEUO5/6c0BEKSqPWwG+80XCg74OVJaXe3HvyOfBzY2NjY2NjY2NvYt2Y/4eV7//DnPr1+tefVbr9a8WpnsGRsbG/sE9i//+oOvfA97/wkrh5XsGRsbG/scdrKh5HXUGAQFMjmI4g+AjY2NjR1vPVlZNxJvjxsbGxsbuy1g+eaS5iRvgbCxsbGx10OlfOt5WcqHEH+WpWFjY2Pfnt0Oeu/w+g/m29jY2Ni3ZM+e9UblqkJV7BkbGxt7U3bSHuRD2Xw0+4rdjn6LldjY2NgHsJOQaDbizY91Vt6isTQ2Njb2YeyVaGk9nEqOoG1jsLGxsU9gt4Un/5xZeLQyHsbGxsY+h71STmYXffL1s5YpKmDY2NjYG7GvuvKYjwqSQ2kHD9FBYGNjY2/NzhuJq0azeeg/+67izik2Njb2l7NXwvfZcVzV/LQFDxsbG3tXdlsk8tAnaQ/agGkleMLGxsbelZ0cQfJuOyQuWogyYIpCJWxsbOyt2W30n1/lWSmW7bfXBQwbGxv7y9lJ3NOOV2fxUF7G6iKKjY2NvSm7bT+i+OYD7UTSxixd2cHGxsb+cnYOaKOi9pmVyWg4jY2NjX0w+yMXaOL1l136wcbGxt6aPWsMkpKWFMLZH6AeGGNjY2NvzU6KSh7u/M+xQfH52NjY2Aew80FvG+ustDR5mDUcD2BjY2NvwW7LVbuV2TWgIvpPYixsbGzsrdntEeQFrLhSc9GgdxgqYWNjY2/Hbke27XC3BVxwAQgbGxt7U3b7tPFQW/Dyb2wjMGxsbOxd2W0xmL27sqZuOVayNGxsbOyvZc9GuUmE1G69jZbyn2NjY2OfwJ6NadsilA968xKLjY2Njf0Jdn4pJwGvB1XY2NjY2MmG8vYgb2CSIcTHCxg2Njb2l7CTUGnWJMxaiNlxf2Q8gI2NjX17dgvIj2x2fEkzk6zExsbGPoF9zoONjY2NjY2NjY19m+cH/z0qXIkMKzgAAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADg0lEQVR42u3ay27bQBAEQP//TyfXAILsnp5dWgGKJ0OWVmT50J7H1x/XP9cXAhw4cODAgQMHDhw4PpjjK75eP/X687uT333Xu0/lpx14Fhw4cODAcYHjhyiqOL5/554peSU6BwcOHDhwXON4d1vv3pMH3jRQE/T8Pn84BwcOHDhwfADHnundK98HZB75OHDgwIHj/+K4UWjlTcmcBgcOHDhw/C7HvsGXx+e0vZgPuh7tleLAgQMHjvVCw+f//Oh+Bw4cOHDgeOGYXkn7r4vPTRivnggHDhw4cBzlyIOqK666Rl7yqf3948CBAweOJzny35564HygNS7SphUtDhw4cOBYcGzi88YQaDrQyhcXyooWBw4cOHBU3bC8YOvafFOO6ffm8Y8DBw4cOJ7h2N9Qfiv3CPJiDwcOHDhw3OPoSqk8RKdxmL9nfz4OHDhw4HiSI2//JWsHp07Og7lcaMCBAwcOHIc4ulvPB0L5WGu67pAUcj/Q48CBAweOoxzdCloSpYMiqjq5+7PhwIEDB45nOMolszgUpzTTkVJStg2mcDhw4MCBY8ExDb/NEGi6DDGN8zK8ceDAgQPHZY5NfHYrCHm7MP9XIB9c4cCBAweOsxzT5l23WHA2IDehfqCixYEDBw4cQTdsGmlJubWJ6i5Ep3GOAwcOHDjucWyag9PFiKSA7AZRXcmHAwcOHDjOcuQLAV3cTkdN02Kva1DiwIEDB457HHlRtKGZBu1+NLVqDuLAgQMHjqMc5aHV+GdQaA3bkceCFgcOHDhwVBz7kNs/cH5Xp0pQHDhw4MBxmyMZR+WF334lIhmM5VhvX8GBAwcOHBc49uXT+CYCpmn8J01DHDhw4MBxmyNp500feBN73xdj03Ix4sOBAwcOHNc48nCahmK3xNANtKYLGThw4MCB4zZHx9QFbRL5+cklGQ4cOHDgeISjK9i60J2ekzcNV81BHDhw4MBRcUyvvFXXDbdulJeD5iAOHDhw4FhzTIMq/7KuhZc3Ivd/Hhw4cODAcY+jC9fNSsS0HZmjJyMxHDhw4MDxDMd0Qa0bGo2DsAr75B5w4MCBA8cnc3QLCsnjTeMz+S4cOHDgwPFpHMkJ+TrCdLmho8SBAwcOHM9zdG27zWJEF5Ob5iAOHDhw4HiGY9poy9t8XdF1Nmgv7nfgwIEDB44XDhcOHDhw4MCBAwcOHDg+7PoLVUebdC7XH+wAAAAASUVORK5CYII=">
     
 </ul>
 
@@ -470,7 +490,7 @@ Android 名企面试题及涉及知识点整理",
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/文档/">文档</a>
+        <a class="post_tag-link" href="/tags/Android/">Android</a>
     </li></ul>
     
 
@@ -485,7 +505,7 @@ Android 名企面试题及涉及知识点整理",
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2016/03/24/2015-04-15-技术文档收集/" class="leancloud-views_num" data-flag-title="技术文档收集">
+                <span id="/2016/03/25/2016-03-25-Android沉浸式状态栏-md/" class="leancloud-views_num" data-flag-title="Android沉浸式状态栏">
      &nbsp;浏览量
 </span>
 
@@ -497,7 +517,7 @@ Android 名企面试题及涉及知识点整理",
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=技术文档收集&url=https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android沉浸式状态栏&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -506,7 +526,7 @@ Android 名企面试题及涉及知识点整理",
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=技术文档收集&url=https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/index.html&via=Bruce Yang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android沉浸式状态栏&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/index.html&via=Bruce Yang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -524,7 +544,7 @@ Android 名企面试题及涉及知识点整理",
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=技术文档收集&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=Android沉浸式状态栏&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -543,16 +563,72 @@ Android 名企面试题及涉及知识点整理",
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <ol>
-<li><a href="http://gank.io/post/560e15be2dca930e00da1083#toc_1" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a> by <a href="https://github.com/rengwuxian" target="_blank" rel="noopener"><code>扔物线</code></a></li>
-<li>印象笔记</li>
-<li>collecting…</li>
-<li>友情链接也有许多大神</li>
-<li>使用CheckStyle检查代码(<a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="noopener">http://gudong.name/2016/04/07/checkstyle.html</a>)</li>
-<li><a href="https://github.com/Mr-YangCheng/ForAndroidInterview" target="_blank" rel="noopener">Android 名企面试题及涉及知识点整理</a><a id="more"></a></li>
-<li><a href="https://segmentfault.com/a/1190000000609851" target="_blank" rel="noopener">Android进阶-吹牛专用_stormzhang大神所写,哈哈</a></li>
-<li><a href="http://hukai.me/android-training-course-in-chinese/index.html" target="_blank" rel="noopener">Android官方培训课程中文版</a></li>
+        <blockquote>
+<p><code>GitHub</code>Demo<a href="https://github.com/yangxiaoge/ImmersiveStatusBar" target="_blank" rel="noopener"> 源码</a></p>
+</blockquote>
+<h2 id="1-首先看下状态栏与导航栏结构图"><a href="#1-首先看下状态栏与导航栏结构图" class="headerlink" title="1. 首先看下状态栏与导航栏结构图"></a>1. 首先看下<code>状态栏</code>与<code>导航栏</code>结构图</h2><blockquote>
+<p>主要设置以下两个颜色一致</p>
+<ol>
+<li><strong>colorPrimary </strong></li>
+<li><strong>colorPrimaryDark</strong> </li>
 </ol>
+</blockquote>
+<p><img src="http://ww2.sinaimg.cn/mw690/c05ae6b6gw1f3hyhtv36cj20j60b5q39.jpg" alt="状态栏结构.jpg"><br><a id="more"></a></p>
+<h2 id="2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖"><a href="#2-引用库-SystemBarTint-并在module-build-gradle里添加以下依赖" class="headerlink" title="2. 引用库  SystemBarTint, 并在module / build.gradle里添加以下依赖:"></a>2. 引用库  <a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener">SystemBarTint</a>, 并在<code>module / build.gradle</code>里添加以下依赖:</h2><blockquote>
+<p>compile ‘com.readystatesoftware.systembartint:systembartint:1.0.3’<br><img src="http://ww1.sinaimg.cn/mw690/c05ae6b6jw1f3llhi475qj20jr04u75n.jpg" alt></p>
+</blockquote>
+<h2 id="3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果"><a href="#3-写一个公共的BaseActivity-只要继承BaseActivity即可实现沉浸式效果" class="headerlink" title="3. 写一个公共的BaseActivity, 只要继承BaseActivity即可实现沉浸式效果"></a>3. 写一个公共的<code>BaseActivity</code>, 只要继承<code>BaseActivity</code>即可实现沉浸式效果</h2><pre><code>package androidautolayout.yjn.com.statusbar;
+
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.readystatesoftware.systembartint.SystemBarTintManager;
+
+public class BaseActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus(true);
+        }
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(R.color.colorPrimary);
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &amp;= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+}
+
+</code></pre><blockquote>
+<p><code>Avtivity</code>直接 extends <code>BaseActivity</code></p>
+</blockquote>
+<pre><code>public class MainActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+}
+</code></pre><h2 id="4-注册清单设置-AndroidManifest-xml"><a href="#4-注册清单设置-AndroidManifest-xml" class="headerlink" title="4.注册清单设置 AndroidManifest.xml"></a>4.注册清单设置 <code>AndroidManifest.xml</code></h2><p><img src="http://ww1.sinaimg.cn/mw690/c05ae6b6jw1f3llhgnmzyj20yg0b4ade.jpg" alt></p>
 
         
     
@@ -607,8 +683,8 @@ Android 名企面试题及涉及知识点整理",
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://yangxiaoge.github.io/2016/03/24/2015-04-15-技术文档收集/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2016/03/25/2016-03-25-Android沉浸式状态栏-md/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -657,7 +733,7 @@ Android 名企面试题及涉及知识点整理",
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/03/24/2015-04-29-酷炫的android-dialog弹出框/" id="post_nav-newer" class="prev-content">
+        <a href="/2016/05/05/2016-05-05-Android中使用Gson解析稍复杂的JSON数据/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -671,7 +747,7 @@ Android 名企面试题及涉及知识点整理",
 
     <!-- Next Nav -->
     
-        <a href="/2016/03/24/2015-04-12-Hexo个人博客搭建/" id="post_nav-older" class="next-content">
+        <a href="/2016/03/25/2016-03-25-自定义Button(图文居中)/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

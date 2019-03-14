@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: Android,Gradle | 
+            MumuXi安卓版开发 | 
         
         珠珠のBlog
     </title>
@@ -55,8 +55,20 @@
     <link rel="icon" href="/img/favicon.ico">
 
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content="背着键盘的编程侠客!">
-    <meta name="keywords" content="null">
+    <meta name="description" itemprop="description" content="这也是自己第一个算是正式的练手App项目
+MumuXi 
+目的: 督促自己不断积累知识经验。下面进入正文
+准备工作
+Android Studio
+Gank Api (gank.io/api 由 代码家维护的开源Api)
+N多依赖jar包
+学习CaMnter/EasyGank完成的项目
+
+开发准备
+框架搭建
+界面原型设计
+主要功能">
+    <meta name="keywords" content="null,Android,Gank">
     <meta name="theme-color" content="#455A64">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +95,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -219,7 +234,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="珠珠のBlog">
-    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/tags/Android-Gradle/">
+    <meta name="msapplication-starturl" content="https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/">
     <meta name="msapplication-navbutton-color" content="#455A64">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="珠珠のBlog">
@@ -238,13 +253,28 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://yangxiaoge.github.io/tags/Android-Gradle/">
+    <meta property="og:url" content="https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: Android,Gradle | 珠珠のBlog">
+    <meta property="og:title" content="MumuXi安卓版开发 | 珠珠のBlog">
     <meta property="og:image" content="/img/favicon.ico">
-    <meta property="og:description" content="背着键盘的编程侠客!">
-    
+    <meta property="og:description" content="这也是自己第一个算是正式的练手App项目
+MumuXi 
+目的: 督促自己不断积累知识经验。下面进入正文
+准备工作
+Android Studio
+Gank Api (gank.io/api 由 代码家维护的开源Api)
+N多依赖jar包
+学习CaMnter/EasyGank完成的项目
 
+开发准备
+框架搭建
+界面原型设计
+主要功能">
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="Gank"> 
+
+    
+        <meta property="article:published_time" content="Mon Jun 27 2016 11:37:37 GMT+0000">
+        <meta property="article:modified_time" content="Thu Mar 14 2019 02:26:50 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +282,55 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://yangxiaoge.github.io/tags/Android-Gradle/index.html">
+        <link rel="canonical" href="https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/index.html",
+    "headline": "MumuXi安卓版开发",
+    "datePublished": "Mon Jun 27 2016 11:37:37 GMT+0000",
+    "dateModified": "Thu Mar 14 2019 02:26:50 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Bruce Yang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "背着键盘的编程侠客!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "珠珠のBlog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.ico"
+        }
+    },
+    "keywords": ",Android,Ganknull",
+    "description": "这也是自己第一个算是正式的练手App项目
+MumuXi 
+目的: 督促自己不断积累知识经验。下面进入正文
+准备工作
+Android Studio
+Gank Api (gank.io/api 由 代码家维护的开源Api)
+N多依赖jar包
+学习CaMnter/EasyGank完成的项目
+
+开发准备
+框架搭建
+界面原型设计
+主要功能",
+}
+</script>
 
 
     
@@ -309,98 +381,366 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开发准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">开发准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#完成功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">完成功能:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下载"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">下载</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2016/03/24/2015-04-29-酷炫的android-dialog弹出框/">酷炫的android dialog弹出框</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            基于github开源框架基础上运用在自己的项目中,效果如下:
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2016/03/24/2015-04-29-酷炫的android-dialog弹出框/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Bruce Yang's avatar">
-            </div>
-            <div>
-                <strong>Bruce Yang</strong>
-                <span>3月 24, 2016</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Android/">Android</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 5; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                MumuXi安卓版开发
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Bruce Yang</strong>
+        <span>6月 27, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1UlEQVR42u3aUW7jMAwE0Nz/0t0DLJLOiNrWKz1/BWli66lApyT1+rryemFjY2NjY2NjY2M/kv2Kr3ffau+z9sQNa8bGxsY+mv3Nn/6A/fcnc8bn7777ab1mbGxs7AvY7xaaBFW+oM8b9zmo1taMjY2NjZ3APodcG2NJIYSNjY2NPQ+wtfIjeT+hYmNjY2OvNWjaBlNebOQx9gu9NGxsbOzHs/Oh6XNe/+h8GxsbG/vB7PbaUBLEwdaOHL5ZOTY2Nvah7DwYWnzbSGrfqY9sYmNjYx/Kbtv6a5/MG0l5pLXRiI2NjX02Ow+ztqjIY6wdCSR3w8bGxr6NPbppfBBn7WDlpFjCxsbGPpv9OTDaptIknNpio14zNjY29qHsdpSbv951z7YUWZxvY2NjYx/KbocHeblSlBDjiMXGxsa+hz0pMCaNqkmxUTwdGxsb+wJ2EiF742qt6Z+sZHNuY2NjYz+Ynbf+85b9rpImGTAXjS1sbGzsC9h5YLRFQhtFu8a92NjY2Dew83/o1wqGCb7d9Ho8gI2NjX0EOz9wkxcP7WblTf9km6LxADY2NvZB7DwY2mJj7f5rQ+K6qYSNjY19HDsZDKw9fh5Ik3IIGxsb+wZ2TpqMgZNSJw+89lgPNjY29tnsNkh2wfK2ftucqqci2NjY2P85O/nXv23urBUPyR2+Bhc2Njb2DexJgyk/XvMvmkfRJ7GxsbGvZLeMvM00ibQNg15sbGzsQ9ltSygvV3JksjVtgwkbGxv7bHbdmgkeNh8hrI0NigDDxsbGPojdBkMbUbvGwJPX2NjY2Dewk9BKoqUdA3z+TL5l0S8GGxsb+wJ2fqhx3uJpN+WHDl9iY2NjX8zOWzzJkHjX2rCxsbGx61svbUc+ZmgHGNjY2Ni3sfNDOcly8zBrt/sXemnY2NjYj2dP2kNJaK21+xPkqBTBxsbGPoJ9z4WNjY2NjY2NjY39mOsPlV4LbVn6IxYAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Gank/">Gank</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2016/06/27/2016-06-27-MumuXi安卓版开发/" class="leancloud-views_num" data-flag-title="MumuXi安卓版开发">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=MumuXi安卓版开发&url=https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/index.html&pic=https://yangxiaoge.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=MumuXi安卓版开发&url=https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/index.html&via=Bruce Yang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=珠珠のBlog&title=MumuXi安卓版开发&summary=背着键盘的编程侠客!&pics=https://yangxiaoge.github.io/img/favicon.ico&url=https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><code>这也是自己第一个算是正式的练手App项目</code></p>
+<p><a href="https://github.com/yangxiaoge/MumuXi" target="_blank" rel="noopener">MumuXi</a> <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=yangxiaoge&repo=MumuXi&type=star&count=true"><br></iframe></p>
+<p><code>目的:</code> 督促自己不断积累知识经验。<br>下面进入正文</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li>Android Studio</li>
+<li><a href="http://gank.io/" target="_blank" rel="noopener">Gank Api</a> (<a href="http://gank.io/api" target="_blank" rel="noopener">gank.io/api</a> 由 <a href="https://github.com/daimajia" target="_blank" rel="noopener">代码家</a>维护的开源Api)</li>
+<li>N多依赖jar包</li>
+<li>学习<a href="https://github.com/CaMnter/EasyGank" target="_blank" rel="noopener">CaMnter/EasyGank</a>完成的项目</li>
+</ul>
+<h1 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h1><ul>
+<li>框架搭建</li>
+<li>界面原型设计</li>
+<li>主要功能<a id="more"></a>
+</li>
+</ul>
+<h1 id="完成功能"><a href="#完成功能" class="headerlink" title="完成功能:"></a>完成功能:</h1><ul>
+<li>知乎专栏-作者文章-文章detail</li>
+<li>妹子福利</li>
+<li>about_me-换头像</li>
+<li>about_app-app开发目的,以及使用的框架</li>
+<li>for_what-是目标功能(有的还没实现)</li>
+<li>所有的<a href="https://github.com/zzz40500/android-shapeLoadingView" target="_blank" rel="noopener">loading动画</a>用的是开源框架- 布局放在了EasyRecyclerView的 <a href="https://github.com/yangxiaoge/MumuXi/blob/master/app/src/main/res/layout/fragment_zhuanlan_layout.xml" target="_blank" rel="noopener">layout_empty</a> ,layout_progress,error中,具体根据实际来放</li>
+<li>上拉,下拉刷新用的开源框架<a href="https://github.com/Jude95/EasyRecyclerView" target="_blank" rel="noopener">EasyRecyclerView</a><br>-侧滑Drawer功能还没加,后面考虑加些其他功能~~~</li>
+</ul>
+<blockquote>
+<p>项目详细 注解 以及功能在<a href="https://github.com/yangxiaoge/MumuXi" target="_blank" rel="noopener">github</a>提交的<a href="https://github.com/yangxiaoge/MumuXi" target="_blank" rel="noopener">message</a>和代码注解中</p>
+</blockquote>
+<blockquote>
+<p>经过一个星期的折腾,终于完成了第一个版本,并且试着上架了应用商城! O(∩_∩)O~~</p>
+</blockquote>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://fir.im/mumuxi" target="_blank" alt="Fir"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f802wvh1s2j203301cq2q.jpg"></a></p>
+<p><a href="http://android.myapp.com/myapp/detail.htm?apkName=com.yang.bruce.mumuxi" target="_blank" alt="应用宝"><img src="http://ww4.sinaimg.cn/mw1024/c05ae6b6gw1f5pv5t3kwwj203w01jglf.jpg"></a></p>
+<p><a href="http://www.wandoujia.com/apps/com.yang.bruce.mumuxi" target="_blank" alt="豌豆荚"><img src="http://ww1.sinaimg.cn/mw690/c05ae6b6gw1f5iyz0qbdgj204k01mglg.jpg"></a></p>
+<p><strong>add google analytics谷歌分析</strong> ( 2016-9-5 11:58:26 )</p>
+<ol>
+<li><code>google-services.json</code><a href="https://developers.google.com/mobile/add?platform=android&amp;cntapi=analytics&amp;cnturl=https:%2F%2Fdevelopers.google.com%2Fanalytics%2Fdevguides%2Fcollection%2Fandroid%2Fv4%2Fapp%3Fconfigured%3Dtrue&amp;cntlbl=Continue%20Adding%20Analytics" target="_blank" rel="noopener">文件下载</a></li>
+<li>官方集成文档: <a href="https://developers.google.com/analytics/devguides/collection/android/v4/app?configured=true" target="_blank" rel="noopener">https://developers.google.com/analytics/devguides/collection/android/v4/app?configured=true</a></li>
+<li>分析用户使用情况的平台: <a href="https://analytics.google.com/analytics/web/#realtime/rt-app-overview/a83624565w124744507p129062318/" target="_blank" rel="noopener">https://analytics.google.com/analytics/web/#realtime/rt-app-overview/a83624565w124744507p129062318/</a></li>
+<li><img src="http://ww2.sinaimg.cn/mw1024/c05ae6b6gw1f7iknnth8nj217y0lx43d.jpg" alt="google 分析"></li>
+</ol>
+<p>说明下:(add in 2016-9-28 14:08:13 ) 以下说明摘自<a href="http://dev.xiaomi.com/doc/p=62/index.html" target="_blank" rel="noopener">小米开放平台</a><br>Google为APK定义了两个属性：<code>VersionCode</code>和<code>VersionName</code>，他们有不同的用途。<br>VersionCode：对消费者不可见，仅用于应用市场、程序内部识别版本，判断新旧等用途。<br>VersionName：展示给消费者，消费者会通过它认知自己安装的版本。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #546E7A;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yangxiaoge.github.io/2016/06/27/2016-06-27-MumuXi安卓版开发/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//yangxiaoge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//yangxiaoge.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/08/02/2016-08-02-实现多行多列的RadioButton/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/06/23/2016-06-23-Android-踩过的坑/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -630,6 +970,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
@@ -894,6 +1242,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -906,6 +1258,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
