@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Mar 18 2019 10:05:00 GMT+0000">
-        <meta property="article:modified_time" content="Mon Mar 18 2019 02:24:13 GMT+0000">
+        <meta property="article:modified_time" content="Mon Mar 18 2019 02:48:09 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2019/03/18/2019-3-18-Flutter-状态管理-Provide/index.html",
     "headline": "Flutter 状态管理 - Provide（Google 亲儿子）",
     "datePublished": "Mon Mar 18 2019 10:05:00 GMT+0000",
-    "dateModified": "Mon Mar 18 2019 02:24:13 GMT+0000",
+    "dateModified": "Mon Mar 18 2019 02:48:09 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -533,7 +533,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><a href="https://github.com/google/flutter-provide" target="_blank" rel="noopener">flutter-provide</a> 是 Google 的亲儿子产品，允许我们更加灵活地处理数据类型和数据。允许在小部件树中传递数据的类。它被设计为替代品 <a href="https://github.com/brianegan/scoped_model" target="_blank" rel="noopener">Scoped_model</a>，允许更灵活地处理数据类型和数据。</p>
+        <p><code>flutter-provide</code> 是 Google 的亲儿子，<a href="https://github.com/google/flutter-provide" target="_blank" rel="noopener">flutter-provide</a>允许我们更加灵活地处理数据类型和数据。允许在小部件树中传递数据的类。它被设计为替代品 <a href="https://github.com/brianegan/scoped_model" target="_blank" rel="noopener">Scoped_model</a>，允许更灵活地处理数据类型和数据。</p>
 <h2 id="什么是-Provide"><a href="#什么是-Provide" class="headerlink" title="什么是 Provide"></a>什么是 Provide</h2><p>和 Scoped_model 一样，Provide 也是借助了 <code>InheritWidget</code>，将共享状态放到顶层 MaterialApp 之上。底层部件通过 Provide 获取该状态，并通过混合 <code>ChangeNotifier</code> 通知依赖于该状态的组件刷新。</p>
 <h2 id="第一步：添加依赖"><a href="#第一步：添加依赖" class="headerlink" title="第一步：添加依赖"></a>第一步：添加依赖</h2><p>在 <code>pubspec.yaml</code> 中添加 <code>provide: ^1.0.2</code></p>
 <h2 id="第二步：创建-Model"><a href="#第二步：创建-Model" class="headerlink" title="第二步：创建 Model"></a>第二步：创建 Model</h2><pre><code>///Counter
