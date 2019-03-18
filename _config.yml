@@ -100,8 +100,6 @@ i18n_dir: :lang
 skip_render:		 #跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。 避免特定文件的被编译,http://www.joryhe.com/2016-05-31-baidu_google_both_tijiao.html
   - baidu_verify_uEAxU0qtYC.html 
   - google36ab8c4f3f719876.html
-  - README.md
-  - 404.html
 
 # Writing
 new_post_name: :title.md # File name of new posts

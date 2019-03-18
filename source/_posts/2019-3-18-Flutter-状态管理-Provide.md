@@ -5,7 +5,7 @@ tags: Flutter
 categories: Flutter
 ---
 
-[flutter-provide](https://github.com/google/flutter-provide) 是 Google 的亲儿子产品，允许我们更加灵活地处理数据类型和数据。允许在小部件树中传递数据的类。它被设计为替代品 [Scoped_model](https://github.com/brianegan/scoped_model)，允许更灵活地处理数据类型和数据。
+`flutter-provide` 是 Google 的亲儿子，[flutter-provide](https://github.com/google/flutter-provide)允许我们更加灵活地处理数据类型和数据。允许在小部件树中传递数据的类。它被设计为替代品 [Scoped_model](https://github.com/brianegan/scoped_model)，允许更灵活地处理数据类型和数据。
 
 ## 什么是 Provide
 和 Scoped_model 一样，Provide 也是借助了 `InheritWidget`，将共享状态放到顶层 MaterialApp 之上。底层部件通过 Provide 获取该状态，并通过混合 `ChangeNotifier` 通知依赖于该状态的组件刷新。
