@@ -37,7 +37,7 @@ class Switcher extends ChangeNotifier {
 }
 ```
 
-### 第三步：将状态放入顶层
+## 第三步：将状态放入顶层
 ```
 void main() {
   // Initialize the model. Can be done outside a widget, like here.
@@ -61,7 +61,7 @@ void main() {
 }
 ```
 
-### 第四步：获取状态
+## 第四步：获取状态
 ```
 Provide<Counter>(
     builder: (context, child, counter) => Text(
@@ -77,7 +77,7 @@ Provide<Counter>(
 ),
 ```
 
-### 第五步：更新状态
+## 第五步：更新状态
 ```
 ///可以点击按钮手动触发状态更新，或者后台数据返回后触发更新等
 Provide.value<Counter>(context).increment()
