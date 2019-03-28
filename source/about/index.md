@@ -24,5 +24,7 @@ Hey，我是 **Bruce Yang**，Android 开发者 & 独立开发者，[Flutter](ht
 [江苏北弓智能](http://begoit.com/)  2017.04 - 2018.04
 [ZTEsoft 中兴软创](http://www.ztesoft.com/cn/)  2015.04 - 2017.04
 
+**珍爱生命，远离[996](https://github.com/996icu/996.ICU/blob/master/zh_CN.md)！**
+
 ***外包勿扰，猎头勿扰***。
 Email Me：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com)
