@@ -368,6 +368,14 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#渐变色AppBar"><span class="post-toc-number">1.</span> <span class="post-toc-text">渐变色AppBar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ListItem"><span class="post-toc-number">2.</span> <span class="post-toc-text">ListItem</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Appbar-隐藏返回键"><span class="post-toc-number">3.</span> <span class="post-toc-text">Appbar 隐藏返回键</span></a></li></ol>
+    </ul>
+    
 
 
 
@@ -526,56 +534,153 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>记录 <code>Flutter</code> 开发学习过程中的工具，错误，解决思路等。</p>
-<ol>
-<li><p>渐变色AppBar</p>
-<pre><code>//渐变色AppBar
+<h3 id="渐变色AppBar"><a href="#渐变色AppBar" class="headerlink" title="渐变色AppBar"></a>渐变色AppBar</h3><pre><code>//渐变色AppBar
 //https://github.com/loosaSH/flutter-appbar/blob/master/lib/appbar_gradient.dart
 appBar: PreferredSize(
-child: Container(
- padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
- child: Padding(
-   padding:
-       const EdgeInsets.only(left: 15.0, top: 15.0, bottom: 15.0),
-   child: Text(
-     Constants.appName,
-     style: TextStyle(
-         fontSize: 20.0,
-         fontWeight: FontWeight.w500,
-         color: Colors.white),
-   ),
- ),
- decoration: BoxDecoration(
-     gradient: LinearGradient(
-         colors: [Colors.red, Theme.of(context).primaryColor]),
-     boxShadow: [
-       BoxShadow(
-         color: Colors.grey[500],
-         blurRadius: 20.0,
-         spreadRadius: 1.0,
-       )
-     ]),
+  child: Container(
+    padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+    child: Padding(
+      padding:
+          const EdgeInsets.only(left: 15.0, top: 15.0, bottom: 15.0),
+      child: Text(
+        Constants.appName,
+        style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
+            color: Colors.white),
+      ),
+    ),
+    decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [Colors.red, Theme.of(context).primaryColor]),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[500],
+            blurRadius: 20.0,
+            spreadRadius: 1.0,
+          )
+        ]),
+  ),
+  preferredSize: Size(MediaQuery.of(context).size.width, 150.0),
 ),
-preferredSize: Size(MediaQuery.of(context).size.width, 150.0),
-),
-</code></pre></li>
-<li><p><a href="https://github.com/xuelongqy/flutter_easyrefresh/blob/master/example/lib/widget/list_item.dart" target="_blank" rel="noopener">ListItem</a><br><code>`</code><br>import ‘package:flutter/material.dart’;</p>
-</li>
-</ol>
-<p>/// 列表项<br> class ListItem extends StatefulWidget {<br>  // 点击事件<br>   final VoidCallback onPressed;<br>  // 图标<br>   final Widget icon;<br>  // 标题<br>   final String title;<br>  final Color titleColor;<br>  // 描述<br>   final String describe;<br>  final Color describeColor;<br>  // 右侧控件<br>   final Widget rightWidget;</p>
-<p>  // 构造函数<br>   ListItem({<br>    Key key,<br>    this.onPressed,<br>    this.icon,<br>    this.title,<br>    this.titleColor: Colors.black,<br>    this.describe,<br>    this.describeColor: Colors.grey,<br>    this.rightWidget,<br>  }) : super(key: key);</p>
-<p>  @override<br>  _ListItemState createState() =&gt; _ListItemState();<br>}</p>
-<p>class _ListItemState extends State<listitem> {<br>  @override<br>  Widget build(BuildContext context) {<br>    return FlatButton(<br>      onPressed: widget.onPressed,<br>      padding: EdgeInsets.all(0.0),<br>      shape: Border.all(<br>        color: Colors.transparent,<br>        width: 0.0,<br>        style: BorderStyle.none,<br>      ),<br>      child: Container(<br>          height: 60.0,<br>          width: double.infinity,<br>          child: Row(<br>            children: <widget>[<br>              widget.icon != null<br>                  ? Container(<br>                      padding: EdgeInsets.all(14.0),<br>                      child: SizedBox(<br>                        height: 32.0,<br>                        width: 32.0,<br>                        child: widget.icon,<br>                      ),<br>                    )<br>                  : Container(<br>                      width: 14.0,<br>                    ),<br>              Expanded(<br>                flex: 1,<br>                child: Column(<br>                  mainAxisAlignment: MainAxisAlignment.center,<br>                  crossAxisAlignment: CrossAxisAlignment.start,<br>                  children: <widget>[<br>                    widget.title != null<br>                        ? Text(<br>                            widget.title,<br>                            style: TextStyle(<br>                              color: widget.titleColor,<br>                              fontSize: 14.0,<br>                              fontWeight: FontWeight.bold,<br>                            ),<br>                          )<br>                        : Container(),<br>                    widget.describe != null<br>                        ? Text(<br>                            widget.describe,<br>                            maxLines: 2,<br>                            style: TextStyle(<br>                                color: widget.describeColor, fontSize: 12.0),<br>                          )<br>                        : Container(),<br>                  ],<br>                ),<br>              ),<br>              widget.rightWidget == null ? Container() : widget.rightWidget,<br>              Container(<br>                width: 14.0,<br>              ),<br>            ],<br>          )),<br>    );<br>  }<br>}</widget></widget></listitem></p>
-<p>/// 空图标<br> class EmptyIcon extends Icon {<br>  EmptyIcon() : super(Icons.hourglass_empty);<br>  @override<br>  Widget build(BuildContext context) {<br>    return Container();<br>  }<br>}</p>
-<pre><code>
-3. Appbar 隐藏返回键
-</code></pre><p>/**</p>
-<ul>
-<li>如果没有leading，automaticallyImplyLeading为true，就会默认返回箭头</li>
-<li>如果 没有leading 且为false，空间留给title</li>
-<li>如果有leading，这个参数就无效了<br>*/<br>automaticallyImplyLeading: true,</li>
-</ul>
-<p>作者：刘成<br>链接：<a href="https://juejin.im/post/5be7b9c56fb9a049d61d0d9b" target="_blank" rel="noopener">https://juejin.im/post/5be7b9c56fb9a049d61d0d9b</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br><code>`</code></p>
+</code></pre><h3 id="ListItem"><a href="#ListItem" class="headerlink" title="ListItem"></a><a href="https://github.com/xuelongqy/flutter_easyrefresh/blob/master/example/lib/widget/list_item.dart" target="_blank" rel="noopener">ListItem</a></h3><pre><code>import &#39;package:flutter/material.dart&#39;;
 
+/// 列表项
+ class ListItem extends StatefulWidget {
+  // 点击事件
+   final VoidCallback onPressed;
+  // 图标
+   final Widget icon;
+  // 标题
+   final String title;
+  final Color titleColor;
+  // 描述
+   final String describe;
+  final Color describeColor;
+  // 右侧控件
+   final Widget rightWidget;
+
+  // 构造函数
+   ListItem({
+    Key key,
+    this.onPressed,
+    this.icon,
+    this.title,
+    this.titleColor: Colors.black,
+    this.describe,
+    this.describeColor: Colors.grey,
+    this.rightWidget,
+  }) : super(key: key);
+
+  @override
+  _ListItemState createState() =&gt; _ListItemState();
+}
+
+class _ListItemState extends State&lt;ListItem&gt; {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      onPressed: widget.onPressed,
+      padding: EdgeInsets.all(0.0),
+      shape: Border.all(
+        color: Colors.transparent,
+        width: 0.0,
+        style: BorderStyle.none,
+      ),
+      child: Container(
+          height: 60.0,
+          width: double.infinity,
+          child: Row(
+            children: &lt;Widget&gt;[
+              widget.icon != null
+                  ? Container(
+                      padding: EdgeInsets.all(14.0),
+                      child: SizedBox(
+                        height: 32.0,
+                        width: 32.0,
+                        child: widget.icon,
+                      ),
+                    )
+                  : Container(
+                      width: 14.0,
+                    ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: &lt;Widget&gt;[
+                    widget.title != null
+                        ? Text(
+                            widget.title,
+                            style: TextStyle(
+                              color: widget.titleColor,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : Container(),
+                    widget.describe != null
+                        ? Text(
+                            widget.describe,
+                            maxLines: 2,
+                            style: TextStyle(
+                                color: widget.describeColor, fontSize: 12.0),
+                          )
+                        : Container(),
+                  ],
+                ),
+              ),
+              widget.rightWidget == null ? Container() : widget.rightWidget,
+              Container(
+                width: 14.0,
+              ),
+            ],
+          )),
+    );
+  }
+}
+
+/// 空图标
+ class EmptyIcon extends Icon {
+  EmptyIcon() : super(Icons.hourglass_empty);
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+</code></pre><h3 id="Appbar-隐藏返回键"><a href="#Appbar-隐藏返回键" class="headerlink" title="Appbar 隐藏返回键"></a>Appbar 隐藏返回键</h3><pre><code>/**
+  * 如果没有leading，automaticallyImplyLeading为true，就会默认返回箭头
+  * 如果 没有leading 且为false，空间留给title
+  * 如果有leading，这个参数就无效了
+  */
+automaticallyImplyLeading: true,
+
+作者：刘成
+链接：https://juejin.im/post/5be7b9c56fb9a049d61d0d9b
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre>
         
     
 
@@ -925,6 +1030,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Sidebar Image -->
     
+    <span id="footer-image">
+        <a href="/about" target="_blank" title="BruceHub">
+            <img src="/img/BruceHub.png" alt="BruceHub"><!--
+     --></a>
+    </span>
+
     <span id="footer-image">
         <a href="https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io" target="_blank" title="AppVeyor">
             <img src="https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true" alt="AppVeyor"><!--
