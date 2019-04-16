@@ -77,9 +77,10 @@ img:
     sidebar_header: "/img/sidebar_header.png"
     random_thumbnail: "/img/random/material-"
     footer_image:
-        #upyun_logo:
-            #link: "https://www.upyun.com/"
-            #src: "/img/upyun_logo.svg"
+        BruceHub:
+            link: "/about"
+            # pornhub头像生成：https://github.com/bestony/logoly
+            src: "/img/BruceHub.png"
         # Blog 持续集成
         AppVeyor:
             link: 'https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io'
