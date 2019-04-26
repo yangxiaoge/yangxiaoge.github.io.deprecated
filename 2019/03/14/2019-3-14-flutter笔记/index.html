@@ -373,7 +373,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#渐变色AppBar"><span class="post-toc-number">1.</span> <span class="post-toc-text">渐变色AppBar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ListItem"><span class="post-toc-number">2.</span> <span class="post-toc-text">ListItem</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Appbar-隐藏返回键"><span class="post-toc-number">3.</span> <span class="post-toc-text">Appbar 隐藏返回键</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-渐变色AppBar"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 渐变色AppBar</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-ListItem"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. ListItem</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Appbar-隐藏返回键"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Appbar 隐藏返回键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-TextField-自动换行"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. TextField 自动换行</span></a></li></ol>
     </ul>
     
 
@@ -534,7 +534,7 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>记录 <code>Flutter</code> 开发学习过程中的工具，错误，解决思路等。</p>
-<h3 id="渐变色AppBar"><a href="#渐变色AppBar" class="headerlink" title="渐变色AppBar"></a>渐变色AppBar</h3><pre><code>//渐变色AppBar
+<h3 id="1-渐变色AppBar"><a href="#1-渐变色AppBar" class="headerlink" title="1. 渐变色AppBar"></a>1. 渐变色AppBar</h3><pre><code>//渐变色AppBar
 //https://github.com/loosaSH/flutter-appbar/blob/master/lib/appbar_gradient.dart
 appBar: PreferredSize(
   child: Container(
@@ -563,7 +563,7 @@ appBar: PreferredSize(
   ),
   preferredSize: Size(MediaQuery.of(context).size.width, 150.0),
 ),
-</code></pre><h3 id="ListItem"><a href="#ListItem" class="headerlink" title="ListItem"></a><a href="https://github.com/xuelongqy/flutter_easyrefresh/blob/master/example/lib/widget/list_item.dart" target="_blank" rel="noopener">ListItem</a></h3><pre><code>import &#39;package:flutter/material.dart&#39;;
+</code></pre><h3 id="2-ListItem"><a href="#2-ListItem" class="headerlink" title="2. ListItem"></a>2. <a href="https://github.com/xuelongqy/flutter_easyrefresh/blob/master/example/lib/widget/list_item.dart" target="_blank" rel="noopener">ListItem</a></h3><pre><code>import &#39;package:flutter/material.dart&#39;;
 
 /// 列表项
  class ListItem extends StatefulWidget {
@@ -669,7 +669,7 @@ class _ListItemState extends State&lt;ListItem&gt; {
     return Container();
   }
 }
-</code></pre><h3 id="Appbar-隐藏返回键"><a href="#Appbar-隐藏返回键" class="headerlink" title="Appbar 隐藏返回键"></a>Appbar 隐藏返回键</h3><pre><code>/**
+</code></pre><h3 id="3-Appbar-隐藏返回键"><a href="#3-Appbar-隐藏返回键" class="headerlink" title="3. Appbar 隐藏返回键"></a>3. Appbar 隐藏返回键</h3><pre><code>/**
   * 如果没有leading，automaticallyImplyLeading为true，就会默认返回箭头
   * 如果 没有leading 且为false，空间留给title
   * 如果有leading，这个参数就无效了
@@ -680,7 +680,11 @@ automaticallyImplyLeading: true,
 链接：https://juejin.im/post/5be7b9c56fb9a049d61d0d9b
 来源：掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-</code></pre>
+</code></pre><h3 id="4-TextField-自动换行"><a href="#4-TextField-自动换行" class="headerlink" title="4. TextField 自动换行"></a>4. <a href="https://medium.com/flutter-community/a-deep-dive-into-flutter-textfields-f0e676aaab7a" target="_blank" rel="noopener">TextField 自动换行</a></h3><pre><code>TextField(
+  maxLines: null,
+)
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*uFaSrzHKhVUpXzUeyIiK9Q.png" alt></p>
+
         
     
 
