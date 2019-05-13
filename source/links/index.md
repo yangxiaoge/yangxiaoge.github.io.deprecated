@@ -19,6 +19,7 @@ thumbnail: /img/link_cover.png
 ## Flutter
 | 链接        |     简介     |
 | :----------- | :-----------|
+|[Flutter 快速开发框架](https://github.com/MeandNi/Flutter_CommonApp)| 结构适用于大部分 App |
 |[Flutter](https://github.com/solido/awesome-flutter)| Solido/awesome-flutter 集合 |
 |[Flutter 的 Widget 生成器](https://juejin.im/post/5c732e8ff265da2d8e70ed36)| 拖拽生成 Flutter 布局代码 |
 
