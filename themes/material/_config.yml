@@ -84,7 +84,7 @@ img:
         # Blog 持续集成
         AppVeyor:
             link: 'https://ci.appveyor.com/project/yangxiaoge/yangxiaoge-github-io'
-            src: 'https://ci.appveyor.com/api/projects/status/b0wack7uxrvifijj?svg=true'
+            src: 'https://ci.appveyor.com/api/projects/status/kguplon67wr8dlcp?svg=true'
 
 # Custom Fonts
 #    family: the font-family which will be used in the theme
