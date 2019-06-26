@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Feb 28 2019 09:09:06 GMT+0000">
-        <meta property="article:modified_time" content="Wed Jun 26 2019 06:11:52 GMT+0000">
+        <meta property="article:modified_time" content="Wed Jun 26 2019 14:15:38 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://yangxiaoge.github.io/2019/02/28/2019-02-28-Android 原生项目集成 Flutter 混合开发/index.html",
     "headline": "Android 原生项目集成 Flutter 混合开发",
     "datePublished": "Thu Feb 28 2019 09:09:06 GMT+0000",
-    "dateModified": "Wed Jun 26 2019 06:11:52 GMT+0000",
+    "dateModified": "Wed Jun 26 2019 14:15:38 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -528,35 +528,58 @@
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li>新建一个 <code>Flutter module</code>，使用命令：<code>flutter create -t module {moduleName}</code>，其中 <code>moduleName</code> 我这里取名 <code>xinhua_media_flutter_module</code></li>
 <li>随后将 <code>Flutter module</code> 推送至<code>git</code> 仓库，git 推送我就不累赘了，拿到仓库地址 <a href="https://gitee.com/xxx/xinhua_media_flutter_module.git" target="_blank" rel="noopener">https://gitee.com/xxx/xinhua_media_flutter_module.git</a></li>
-<li>在<code>原生</code> Android 项目更目录添加 <code>git submodule</code><pre><code>git submodule add {Flutter module 仓库地址}, 即上面拿到的仓库地址 https://gitee.com/xxx/xinhua_media_flutter_module.git
-git submodule update
-</code></pre>此时项目结构如下图：<br><img src="https://github.com/yangxiaoge/PersonResources/blob/master/flutter/%E5%8E%9F%E7%94%9F%E9%9B%86%E6%88%90flutter%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png?raw=true" alt="原生集成flutter工程目录结构.png"></li>
-<li>在原生项目<code>根目录</code> <code>settings.gradle</code> 中 <code>include &#39;:app&#39;</code> 下面添加如下配置<pre><code>setBinding(new Binding([gradle: this]))
-evaluate(new File(
-     &#39;xinhua_media_flutter_module/.android/include_flutter.groovy&#39;
-))
-</code></pre></li>
-<li>原生项目 <code>app</code> 目录下的 <code>build.gradle</code> 文件中添加 <code>xinhua_media_flutter_module</code> 库的依赖<pre><code>// MyApp/app/build.gradle
-implementation project(&#39;:flutter&#39;)
-</code></pre></li>
-<li>在原生项目中新建一个 <code>FlutterActivity</code> 用来加载 Flutter mudule 页面入口<pre><code>@Override
-protected void onCreate(@Nullable Bundle savedInstanceState) {
- super.onCreate(savedInstanceState);
- // &quot;flutter_page&quot; 是路由名称，在 Flutter `main.dart` 页面中需要用到
- FlutterView seuicSettingPage = Flutter.createView(this, getLifecycle(), &quot;flutter_page&quot;);
- FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
- // 加 flutterview 添加到布局中
- addContentView(seuicSettingPage, layoutParams);
-}
-</code></pre></li>
-<li>在 <code>xinhua_media_flutter_module</code> lib 下的 <code>main.dart</code> 文件中添加逻辑<br><code>`</code><blockquote>
-<p>xinhua_media_flutter_module/lib/main.dart<br>以下 “flutter_page” 判断路由名称，MyApp 是自定义的组件，接下来就可以开发自己的功能逻辑。<br>如果发现 AS 不识别 Dart 语言，设置中勾选 <code>Enable Dart support</code><br>import ‘dart:ui’;<br>import ‘package:flutter/material.dart’;</p>
-</blockquote>
-</li>
+<li>在<code>原生</code> Android 项目更目录添加 <code>git submodule</code></li>
 </ol>
-<p>void main() =&gt; runApp(_widgetForRoute(window.defaultRouteName));</p>
-<p>Widget _widgetForRoute(String route) {<br>  switch (route) {<br>    case ‘flutter_page’:<br>      return MyApp();<br>    default:<br>      return Center(<br>        child: Text(‘Unknown route: $route’, textDirection: TextDirection.ltr),<br>      );<br>  }<br>}<br><code>`</code></p>
-<ol start="8">
+<pre><code>git submodule add {Flutter module 仓库地址}, 即上面拿到的仓库地址 https://gitee.com/xxx/xinhua_media_flutter_module.git
+git submodule update
+</code></pre><p>此时项目结构如下图：<br><img src="https://github.com/yangxiaoge/PersonResources/blob/master/flutter/%E5%8E%9F%E7%94%9F%E9%9B%86%E6%88%90flutter%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png?raw=true" alt="原生集成flutter工程目录结构.png"></p>
+<ol start="4">
+<li>在原生项目<code>根目录</code> <code>settings.gradle</code> 中 <code>include &#39;:app&#39;</code> 下面添加如下配置</li>
+</ol>
+<pre><code>setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        &#39;xinhua_media_flutter_module/.android/include_flutter.groovy&#39;
+))
+</code></pre><ol start="5">
+<li>原生项目 <code>app</code> 目录下的 <code>build.gradle</code> 文件中添加 <code>xinhua_media_flutter_module</code> 库的依赖</li>
+</ol>
+<pre><code>// MyApp/app/build.gradle
+implementation project(&#39;:flutter&#39;)
+</code></pre><ol start="6">
+<li>在原生项目中新建一个 <code>FlutterActivity</code> 用来加载 Flutter mudule 页面入口</li>
+</ol>
+<pre><code>@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // &quot;flutter_page&quot; 是路由名称，在 Flutter `main.dart` 页面中需要用到
+    FlutterView seuicSettingPage = Flutter.createView(this, getLifecycle(), &quot;flutter_page&quot;);
+    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+    // 加 flutterview 添加到布局中
+    addContentView(seuicSettingPage, layoutParams);
+}
+</code></pre><ol start="7">
+<li>在 <code>xinhua_media_flutter_module</code> lib 下的 <code>main.dart</code> 文件中添加逻辑</li>
+</ol>
+<pre><code>import &#39;dart:ui&#39;;
+import &#39;package:flutter/material.dart&#39;;
+
+// xinhua_media_flutter_module/lib/main.dart
+// 以下 &quot;flutter_page&quot; 判断路由名称，MyApp 是自定义的组件，接下来就可以开发自己的功能逻辑。
+// 如果发现 AS 不识别 Dart 语言，设置中勾选 `Enable Dart support`
+
+void main() =&gt; runApp(_widgetForRoute(window.defaultRouteName));
+
+Widget _widgetForRoute(String route) {
+  switch (route) {
+    case &#39;flutter_page&#39;:
+      return MyApp();
+    default:
+      return Center(
+        child: Text(&#39;Unknown route: $route&#39;, textDirection: TextDirection.ltr),
+      );
+  }
+}
+</code></pre><ol start="8">
 <li>然后<code>运行</code> Android 原生项目，</li>
 </ol>
 <p>如果混合项目想要使用 flutter <code>hot start/reload</code>，需要 cd 进入 <code>xinhua_media_flutter_module</code> 目录，然后执行 <code>flutter attach</code>，<br>然后打开 flutter 的页面就能正常使用 Hot restart/reload 啦，好了 Android 集成 flutter 到此结束，iOS 集成可以看 Google 官方教程。</p>
