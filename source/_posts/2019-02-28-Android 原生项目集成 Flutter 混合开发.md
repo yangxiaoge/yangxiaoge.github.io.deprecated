@@ -1,6 +1,7 @@
 ---
 title: Android 原生项目集成 Flutter 混合开发
 date: 2019-2-28 09:09:06
+updated: 2019-6-26 10:53:01
 tags: Flutter
 categories: Flutter
 thumbnail: https://user-gold-cdn.xitu.io/2018/7/6/1646e3e56cca9663?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1
@@ -21,6 +22,7 @@ git submodule update
 此时项目结构如下图：
 ![原生集成flutter工程目录结构.png](https://github.com/yangxiaoge/PersonResources/blob/master/flutter/%E5%8E%9F%E7%94%9F%E9%9B%86%E6%88%90flutter%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.png?raw=true)
 4. 在原生项目`根目录` `settings.gradle` 中 `include ':app'` 下面添加如下配置
+
 ```
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
@@ -28,11 +30,13 @@ evaluate(new File(
 ))
 ```
 5. 原生项目 `app` 目录下的 `build.gradle` 文件中添加 `xinhua_media_flutter_module` 库的依赖
+
 ```
 // MyApp/app/build.gradle
 implementation project(':flutter')
 ```
 6. 在原生项目中新建一个 `FlutterActivity` 用来加载 Flutter mudule 页面入口
+
 ```
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,12 +49,14 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 }
 ```
 7. 在 `xinhua_media_flutter_module` lib 下的 `main.dart` 文件中添加逻辑
+
 ```
-// xinhua_media_flutter_module/lib/main.dart
-// 以下 "flutter_page" 判断路由名称，MyApp 是自定义的组件，接下来就可以开发自己的功能逻辑。
-// 如果发现 AS 不识别 Dart 语言，设置中勾选 `Enable Dart support`
 import 'dart:ui';
 import 'package:flutter/material.dart';
+
+/// xinhua_media_flutter_module/lib/main.dart
+/// 以下 "flutter_page" 判断路由名称，MyApp 是自定义的组件，接下来就可以开发自己的功能逻辑。
+/// 如果发现 AS 不识别 Dart 语言，设置中勾选 `Enable Dart support`
 
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
