@@ -27,4 +27,4 @@ Hi，我是 **Bruce Yang**，Android 开发者 & 独立开发者，[Flutter](htt
 **珍爱生命，远离[996](https://github.com/996icu/996.ICU)！**
 
 ***外包勿扰，猎头勿扰***。
-Email Me：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com)
+📬 Email Me：[yang.jianan0926@gmail.com](mailto:yang.jianan0926@gmail.com)
