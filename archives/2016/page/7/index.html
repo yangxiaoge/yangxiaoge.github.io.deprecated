@@ -399,7 +399,22 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！自定义View(手写签名View)使用方法：
+            本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！设备是否已 Root/**
+ * 当前设备root状态
+ */
+private static boolean isDeviceRooted() {
+    String su = &quot;su&quot;;
+    String[] locations = {&quot;/system/bin/&quot;, &quot;/system/xbin/&quot;, &quot;/sbin/&quot;, &quot;/system/sd/xbin/&quot;,
+            &quot;/system/bin/failsafe/&quot;, &quot;/data/local/xbin/&quot;, &quot;/data/local/bin/&quot;, &quot;/data/local/&quot;,
+            &quot;/system/sbin/&quot;, &quot;/usr/bin/&quot;, &quot;/vendor/bin/&quot;};
+    for (String location : locations) {
+        if (new File(location + su).exists()) {
+            return true;
+        }
+    }
+    return false;
+}
+自定义View(手写签名View)使用方法：
 1，布局中直接集成
 2，signView.reset(); 可以重置view
 3，通过其他方法可以将view转成Bitmap
