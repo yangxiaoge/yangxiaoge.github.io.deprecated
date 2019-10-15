@@ -2395,7 +2395,23 @@ Android 名企面试题及涉及知识点整理
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！设备是否已 Root/**
+							本文用于记录安卓常用方法，俗话说：好记性不如烂笔头！apk打包文件位置输出applicationVariants.all { variant -&gt;
+    variant.outputs.all { output -&gt;
+        variant.mergedFlavor.versionName = getVersionName() + &quot;_&quot; + releaseTime()
+        if (variant.buildType.name.equals(&#39;release&#39;)) {
+            outputFileName = &quot;App_${variant.mergedFlavor.versionName}_release.apk&quot;
+        } else if (variant.buildType.name.equals(&#39;debug&#39;)) {
+            outputFileName = &quot;App_${variant.mergedFlavor.versionName}_debug.apk&quot;
+        }
+        if (outputFileName != null &amp;&amp; outputFileName.endsWith(&#39;.apk&#39;)) {
+            variant.getPackageApplication().outputDirectory = new File(&quot;D:\\APK&quot;)
+            variant.getPackageApplication().outputScope.apkDatas.forEach {
+                apkData -&gt; apkData.outputFileName = outputFileName
+            }
+        }
+    }
+}
+设备是否已 Root/**
  * 当前设备root状态
  */
 private static boolean isDeviceRooted() {
