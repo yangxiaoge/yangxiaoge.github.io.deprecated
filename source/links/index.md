@@ -8,6 +8,12 @@ thumbnail: /img/link_cover.png
 <div align=center>开源项目收集 👆👆👆</div>
 
 --------------------------------
+## 基础语法
+| 链接        |     简介     |
+| :----------- | :-----------|
+|[Flutter & Dart](https://book.flutterchina.club/chapter1/dart.html) | Flutter & Dart 语法 |
+|[学习 Kotlin](https://hltj.gitbooks.io/kotlin-reference-chinese/content/txt/index0.html) | Kotlin 语言官方参考文档 中文版 |
+
 ## 每日必看
 | 链接        |     简介     |
 | :----------- | :-----------|
