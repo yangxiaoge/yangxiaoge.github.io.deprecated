@@ -262,7 +262,7 @@ Android 名企面试题及涉及知识点整理">
 
     
         <meta property="article:published_time" content="Thu Mar 24 2016 12:39:08 GMT+0000">
-        <meta property="article:modified_time" content="Tue Nov 26 2019 01:30:22 GMT+0000">
+        <meta property="article:modified_time" content="Wed Dec 04 2019 08:42:27 GMT+0000">
     
 
     <!-- The Twitter Card protocol -->
@@ -285,7 +285,7 @@ Android 名企面试题及涉及知识点整理">
     "mainEntityOfPage": "https://yangxiaoge.github.io/2016/03/24/2016-03-24-技术文档收集/index.html",
     "headline": "技术文档收集",
     "datePublished": "Thu Mar 24 2016 12:39:08 GMT+0000",
-    "dateModified": "Tue Nov 26 2019 01:30:22 GMT+0000",
+    "dateModified": "Wed Dec 04 2019 08:42:27 GMT+0000",
     "author": {
         "@type": "Person",
         "name": "Bruce Yang",
@@ -1008,8 +1008,8 @@ It will not impact the appearance and can give developers a lot of support :)
         </div>-->
         <div id="copyright">
             <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
-            <!-- 一言API https://blog.lwl12.com/read/hitokoto-api.html -->
-            <script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+            <!-- 新 API 方法， 十分简洁 -->
+            <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
             <div id="time">
                 <script>
                     <!--2016年3月24日，我在简书发表第一篇博客：https://www.jianshu.com/p/79a476be02e5 -->
@@ -1018,9 +1018,9 @@ It will not impact the appearance and can give developers a lot of support :)
                     setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
                 </script>
             </div>
-            <div id="lwlhitokoto">
+            <div id="hitokoto">
                 <script>
-                    lwlhitokoto()
+                    hitokoto()
                 </script>
             </div>
         </div>

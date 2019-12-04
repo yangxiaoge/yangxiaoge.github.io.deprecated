@@ -824,8 +824,8 @@ It will not impact the appearance and can give developers a lot of support :)
         </div>-->
         <div id="copyright">
             <script src="https://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
-            <!-- 一言API https://blog.lwl12.com/read/hitokoto-api.html -->
-            <script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+            <!-- 新 API 方法， 十分简洁 -->
+            <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
             <div id="time">
                 <script>
                     <!--2016年3月24日，我在简书发表第一篇博客：https://www.jianshu.com/p/79a476be02e5 -->
@@ -834,9 +834,9 @@ It will not impact the appearance and can give developers a lot of support :)
                     setInterval(function () { document.getElementById('time').innerHTML = "本站已运行 " + now.diff(begin, 'days') + " 天" + "<br>" + moment().format("YYYY-MM-DD HH:mm:ss"), 1000 })
                 </script>
             </div>
-            <div id="lwlhitokoto">
+            <div id="hitokoto">
                 <script>
-                    lwlhitokoto()
+                    hitokoto()
                 </script>
             </div>
         </div>
